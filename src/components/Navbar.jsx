@@ -5,8 +5,9 @@ import { TooltipComponent } from "@syncfusion/ej2-react-popups";
 import avatar from "../data/avatar.jpg";
 import { UserProfile } from ".";
 import { useStateContext } from "../contexts/ContextProvider";
-// import { useState } from "react";
-// import axios from "../axios.config";
+import { useState } from "react";
+import axios from "../axios.config";
+import { useUserStore } from "../hooks/username";
 
 const NavButton = ({ title, customFunc, icon, dotColor }) => (
   <TooltipComponent content={title} position="BottomCenter">
@@ -31,7 +32,7 @@ const Navbar = () => {
     setScreenSize,
     screenSize,
   } = useStateContext();
-  // const [user, setUser] = useState({});
+  const userData = useUserStore((state) => state.user)
   useEffect(() => {
     const handleResize = () => setScreenSize(window.innerWidth);
 
@@ -50,15 +51,8 @@ const Navbar = () => {
     }
   }, [screenSize]);
 
-    // TODO 
-  // const getUser = async () => {
-  //   const data = await axios.post("api/auth/login", {
-
-  //   });
-  //   console.log(data.data);
-  //   setUser(data.data);
-  // };
-
+    
+ 
   const handleActiveMenu = () => setActiveMenu(!activeMenu);
 
   return (
@@ -83,7 +77,7 @@ const Navbar = () => {
             <p>
               <span className="text-gray-400 text-14">Hi,</span>{" "}
               <span className="text-gray-400 font-bold ml-1 text-14">
-                
+                {userData}
               </span>
             </p>
             <MdKeyboardArrowDown className="text-gray-400 text-14" />
