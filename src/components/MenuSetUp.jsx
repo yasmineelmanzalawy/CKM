@@ -12,7 +12,7 @@ const MenuSetUp = () => {
           <div class="grid gap-6 mb-6 md:grid-cols-3 justify-items-center pt-[80px]">
             <div>
               <label
-                for="Raw Material"
+                for="Kitchen Dishes"
                 className="text-center block mb-2 text-lg font-medium text-gray-900 dark:text-white"
               >
                 Dish Name
@@ -66,16 +66,16 @@ const MenuSetUp = () => {
                   name="search"
                   placeholder="Search ingredient.."
                   className="text-center text-center bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 "
-                /></div>
-              </div>
-              <div>
-                <input
-                  type="number"
-                  placeholder="Quantity"
-                  className="mt-[36px] w-[150px] mr-[60px] text-center text-center bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 "
                 />
               </div>
-            
+            </div>
+            <div>
+              <input
+                type="number"
+                placeholder="Quantity"
+                className="mt-[36px] w-[150px] mr-[60px] text-center text-center bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 "
+              />
+            </div>
           </div>
           <div className="justify-center flex justify-between">
             <button
