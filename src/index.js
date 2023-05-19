@@ -15,6 +15,7 @@ import Partners from "./pages/Partners";
 import Staff from "./pages/Staff";
 import Menu from "./pages/Menu";
 import Supplier from './components/supplier'
+import MenuSetUp from "./components/MenuSetUp";
 
 const user = localStorage.getItem("token");
 ReactDOM.render(
@@ -30,6 +31,7 @@ ReactDOM.render(
         <Route path="/analytics" element={<Analytics />} />
         <Route path="/Inventory" element={<Inventory />} />
         <Route path="/supplier" element={<Supplier />} />
+        <Route path="/menusetup" element={<MenuSetUp />} />
         <Route path="/employees" element={<Employees />} />
         <Route path="/customers" element={<Customers />} />
         <Route path="/orders" element={<Orders />} />

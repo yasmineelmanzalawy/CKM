@@ -37,7 +37,7 @@ const Signup = () => {
 
   return (
     <div>
-      <div className="my-[70px] flex justify-center">
+      <div className="my-[45px] flex justify-center">
         <div className="w-0 md:w-0 lg:w-[500px]">
           <img src={sign} alt="" />
         </div>
@@ -46,7 +46,7 @@ const Signup = () => {
             <h1 className="text-center text-[#0C147A] text-[40px] display: block mt-[50px]">
               Create an account
             </h1>
-            
+            <h1 className="text-center mt-[50px] mb-[-20px] text-[#0C147A]">Name</h1>
             <input
               type="text"
               placeholder="name"
@@ -56,6 +56,7 @@ const Signup = () => {
               required
               className="text-center display: block border-[3px] border-[#0C147A] my-[20px] mx-auto rounded-[10px] h-[50px] w-[250px]"
             />
+            <h1 className="text-center mb-[-20px] text-[#0C147A]">Email</h1>
             <input
               type="email"
               placeholder="Email"
@@ -65,6 +66,7 @@ const Signup = () => {
               required
               className="text-center display: block border-[3px] border-[#0C147A] my-[20px] mx-auto rounded-[10px] h-[50px] w-[250px]"
             />
+            <h1 className="text-center mb-[-20px] text-[#0C147A]">Password</h1>
             <input
               type="password"
               placeholder="Password"
@@ -75,7 +77,7 @@ const Signup = () => {
               className="text-center display: block border-[3px] border-[#0C147A] my-[20px] mx-auto rounded-[10px] h-[50px] w-[250px]"
             />
             {error && <div className="">{error}</div>}
-            <button type="submit" className="text-center display: block mx-auto rounded-[10px] h-[40px] w-[100px] bg-[#0C147A] text-white mt-[70px] my-[20px] text-center">Sign Up</button>
+            <button type="submit" className="text-center display: block mx-auto rounded-[10px] h-[40px] w-[100px] bg-[#0C147A] text-white mt-[20px] my-[20px] text-center">Sign Up</button>
             <h1 className="text-center">Already have an account?</h1>
             <Link to="/login">
               <button type="button" className="text-center display: block mx-auto text-center underline underline-offset-1">Log in</button>
