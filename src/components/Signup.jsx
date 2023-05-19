@@ -1,5 +1,5 @@
 import { useState } from "react";
-import axios from "axios";
+import axios from "../axios.config";
 import { Link, useNavigate } from "react-router-dom";
 
 const Signup = () => {
@@ -19,7 +19,7 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const url = "http://localhost:8080/api/users";
+      const url = "api/auth/register";
       const { data: res } = await axios.post(url, data);
       navigate("/login");
       console.log(res.message);
@@ -48,19 +48,10 @@ const Signup = () => {
             <h1>Create Account</h1>
             <input
               type="text"
-              placeholder="First Name"
-              name="firstName"
+              placeholder="name"
+              name="name"
               onChange={handleChange}
-              value={data.firstName}
-              required
-              className=""
-            />
-            <input
-              type="text"
-              placeholder="Last Name"
-              name="lastName"
-              onChange={handleChange}
-              value={data.lastName}
+              value={data.name}
               required
               className=""
             />
@@ -83,11 +74,9 @@ const Signup = () => {
               className=""
             />
             {error && <div className="">{error}</div>}
-            <Link to="/login">
-            <button type="submit" className="">
+            <button type="submit">
               Sign Up
             </button>
-            </Link>
           </form>
         </div>
       </div>

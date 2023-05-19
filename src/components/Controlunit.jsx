@@ -111,7 +111,6 @@ function Controlunit() {
             </div>
           </div>
         </div>
-        <Outlet></Outlet>
     </div>
     
   )
