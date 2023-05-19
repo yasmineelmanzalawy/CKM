@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "../axios.config";
 import { Link, useNavigate } from "react-router-dom";
+import sign from "../data/sign.png";
 
 const Signup = () => {
   const [data, setData] = useState({
@@ -36,16 +37,16 @@ const Signup = () => {
 
   return (
     <div>
-      <div>
-        <div>
-          <h1>Welcome Back</h1>
-          <Link to="/login">
-            <button type="button">Sing in</button>
-          </Link>
+      <div className="my-[70px] flex justify-center">
+        <div className="w-0 md:w-0 lg:w-[500px]">
+          <img src={sign} alt="" />
         </div>
         <div>
           <form onSubmit={handleSubmit}>
-            <h1>Create Account</h1>
+            <h1 className="text-center text-[#0C147A] text-[40px] display: block mt-[50px]">
+              Create an account
+            </h1>
+            
             <input
               type="text"
               placeholder="name"
@@ -53,7 +54,7 @@ const Signup = () => {
               onChange={handleChange}
               value={data.name}
               required
-              className=""
+              className="text-center display: block border-[3px] border-[#0C147A] my-[20px] mx-auto rounded-[10px] h-[50px] w-[250px]"
             />
             <input
               type="email"
@@ -62,7 +63,7 @@ const Signup = () => {
               onChange={handleChange}
               value={data.email}
               required
-              className=""
+              className="text-center display: block border-[3px] border-[#0C147A] my-[20px] mx-auto rounded-[10px] h-[50px] w-[250px]"
             />
             <input
               type="password"
@@ -71,12 +72,14 @@ const Signup = () => {
               onChange={handleChange}
               value={data.password}
               required
-              className=""
+              className="text-center display: block border-[3px] border-[#0C147A] my-[20px] mx-auto rounded-[10px] h-[50px] w-[250px]"
             />
             {error && <div className="">{error}</div>}
-            <button type="submit">
-              Sign Up
-            </button>
+            <button type="submit" className="text-center display: block mx-auto rounded-[10px] h-[40px] w-[100px] bg-[#0C147A] text-white mt-[70px] my-[20px] text-center">Sign Up</button>
+            <h1 className="text-center">Already have an account?</h1>
+            <Link to="/login">
+              <button type="button" className="text-center display: block mx-auto text-center underline underline-offset-1">Log in</button>
+            </Link>
           </form>
         </div>
       </div>

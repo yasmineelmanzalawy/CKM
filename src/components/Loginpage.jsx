@@ -38,11 +38,11 @@ const Loginpage = (props) => {
  
   return (
     <div className="">
-      <div className="border-4 border-[#0C147A] my-[50px] flex justify-center">
-        <div className="w-0 md:w-0 lg:w-[500px]"><img src={log} alt="" /></div>
+      <div className="my-[70px] flex justify-center">
+        <div className="w-0 md:w-0 lg:w-[450px]"><img src={log} alt="" /></div>
         <div className="">
           <form className="" onSubmit={handleSubmit}>
-            <h1 className="text-center text-[#0C147A] text-[40px] display: block mt-[50px]">Login to Your Account</h1>
+            <h1 className="text-center text-[#0C147A] text-[40px] display: block mt-[50px]">Login to your account</h1>
             <h1 className="text-center mt-[50px] mb-[-20px] text-[#0C147A]">Email</h1>
             <input
               type="email"
