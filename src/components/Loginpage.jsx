@@ -2,6 +2,8 @@
 import axios from "../axios.config";
 import { Link , useNavigate } from "react-router-dom";
 import { useUserStore } from "../hooks/username";
+import log from "../data/log.png"
+
 const Loginpage = (props) => {
   
   const navigate = useNavigate();
@@ -36,10 +38,12 @@ const Loginpage = (props) => {
  
   return (
     <div className="">
-      <div className="">
+      <div className="border-4 border-[#0C147A] my-[50px] flex justify-center">
+        <div className="w-0 md:w-0 lg:w-[500px]"><img src={log} alt="" /></div>
         <div className="">
-          <form onSubmit={handleSubmit}>
-            <h1>Login to Your Account</h1>
+          <form className="" onSubmit={handleSubmit}>
+            <h1 className="text-center text-[#0C147A] text-[40px] display: block mt-[50px]">Login to Your Account</h1>
+            <h1 className="text-center mt-[50px] mb-[-20px] text-[#0C147A]">Email</h1>
             <input
               type="email"
               placeholder="Email"
@@ -47,8 +51,9 @@ const Loginpage = (props) => {
               onChange={handleChange}
               value={data.email}
               required
-              className=""
+              className="text-center display: block border-[3px] border-[#0C147A] my-[20px] mx-auto rounded-[10px] h-[50px] w-[250px]"
             />
+            <h1 className="text-center mt-[20px] mb-[-20px] text-[#0C147A]">Password</h1>
             <input
               type="password"
               placeholder="Password"
@@ -56,17 +61,17 @@ const Loginpage = (props) => {
               onChange={handleChange}
               value={data.password}
               required
-              className=""
+              className="text-center display: block border-[3px] border-[#0C147A] my-[20px] mx-auto rounded-[10px] h-[50px] w-[250px]"
             />
             {error && <div>{error}</div>}
-            <button type="submit">Sign in</button>
-          </form>
-        </div>
+            <button className="text-center display: block mx-auto rounded-[10px] h-[40px] w-[100px] bg-[#0C147A] text-white mt-[70px] my-[20px] text-center" type="submit">Log In</button>
         <div>
-          <h1>New Here ?</h1>
+          <h1 className="text-center">You don't have an account? </h1>
           <Link to="/signup">
-            <button type="button">Sign Up</button>
+            <button className="text-center display: block mx-auto text-center underline underline-offset-1" type="button">Sign Up</button>
           </Link>
+        </div>
+          </form>
         </div>
       </div>
     </div>
