@@ -1,8 +1,42 @@
 import React from "react";
-const inventory = () => {
+import { useState } from "react";
+import { useNavigate } from "react-router";
+import axios from "../axios.config";
+const Inventory = () => {
+  const navigate = useNavigate();
+  const [error, setError] = useState("");
+  const [data, setData] = useState({
+    rawmaterial: "",
+    suppliername: "",
+    inventorycategories: "",
+    expirydate: "",
+    quantity: "",
+    cost: "",
+  });
+  const handleChange = ({ currentTarget: input }) => {
+    setData({ ...data, [input.name]: input.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const url = "";
+      const { data: res } = await axios.post(url, data);
+      navigate("/menusetup");
+      console.log(res.message);
+    } catch (error) {
+      if (
+        error.response &&
+        error.response.status >= 400 &&
+        error.response.status <= 500
+      ) {
+        setError(error.response.data.message);
+      }
+    }
+  };
   return (
     <div className="h-screen flex justify-center items-center bg-gray-100 ">
-      <form className="  rounded-3xl flex flex-col justify-center h-[80%] ">
+      <form onSubmit={handleSubmit} className="rounded-3xl flex flex-col justify-center h-[80%]">
         <h1 className="text-center text-5xl text-[#3B1EC5]">
           Add Your inventory
         </h1>
@@ -15,7 +49,10 @@ const inventory = () => {
               Raw Material
             </label>
             <input
+              onChange={handleChange}
+              value={data.rawmaterial}
               type="text"
+              name="rawmaterial"
               className=" bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               placeholder="Raw Material"
               required
@@ -29,6 +66,9 @@ const inventory = () => {
               Supplier Name
             </label>
             <input
+              onChange={handleChange}
+              value={data.suppliername}
+              name="suppliername"
               type="text"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               placeholder="Supplier Name"
@@ -43,6 +83,9 @@ const inventory = () => {
               Inventory Categories
             </label>
             <input
+              onChange={handleChange}
+              value={data.inventorycategories}
+              name="inventorycategories"
               type="text"
               id="Inventory Categories"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -58,6 +101,9 @@ const inventory = () => {
               Expiry Date
             </label>
             <input
+              onChange={handleChange}
+              name="expirydate"
+              value={data.expirydate}
               type="date"
               id="Expiry Date"
               className="bg-gray-50 border px-10 border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -74,6 +120,9 @@ const inventory = () => {
               Quantity
             </label>
             <input
+              onChange={handleChange}
+              name="quantity"
+              value={data.quantity}
               type="number"
               id="Quantity"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -89,6 +138,9 @@ const inventory = () => {
               Cost
             </label>
             <input
+              onChange={handleChange}
+              name="cost"
+              value={data.cost}
               type="number"
               id="Cost"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -113,4 +165,4 @@ const inventory = () => {
   );
 };
 
-export default inventory;
+export default Inventory;

@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "../axios.config";
 
@@ -45,7 +45,7 @@ const MenuSetUp = () => {
     <div>
       {" "}
       <div className="h-screen flex justify-center items-center bg-gray-100 ">
-        <form  className="  rounded-3xl flex flex-col justify-center h-[80%] ">
+        <form onSubmit={handleSubmit}  className="  rounded-3xl flex flex-col justify-center h-[80%] ">
           <h1 className="text-center text-5xl text-[#3B1EC5]">
             Create Your Dish
           </h1>
@@ -67,7 +67,7 @@ const MenuSetUp = () => {
               />
             </div>
             <div>
-              <label className="text-center block mb-2 text-lg font-medium text-gray-900 dark:text-white block mb-2 text-lg font-medium text-gray-900 dark:text-white">
+              <label className="text-center block mb-2 text-lg font-medium text-gray-900 dark:text-white">
                 Dish Category
               </label>
               <select
@@ -107,7 +107,7 @@ const MenuSetUp = () => {
             </div>
             <div class="grid gap-6 mb-6 md:grid-cols-3 justify-items-center pt-[80px]">
               <div>
-                <label className="text-center block mb-2 text-lg font-medium text-gray-900 dark:text-white block mb-2 text-lg font-medium text-gray-900 dark:text-white">
+                <label className="text-center block mb-2 text-lg font-medium text-gray-900 dark:text-white">
                   Ingredient
                 </label>
 
@@ -120,11 +120,11 @@ const MenuSetUp = () => {
                   type="text"
                   name="search"
                   placeholder="Search ingredient.."
-                  className="text-center text-center bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 "
+                  className="text-center bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 "
                 />
               </div>
               <div>
-                <label className="text-center block mb-2 text-lg font-medium text-gray-900 dark:text-white block mb-2 text-lg font-medium text-gray-900 dark:text-white">
+                <label className="text-center block mb-2 text-lg font-medium text-gray-900 dark:text-white">
                   Ingredient Quantity
                 </label>
                 <input
@@ -138,16 +138,16 @@ const MenuSetUp = () => {
                 />
               </div>
               <div>
-                <label className="text-center block mb-2 text-lg font-medium text-gray-900 dark:text-white block mb-2 text-lg font-medium text-gray-900 dark:text-white">
+                <label className="text-center block mb-2 text-lg font-medium text-gray-900 dark:text-white">
                   Add the ingredient
                 </label>
-                <button className="text-center bg-gray-200 border border-[3px] border-[blue] text-[blue] text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 ">
+                <button className="text-center bg-gray-200 border-[3px] border-[blue] text-[blue] text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 ">
                   Save Ingredient
                 </button>
               </div>
             </div>
           </div>
-          <div className="justify-center flex justify-between">
+          <div className="flex justify-between">
 
             
             {error && <div className="">{error}</div>}

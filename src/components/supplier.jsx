@@ -1,8 +1,45 @@
 import React from "react";
+import { useState } from "react";
+import { useNavigate } from "react-router";
+import axios from "../axios.config";
 const Supplier = () => {
+  const navigate = useNavigate();
+  const [error, setError] = useState("");
+  const [data, setData] = useState({
+    supplierlocation: "",
+    suppliername: "",
+    supplieremail: "",
+    category: "",
+    supplierphone: "",
+    note: "",
+  });
+  const handleChange = ({ currentTarget: input }) => {
+    setData({ ...data, [input.name]: input.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const url = "";
+      const { data: res } = await axios.post(url, data);
+      navigate("/inventory");
+      console.log(res.message);
+    } catch (error) {
+      if (
+        error.response &&
+        error.response.status >= 400 &&
+        error.response.status <= 500
+      ) {
+        setError(error.response.data.message);
+      }
+    }
+  };
   return (
     <div className="h-screen flex justify-center items-center bg-gray-100 ">
-      <form className="  rounded-3xl flex flex-col justify-center h-[80%] ">
+      <form
+        onSubmit={handleSubmit}
+        className="  rounded-3xl flex flex-col justify-center h-[80%] "
+      >
         <h1 className="text-center text-5xl text-[#3B1EC5]">
           Add Your Suppliers
         </h1>
@@ -15,6 +52,9 @@ const Supplier = () => {
               Supplier name
             </label>
             <input
+              onChange={handleChange}
+              value={data.suppliername}
+              name="suppliername"
               type="text"
               className=" bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               placeholder="Supplier name"
@@ -29,6 +69,9 @@ const Supplier = () => {
               Supplier Location
             </label>
             <input
+              onChange={handleChange}
+              value={data.supplierlocation}
+              name="supplierlocation"
               type="text"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               placeholder="Supplier Location"
@@ -43,6 +86,9 @@ const Supplier = () => {
               Supplier Email
             </label>
             <input
+              onChange={handleChange}
+              value={data.supplieremail}
+              name="supplieremail"
               type="email"
               id="Inventory Categories"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -57,7 +103,12 @@ const Supplier = () => {
             >
               Category
             </label>
-            <select className="bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 px-16 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+            <select
+              onChange={handleChange}
+              name="category"
+              value={data.category}
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 px-16 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            >
               <option value="ITEM">ITEM</option>
               <option value="ITEM">ITEM</option>
               <option value="ITEM">ITEM</option>
@@ -72,6 +123,9 @@ const Supplier = () => {
               Supplier Phone
             </label>
             <input
+              onChange={handleChange}
+              value={data.supplierphone}
+              name="supplierphone"
               type="tel"
               id="Quantity"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -88,6 +142,9 @@ const Supplier = () => {
               Note
             </label>
             <input
+              onChange={handleChange}
+              value={data.note}
+              name="note"
               type="text"
               id="Inventory Categories"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
