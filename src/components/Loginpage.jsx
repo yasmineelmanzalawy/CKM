@@ -64,11 +64,11 @@ const Loginpage = (props) => {
               className="text-center display: block border-[3px] border-[#0C147A] my-[20px] mx-auto rounded-[10px] h-[50px] w-[250px]"
             />
             {error && <div>{error}</div>}
-            <button className="text-center display: block mx-auto rounded-[10px] h-[40px] w-[100px] bg-[#0C147A] text-white mt-[70px] my-[20px] text-center" type="submit">Log In</button>
+            <button className="display: block mx-auto rounded-[10px] h-[40px] w-[100px] bg-[#0C147A] text-white mt-[70px] my-[20px] text-center" type="submit">Log In</button>
         <div>
           <h1 className="text-center">You don't have an account? </h1>
           <Link to="/signup">
-            <button className="text-center display: block mx-auto text-center underline underline-offset-1" type="button">Sign Up</button>
+            <button className="display: block mx-auto text-center underline underline-offset-1" type="button">Sign Up</button>
           </Link>
         </div>
           </form>
