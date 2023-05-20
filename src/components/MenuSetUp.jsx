@@ -79,9 +79,9 @@ const MenuSetUp = () => {
                 <option styles="color-white" value={data.dishCategory}>
                   select
                 </option>
-                <option value={data.dishCategory}>Pizzas</option>
-                <option value={data.dishCategory}>Burgers</option>
-                <option value={data.dishCategory}>Macaroni</option>
+                <option value={data.dishCategory}>indian</option>
+                <option value={data.dishCategory}>chinese</option>
+                <option value={data.dishCategory}>japanese</option>
               </select>
             </div>
             <div>

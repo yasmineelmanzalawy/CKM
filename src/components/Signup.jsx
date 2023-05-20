@@ -21,7 +21,7 @@ const Signup = () => {
     try {
       const url = "api/auth/register";
       const { data: res } = await axios.post(url, data);
-      navigate("/supplier");
+      navigate("/createbrand");
       console.log(res.message);
     } catch (error) {
       if (
