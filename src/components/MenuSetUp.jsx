@@ -45,7 +45,7 @@ const MenuSetUp = () => {
     <div>
       {" "}
       <div className="h-screen flex justify-center items-center bg-gray-100 ">
-        <form  className="  rounded-3xl flex flex-col justify-center h-[80%] ">
+        <form  className=" rounded-3xl flex flex-col justify-center h-[80%] ">
           <h1 className="text-center text-5xl text-[#3B1EC5]">
             Create Your Dish
           </h1>
@@ -79,9 +79,9 @@ const MenuSetUp = () => {
                 <option styles="color-white" value={data.dishCategory}>
                   select
                 </option>
-                <option value={data.dishCategory}>indian</option>
-                <option value={data.dishCategory}>chinese</option>
-                <option value={data.dishCategory}>japanese</option>
+                <option value={data.dishCategory}>Pizzas</option>
+                <option value={data.dishCategory}>Burgers</option>
+                <option value={data.dishCategory}>Macaroni</option>
               </select>
             </div>
             <div>
