@@ -12,8 +12,7 @@ const Signup = () => {
   });
   const [error, setError] = useState("");
   const navigate = useNavigate();
-
-  const handleChange = ({ currentTarget: input }) => {
+ const handleChange = ({ currentTarget: input }) => {
     setData({ ...data, [input.name]: input.value });
   };
 
@@ -22,7 +21,7 @@ const Signup = () => {
     try {
       const url = "api/auth/register";
       const { data: res } = await axios.post(url, data);
-      navigate("/login");
+      navigate("/supplier");
       console.log(res.message);
     } catch (error) {
       if (

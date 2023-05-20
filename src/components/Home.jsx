@@ -165,59 +165,48 @@ function Home() {
         />
       </div>
       <div className="flex gap-4">
-        <div className=" text-center border-[5px] rounded-[25px] border-[#5A38FD] w-[389px] h-[600px]">
+        <div className=" text-center border-[5px] rounded-[25px] border-[#5A38FD] w-[389px] h-[500px]">
             <h1 className="text-center font-jakarta text-[#4a5568] font-extrabold text-2xl">Starter</h1>
             <h2 className=" text-[#0f0f11] text-center text-[55px] font-jakarta font-extrabold pb-4">$29<span className=" font-extralight text-[20px] text-[#a0aec0]">/Mo</span></h2>
             <button className=" font-jakarta text-[16px] font-bold text-[#1E109A] rounded bg-[#F4F3FD] p-4 px-12 hover:scale-105 duration-150 ease-out "> Start Your Free Trail</button>
             <ul className="flex flex-col">
-                <li className="flex justify-center items-center pt-4 text-2xl"><TiTickOutline/>Dummy </li>
-                <li className="flex justify-center items-center pt-4 text-2xl"><TiTickOutline/>Dummy </li>
-                <li className="flex justify-center items-center pt-4 text-2xl"><TiTickOutline/>Dummy </li>
-                <li className="flex justify-center items-center pt-4 text-2xl"><TiTickOutline/>Dummy </li>
-                <li className="flex justify-center items-center pt-4 text-2xl"><TiTickOutline/>Dummy </li>
-                <li className="flex justify-center items-center pt-4 text-2xl"><TiTickOutline/>Dummy </li>
-                <li className="flex justify-center items-center pt-4 text-2xl"><TiTickOutline/>Dummy </li>
+                <li className="flex justify-center items-center pt-4 text-2xl"><TiTickOutline/>compelet managment 
+to your cloud kitchen </li>
+                <li className="flex justify-center items-center pt-4 text-2xl"><TiTickOutline/>Basic analysis </li>
+                <li className="flex justify-center items-center pt-4 text-2xl"><TiTickOutline/>automatic update </li>
+                <li className="flex justify-center items-center pt-4 text-2xl"><TiTickOutline/>customer support 24/7 </li>
             </ul>
         </div>
-        <div className=" text-center border-[5px] rounded-[25px] border-[#5A38FD] w-[389px] h-[600px]">
+        <div className=" text-center border-[5px] rounded-[25px] border-[#5A38FD] w-[389px] h-[500px]">
         <h1 className="text-center font-jakarta text-[#4a5568] font-extrabold text-2xl">Premium</h1>
         <h2 className=" text-[#0f0f11] text-center text-[55px] font-jakarta font-extrabold pb-4">$99<span className=" font-extralight text-[20px] text-[#a0aec0]">/Mo</span></h2>
         <button className=" font-jakarta text-[16px] font-bold text-[#1E109A] rounded bg-[#F4F3FD] p-4 px-12 hover:scale-105 duration-150 ease-out "> Start Your Free Trail</button>
         <ul className="flex flex-col">
-                <li className="flex justify-center items-center pt-4 text-2xl"><TiTickOutline/>Dummy </li>
-                <li className="flex justify-center items-center pt-4 text-2xl"><TiTickOutline/>Dummy </li>
-                <li className="flex justify-center items-center pt-4 text-2xl"><TiTickOutline/>Dummy </li>
-                <li className="flex justify-center items-center pt-4 text-2xl"><TiTickOutline/>Dummy </li>
-                <li className="flex justify-center items-center pt-4 text-2xl"><TiTickOutline/>Dummy </li>
-                <li className="flex justify-center items-center pt-4 text-2xl"><TiTickOutline/>Dummy </li>
-                <li className="flex justify-center items-center pt-4 text-2xl"><TiTickOutline/>Dummy </li>
+                <li className="flex justify-center items-center pt-4 text-2xl"><TiTickOutline/>Everything in free Plan </li>
+                <li className="flex justify-center items-center pt-4 text-2xl"><TiTickOutline/>Advanced analysis &
+reports </li>
+                <li className="flex justify-center items-center pt-4 text-2xl"><TiTickOutline/>Advanced analysis &
+reports </li>
+                <li className="flex justify-center items-center pt-4 text-2xl"><TiTickOutline/>Personalized services </li>
+
             </ul> 
         </div>
-        <div className=" text-center border-[5px] rounded-[25px] border-[#5A38FD] w-[389px] h-[600px]">
+        <div className="mb-[50px] text-center border-[5px] rounded-[25px] border-[#5A38FD] w-[389px] h-[500px]">
         <h1 className="text-center font-jakarta text-[#4a5568] font-extrabold text-2xl">Extra</h1>
         <h2 className=" text-[#0f0f11] text-center text-[55px] font-jakarta font-extrabold pb-4">$49<span className=" font-extralight text-[20px] text-[#a0aec0]">/Mo</span></h2> 
         <button className=" font-jakarta text-[16px] font-bold text-[#1E109A] rounded bg-[#F4F3FD] p-4 px-12 hover:scale-105 duration-150 ease-out "> Start Your Free Trail</button>
         <ul className="flex flex-col">
-                <li className="flex justify-center items-center pt-4 text-2xl"><TiTickOutline/>Dummy </li>
-                <li className="flex justify-center items-center pt-4 text-2xl"><TiTickOutline/>Dummy </li>
-                <li className="flex justify-center items-center pt-4 text-2xl"><TiTickOutline/>Dummy </li>
-                <li className="flex justify-center items-center pt-4 text-2xl"><TiTickOutline/>Dummy </li>
-                <li className="flex justify-center items-center pt-4 text-2xl"><TiTickOutline/>Dummy </li>
-                <li className="flex justify-center items-center pt-4 text-2xl"><TiTickOutline/>Dummy </li>
-                <li className="flex justify-center items-center pt-4 text-2xl"><TiTickOutline/>Dummy </li>
+                <li className="flex justify-center items-center pt-4 text-2xl"><TiTickOutline/>Daily performance 
+reports </li>
+                <li className="flex justify-center items-center pt-4 text-2xl"><TiTickOutline/>un limited features </li>
+                <li className="flex justify-center items-center pt-4 text-2xl"><TiTickOutline/>Marketing tools </li>
+                <li className="flex justify-center items-center pt-4 text-2xl"><TiTickOutline/>professional assistant </li>
+           
             </ul> 
         </div>
       </div>
     </div>
-    {/* Partners */}
-    <div id="Partners" className='items-center max-w-[1240px] mx-auto px-4 pt-10'>
-        <h1 className=' text-center font-russo text-4xl text-indigo-800 '>Our Partners</h1>
-        <div className='flex justify-evenly'>
-        <img src={partner1} width={200} alt="" />
-        <img src={partner2} width={200}alt="" />
-        <img src={partner3} width={200} alt="" />
-        </div>
-      </div>
+   
     </div>
     
   );
