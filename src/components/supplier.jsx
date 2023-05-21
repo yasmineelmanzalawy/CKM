@@ -7,10 +7,10 @@ const Supplier = () => {
   const [error, setError] = useState("");
   const [data, setData] = useState({
     supplierlocation: "",
-    suppliername: "",
+    name: "",
     supplieremail: "",
     category: "",
-    supplierphone: "",
+    phone: "",
     note: "",
   });
   const handleChange = ({ currentTarget: input }) => {
@@ -19,20 +19,16 @@ const Supplier = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      const url = "";
-      const { data: res } = await axios.post(url, data);
-      navigate("/inventory");
-      console.log(res.message);
-    } catch (error) {
-      if (
-        error.response &&
-        error.response.status >= 400 &&
-        error.response.status <= 500
-      ) {
-        setError(error.response.data.message);
-      }
-    }
+    const url = "api/Supplier";
+    axios
+      .post(url, data)
+      .then((data) => {
+        navigate("/inventory");
+        console.log(data.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
   return (
     <div className="h-screen flex justify-center items-center bg-gray-100 ">
@@ -57,8 +53,8 @@ const Supplier = () => {
             </label>
             <input
               onChange={handleChange}
-              value={data.suppliername}
-              name="suppliername"
+              value={data.name}
+              name="name"
               type="text"
               className=" bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               placeholder="Supplier name"
@@ -111,12 +107,15 @@ const Supplier = () => {
               onChange={handleChange}
               name="category"
               value={data.category}
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 px-16 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             >
-              <option value="ITEM">ITEM</option>
-              <option value="ITEM">ITEM</option>
-              <option value="ITEM">ITEM</option>
-              <option value="ITEM">ITEM</option>
+              <option value="select">Select</option>
+              <option value="Meat_Items">Meat_Items</option>
+              <option value="Poultry">Poultry</option>
+              <option value="Dairy">Dairy</option>
+              <option value="Frozen_Fruits_and_Vegetables">Frozen_Fruits_and_Vegetables</option>
+              <option value="Dry_Products">Dry_Products</option>
+              <option value="Non-Foods">Non-Foods</option>
             </select>
           </div>
           <div>
@@ -128,13 +127,11 @@ const Supplier = () => {
             </label>
             <input
               onChange={handleChange}
-              value={data.supplierphone}
-              name="supplierphone"
+              value={data.phone}
+              name="phone"
               type="tel"
-              id="Quantity"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               placeholder="Supplier Phone"
-              pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
               required
             />
           </div>

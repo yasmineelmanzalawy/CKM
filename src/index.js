@@ -14,7 +14,7 @@ import InventoryState from "./components/InventoryState";
 import Partners from "./pages/Partners";
 import Staff from "./pages/Staff";
 import Menu from "./pages/Menu";
-import Supplier from './components/supplier'
+import Supplier from "./components/supplier";
 import MenuSetUp from "./components/MenuSetUp";
 import CreateBrand from "./components/CreateBrand";
 import Home from "./components/Home";
@@ -28,12 +28,11 @@ ReactDOM.render(
         <Route path="/" element={<App />} />
         <Route path="/login" element={<Loginpage />} />
         <Route path="/inventorystate" element={<InventoryState />} />
-        <Route path='/inventory' element={<Inventory/>}/>
+         <Route path="/inventory" element={<Inventory />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/controlunit" element={<Controlunit />} />
         <Route path="/analytics" element={<Analytics />} />
-        <Route path="/Inventory" element={<Inventory />} />
-        <Route path="/supplier" element={<Supplier />} />
+         <Route path="/supplier" element={<Supplier />} />
         <Route path="/menusetup" element={<MenuSetUp />} />
         <Route path="/createbrand" element={<CreateBrand />} />
         <Route path="/employees" element={<Employees />} />
