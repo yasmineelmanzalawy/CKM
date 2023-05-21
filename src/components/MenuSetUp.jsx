@@ -1,7 +1,8 @@
+import { Link, useNavigate } from "react-router-dom";
 import React from "react";
-import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "../axios.config";
+
 
 const MenuSetUp = () => {
     
@@ -45,8 +46,11 @@ const MenuSetUp = () => {
     <div>
       {" "}
       <div className="h-screen flex justify-center items-center bg-gray-100 ">
-
         <form onSubmit={handleSubmit}  className="  rounded-3xl flex flex-col justify-center h-[80%] ">
+        <div className="flex lustify-between gap-[645px]">
+          <a href="./inventory"><h1 className="pb-4 text-2xl underline underline-offset-1 inline">Back</h1></a>
+          <a href="./controlunit"><h1 className="pb-4 text-2xl underline underline-offset-1 text-[#3B1EC5] inline">Skip</h1></a>
+        </div>
           <h1 className="text-center text-5xl text-[#3B1EC5]">
             Create Your Dish
           </h1>

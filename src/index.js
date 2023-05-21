@@ -17,6 +17,8 @@ import Menu from "./pages/Menu";
 import Supplier from './components/supplier'
 import MenuSetUp from "./components/MenuSetUp";
 import CreateBrand from "./components/CreateBrand";
+import Home from "./components/Home";
+import { Header } from "./components";
 
 const user = localStorage.getItem("token");
 ReactDOM.render(

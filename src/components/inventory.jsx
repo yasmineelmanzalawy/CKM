@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "../axios.config";
 const Inventory = () => {
   const navigate = useNavigate();
@@ -37,6 +37,10 @@ const Inventory = () => {
   return (
     <div className="h-screen flex justify-center items-center bg-gray-100 ">
       <form onSubmit={handleSubmit} className="rounded-3xl flex flex-col justify-center h-[80%]">
+      <div className="flex lustify-between gap-[645px]">
+          <a href="./supplier"><h1 className="pb-4 text-2xl underline underline-offset-1 inline">Back</h1></a>
+          <a href="./menusetup"><h1 className="pb-4 text-2xl underline underline-offset-1 text-[#3B1EC5] inline">Skip</h1></a>
+        </div>
         <h1 className="text-center text-5xl text-[#3B1EC5]">
           Add Your inventory
         </h1>
@@ -159,6 +163,7 @@ const Inventory = () => {
           <button className=" text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-lg  sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
             Next
           </button>
+
         </div>
       </form>
     </div>

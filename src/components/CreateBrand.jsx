@@ -86,8 +86,8 @@ const CreateBrand = () => {
                 <option value={data.dishCategory}>Macaroni</option>
                 <option value={data.dishCategory}>Chinese</option>
               </select></div>
-          <div className="item">
-            <input type="submit" className="item-center text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-lg sm:w-auto px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" />
+          <div className="flex justify-center mt-6">
+            <input type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-lg sm:w-auto px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" />
             </div>
         </form>
      </div> </div>
