@@ -40,6 +40,10 @@ const Supplier = () => {
         onSubmit={handleSubmit}
         className="  rounded-3xl flex flex-col justify-center h-[80%] "
       >
+        <div className="text-right pb-4 text-2xl underline underline-offset-1 text-[#3B1EC5]">
+          <a href="./inventory">Skip</a>
+        </div>
+
         <h1 className="text-center text-5xl text-[#3B1EC5]">
           Add Your Suppliers
         </h1>
