@@ -36,6 +36,9 @@ const Signup = () => {
 
   return (
     <div>
+      <span className="main-text p-10 font-russo text-[74px] text-gradient-to-r from-[#5A38FD]">
+        CKM
+      </span>
       <div className="my-[45px] flex justify-center">
         <div className="w-0 md:w-0 lg:w-[500px]">
           <img src={sign} alt="" />
