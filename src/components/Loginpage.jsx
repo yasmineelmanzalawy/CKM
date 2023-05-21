@@ -3,6 +3,7 @@ import axios from "../axios.config";
 import { Link , useNavigate } from "react-router-dom";
 import { useUserStore } from "../hooks/username";
 import log from "../data/log.png"
+import Header from "./Header";
 
 const Loginpage = (props) => {
   
@@ -38,6 +39,9 @@ const Loginpage = (props) => {
  
   return (
     <div className="">
+      <span className="main-text p-10 font-russo text-[74px] text-gradient-to-r from-[#5A38FD]">
+        CKM
+      </span>
       <div className="my-[70px] flex justify-center">
         <div className="w-0 md:w-0 lg:w-[450px]"><img src={log} alt="" /></div>
         <div className="">
