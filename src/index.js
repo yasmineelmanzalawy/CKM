@@ -28,13 +28,13 @@ ReactDOM.render(
         <Route path="/" element={<App />} />
         <Route path="/login" element={<Loginpage />} />
         <Route path="/inventorystate" element={<InventoryState />} />
-         <Route path="/inventory" element={<Inventory />} />
+        <Route path="/inventory" element={<Inventory />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/controlunit" element={<Controlunit />} />
+        {user &&<Route path="/controlunit" element={<Controlunit />} />}
         <Route path="/analytics" element={<Analytics />} />
-         <Route path="/supplier" element={<Supplier />} />
-        <Route path="/menusetup" element={<MenuSetUp />} />
-        <Route path="/createbrand" element={<CreateBrand />} />
+        {user &&<Route path="/supplier" element={<Supplier />} />}
+        {user &&<Route path="/menusetup" element={<MenuSetUp />} />}
+        {user &&<Route path="/createbrand" element={<CreateBrand />} />}
         <Route path="/employees" element={<Employees />} />
         <Route path="/customers" element={<Customers />} />
         <Route path="/orders" element={<Orders />} />

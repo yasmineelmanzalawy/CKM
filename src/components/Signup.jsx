@@ -17,21 +17,23 @@ const Signup = () => {
   };
 
   const handleSubmit = async (e) => {
+    const url = "api/auth/register"
     e.preventDefault();
-    try {
-      const url = "api/auth/register";
-      const { data: res } = await axios.post(url, data);
-      navigate("/createbrand");
-      console.log(res.message);
-    } catch (error) {
-      if (
-        error.response &&
-        error.response.status >= 400 &&
-        error.response.status <= 500
-      ) {
-        setError(error.response.data.message);
-      }
-    }
+    axios
+    .get("sanctum/csrf-cookie")
+    .then(async () => {
+      axios
+        .post(url, data)
+        .then((data) => {
+          localStorage.setItem("token", data.data.token);
+          navigate("/createbrand");
+          console.log(data.data);
+          console.log(data.data.token);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    });
   };
 
   return (

@@ -28,7 +28,7 @@ const Loginpage = (props) => {
             localStorage.setItem("token", data.data.token);
             navigate("/controlunit");
             console.log(data.data);
-            console.log(data.data.token)
+            console.log(data.data.token);
             setUserData(data.data.user.name)
           })
           .catch((error) => {
