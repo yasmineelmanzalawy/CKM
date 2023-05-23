@@ -177,10 +177,7 @@ function Supplier2() {
 
   return (
     <div className="container my-[70px] mx-[150px] w-[1200px]">
-      <div className="text-end">
-       <input type="text" className=" border-4" onChange={handleFilter}/>
-      </div>
-
+      
       <DataTable
         columns={columns}
         data={data}

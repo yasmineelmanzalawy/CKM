@@ -5,8 +5,24 @@ import { Button } from '.';
 import { userProfileData } from '../data/dummy';
 import { useStateContext } from '../contexts/ContextProvider';
 import avatar from '../data/avatar.jpg';
+import { useNavigate } from 'react-router';
+import axios from '../axios.config';
 
 const UserProfile = () => {
+  const logout = () => {
+    const url ="api/auth/logout"
+    axios
+          .post(url)
+          .then((data) => {
+            localStorage.removeItem("token");
+            navigate("/")
+
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+  }
+  const navigate = useNavigate()
   const { currentColor } = useStateContext();
   const userData = useUserStore((state) => state.user)
   return (
@@ -52,6 +68,9 @@ const UserProfile = () => {
         ))}
       </div>
       <div className="mt-5">
+       
+          <button onClick={logout}>
+
         <Button
           color="white"
           bgColor={currentColor}
@@ -59,6 +78,8 @@ const UserProfile = () => {
           borderRadius="10px"
           width="full"
         />
+          </button>
+       
       </div>
     </div>
 
