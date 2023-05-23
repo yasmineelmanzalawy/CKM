@@ -43,10 +43,10 @@ const Supplier = () => {
         <h1 className="text-center text-5xl text-[#3B1EC5]">
           Add Your Suppliers
         </h1>
-        <div class="grid gap-6 mb-6 md:grid-cols-3 justify-items-center pt-[80px]">
+        <div className="grid gap-6 mb-6 md:grid-cols-3 justify-items-center pt-[80px]">
           <div>
             <label
-              for="Raw Material"
+            htmlFor=""
               className="block mb-2 text-lg font-medium text-gray-900 dark:text-white"
             >
               Supplier name
@@ -63,7 +63,6 @@ const Supplier = () => {
           </div>
           <div>
             <label
-              for="last_name"
               className="block mb-2 text-lg font-medium text-gray-900 dark:text-white"
             >
               Supplier Location
@@ -80,7 +79,6 @@ const Supplier = () => {
           </div>
           <div>
             <label
-              for="company"
               className="block mb-2 text-lg font-medium text-gray-900 dark:text-white"
             >
               Supplier Email
@@ -98,7 +96,6 @@ const Supplier = () => {
           </div>
           <div>
             <label
-              for="phone"
               className="block mb-2 text-lg font-medium text-gray-900 dark:text-white"
             >
               Category
@@ -120,7 +117,6 @@ const Supplier = () => {
           </div>
           <div>
             <label
-              for="website"
               className="block mb-2 text-lg font-medium text-gray-900 dark:text-white"
             >
               Supplier Phone
@@ -137,7 +133,6 @@ const Supplier = () => {
           </div>
           <div>
             <label
-              for="visitors"
               className="block mb-2 text-lg font-medium text-gray-900 dark:text-white"
             >
               Note
