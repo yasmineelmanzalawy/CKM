@@ -6,24 +6,18 @@ import { TooltipComponent } from "@syncfusion/ej2-react-popups";
 import { Navbar, Footer, Sidebar, ThemeSettings } from "../components";
 import {
   Analytics,
-  Inventory,
-  Calendar,
   Employees,
-  Stacked,
   Customers,
   Orders,
-  Line,
-  Area,
-  Bar,
-  Pie,
-  Financial,
-  ColorPicker,
-  ColorMapping,
-  
 } from "../pages";
+import InventoryState from "../components/InventoryState";
+import Supplier2 from "../pages/Suppliers";
 import "../App.css";
 
 import { useStateContext } from "../contexts/ContextProvider";
+import Staff from "../pages/Staff";
+import Partners from "../pages/Partners";
+import Menu from "../pages/Menu";
 
 
 function Controlunit() {
@@ -89,23 +83,16 @@ function Controlunit() {
                 <Route path="/analytics" element={<Analytics />} />
 
                 {/* pages  */}
-                <Route path="/Inventory" element={<Inventory />} />
+                <Route path="/Inventorystate" element={<InventoryState />} />
                 <Route path="/employees" element={<Employees />} />
                 <Route path="/customers" element={<Customers />} />
+                <Route path="/suppliers" element={<Supplier2 />} />
 
                 {/* apps  */}
-                <Route path="/kanban" element={<Orders />} />
-                <Route path="/calendar" element={<Calendar />} />
-                <Route path="/color-picker" element={<ColorPicker />} />
-
-                {/* charts  */}
-                <Route path="/line" element={<Line />} />
-                <Route path="/area" element={<Area />} />
-                <Route path="/bar" element={<Bar />} />
-                <Route path="/pie" element={<Pie />} />
-                <Route path="/financial" element={<Financial />} />
-                <Route path="/color-mapping" element={<ColorMapping />} />
-                <Route path="/stacked" element={<Stacked />} />
+                <Route path="/orders" element={<Orders />} />
+                <Route path="/staff" element={<Staff/>} />
+                <Route path="/partners" element={<Partners/>} />
+                <Route path="/menu" element={<Menu/>}/>
               </Routes>
             <Footer />
             </div>

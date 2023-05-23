@@ -489,7 +489,7 @@ export const links = [
         icon: <BsKanban />,
       },
       {
-        name: 'Inventory',
+        name: 'Inventorystate',
         icon: <AiOutlineShoppingCart />,
       },
       {
@@ -504,43 +504,11 @@ export const links = [
         name: 'menu',
         icon: <RiContactsLine />,
       },
+      {
+        name:'suppliers',
+        icon: <RiContactsLine />
+      }
     
-    ],
-  },
- 
-  {
-    title: 'Charts',
-    links: [
-      {
-        name: 'line',
-        icon: <AiOutlineStock />,
-      },
-      {
-        name: 'area',
-        icon: <AiOutlineAreaChart />,
-      },
-
-      {
-        name: 'bar',
-        icon: <AiOutlineBarChart />,
-      },
-      {
-        name: 'pie',
-        icon: <FiPieChart />,
-      },
-      {
-        name: 'financial',
-        icon: <RiStockLine />,
-      },
-      {
-        name: 'color-mapping',
-        icon: <BsBarChart />,
-      },
-      
-      {
-        name: 'stacked',
-        icon: <AiOutlineBarChart />,
-      },
     ],
   },
 ];

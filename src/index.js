@@ -1,6 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "bootstrap/dist/css/bootstrap.css";
 
 import Inventory from "./components/inventory";
 import "./index.css";
@@ -27,20 +26,23 @@ ReactDOM.render(
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/login" element={<Loginpage />} />
-        <Route path="/inventorystate" element={<InventoryState />} />
-        <Route path="/inventory" element={<Inventory />} />
         <Route path="/signup" element={<Signup />} />
-        {user &&<Route path="/controlunit" element={<Controlunit />} />}
-        <Route path="/analytics" element={<Analytics />} />
+        <Route path="/inventory" element={<Inventory />} />
         {user &&<Route path="/supplier" element={<Supplier />} />}
         {user &&<Route path="/menusetup" element={<MenuSetUp />} />}
         {user &&<Route path="/createbrand" element={<CreateBrand />} />}
-        <Route path="/employees" element={<Employees />} />
-        <Route path="/customers" element={<Customers />} />
-        <Route path="/orders" element={<Orders />} />
-        <Route path="/partners" element={<Partners />} />
-        <Route path="/staff" element={<Staff />} />
-        <Route path="/suppliercontrolunit" element={<Suppliers />} />
+        {user &&<Route path="/controlunit" element={<Controlunit/>}>
+        <Route path="/controlunit/analytics" element={<Analytics />} />
+        <Route path="/controlunit/inventorystate" element={<InventoryState />} />
+        <Route path="/controlunit/employees" element={<Employees />} />
+        <Route path="/controlunit/customers" element={<Customers />} />
+        <Route path="/controlunit/orders" element={<Orders />} />
+        <Route path="/controlunit/partners" element={<Partners />} />
+        <Route path="/controlunit/staff" element={<Staff />} />
+        <Route path="/controlunit/suppliers" element={<Suppliers />} />
+        <Route path="/controlunit/menu" element={<Menu/>} />
+          
+          </Route>}
 
       </Routes>
     </ContextProvider>

@@ -1,7 +1,7 @@
 import React from "react";
 import DataTable from "react-data-table-component";
 import { useState } from "react";
-import { BsTextarea } from "react-icons/bs";
+
 
 
 function Supplier2() {
