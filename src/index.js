@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import "bootstrap/dist/css/bootstrap.css";
 
 import Inventory from "./components/inventory";
 import "./index.css";
@@ -13,12 +14,10 @@ import { Analytics, Customers, Employees, Orders } from "./pages";
 import InventoryState from "./components/InventoryState";
 import Partners from "./pages/Partners";
 import Staff from "./pages/Staff";
-import Menu from "./pages/Menu";
 import Supplier from './components/supplier'
 import MenuSetUp from "./components/MenuSetUp";
 import CreateBrand from "./components/CreateBrand";
-import Home from "./components/Home";
-import { Header } from "./components";
+import Suppliers from "./pages/Suppliers";
 
 const user = localStorage.getItem("token");
 ReactDOM.render(
@@ -41,7 +40,8 @@ ReactDOM.render(
         <Route path="/orders" element={<Orders />} />
         <Route path="/partners" element={<Partners />} />
         <Route path="/staff" element={<Staff />} />
-        <Route path="/menu" element={<Menu />} />
+        <Route path="/suppliercontrolunit" element={<Suppliers />} />
+
       </Routes>
     </ContextProvider>
   </BrowserRouter>,

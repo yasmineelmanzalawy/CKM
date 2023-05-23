@@ -389,20 +389,25 @@ export const LinePrimaryYAxis = {
 
 export const customersGrid = [
   { type: 'checkbox', width: '50' },
-  { headerText: 'Name',
+  { field: 'CustomerName',
+    headerText: 'Name',
     width: '150',
     template: customerGridImage,
     textAlign: 'Center' },
-  { field: 'ProjectName',
-    headerText: 'Project Name',
+  { field: 'Category',
+    headerText: 'Category',
     width: '150',
     textAlign: 'Center' },
-  { field: 'Status',
-    headerText: 'Status',
-    width: '130',
-    format: 'yMd',
-    textAlign: 'Center',
-    template: customerGridStatus },
+  { field: 'Adress',
+    headerText: 'Adress',
+    width: '150',
+    textAlign: 'Center' },
+
+  { field: 'CustomerEmail',
+    headerText: 'Email',
+    width: '150',
+    textAlign: 'Center' },
+
   {
     field: 'Weeks',
     headerText: 'Weeks',
@@ -420,8 +425,8 @@ export const customersGrid = [
     width: '150',
     textAlign: 'Center' },
 
-  { field: 'CustomerID',
-    headerText: 'Customer ID',
+  { field: 'SupplierID',
+    headerText: 'Supplier ID',
     width: '120',
     textAlign: 'Center',
     isPrimaryKey: true,
@@ -903,13 +908,13 @@ export const InventoryGrid = [
 
 export const customersData = [
   {
-    CustomerID: 1001,
-    CustomerName: 'Nirav Joshi',
-    CustomerEmail: 'nirav@gmail.com',
+    SupplierID: 1001,
+    CustomerName: 'Yasmine Tarek',
+    CustomerEmail: 'yasmine@gmail.com',
     CustomerImage:
-      avatar2,
-    ProjectName: 'Hosting Press HTML',
-    Status: 'Active',
+      avatar,
+    Category: 'Meats ',
+    Adress: 'Alex',
     StatusBg: '#8BE78B',
     Weeks: '40',
     Budget: '$2.4k',
@@ -3554,6 +3559,68 @@ export const kanbanData = [
     ClassName: 'e-bug, e-release, e-nancy-davloio',
   },
 ];
+
+
+export const gridOrderStatus = (props) => (
+  <button
+    type="button"
+    style={{ background: props.StatusBg }}
+    className="text-white py-1 px-2 capitalize rounded-2xl text-md"
+  >
+    {props.Status}
+  </button>
+);
+
+
+export const ordersGrid = [
+  {
+    headerText: 'Image',
+    template: gridOrderImage,
+    textAlign: 'Center',
+    width: '120',
+  },
+  {
+    field: 'OrderItems',
+    headerText: 'Item',
+    width: '150',
+    editType: 'dropdownedit',
+    textAlign: 'Center',
+  },
+  { field: 'CustomerName',
+    headerText: 'Customer Name',
+    width: '150',
+    textAlign: 'Center',
+  },
+  {
+    field: 'TotalAmount',
+    headerText: 'Total Amount',
+    format: 'C2',
+    textAlign: 'Center',
+    editType: 'numericedit',
+    width: '150',
+  },
+  {
+    headerText: 'Status',
+    template: gridOrderStatus,
+    field: 'OrderItems',
+    textAlign: 'Center',
+    width: '120',
+  },
+  {
+    field: 'OrderID',
+    headerText: 'Order ID',
+    width: '120',
+    textAlign: 'Center',
+  },
+
+  {
+    field: 'Location',
+    headerText: 'Location',
+    width: '150',
+    textAlign: 'Center',
+  },
+];
+
 
 export const financialChartData = [
   {
