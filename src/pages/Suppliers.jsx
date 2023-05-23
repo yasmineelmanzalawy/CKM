@@ -1,195 +1,160 @@
-import React from "react";
-import DataTable from "react-data-table-component";
-import { useState } from "react";
-
-
-
-function Supplier2() {
-  const columns = [
-    {
-      name: "ID",
-      selector: (row) => row.ID,
-      sortable: true,
-      isPrimaryKey: true,
-      width: "80px",
-      textAlign: "Center"
-
-    },
-    {
-      name: "Name",
-      selector: (row) => row.name,
-      sortable: true,
-      width: "150px",
-    },
-    {
-      name: "category",
-      selector: (row) => row.category,
-      width: "150px",
-      textAlign: "Center"
-
-    },
-    {
-      name: "Adress",
-      selector: (row) => row.Adress,
-      width: "150px",
-      textAlign: "Center"
-
-    },
-    {
-      name: "Email",
-      selector: (row) => row.Email,
-      sortable: true,
-      width: "250px",
-      textAlign: "Center"
-
-    },
-    {
-      name: "Phone",
-      selector: (row) => row.Phone,
-      width: "200px",
-      textAlign: "Center"
-
-    },
-    {
-      name: "Notes",
-      selector: (row) => row.Notes,
-      width: "150px",
-      textAlign: "Center",
-    
-
-    },
-  ];
-  const data = [
-    {
-      ID: 1,
-      name: "yasmine",
-      Email: "yasmine@gmail.com",
-      category: "meat",
-      Phone: "01094837186",
-      Adress: "Alex",
-    },
-    {
-      ID: 2,
-      name: "toka",
-      Email: "toka@gmail.com",
-      category: "meat",
-      Phone: "01094837186",
-      Adress: "Alex",
-    },
-    {
-      ID: 3,
-      name: "rana",
-      Email: "rana@gmail.com",
-      category: "meat",
-      Phone: "01094837186",
-      Adress: "Alex",
-    },
-    {
-      ID: 4,
-      name: "bosy",
-      Email: "bosy@gmail.com",
-      category: "meat",
-      Phone: "01094837186",
-      Adress: "Alex",
-    },
-    {
-      ID: 5,
-      name: "sama",
-      Email: "sama@gmail.com",
-      category: "meat",
-      Phone: "01094837186",
-      Adress: "Alex",
-    },
-    {
-      ID: 6,
-      name: "salma",
-      Email: "salma@gmail.com",
-      category: "meat",
-      Phone: "01094837186",
-      Adress: "Alex",
-    },
-    {
-      ID: 7,
-      name: "ali",
-      Email: "ali@gmail.com",
-      category: "meat",
-      Phone: "01094837186",
-      Adress: "Alex",
-    },
-    {
-      ID: 8,
-      name: "yusef",
-      Email: "yusef@gmail.com",
-      category: "meat",
-      Phone: "01094837186",
-      Adress: "Alex",
-    },
-    {
-      ID: 9,
-      name: "menna",
-      Email: "menna@gmail.com",
-      category: "meat",
-      Phone: "01094837186",
-      Adress: "Alex",
-    },
-    {
-      ID: 10,
-      name: "alaa",
-      Email: "alaa@gmail.com",
-      category: "meat",
-      Phone: "01094837186",
-      Adress: "Alex",
-    },
-    {
-      ID: 11,
-      name: "sarah",
-      Email: "sarah@gmail.com",
-      category: "meat",
-      Phone: "01094837186",
-      Adress: "Alex",
-    },
-    {
-      ID: 12,
-      name: "rowan",
-      Email: "rowan@gmail.com",
-      category: "meat",
-      Phone: "01094837186",
-      Adress: "Alex",
-    },
-    {
-      ID: 13,
-      name: "heba",
-      Email: "heba@gmail.com",
-      category: "meat",
-      Phone: "01094837186",
-      Adress: "Alex",
-    }
-  ]
-  const editing = { allowDeleting: true, allowEditing: true };
-  const toolbarOptions = ['Delete'];
-
-  const [records, setRecords ] = useState(data);
-  function handleFilter(event) {
-    const newData = data.filter(row => {
-      return row.name.toLowerCase().includes(event.target.value.toLowerCase())
-    })
+import React, { useState } from "react";
+import { AiOutlineDelete } from "react-icons/ai";
+import { useEffect } from "react";
+import axios from "../axios.config";
+import { Link } from "react-router-dom";
+import { toast } from "react-hot-toast";
+function Supplier() {
+  const url = "api/Supplier";
+  const [supplier, setsupplier] = useState([]);
+  const [suppliers,setsuppliers] = useState([])
+  const fetchSuppliers = async () =>{
+    const res = await axios.get(url);
+    loading()
+    setsuppliers(res.data)
   }
-
+  useEffect(()=>{
+    fetchSuppliers();
+  },[])
+  
+  
+  
+  useEffect(() => {
+    const getsupplier = async () => {
+      const { data } = await axios.get(url);
+      setsupplier(data);
+    };
+    getsupplier();
+  }, []);
+  console.log(supplier);
+  const loading = () => toast('Welcome Back', {
+    icon: '👋',
+  });
+  const handleDelete = async (id) =>{
+    const deleteUrl = "api/Supplier"
+    try {
+      await axios.delete(`${deleteUrl}/${id}`)
+    } catch (error) {
+      console.log(error)
+    }
+  }
   return (
-    <div className="container my-[70px] mx-[150px] w-[1200px]">
-      
-      <DataTable
-        columns={columns}
-        data={data}
-        fixedHeader
-        editSettings={editing}
-        pagination
-        toolbar={toolbarOptions}
-        selectableRows
-
-      ></DataTable>
+    <div className="flex flex-col">
+      <div className=" text-center pb-10">
+        <Link to="/supplier">
+        <button className="bg-[#03C9D7] p-4 text-lg text text-white rounded-lg">
+          Add suppliers
+        </button>
+        
+        </Link>
+      </div>
+      <div className="overflow-x-auto">
+        <div className="p-1.5 w-full inline-block align-middle">
+          <div className="overflow-hidden border rounded-lg">
+            <table className="min-w-full divide-y divide-gray-200">
+              <thead className="bg-gray-50 font-jarkata font-medium">
+                <tr>
+                  <th
+                    scope="col"
+                    className="px-6 py-3 text-xs font-bold text-left text-white uppercase bg-[#03C9D7]    "
+                  >
+                    ID
+                  </th>
+                  <th
+                    scope="col"
+                    className="px-6 py-3 text-xs font-bold text-left text-white uppercase bg-[#03C9D7] "
+                  >
+                    Name
+                  </th>
+                  <th
+                    scope="col"
+                    className="px-6 py-3 text-xs font-bold text-left text-white uppercase bg-[#03C9D7] "
+                  >
+                    Email
+                  </th>
+                  <th
+                    scope="col"
+                    className="px-6 py-3 text-xs font-bold text-left text-white uppercase bg-[#03C9D7] "
+                  >
+                    address
+                  </th>
+                  <th
+                    scope="col"
+                    className="px-6 py-3 text-xs font-bold text-left text-white uppercase bg-[#03C9D7] "
+                  >
+                    Category
+                  </th>
+                  <th
+                    scope="col"
+                    className="px-6 py-3 text-xs font-bold text-left text-white uppercase bg-[#03C9D7] "
+                  >
+                    phone
+                  </th>
+                  <th
+                    scope="col"
+                    className="px-6 py-3 text-xs font-bold text-left text-white uppercase bg-[#03C9D7] "
+                  >
+                    notes
+                  </th>
+                  <th
+                    scope="col"
+                    className="px-6 py-3 text-xs font-bold text-left text-white uppercase bg-[#03C9D7] "
+                  >
+                    Established at
+                  </th>
+                  <th
+                    scope="col"
+                    className="px-6 py-3 text-xs font-bold text-left text-white uppercase bg-[#03C9D7] "
+                  >
+                  
+                  </th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-200">
+                {supplier.map((x, i) => {
+                  return (
+                    <tr key={i}>
+                      <td className="px-6 dark:text-white py-4 text-sm font-medium text-gray-800 whitespace-nowrap">
+                        {x.id}
+                      </td>
+                      <td className="px-6 dark:text-white py-4 text-sm font-medium text-gray-800 whitespace-nowrap">
+                        {x.name}
+                      </td>
+                      <td className="px-6 dark:text-white py-4 text-sm font-medium text-gray-800 whitespace-nowrap">
+                        {x.email}
+                      </td>
+                      <td className="px-6 dark:text-white py-4 text-sm font-medium text-gray-800 whitespace-nowrap">
+                        {x.address}
+                      </td>
+                      <td className="px-6 dark:text-white py-4 text-sm font-medium text-gray-800 whitespace-nowrap">
+                        {x.category}
+                      </td>
+                      <td className="px-6 dark:text-white py-4 text-sm font-medium text-gray-800 whitespace-nowrap">
+                        {x.phone}
+                      </td>
+                      <td className="px-6 dark:text-white py-4 text-sm font-medium text-gray-800 whitespace-nowrap">
+                        {x.notes}
+                      </td>
+                      <td className="px-6 dark:text-white py-4 text-sm font-medium text-gray-800 whitespace-nowrap">
+                        {x.created_at}
+                      </td>
+                      <td className="px-6 py-4 text-right whitespace-nowrap">
+                        <button
+                        onClick={() =>handleDelete(supplier.id)}
+                        className="text-red-500 hover:text-red-700 cursor-pointer">
+                          <AiOutlineDelete size={20} />
+                        </button>
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
 
-export default Supplier2;
+export default Supplier;

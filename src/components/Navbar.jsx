@@ -23,6 +23,16 @@ const NavButton = ({ title, customFunc, icon, dotColor }) => (
 );
 
 const Navbar = () => {
+  const url = "api/Brand";
+  const [brand,setbrand] = useState([])
+  useEffect(() => {
+    const getBrand = async () => {
+      const { data } = await axios.get(url);
+      setbrand(data);
+    };
+    getBrand();
+  }, []);
+  console.log(brand);
   const {
     currentColor,
     activeMenu,
@@ -71,14 +81,15 @@ const Navbar = () => {
           >
             <img
               className="rounded-full w-8 h-8"
-              src={avatar}
+              src={brand[0]?.logo}
               alt="user-profile"
             />
             <p>
               <span className="text-gray-400 text-14">Hi,</span>{" "}
               <span className="text-gray-400 font-bold ml-1 text-14">
-                {userData}
+
               </span>
+              <span>{brand[0]?.name}</span>
             </p>
             <MdKeyboardArrowDown className="text-gray-400 text-14" />
           </div>

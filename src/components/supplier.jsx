@@ -2,29 +2,32 @@ import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router";
 import axios from "../axios.config";
+import  toast  from "react-hot-toast";
 const Supplier = () => {
   const navigate = useNavigate();
   const [error, setError] = useState("");
-  const [data, setData] = useState({
-    supplierlocation: "",
+  const initialState = {
+    address: "",
     name: "",
-    supplieremail: "",
+    email: "",
     category: "",
     phone: "",
-    note: "",
-  });
+    notes: "",
+  }
+  const [data, setData] = useState(initialState);
   const handleChange = ({ currentTarget: input }) => {
     setData({ ...data, [input.name]: input.value });
   };
-
+ const sucessful = () => toast.success('Successfully Added!')
   const handleSubmit = async (e) => {
     e.preventDefault();
     const url = "api/Supplier";
     axios
       .post(url, data)
       .then((data) => {
-        navigate("/inventory");
         console.log(data.data);
+        sucessful()
+        setData(initialState)
       })
       .catch((error) => {
         console.log(error);
@@ -32,6 +35,8 @@ const Supplier = () => {
   };
   return (
     <div className="h-screen flex justify-center items-center bg-gray-100 ">
+      <div>
+      </div>
       <form
         onSubmit={handleSubmit}
         className="  rounded-3xl flex flex-col justify-center h-[80%] "
@@ -39,7 +44,7 @@ const Supplier = () => {
         <div className="text-right pb-4 text-2xl underline underline-offset-1 text-[#3B1EC5]">
           <a href="./inventory">Skip</a>
         </div>
-
+  
         <h1 className="text-center text-5xl text-[#3B1EC5]">
           Add Your Suppliers
         </h1>
@@ -69,8 +74,8 @@ const Supplier = () => {
             </label>
             <input
               onChange={handleChange}
-              value={data.supplierlocation}
-              name="supplierlocation"
+              value={data.address}
+              name="address"
               type="text"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               placeholder="Supplier Location"
@@ -85,8 +90,8 @@ const Supplier = () => {
             </label>
             <input
               onChange={handleChange}
-              value={data.supplieremail}
-              name="supplieremail"
+              value={data.email}
+              name="email"
               type="email"
               id="Inventory Categories"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -139,8 +144,8 @@ const Supplier = () => {
             </label>
             <input
               onChange={handleChange}
-              value={data.note}
-              name="note"
+              value={data.notes}
+              name="notes"
               type="text"
               id="Inventory Categories"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"

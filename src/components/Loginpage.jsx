@@ -32,7 +32,13 @@ const Loginpage = (props) => {
             setUserData(data.data.user.name)
           })
           .catch((error) => {
-            console.log(error);
+            if (
+              error.response &&
+              error.response.status >= 400 &&
+              error.response.status <= 500
+            ) {
+              setError(error.response.data.message);
+            }
           });
       });
   };
@@ -67,7 +73,7 @@ const Loginpage = (props) => {
               required
               className="text-center display: block border-[3px] border-[#0C147A] my-[20px] mx-auto rounded-[10px] h-[50px] w-[250px]"
             />
-            {error && <div>{error}</div>}
+            {error && <div className="text-center text-red-600 text-xs underline font ">{error}</div>}
             <button className="display: block mx-auto rounded-[10px] h-[40px] w-[100px] bg-[#0C147A] text-white mt-[70px] my-[20px] text-center" type="submit">Log In</button>
         <div>
           <h1 className="text-center">You don't have an account? </h1>

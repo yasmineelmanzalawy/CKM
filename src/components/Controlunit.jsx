@@ -10,8 +10,8 @@ import {
   Customers,
   Orders,
 } from "../pages";
-import InventoryState from "../components/InventoryState";
-import Supplier2 from "../pages/Suppliers";
+import Stock from "./Stock";
+import Supplier from "../pages/Suppliers";
 import "../App.css";
 
 import { useStateContext } from "../contexts/ContextProvider";
@@ -83,10 +83,10 @@ function Controlunit() {
                 <Route path="/analytics" element={<Analytics />} />
 
                 {/* pages  */}
-                <Route path="/Inventorystate" element={<InventoryState />} />
+                <Route path="/stock" element={<Stock />} />
                 <Route path="/employees" element={<Employees />} />
                 <Route path="/customers" element={<Customers />} />
-                <Route path="/suppliers" element={<Supplier2 />} />
+                <Route path="/suppliers" element={<Supplier />} />
 
                 {/* apps  */}
                 <Route path="/orders" element={<Orders />} />

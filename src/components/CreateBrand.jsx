@@ -91,6 +91,7 @@ const CreateBrand = () => {
                 required
                 className="text-center w-[400px] my-[20px] bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 px-16 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               >
+                <option value="Select">Select</option>
                 <option value="American">American</option>
                 <option value="Egyptian">Egyptian</option>
                 <option value="Chinesse">Chinesse</option>

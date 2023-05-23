@@ -10,7 +10,7 @@ const Signup = () => {
     email: "",
     password: "",
   });
-  const [error, setError] = useState("");
+  const [error, setError] = useState();
   const navigate = useNavigate();
  const handleChange = ({ currentTarget: input }) => {
     setData({ ...data, [input.name]: input.value });
@@ -27,15 +27,21 @@ const Signup = () => {
         .then((data) => {
           localStorage.setItem("token", data.data.token);
           navigate("/createbrand");
+          window.location.reload();
           console.log(data.data);
           console.log(data.data.token);
         })
         .catch((error) => {
-          console.log(error);
+          if (
+            error.response &&
+            error.response.status >= 400 &&
+            error.response.status <= 500
+          ) {
+            setError(error.response.data.message);
+          }
         });
     });
   };
-
   return (
     <div>
       <span className="main-text p-10 font-russo text-[74px] text-gradient-to-r from-[#5A38FD]">
@@ -81,10 +87,10 @@ const Signup = () => {
               className="text-center display: block border-[3px] border-[#0C147A] my-[20px] mx-auto rounded-[10px] h-[50px] w-[250px]"
             />
             {error && <div className="">{error}</div>}
-            <button type="submit" className="text-center display: block mx-auto rounded-[10px] h-[40px] w-[100px] bg-[#0C147A] text-white mt-[20px] my-[20px] text-center">Sign Up</button>
+            <button type="submit" className="display: block mx-auto rounded-[10px] h-[40px] w-[100px] bg-[#0C147A] text-white mt-[20px] my-[20px] text-center">Sign Up</button>
             <h1 className="text-center">Already have an account?</h1>
             <Link to="/login">
-              <button type="button" className="text-center display: block mx-auto text-center underline underline-offset-1">Log in</button>
+              <button type="button" className=" display: block mx-auto text-center underline underline-offset-1">Log in</button>
             </Link>
           </form>
         </div>
