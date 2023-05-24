@@ -6,7 +6,7 @@ const Stock = () => {
     <div className="flex flex-col">
       <div className=" text-center pb-10">
         <Link to="/inventory">
-          <button className="bg-[#3B1EC5] p-4 text-lg text text-white rounded-lg">
+          <button className="bg-[#03C9D7] p-4 text-lg text text-white rounded-lg">
             Add Stock
           </button>
         </Link>
@@ -19,55 +19,55 @@ const Stock = () => {
                 <tr>
                   <th
                     scope="col"
-                    className="px-6 py-3 text-xs font-bold text-left text-white uppercase bg-[#3B1EC5]    "
+                    className="px-6 py-3 text-xs font-bold text-left text-white uppercase bg-[#03C9D7]    "
                   >
                     ID
                   </th>
                   <th
                     scope="col"
-                    className="px-6 py-3 text-xs font-bold text-left text-white uppercase bg-[#3B1EC5] "
+                    className="px-6 py-3 text-xs font-bold text-left text-white uppercase bg-[#03C9D7] "
                   >
                     Name
                   </th>
                   <th
                     scope="col"
-                    className="px-6 py-3 text-xs font-bold text-left text-white uppercase bg-[#3B1EC5] "
+                    className="px-6 py-3 text-xs font-bold text-left text-white uppercase bg-[#03C9D7] "
                   >
                     Email
                   </th>
                   <th
                     scope="col"
-                    className="px-6 py-3 text-xs font-bold text-left text-white uppercase bg-[#3B1EC5] "
+                    className="px-6 py-3 text-xs font-bold text-left text-white uppercase bg-[#03C9D7] "
                   >
                     address
                   </th>
                   <th
                     scope="col"
-                    className="px-6 py-3 text-xs font-bold text-left text-white uppercase bg-[#3B1EC5] "
+                    className="px-6 py-3 text-xs font-bold text-left text-white uppercase bg-[#03C9D7] "
                   >
                     Category
                   </th>
                   <th
                     scope="col"
-                    className="px-6 py-3 text-xs font-bold text-left text-white uppercase bg-[#3B1EC5] "
+                    className="px-6 py-3 text-xs font-bold text-left text-white uppercase bg-[#03C9D7] "
                   >
                     phone
                   </th>
                   <th
                     scope="col"
-                    className="px-6 py-3 text-xs font-bold text-left text-white uppercase bg-[#3B1EC5] "
+                    className="px-6 py-3 text-xs font-bold text-left text-white uppercase bg-[#03C9D7] "
                   >
                     notes
                   </th>
                   <th
                     scope="col"
-                    className="px-6 py-3 text-xs font-bold text-left text-white uppercase bg-[#3B1EC5] "
+                    className="px-6 py-3 text-xs font-bold text-left text-white uppercase bg-[#03C9D7] "
                   >
                     Established at
                   </th>
                   <th
                     scope="col"
-                    className="px-6 py-3 text-xs font-bold text-left text-white uppercase bg-[#3B1EC5] "
+                    className="px-6 py-3 text-xs font-bold text-left text-white uppercase bg-[#03C9D7] "
                   ></th>
                 </tr>
               </thead>
