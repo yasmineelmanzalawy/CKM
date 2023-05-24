@@ -12,17 +12,6 @@ const CreateBrand = () => {
   });
   const [error, setError] = useState("");
   const navigate = useNavigate();
-  const selection = [
-    "American",
-    "Egyptian",
-    "Oriental",
-    "Chinesse",
-    "Japanesse",
-    "Indonisian",
-    "French",
-    "Swedish",
-    "English"
-  ];
   const handleChange = ({ currentTarget: input }) => {
     setData({ ...data, [input.name]: input.value });
   };
@@ -72,6 +61,7 @@ const CreateBrand = () => {
 
               <input
                 type="file"
+                alt="logo"
                 id="img"
                 name="logo"
                 accept="image/*"
