@@ -19,13 +19,13 @@ const Analytics = () => {
   const { currentColor, currentMode } = useStateContext();
 
   return (
-    <div className="mt-24">
+    <div className="mt-12">
       <div className="flex flex-wrap lg:flex-nowrap justify-center ">
         <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg h-44 rounded-xl w-full lg:w-80 p-8 pt-9 m-3 bg-hero-pattern bg-no-repeat bg-cover bg-center">
           <div className="flex  justify-between items-center">
             <div>
               <p className="font-bold text-gray-400 dark:text-gray-200">Earnings</p>
-              <p className="text-2xl">$63,448.78</p>
+              <p className="text-2xl">$0</p>
             </div>
             <button
               type="button"
@@ -89,15 +89,15 @@ const Analytics = () => {
             <div className=" border-r-1 border-color m-4 pr-10">
               <div>
                 <p>
-                  <span className="text-3xl font-semibold">$93,438</span>
+                  <span className="text-3xl font-semibold">$0</span>
                   <span className="p-1.5 hover:drop-shadow-xl cursor-pointer rounded-full text-white bg-green-400 ml-3 text-xs">
-                    23%
+                    0%
                   </span>
                 </p>
                 <p className="text-gray-500 mt-1">Budget</p>
               </div>
               <div className="mt-8">
-                <p className="text-3xl font-semibold">$48,487</p>
+                <p className="text-3xl font-semibold">$0</p>
 
                 <p className="text-gray-500 mt-1">Expense</p>
               </div>
@@ -128,7 +128,7 @@ const Analytics = () => {
               <p className="font-semibold text-white text-2xl">Earnings</p>
 
               <div>
-                <p className="text-2xl text-white font-semibold mt-8">$63,448.78</p>
+                <p className="text-2xl text-white font-semibold mt-8">$0</p>
                 <p className="text-gray-200">Monthly revenue</p>
               </div>
             </div>
@@ -140,7 +140,7 @@ const Analytics = () => {
 
           <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl md:w-400 p-8 m-3 flex justify-center items-center gap-10">
             <div>
-              <p className="text-2xl font-semibold ">$43,246</p>
+              <p className="text-2xl font-semibold ">$0</p>
               <p className="text-gray-400">Yearly sales</p>
             </div>
 
@@ -190,7 +190,7 @@ const Analytics = () => {
               />
             </div>
 
-            <p className="text-gray-400 text-sm">36 Recent Transactions</p>
+            <p className="text-gray-400 text-sm">0 Recent Transactions</p>
           </div>
         </div>
         <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg p-6 rounded-2xl w-96 md:w-760">
