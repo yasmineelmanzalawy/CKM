@@ -16,7 +16,6 @@ import "../App.css";
 
 import { useStateContext } from "../contexts/ContextProvider";
 import Staff from "../pages/Staff";
-import Partners from "../pages/Partners";
 import Menu from "../pages/Menu";
 
 
@@ -91,7 +90,6 @@ function Controlunit() {
                 {/* apps  */}
                 <Route path="/orders" element={<Orders />} />
                 <Route path="/staff" element={<Staff/>} />
-                <Route path="/partners" element={<Partners/>} />
                 <Route path="/menu" element={<Menu/>}/>
               </Routes>
             <Footer />

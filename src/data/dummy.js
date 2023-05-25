@@ -493,10 +493,7 @@ export const links = [
         name: 'Stock',
         icon: <FaWarehouse/>,
       },
-      {
-        name: 'Partners',
-        icon: <IoMdContacts />,
-      },
+      
       {
         name: 'Staff',
         icon: <RiContactsLine />,
