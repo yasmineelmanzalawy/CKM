@@ -15,9 +15,9 @@ function Home() {
           CKM
         </h1>
         <ul className="flex">
-          <a href="/ckmkitchens">
-            <li className="p-4 font-russo text-[24px] hover:scale-125 ease-linear duration-300 text-[#3B1EC5]">
-              CKM Kitchens
+          <a href="/foodcourt">
+            <li className="p-4 font-russo text-[24px] hover:scale-125 ease-linear duration-300 text-[#ff711f]">
+             CKM Food Court
             </li>
           </a>
           <a href="#Price">
