@@ -86,10 +86,7 @@ const UserProfile = () => {
         ))}
       </div>
       <div className="mt-5">
-        <button onClick={()=>{
-          localStorage.removeItem("token")
-          navigate("/")
-        }}>
+        <button onClick={logout}>
           <Button
             color="white"
             bgColor={currentColor}

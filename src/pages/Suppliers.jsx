@@ -136,12 +136,12 @@ function Supplier() {
                         {x.notes}
                       </td>
                       <td className="px-6 dark:text-white py-4 text-sm font-medium text-gray-800 whitespace-nowrap">
-                        {x.created_at}
+                        {x.created_at.slice(0,19)}
                       </td>
                       <td className="px-6 py-4 text-right whitespace-nowrap">
                         <button
-                        onClick={() =>handleDelete(supplier.id)}
-                        className="text-red-500 hover:text-red-700 cursor-pointer">
+                        onClick={() =>handleDelete(x.id)}
+                        className=" hover:scale-110 duration-300 ease-out text-red-500 hover:text-red-700 cursor-pointer">
                           <AiOutlineDelete size={20} />
                         </button>
                       </td>

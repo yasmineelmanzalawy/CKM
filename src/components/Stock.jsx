@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { AiOutlineDelete } from "react-icons/ai";
+import { AiOutlineDelete, AiFillEdit } from "react-icons/ai";
+
 const Stock = () => {
-  
   return (
     <div className="flex flex-col">
       <div className=" text-center pb-10">
@@ -28,19 +28,19 @@ const Stock = () => {
                     scope="col"
                     className="px-6 py-3 text-xs font-bold text-left text-white uppercase bg-[#03C9D7] "
                   >
-                    Name
+                    Raw material
                   </th>
                   <th
                     scope="col"
                     className="px-6 py-3 text-xs font-bold text-left text-white uppercase bg-[#03C9D7] "
                   >
-                    Email
+                    Inventory Category
                   </th>
                   <th
                     scope="col"
                     className="px-6 py-3 text-xs font-bold text-left text-white uppercase bg-[#03C9D7] "
                   >
-                    address
+                    Quantity {"(KG/GM)"}
                   </th>
                   <th
                     scope="col"
@@ -52,28 +52,44 @@ const Stock = () => {
                     scope="col"
                     className="px-6 py-3 text-xs font-bold text-left text-white uppercase bg-[#03C9D7] "
                   >
-                    phone
+                    Expiry Date
                   </th>
                   <th
                     scope="col"
                     className="px-6 py-3 text-xs font-bold text-left text-white uppercase bg-[#03C9D7] "
                   >
-                    notes
+                    cost
                   </th>
                   <th
                     scope="col"
                     className="px-6 py-3 text-xs font-bold text-left text-white uppercase bg-[#03C9D7] "
                   >
-                    Established at
+                    Supplier Name
                   </th>
                   <th
                     scope="col"
                     className="px-6 py-3 text-xs font-bold text-left text-white uppercase bg-[#03C9D7] "
                   ></th>
+                  <th></th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-200">
-                <tr></tr>
+                <tr>
+                  <td className=" border-r-1 text-center">----------</td>
+                  <td className=" border-r-1 text-center">----------</td>
+                  <td className=" border-r-1 text-center">----------</td>
+                  <td className=" border-r-1 text-center">----------</td>
+                  <td className=" border-r-1 text-center">----------</td>
+                  <td className="  border-r-1text-center">----------</td>
+                  <td className=" border-r-1 text-center">----------</td>
+                  <td className=" border-r-1 text-center">----------</td>
+                  <td className=" border-r-1 text-right">
+                    <div className="flex gap-4 cursor-pointer">
+                      <AiOutlineDelete className=" hover:scale-110 ease-out duration-300 text-red-600" size={20} />
+                      <AiFillEdit className="hover:scale-110 ease-out duration-300" size={20} />
+                    </div>
+                  </td>
+                </tr>
               </tbody>
             </table>
           </div>

@@ -1,16 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { AiOutlineDelete } from "react-icons/ai";
+import { AiOutlineDelete, AiFillEdit } from "react-icons/ai";
 
 const Staff = () => {
   return (
     <div>
       <div className="flex flex-col justify-center mx-[50px]">
         <div className=" text-center pb-10">
-          <Link to="/">
-            <button className="bg-[#f0f1f5] hover:bg-[#ebeced] w-[100px] text-[#575859] rounded-[20px] p-[5px]">
-              Add Staff
-            </button>
+          <Link to="/employees">
+          <button className="bg-[#f0f1f5] hover:bg-[#ebeced] w-[100px] text-[#575859] rounded-[20px] p-[5px]">
+            Add Staff
+          </button>
           </Link>
         </div>
         <div className="overflow-x-auto">
@@ -61,10 +61,32 @@ const Staff = () => {
                     >
                       Salary
                     </th>
+                    <th
+                      scope="col"
+                      className="px-2 py-3 text-xs font-bold text-left text-[#575859] uppercase bg-[#ebeced] "
+                    ></th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-200">
-                  <tr></tr>
+                  <tr>
+                    <td>-------</td>
+                    <td>-------</td>
+                    <td>-------</td>
+                    <td>-------</td>
+                    <td>-------</td>
+                    <td>-------</td>
+                    <td>-------</td>
+                    <td className="flex gap-2">
+                      <AiOutlineDelete
+                        className=" hover:scale-110 ease-out duration-300 text-red-600"
+                        size={20}
+                      />
+                      <AiFillEdit
+                        className="hover:scale-110 ease-out duration-300"
+                        size={20}
+                      />
+                    </td>
+                  </tr>
                 </tbody>
               </table>
             </div>

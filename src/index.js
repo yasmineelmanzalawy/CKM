@@ -9,8 +9,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Loginpage from "./components/Loginpage";
 import Signup from "./components/Signup";
 import Controlunit from "./components/Controlunit";
-import { Analytics, Customers, Employees, Orders } from "./pages";
-import InventoryState from "./components/Stock";
+import { Analytics, Customers, Employees ,  Orders } from "./pages";
+import Employee from "./components/employee";
 import Partners from "./pages/Partners";
 import Staff from "./pages/Staff";
 import Supplier from './components/supplier'
@@ -32,6 +32,7 @@ ReactDOM.render(
         <Route path="/login" element={<Loginpage />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/inventory" element={<Inventory />} />
+        <Route path="/employees" element={<Employee />} />
         <Route path="/ckmkitchens" element={<Kitchenckm />} />
         <Route path="/customerdata" element={<Customerdata />} />
         <Route path="/foodcourt" element={<FoodCourt/>}/>
