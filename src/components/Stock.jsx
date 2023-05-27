@@ -85,8 +85,14 @@ const Stock = () => {
                   <td className=" border-r-1 text-center">----------</td>
                   <td className=" border-r-1 text-right">
                     <div className="flex gap-4 cursor-pointer">
-                      <AiOutlineDelete className=" hover:scale-110 ease-out duration-300 text-red-600" size={20} />
-                      <AiFillEdit className="hover:scale-110 ease-out duration-300" size={20} />
+                      <AiOutlineDelete
+                        className=" hover:scale-110 ease-out duration-300 text-red-600"
+                        size={20}
+                      />
+                      <AiFillEdit
+                        className="hover:scale-110 ease-out duration-300"
+                        size={20}
+                      />
                     </div>
                   </td>
                 </tr>
