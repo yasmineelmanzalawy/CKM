@@ -16,33 +16,26 @@ const DropDown = ({ currentMode }) => (
 );
 
 const Analytics = () => {
-  const { currentColor, currentMode } = useStateContext();
+  const {  currentMode } = useStateContext();
 
   return (
-    <div className="mt-12">
+    <div className="mt-2">
+           <div className='mx-16 text-[35px] '><h1>Daily Data</h1></div>
       <div className="flex flex-wrap lg:flex-nowrap justify-center ">
-        <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg h-44 rounded-xl w-full lg:w-80 p-8 pt-9 m-3 bg-hero-pattern bg-no-repeat bg-cover bg-center">
+        <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg h-44 rounded-xl w-[150px] lg:w-80 p-8 pt-9 m-3 bg-hero-pattern bg-no-repeat bg-cover bg-center">
           <div className="flex  justify-between items-center">
             <div>
-              <p className="font-bold text-gray-400 dark:text-gray-200">Earnings</p>
-              <p className="text-2xl">$0</p>
+              <p className="font-bold dark:text-gray-200  text-[#3B1EC5] text-[20px]">Today's Earnings</p>
+              <p className="my-8 text-2xl">$0</p>
             </div>
             <button
               type="button"
-              style={{ backgroundColor: currentColor }}
               className="text-2xl opacity-0.9 text-white hover:drop-shadow-xl rounded-full  p-4"
             >
               <BsCurrencyDollar />
             </button>
           </div>
-          <div className="mt-6">
-            <Button
-              color="white"
-              bgColor={currentColor}
-              text="Download"
-              borderRadius="10px"
-            />
-          </div>
+
         </div>
         <div className="flex m-3 flex-wrap justify-center gap-1 items-center">
           {earningData.map((item) => (
@@ -103,12 +96,11 @@ const Analytics = () => {
               </div>
 
               <div className="mt-5">
-                <SparkLine currentColor={currentColor} id="line-sparkLine" type="Line" height="80px" width="250px" data={SparklineAreaData} color={currentColor} />
+                <SparkLine id="line-sparkLine" type="Line" height="80px" width="250px" data={SparklineAreaData}  />
               </div>
               <div className="mt-10">
                 <Button
                   color="white"
-                  bgColor={currentColor}
                   text="Download Report"
                   borderRadius="10px"
                 />
@@ -122,7 +114,6 @@ const Analytics = () => {
         <div>
           <div
             className=" rounded-2xl md:w-400 p-4 m-3"
-            style={{ backgroundColor: currentColor }}
           >
             <div className="flex justify-between items-center ">
               <p className="font-semibold text-white text-2xl">Earnings</p>
@@ -134,7 +125,7 @@ const Analytics = () => {
             </div>
 
             <div className="mt-4">
-              <SparkLine currentColor={currentColor} id="column-sparkLine" height="100px" type="Column" data={SparklineAreaData} width="320" color="rgb(242, 252, 253)" />
+              <SparkLine id="column-sparkLine" height="100px" type="Column" data={SparklineAreaData} width="320" color="rgb(242, 252, 253)" />
             </div>
           </div>
 
@@ -184,7 +175,6 @@ const Analytics = () => {
             <div className="mt-3">
               <Button
                 color="white"
-                bgColor={currentColor}
                 text="Add"
                 borderRadius="10px"
               />
