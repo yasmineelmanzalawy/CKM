@@ -7,11 +7,9 @@ const Staff = () => {
     <div>
       <div className="flex flex-col justify-center mx-[50px]">
         <div className=" text-center pb-10">
-          <Link to="/">
             <button className="bg-[#f0f1f5] hover:bg-[#ebeced] w-[100px] text-[#575859] rounded-[20px] p-[5px]">
               Add Staff
             </button>
-          </Link>
         </div>
         <div className="overflow-x-auto">
           <div className="p-1.5 w-full inline-block align-middle">

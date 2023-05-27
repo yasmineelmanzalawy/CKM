@@ -1,12 +1,5 @@
 import React from "react";
-import { SparkLine } from "../components";
 import {
-  earningData,
-  medicalproBranding,
-  recentTransactions,
-  weeklyStats,
-  dropdownData,
-  SparklineAreaData,
   ecomPieChartData,
 } from "../data/dummy";
 
