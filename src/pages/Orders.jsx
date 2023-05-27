@@ -9,10 +9,10 @@ const Orders = () => (
             <table class="min-w-max w-full table-auto">
               <thead>
                 <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
-                  <th class="py-3 px-6 text-left">ID</th>
+                  <th class="py-3 px-6 text-left">Order ID</th>
                   <th class="py-3 px-6 text-left">Customer Name</th>
-                  <th class="py-3 px-6 text-center">item id</th>
-                  <th class="py-3 px-6 text-center">Order Details</th>
+                  <th class="py-3 px-6 text-center">Dish ID</th>
+                  <th class="py-3 px-6 text-center">Dish Name</th>
                   <th></th>
                 </tr>
               </thead>
@@ -20,7 +20,7 @@ const Orders = () => (
                 <tr class="border-b border-gray-200 hover:bg-gray-100">
                   <td class="py-3 px-6 text-left whitespace-nowrap">
                     <div class="flex items-center">
-                      <span class="font-medium">Regular Pizza</span>
+                      <span class="font-medium">25</span>
                     </div>
                   </td>
                   <td class="py-3 px-6 text-left">
@@ -29,7 +29,7 @@ const Orders = () => (
                     </div>
                   </td>
                   <td class="py-3 px-6 text-center">------</td>
-                  <td className=" text-center">-------</td>
+                  <td class="py-3 px-6 text-center">Regular pizza</td>
                   <td className=" pt-2 text-right">
                     <button
                       type="button"
