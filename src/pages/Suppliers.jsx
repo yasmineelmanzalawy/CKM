@@ -141,7 +141,7 @@ function Supplier() {
                       <td className="px-6 py-4 text-right whitespace-nowrap">
                         <button
                         onClick={() =>handleDelete(x.id)}
-                        className="text-red-500 hover:text-red-700 cursor-pointer">
+                        className=" hover:scale-110 duration-300 ease-out text-red-500 hover:text-red-700 cursor-pointer">
                           <AiOutlineDelete size={20} />
                         </button>
                       </td>
