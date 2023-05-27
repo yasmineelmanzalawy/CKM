@@ -8,7 +8,8 @@ const CreateBrand = () => {
     name: "",
     logo: "",
     cuisine: "",
-    description:""
+    description:"",
+    cover: ""
   });
   const [error, setError] = useState("");
   const navigate = useNavigate();
@@ -103,6 +104,21 @@ const CreateBrand = () => {
                 className="text-center w-[400px] my-[20px] bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="Kitchen Name"
                 required
+              />
+            </div>
+            <div>
+              <label className="text-center block mb-2 text-lg font-medium text-gray-900 dark:text-white">
+                Brand cover
+              </label>
+              <input
+                type="file"
+                alt="logo"
+                id="img"
+                name="logo"
+                accept="image/*"
+                onChange={handleChange}
+                value={data.cover}
+                className="text-center w-[400px] my-[20px] bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               />
             </div>
             <div className="flex justify-center mt-6">

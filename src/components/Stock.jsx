@@ -7,12 +7,12 @@ const Stock = () => {
     <div className="flex flex-col">
       <div className=" text-center pb-10">
         <Link to="/inventory">
-          <button className="bg-[#03C9D7] p-4 text-lg text text-white rounded-lg">
+          <button className="bg-[#ebeced] p-4 text-lg text text-[#575859] rounded-lg">
             Add Stock
           </button>
         </Link>
       </div>
-      <div className="overflow-x-auto">
+      <div className="overflow-x-auto px-16">
         <div className="p-1.5 w-full inline-block align-middle">
           <div className="overflow-hidden border rounded-lg">
             <table className="min-w-full divide-y divide-gray-200">
@@ -20,55 +20,55 @@ const Stock = () => {
                 <tr>
                   <th
                     scope="col"
-                    className="px-6 py-3 text-xs font-bold text-left text-white uppercase bg-[#03C9D7]    "
+                    className="px-6 py-3 text-xs font-bold text-left text-black uppercase bg-[#ebeced]    "
                   >
                     ID
                   </th>
                   <th
                     scope="col"
-                    className="px-6 py-3 text-xs font-bold text-left text-white uppercase bg-[#03C9D7] "
+                    className="px-6 py-3 text-xs font-bold text-left text-black uppercase bg-[#ebeced] "
                   >
                     Raw material
                   </th>
                   <th
                     scope="col"
-                    className="px-6 py-3 text-xs font-bold text-left text-white uppercase bg-[#03C9D7] "
+                    className="px-6 py-3 text-xs font-bold text-left text-black uppercase bg-[#ebeced] "
                   >
                     Inventory Category
                   </th>
                   <th
                     scope="col"
-                    className="px-6 py-3 text-xs font-bold text-left text-white uppercase bg-[#03C9D7] "
+                    className="px-6 py-3 text-xs font-bold text-left text-black uppercase bg-[#ebeced] "
                   >
                     Quantity {"(KG/GM)"}
                   </th>
                   <th
                     scope="col"
-                    className="px-6 py-3 text-xs font-bold text-left text-white uppercase bg-[#03C9D7] "
+                    className="px-6 py-3 text-xs font-bold text-left text-black uppercase bg-[#ebeced] "
                   >
                     Category
                   </th>
                   <th
                     scope="col"
-                    className="px-6 py-3 text-xs font-bold text-left text-white uppercase bg-[#03C9D7] "
+                    className="px-6 py-3 text-xs font-bold text-left text-black uppercase bg-[#ebeced] "
                   >
                     Expiry Date
                   </th>
                   <th
                     scope="col"
-                    className="px-6 py-3 text-xs font-bold text-left text-white uppercase bg-[#03C9D7] "
+                    className="px-6 py-3 text-xs font-bold text-left text-black uppercase bg-[#ebeced] "
                   >
                     cost
                   </th>
                   <th
                     scope="col"
-                    className="px-6 py-3 text-xs font-bold text-left text-white uppercase bg-[#03C9D7] "
+                    className="px-6 py-3 text-xs font-bold text-left text-black uppercase bg-[#ebeced] "
                   >
                     Supplier Name
                   </th>
                   <th
                     scope="col"
-                    className="px-6 py-3 text-xs font-bold text-left text-white uppercase bg-[#03C9D7] "
+                    className="px-6 py-3 text-xs font-bold text-left text-black uppercase bg-[#ebeced] "
                   ></th>
                   <th></th>
                 </tr>
@@ -80,10 +80,10 @@ const Stock = () => {
                   <td className=" border-r-1 text-center">----------</td>
                   <td className=" border-r-1 text-center">----------</td>
                   <td className=" border-r-1 text-center">----------</td>
-                  <td className="  border-r-1text-center">----------</td>
+                  <td className=" border-r-1text-center">----------</td>
                   <td className=" border-r-1 text-center">----------</td>
                   <td className=" border-r-1 text-center">----------</td>
-                  <td className=" border-r-1 text-right">
+                  <td className="  text-right">
                     <div className="flex gap-4 cursor-pointer">
                       <AiOutlineDelete
                         className=" hover:scale-110 ease-out duration-300 text-red-600"

@@ -22,6 +22,7 @@ import Stock from "./components/Stock";
 import Kitchenckm from "./components/Kitchensckm"
 import Customerdata from "./components/Customerdata";
 import FoodCourt from "./components/FoodCourt";
+import Billing from "./components/Billing";
 
 const user = localStorage.getItem("token");
 ReactDOM.render(
@@ -31,6 +32,7 @@ ReactDOM.render(
         <Route path="/" element={<App />} />
         <Route path="/login" element={<Loginpage />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/billing" element={<Billing/>}  />
         <Route path="/inventory" element={<Inventory />} />
         <Route path="/employees" element={<Employee />} />
         <Route path="/ckmkitchens" element={<Kitchenckm />} />

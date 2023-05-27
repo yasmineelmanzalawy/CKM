@@ -8,7 +8,7 @@ const Staff = () => {
       <div className="flex flex-col justify-center mx-[50px]">
         <div className=" text-center pb-10">
           <Link to="/employees">
-          <button className="bg-[#f0f1f5] hover:bg-[#ebeced] w-[100px] text-[#575859] rounded-[20px] p-[5px]">
+          <button className="bg-[#ebeced] p-4 text-lg text text-[#575859] rounded-lg">
             Add Staff
           </button>
           </Link>

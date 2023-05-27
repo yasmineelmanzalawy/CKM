@@ -22,15 +22,15 @@ const Analytics = () => {
     <div className="">
            <div className='text-[35px] dark:text-white'><h1 className='text-center'>Today's Orders Data</h1></div>
       <div className="flex flex-wrap lg:flex-nowrap justify-center ">
-        <div className='m-12 rounded w-[250px] h-[150px] bg-[#3B1EC5] hover:drop-shadow-xl'>
-              <p className="pt-8 font-bold text-[white] text-[20px] text-center">Today's Earnings</p>
-              <p className="my-4 text-2xl text-center text-[white]">$0</p>
+        <div className='text-center bg-gray-100 h-44 hover:drop-shadow-xl md:w-56 mt-[12px]  p-4  rounded-2xl '>
+              <p className="pt-8 font-bold text-black text-[20px] text-center">Today's Earnings</p>
+              <p className="my-4 text-2xl text-center text-black">$0</p>
 
         </div>
        
-        <div className="flex m-3 flex-wrap justify-center gap-1 items-center">
+        <div className="flex m-3 flex-wrap justify-center gap-4 items-center">
           {earningData.map((item) => (
-            <div key={item.title} className="text-center bg-white h-44 hover:drop-shadow-xl md:w-56  p-4 pt-9 rounded-2xl ">
+            <div key={item.title} className="text-center bg-gray-100 h-44 hover:drop-shadow-xl md:w-56  p-4 pt-9 rounded-2xl ">
               
               <p className="mt-3">
                 <span className="text-lg font-semibold">{item.amount}</span>

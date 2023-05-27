@@ -42,13 +42,13 @@ function Supplier() {
     <div className="flex flex-col">
       <div className=" text-center pb-10">
         <Link to="/supplier">
-        <button className="bg-[#03C9D7] p-4 text-lg text text-white rounded-lg">
+        <button className="bg-[#ebeced] p-4 text-lg text text-[#575859] rounded-lg">
           Add suppliers
         </button>
         
         </Link>
       </div>
-      <div className="overflow-x-auto">
+      <div className="overflow-x-auto px-14">
         <div className="p-1.5 w-full inline-block align-middle">
           <div className="overflow-hidden border rounded-lg">
             <table className="min-w-full divide-y divide-gray-200">
@@ -56,55 +56,55 @@ function Supplier() {
                 <tr>
                   <th
                     scope="col"
-                    className="px-6 py-3 text-xs font-bold text-left text-white uppercase bg-[#03C9D7]    "
+                    className="px-6 py-3 text-xs font-bold text-left text-black uppercase bg-[#ebeced]    "
                   >
                     ID
                   </th>
                   <th
                     scope="col"
-                    className="px-6 py-3 text-xs font-bold text-left text-white uppercase bg-[#03C9D7] "
+                    className="px-6 py-3 text-xs font-bold text-left text-black uppercase bg-[#ebeced] "
                   >
                     Name
                   </th>
                   <th
                     scope="col"
-                    className="px-6 py-3 text-xs font-bold text-left text-white uppercase bg-[#03C9D7] "
+                    className="px-6 py-3 text-xs font-bold text-left text-black uppercase bg-[#ebeced] "
                   >
                     Email
                   </th>
                   <th
                     scope="col"
-                    className="px-6 py-3 text-xs font-bold text-left text-white uppercase bg-[#03C9D7] "
+                    className="px-6 py-3 text-xs font-bold text-left text-black uppercase bg-[#ebeced] "
                   >
                     address
                   </th>
                   <th
                     scope="col"
-                    className="px-6 py-3 text-xs font-bold text-left text-white uppercase bg-[#03C9D7] "
+                    className="px-6 py-3 text-xs font-bold text-left text-black uppercase bg-[#ebeced] "
                   >
                     Category
                   </th>
                   <th
                     scope="col"
-                    className="px-6 py-3 text-xs font-bold text-left text-white uppercase bg-[#03C9D7] "
+                    className="px-6 py-3 text-xs font-bold text-left text-black uppercase bg-[#ebeced] "
                   >
                     phone
                   </th>
                   <th
                     scope="col"
-                    className="px-6 py-3 text-xs font-bold text-left text-white uppercase bg-[#03C9D7] "
+                    className="px-6 py-3 text-xs font-bold text-left text-black uppercase bg-[#ebeced] "
                   >
                     notes
                   </th>
                   <th
                     scope="col"
-                    className="px-6 py-3 text-xs font-bold text-left text-white uppercase bg-[#03C9D7] "
+                    className="px-6 py-3 text-xs font-bold text-left text-black uppercase bg-[#ebeced] "
                   >
                     Established at
                   </th>
                   <th
                     scope="col"
-                    className="px-6 py-3 text-xs font-bold text-left text-white uppercase bg-[#03C9D7] "
+                    className="px-6 py-3 text-xs font-bold text-left text-black uppercase bg-[#ebeced] "
                   >
                   
                   </th>
