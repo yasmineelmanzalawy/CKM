@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { AiOutlineDelete } from "react-icons/ai";
 const Stock = () => {
+  
   return (
     <div className="flex flex-col">
       <div className=" text-center pb-10">

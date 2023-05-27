@@ -57,13 +57,7 @@ const Staff = () => {
                       scope="col"
                       className="px-6 py-3 text-xs font-bold text-left text-[#575859] uppercase bg-[#ebeced] "
                     >
-                      notes
-                    </th>
-                    <th
-                      scope="col"
-                      className="px-6 py-3 text-xs font-bold text-left text-[#575859] uppercase bg-[#ebeced] "
-                    >
-                      Established at
+                      Salary
                     </th>
                   </tr>
                 </thead>

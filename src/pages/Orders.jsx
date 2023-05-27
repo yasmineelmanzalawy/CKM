@@ -12,7 +12,6 @@ const Orders = () => (
                 <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
                   <th class="py-3 px-6 text-left">Dish Order</th>
                   <th class="py-3 px-6 text-left">Staff</th>
-                  <th class="py-3 px-6 text-center">Status</th>
                   <th class="py-3 px-6 text-center">Actions</th>
                 </tr>
               </thead>
@@ -28,11 +27,6 @@ const Orders = () => (
 
                       <span>Eshal Rosas</span>
                     </div>
-                  </td>
-                  <td class="py-3 px-6 text-center">
-                    <span class="bg-purple-200 text-purple-600 py-1 px-3 rounded-full text-xs">
-                      In Kitchen
-                    </span>
                   </td>
                   <td class="py-3 px-6 text-center">
                     <div class="flex item-center justify-center">
@@ -57,21 +51,7 @@ const Orders = () => (
                           />
                         </svg>
                       </div>
-                      <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
-                          />
-                        </svg>
-                      </div>
+                     
                       <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -102,11 +82,7 @@ const Orders = () => (
                     </div>
                   </td>
                 
-                  <td class="py-3 px-6 text-center">
-                    <span class="bg-green-200 text-green-600 py-1 px-3 rounded-full text-xs">
-                    Delivered
-                    </span>
-                  </td>
+                 
                   <td class="py-3 px-6 text-center">
                     <div class="flex item-center justify-center">
                       <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
@@ -130,21 +106,7 @@ const Orders = () => (
                           />
                         </svg>
                       </div>
-                      <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
-                          />
-                        </svg>
-                      </div>
+                    
                       <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -176,11 +138,7 @@ const Orders = () => (
                     </div>
                   </td>
                 
-                  <td class="py-3 px-6 text-center">
-                    <span class="bg-yellow-200 text-yellow-600 py-1 px-3 rounded-full text-xs">
-                      Out For Delivery
-                    </span>
-                  </td>
+                
                   <td class="py-3 px-6 text-center">
                     <div class="flex item-center justify-center">
                       <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
@@ -204,21 +162,7 @@ const Orders = () => (
                           />
                         </svg>
                       </div>
-                      <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
-                          />
-                        </svg>
-                      </div>
+                     
                       <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -249,11 +193,7 @@ const Orders = () => (
                     </div>
                   </td>
                 
-                  <td class="py-3 px-6 text-center">
-                    <span class="bg-red-200 text-red-600 py-1 px-3 rounded-full text-xs">
-                      Pending
-                    </span>
-                  </td>
+                
                   <td class="py-3 px-6 text-center">
                     <div class="flex item-center justify-center">
                       <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
@@ -277,21 +217,7 @@ const Orders = () => (
                           />
                         </svg>
                       </div>
-                      <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
-                          />
-                        </svg>
-                      </div>
+
                       <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -322,11 +248,7 @@ const Orders = () => (
                     </div>
                   </td>
                
-                  <td class="py-3 px-6 text-center">
-                    <span class="bg-purple-200 text-purple-600 py-1 px-3 rounded-full text-xs">
-                    In Kitchen
-                    </span>
-                  </td>
+                  
                   <td class="py-3 px-6 text-center">
                     <div class="flex item-center justify-center">
                       <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
@@ -350,21 +272,7 @@ const Orders = () => (
                           />
                         </svg>
                       </div>
-                      <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
-                          />
-                        </svg>
-                      </div>
+                   
                       <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -395,12 +303,7 @@ const Orders = () => (
                     </div>
                   </td>
                  
-                  <td class="py-3 px-6 text-center">
-                    <span class="bg-yellow-200 text-yellow-600 py-1 px-3 rounded-full text-xs">
-                    Out For Delivery	
-
-                    </span>
-                  </td>
+                 
                   <td class="py-3 px-6 text-center">
                     <div class="flex item-center justify-center">
                       <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
@@ -424,21 +327,7 @@ const Orders = () => (
                           />
                         </svg>
                       </div>
-                      <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
-                          />
-                        </svg>
-                      </div>
+                     
                       <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -469,11 +358,7 @@ const Orders = () => (
                     </div>
                   </td>
                    
-                  <td class="py-3 px-6 text-center">
-                    <span class="bg-red-200 text-red-600 py-1 px-3 rounded-full text-xs">
-                      Pending
-                    </span>
-                  </td>
+                
                   <td class="py-3 px-6 text-center">
                     <div class="flex item-center justify-center">
                       <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
@@ -497,21 +382,7 @@ const Orders = () => (
                           />
                         </svg>
                       </div>
-                      <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
-                          />
-                        </svg>
-                      </div>
+                    
                       <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -543,11 +414,6 @@ const Orders = () => (
                   </td>
                   
                   <td class="py-3 px-6 text-center">
-                    <span class="bg-green-200 text-green-600 py-1 px-3 rounded-full text-xs">
-                    Delivered	
-                    </span>
-                  </td>
-                  <td class="py-3 px-6 text-center">
                     <div class="flex item-center justify-center">
                       <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
                         <svg
@@ -570,21 +436,7 @@ const Orders = () => (
                           />
                         </svg>
                       </div>
-                      <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
-                          />
-                        </svg>
-                      </div>
+                    
                       <div class="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"

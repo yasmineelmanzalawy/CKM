@@ -40,440 +40,239 @@ const Menu = () => {
   return (
     <div>
       <div className="flex justify-center">
-        <a className="display: block text-center bg-[#f0f1f5] hover:bg-[#ebeced] w-[100px] rounded-[20px] p-[5px]" href="/menusetup">
+        <a
+          className="display: block text-center  mr-[10px]  items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          href="/menusetup"
+        >
           Add Dish
         </a>
       </div>
       <div className="flex flex-wrap gap-[80px] mx-[50px] my-[30px]  rounded-4 justify-center">
-        <div
-          class="card"
-          className="w-[270px] bg-[#f0f1f5] hover:bg-[#ebeced] rounded-[20px]"
-        >
-          <img
-            src={soura}
-            class="card-img-top"
-            alt="el mafrod souret taba2 bs el 3andi baa"
-            className="px-4 py-6 my-6"
-          />
-          <div class="card-body">
-            <h5
-              class="card-title"
-              className="text-center text-[18px] mt-[-30px] pb-4 text-[#575859] underline underline-offset-1"
-            >
-              Taba2 mn el menu
-            </h5>
-            <p class="card-text" className="text-center pb-4 px-2.5 ">
-              {" "}
-              info el taba2 ...info el taba2 ... info el taba2 ... info el taba2
-              ... info el taba2 ..
+    
+        <div class="max-w-sm w-[350px] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+          <a href="#">
+            <img
+              class="rounded-t-lg"
+              src="/docs/images/blog/image-1.jpg"
+              alt=""
+            />
+          </a>
+          <div class="p-5">
+            <a href="#">
+              <img className="rounded" src={soura} alt="" />{" "}
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                Noteworthy technology acquisitions 2021
+              </h5>
+            </a>
+            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+              Here are the biggest enterprise technology acquisitions of 2021 so
+              far, in reverse chronological order.
             </p>
-            <div className="flex flex-wrap gap-4 justify-center mb-4">
-              <div>
-                <button
-                  className="text-[#575859] hover:text-[#202021]"
-                  onClick={Dishinfo}
-                >
-                  Dish Details
-                </button>
-              </div>
-              <div>
-                <button
-                  className="text-[red] underline underline-offset-1 hover:text-[#d4000a]"
-                  onClick={DeleteDish}
-                >
-                  Delete Dish
-                </button>
-              </div>
+            <div className="flex flex-wrap">
+              <button
+                className="mr-[10px]  items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                onClick={Dishinfo}
+              >
+                Dish Details
+              </button>
+
+              <button
+                className=" ml-[65px] h-[35px] inline ml-[125px] inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                onClick={DeleteDish}
+              >
+                Delete Dish
+              </button>
             </div>
           </div>
         </div>
 
-        <div
-          class="card"
-          className="w-[270px] bg-[#f0f1f5] hover:bg-[#ebeced] rounded-[20px]"
-        >
-          <img
-            src={soura}
-            class="card-img-top"
-            alt="el mafrod souret taba2 bs el 3andi baa"
-            className="px-4 py-6 my-6"
-          />
-          <div class="card-body">
-            <h5
-              class="card-title"
-              className="text-center text-[18px] mt-[-30px] pb-4 text-[#575859] underline underline-offset-1"
-            >
-              Taba2 mn el menu
-            </h5>
-            <p class="card-text" className="text-center pb-4 px-2.5 ">
-              {" "}
-              info el taba2 ...info el taba2 ... info el taba2 ... info el taba2
-              ... info el taba2 ..
+        
+        <div class="max-w-sm w-[350px] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+          <a href="#">
+            <img
+              class="rounded-t-lg"
+              src="/docs/images/blog/image-1.jpg"
+              alt=""
+            />
+          </a>
+          <div class="p-5">
+            <a href="#">
+              <img className="rounded" src={soura} alt="" />{" "}
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                Noteworthy technology acquisitions 2021
+              </h5>
+            </a>
+            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+              Here are the biggest enterprise technology acquisitions of 2021 so
+              far, in reverse chronological order.
             </p>
-            <div className="flex flex-wrap gap-4 justify-center mb-4">
-              <div>
-                <button
-                  className="text-[#575859] hover:text-[#202021]"
-                  onClick={Dishinfo}
-                >
-                  Dish Details
-                </button>
-              </div>
-              <div>
-                <button
-                  className="text-[red] underline underline-offset-1 hover:text-[#d4000a]"
-                  onClick={DeleteDish}
-                >
-                  Delete Dish
-                </button>
-              </div>
+            <div className="flex flex-wrap">
+              <button
+                className="mr-[10px]  items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                onClick={Dishinfo}
+              >
+                Dish Details
+              </button>
+
+              <button
+                className=" ml-[65px] h-[35px] inline ml-[125px] inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                onClick={DeleteDish}
+              >
+                Delete Dish
+              </button>
             </div>
           </div>
         </div>
 
-        <div
-          class="card"
-          className="w-[270px] bg-[#f0f1f5] hover:bg-[#ebeced] rounded-[20px]"
-        >
-          <img
-            src={soura}
-            class="card-img-top"
-            alt="el mafrod souret taba2 bs el 3andi baa"
-            className="px-4 py-6 my-6"
-          />
-          <div class="card-body">
-            <h5
-              class="card-title"
-              className="text-center text-[18px] mt-[-30px] pb-4 text-[#575859] underline underline-offset-1"
-            >
-              Taba2 mn el menu
-            </h5>
-            <p class="card-text" className="text-center pb-4 px-2.5 ">
-              {" "}
-              info el taba2 ...info el taba2 ... info el taba2 ... info el taba2
-              ... info el taba2 ..
+        <div class="max-w-sm w-[350px] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+          <a href="#">
+            <img
+              class="rounded-t-lg"
+              src="/docs/images/blog/image-1.jpg"
+              alt=""
+            />
+          </a>
+          <div class="p-5">
+            <a href="#">
+              <img className="rounded" src={soura} alt="" />{" "}
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                Noteworthy technology acquisitions 2021
+              </h5>
+            </a>
+            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+              Here are the biggest enterprise technology acquisitions of 2021 so
+              far, in reverse chronological order.
             </p>
-            <div className="flex flex-wrap gap-4 justify-center mb-4">
-              <div>
-                <button
-                  className="text-[#575859] hover:text-[#202021]"
-                  onClick={Dishinfo}
-                >
-                  Dish Details
-                </button>
-              </div>
-              <div>
-                <button
-                  className="text-[red] underline underline-offset-1 hover:text-[#d4000a]"
-                  onClick={DeleteDish}
-                >
-                  Delete Dish
-                </button>
-              </div>
+            <div className="flex flex-wrap">
+              <button
+                className="mr-[10px]  items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                onClick={Dishinfo}
+              >
+                Dish Details
+              </button>
+
+              <button
+                className=" ml-[65px] h-[35px] inline ml-[125px] inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                onClick={DeleteDish}
+              >
+                Delete Dish
+              </button>
             </div>
           </div>
         </div>
 
-        <div
-          class="card"
-          className="w-[270px] bg-[#f0f1f5] hover:bg-[#ebeced] rounded-[20px]"
-        >
-          <img
-            src={soura}
-            class="card-img-top"
-            alt="el mafrod souret taba2 bs el 3andi baa"
-            className="px-4 py-6 my-6"
-          />
-          <div class="card-body">
-            <h5
-              class="card-title"
-              className="text-center text-[18px] mt-[-30px] pb-4 text-[#575859] underline underline-offset-1"
-            >
-              Taba2 mn el menu
-            </h5>
-            <p class="card-text" className="text-center pb-4 px-2.5 ">
-              {" "}
-              info el taba2 ...info el taba2 ... info el taba2 ... info el taba2
-              ... info el taba2 ..
+        <div class="max-w-sm w-[350px] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+          <a href="#">
+            <img
+              class="rounded-t-lg"
+              src="/docs/images/blog/image-1.jpg"
+              alt=""
+            />
+          </a>
+          <div class="p-5">
+            <a href="#">
+              <img className="rounded" src={soura} alt="" />{" "}
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                Noteworthy technology acquisitions 2021
+              </h5>
+            </a>
+            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+              Here are the biggest enterprise technology acquisitions of 2021 so
+              far, in reverse chronological order.
             </p>
-            <div className="flex flex-wrap gap-4 justify-center mb-4">
-              <div>
-                <button
-                  className="text-[#575859] hover:text-[#202021]"
-                  onClick={Dishinfo}
-                >
-                  Dish Details
-                </button>
-              </div>
-              <div>
-                <button
-                  className="text-[red] underline underline-offset-1 hover:text-[#d4000a]"
-                  onClick={DeleteDish}
-                >
-                  Delete Dish
-                </button>
-              </div>
+            <div className="flex flex-wrap">
+              <button
+                className="mr-[10px]  items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                onClick={Dishinfo}
+              >
+                Dish Details
+              </button>
+
+              <button
+                className=" ml-[65px] h-[35px] inline ml-[125px] inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                onClick={DeleteDish}
+              >
+                Delete Dish
+              </button>
             </div>
           </div>
         </div>
 
-        <div
-          class="card"
-          className="w-[270px] bg-[#f0f1f5] hover:bg-[#ebeced] rounded-[20px]"
-        >
-          <img
-            src={soura}
-            class="card-img-top"
-            alt="el mafrod souret taba2 bs el 3andi baa"
-            className="px-4 py-6 my-6"
-          />
-          <div class="card-body">
-            <h5
-              class="card-title"
-              className="text-center text-[18px] mt-[-30px] pb-4 text-[#575859] underline underline-offset-1"
-            >
-              Taba2 mn el menu
-            </h5>
-            <p class="card-text" className="text-center pb-4 px-2.5 ">
-              {" "}
-              info el taba2 ...info el taba2 ... info el taba2 ... info el taba2
-              ... info el taba2 ..
+        <div class="max-w-sm w-[350px] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+          <a href="#">
+            <img
+              class="rounded-t-lg"
+              src="/docs/images/blog/image-1.jpg"
+              alt=""
+            />
+          </a>
+          <div class="p-5">
+            <a href="#">
+              <img className="rounded" src={soura} alt="" />{" "}
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                Noteworthy technology acquisitions 2021
+              </h5>
+            </a>
+            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+              Here are the biggest enterprise technology acquisitions of 2021 so
+              far, in reverse chronological order.
             </p>
-            <div className="flex flex-wrap gap-4 justify-center mb-4">
-              <div>
-                <button
-                  className="text-[#575859] hover:text-[#202021]"
-                  onClick={Dishinfo}
-                >
-                  Dish Details
-                </button>
-              </div>
-              <div>
-                <button
-                  className="text-[red] underline underline-offset-1 hover:text-[#d4000a]"
-                  onClick={DeleteDish}
-                >
-                  Delete Dish
-                </button>
-              </div>
+            <div className="flex flex-wrap">
+              <button
+                className="mr-[10px]  items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                onClick={Dishinfo}
+              >
+                Dish Details
+              </button>
+
+              <button
+                className=" ml-[65px] h-[35px] inline ml-[125px] inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                onClick={DeleteDish}
+              >
+                Delete Dish
+              </button>
             </div>
           </div>
         </div>
 
-        <div
-          class="card"
-          className="w-[270px] bg-[#f0f1f5] hover:bg-[#ebeced] rounded-[20px]"
-        >
-          <img
-            src={soura}
-            class="card-img-top"
-            alt="el mafrod souret taba2 bs el 3andi baa"
-            className="px-4 py-6 my-6"
-          />
-          <div class="card-body">
-            <h5
-              class="card-title"
-              className="text-center text-[18px] mt-[-30px] pb-4 text-[#575859] underline underline-offset-1"
-            >
-              Taba2 mn el menu
-            </h5>
-            <p class="card-text" className="text-center pb-4 px-2.5 ">
-              {" "}
-              info el taba2 ...info el taba2 ... info el taba2 ... info el taba2
-              ... info el taba2 ..
+        <div class="max-w-sm w-[350px] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+          <a href="#">
+            <img
+              class="rounded-t-lg"
+              src="/docs/images/blog/image-1.jpg"
+              alt=""
+            />
+          </a>
+          <div class="p-5">
+            <a href="#">
+              <img className="rounded" src={soura} alt="" />{" "}
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                Noteworthy technology acquisitions 2021
+              </h5>
+            </a>
+            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+              Here are the biggest enterprise technology acquisitions of 2021 so
+              far, in reverse chronological order.
             </p>
-            <div className="flex flex-wrap gap-4 justify-center mb-4">
-              <div>
-                <button
-                  className="text-[#575859] hover:text-[#202021]"
-                  onClick={Dishinfo}
-                >
-                  Dish Details
-                </button>
-              </div>
-              <div>
-                <button
-                  className="text-[red] underline underline-offset-1 hover:text-[#d4000a]"
-                  onClick={DeleteDish}
-                >
-                  Delete Dish
-                </button>
-              </div>
+            <div className="flex flex-wrap">
+              <button
+                className="mr-[10px]  items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                onClick={Dishinfo}
+              >
+                Dish Details
+              </button>
+
+              <button
+                className=" ml-[65px] h-[35px] inline ml-[125px] inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                onClick={DeleteDish}
+              >
+                Delete Dish
+              </button>
             </div>
           </div>
         </div>
 
-        <div
-          class="card"
-          className="w-[270px] bg-[#f0f1f5] hover:bg-[#ebeced] rounded-[20px]"
-        >
-          <img
-            src={soura}
-            class="card-img-top"
-            alt="el mafrod souret taba2 bs el 3andi baa"
-            className="px-4 py-6 my-6"
-          />
-          <div class="card-body">
-            <h5
-              class="card-title"
-              className="text-center text-[18px] mt-[-30px] pb-4 text-[#575859] underline underline-offset-1"
-            >
-              Taba2 mn el menu
-            </h5>
-            <p class="card-text" className="text-center pb-4 px-2.5 ">
-              {" "}
-              info el taba2 ...info el taba2 ... info el taba2 ... info el taba2
-              ... info el taba2 ..
-            </p>
-            <div className="flex flex-wrap gap-4 justify-center mb-4">
-              <div>
-                <button
-                  className="text-[#575859] hover:text-[#202021]"
-                  onClick={Dishinfo}
-                >
-                  Dish Details
-                </button>
-              </div>
-              <div>
-                <button
-                  className="text-[red] underline underline-offset-1 hover:text-[#d4000a]"
-                  onClick={DeleteDish}
-                >
-                  Delete Dish
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
 
-        <div
-          class="card"
-          className="w-[270px] bg-[#f0f1f5] hover:bg-[#ebeced] rounded-[20px]"
-        >
-          <img
-            src={soura}
-            class="card-img-top"
-            alt="el mafrod souret taba2 bs el 3andi baa"
-            className="px-4 py-6 my-6"
-          />
-          <div class="card-body">
-            <h5
-              class="card-title"
-              className="text-center text-[18px] mt-[-30px] pb-4 text-[#575859] underline underline-offset-1"
-            >
-              Taba2 mn el menu
-            </h5>
-            <p class="card-text" className="text-center pb-4 px-2.5 ">
-              {" "}
-              info el taba2 ...info el taba2 ... info el taba2 ... info el taba2
-              ... info el taba2 ..
-            </p>
-            <div className="flex flex-wrap gap-4 justify-center mb-4">
-              <div>
-                <button
-                  className="text-[#575859] hover:text-[#202021]"
-                  onClick={Dishinfo}
-                >
-                  Dish Details
-                </button>
-              </div>
-              <div>
-                <button
-                  className="text-[red] underline underline-offset-1 hover:text-[#d4000a]"
-                  onClick={DeleteDish}
-                >
-                  Delete Dish
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div
-          class="card"
-          className="w-[270px] bg-[#f0f1f5] hover:bg-[#ebeced] rounded-[20px]"
-        >
-          <img
-            src={soura}
-            class="card-img-top"
-            alt="el mafrod souret taba2 bs el 3andi baa"
-            className="px-4 py-6 my-6"
-          />
-          <div class="card-body">
-            <h5
-              class="card-title"
-              className="text-center text-[18px] mt-[-30px] pb-4 text-[#575859] underline underline-offset-1"
-            >
-              Taba2 mn el menu
-            </h5>
-            <p class="card-text" className="text-center pb-4 px-2.5 ">
-              {" "}
-              info el taba2 ...info el taba2 ... info el taba2 ... info el taba2
-              ... info el taba2 ..
-            </p>
-            <div className="flex flex-wrap gap-4 justify-center mb-4">
-              <div>
-                <button
-                  className="text-[#575859] hover:text-[#202021]"
-                  onClick={Dishinfo}
-                >
-                  Dish Details
-                </button>
-              </div>
-              <div>
-                <button
-                  className="text-[red] underline underline-offset-1 hover:text-[#d4000a]"
-                  onClick={DeleteDish}
-                >
-                  Delete Dish
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div
-          class="card"
-          className="w-[270px] bg-[#f0f1f5] hover:bg-[#ebeced] rounded-[20px]"
-        >
-          <img
-            src={soura}
-            class="card-img-top"
-            alt="el mafrod souret taba2 bs el 3andi baa"
-            className="px-4 py-6 my-6"
-          />
-          <div class="card-body">
-            <h5
-              class="card-title"
-              className="text-center text-[18px] mt-[-30px] pb-4 text-[#575859] underline underline-offset-1"
-            >
-              Taba2 mn el menu
-            </h5>
-            <p class="card-text" className="text-center pb-4 px-2.5 ">
-              {" "}
-              info el taba2 ...info el taba2 ... info el taba2 ... info el taba2
-              ... info el taba2 ..
-            </p>
-            <div className="flex flex-wrap gap-4 justify-center mb-4">
-              <div>
-                <button
-                  className="text-[#575859] hover:text-[#202021]"
-                  onClick={Dishinfo}
-                >
-                  Dish Details
-                </button>
-              </div>
-              <div>
-                <button
-                  className="text-[red] underline underline-offset-1 hover:text-[#d4000a]"
-                  onClick={DeleteDish}
-                >
-                  Delete Dish
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   );

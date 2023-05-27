@@ -19,6 +19,8 @@ import MenuSetUp from "./components/MenuSetUp";
 import CreateBrand from "./components/CreateBrand";
 import Suppliers from "./pages/Suppliers";
 import Stock from "./components/Stock";
+import Kitchenckm from "./components/Kitchensckm"
+import Customerdata from "./components/Customerdata";
 
 const user = localStorage.getItem("token");
 ReactDOM.render(
@@ -29,6 +31,8 @@ ReactDOM.render(
         <Route path="/login" element={<Loginpage />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/inventory" element={<Inventory />} />
+        <Route path="/ckmkitchens" element={<Kitchenckm />} />
+        <Route path="/customerdata" element={<Customerdata />} />
         {user &&<Route path="/supplier" element={<Supplier />} />}
         {user &&<Route path="/menusetup" element={<MenuSetUp />} />}
         {user &&<Route path="/createbrand" element={<CreateBrand />} />}
