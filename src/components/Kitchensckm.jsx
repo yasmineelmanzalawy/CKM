@@ -1,151 +1,1209 @@
-import React, { useState, useEffect } from "react";
-import { GiShoppingBag } from "react-icons/gi";
-import ShoppingCart from "./ShoppingCart";
+import React from 'react'
+import Swiper from 'swiper';
+import './Kitchensckm.css';
+import img1 from '../data/Image(1).png'
+import img2 from '../data/Image(2).png'
+import img3 from '../data/Image(3).png'
+import img4 from '../data/Image(4).png'
+import img5 from '../data/Image(5).png'
+import img6 from '../data/Image(6).png'
+import img8 from '../data/Image(8).png'
+import img9 from '../data/Image(9).png'
+import img10 from '../data/Image(10).png'
+import img11 from '../data/Image(11).png'
+import img7 from '../data/Image(7).png'
+import img22 from '../data/image22.png'
+import header from '../data/header.jpg'
 
+const Kitchensckm = () => {
 
-const products = [
-  {
-    id: 1,
-    name: "Vivamus vitae",
-    rating: 4.3,
-    description:
-      "Vivamus vitae neque accumsan, ultrices nisl et, viverra magna. Fusce nec maximus sem.",
-    price: 199,
-    image: require("../data/photo_5873190094939209046_y.jpg"),
-  },
-  {
-    id: 2,
-    name: "Fusce sit amet ipsum",
-    rating: 4.2,
-    description:
-      "Maecenas fermentum urna egestas urna ullamcorper sodales. Sed a enim imperdiet, tempus massa a, iaculis tellus.",
-    price: 229,
-    image: require("../data/photo_5873190094939209046_y.jpg"),
-  },
-  {
-    id: 3,
-    name: "Etiam volutpat aliquam",
-    rating: 3.2,
-    description:
-      "Praesent et orci vel nunc interdum aliquet et non dolor. Etiam eget finibus justo",
-    price: 99,
-    image: require("../data/photo_5873190094939209046_y.jpg"),
-  },
-  {
-    id: 4,
-    name: "Lorem ipsum dolor",
-    rating: 4.8,
-    description:
-      "Duis nibh sapien, placerat non nulla ac, suscipit laoreet tortor.",
-    price: 119,
-    image: require("../data/photo_5873190094939209046_y.jpg"),
-  },
-  {
-    id: 5,
-    name: "Ultrices nisl",
-    rating: 4.5,
-    description:
-      "Phasellus condimentum, ante et dictum placerat, nulla ipsum commodo lorem, ut mollis nibh turpis a metus.",
-    price: 85,
-    image: require("../data/photo_5873190094939209046_y.jpg"),
-  },
-  {
-    id: 6,
-    name: "Curabitur in elementum tortor",
-    rating: 3.8,
-    description:
-      " Mauris convallis diam nibh, non malesuada enim facilisis non. Etiam sapien augue, molestie a porta sed",
-    price: 149,
-    image: require("../data/photo_5873190094939209046_y.jpg"),
-  },
-];
+  var swiperContainers = document.querySelectorAll(".swiper");
 
-function Kitchen() {
-  const [cartsVisibilty, setCartVisible] = useState(false);
-  const [productsInCart, setProducts] = useState(
-    JSON.parse(localStorage.getItem("shopping-cart")) || []
-  );
-  useEffect(() => {
-    localStorage.setItem("shopping-cart", JSON.stringify(productsInCart));
-  }, [productsInCart]);
-  const addProductToCart = (product) => {
-    const newProduct = {
-      ...product,
-      count: 1,
-    };
-    setProducts([...productsInCart, newProduct]);
-  };
+  swiperContainers.forEach(function (container) {
+      var swiper = new Swiper(container, {
+          loop: true,
+          speed: 700,
+          pagination: {
+              el: container.querySelector(".swiper-pagination"),
+          },
+          scrollbar: {
+              el: container.querySelector(".swiper-scrollbar"),
+          },
+          navigation: {
+              nextEl: container.querySelector(".swiper-button-next"),
+              prevEl: container.querySelector(".swiper-button-prev"),
+          },
+          breakpoints: {
+              320: {
+                  slidesPerView: 2,
+                  spaceBetween: 20,
+              },
+              480: {
+                  slidesPerView: 2,
+                  spaceBetween: 20,
+              },
+              640: {
+                  slidesPerView: 5,
+                  spaceBetween: 10,
+              },
+          },
+      });
+  });
 
-  const onQuantityChange = (productId, count) => {
-    setProducts((oldState) => {
-      const productsIndex = oldState.findIndex((item) => item.id === productId);
-      if (productsIndex !== -1) {
-        oldState[productsIndex].count = count;
-      }
-      return [...oldState];
-    });
-  };
-
-  const onProductRemove = (product) => {
-    setProducts((oldState) => {
-      const productsIndex = oldState.findIndex(
-        (item) => item.id === product.id
-      );
-      if (productsIndex !== -1) {
-        oldState.splice(productsIndex, 1);
-      }
-      return [...oldState];
-    });
-  };
 
   return (
-    <div className="App">
-      <ShoppingCart
-        visibilty={cartsVisibilty}
-        products={productsInCart}
-        onClose={() => setCartVisible(false)}
-        onQuantityChange={onQuantityChange}
-        onProductRemove={onProductRemove}
-      />
-      <div className="py-4 px-4 mx-2 rounded flex flex-row-reverse flex-wrap gap-4 text-right bg-[#f2f4f5]">
-        <h3 className="logo">Kitchen Name And Logo</h3>
-        <button
-          className="btn shopping-cart-btn"
-          onClick={() => setCartVisible(true)}
-        >
-          <GiShoppingBag size={24} />
-          {productsInCart.length > 0 && (
-            <span className="product-count">{productsInCart.length}</span>
-          )}
-        </button>
-      </div>
-        <h2 className="mb-[-10px] mt-[10px] text-2xl font-bold tracking-tight text-gray-900 dark:text-white text-center">Products</h2>
-      <main>
-        <div className=" mx-[60px] mb-[50px]">
-            <div className=" flex flex-wrap gap-10 justify-center">
-          {products.map((product) => (
-            <div className=" max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 my-[50px] p-[10px]" key={product.id} >
-              <img
-                className="rounded"
-                src={product.image}
-                alt={product.image}
-              />
-              <h4 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{product.name}</h4>
+    <div>
+       <header>
+        <img src={img22} alt="" class="icon"/>
+        <h1>People who love to eat are always the best people.</h1>
+        <div class="ico">
 
-              <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{product.description}</p>
-              <span>{product.price}$</span>
-              <div>
-                <button className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" onClick={() => addProductToCart(product)}>
-                  Add to cart
-                </button>
-              </div>
+            <i class="fa-solid fa-cart-shopping"></i>
+            <button>Explore our Menu</button>
+            <div class="stgro">
+                <i class="fa-solid fa-star l"></i>
+                <i class="fa-solid fa-star l"></i>
+                <i class="fa-solid fa-star l"></i>
+                <i class="fa-solid fa-star l"></i>
+                <i class="fa-regular fa-star"></i>
             </div>
-          ))}
         </div>
+    </header>
+
+<main>
+        <h1 class="main-title">Best Seller</h1>
+        <div class="best">
+
+
+            <div class="card">
+
+                <img src={img1} alt="./image/Image(6).png" />
+                <p>Dessert </p>
+                <div class="pr">
+                    <p>250LE</p>
+                    <button>Order Now</button>
+                </div>
+            </div>
+            <div class="card">
+
+                <img src={img2} alt="./image/Image(2).png" />
+                <p>Dessert </p>
+                <div class="pr">
+                    <p>250LE</p>
+                    <button>Order Now</button>
+                </div>
+            </div>
+            <div class="card">
+
+                <img src={img3} alt="./image/Image(3).png" />
+                <p>Dessert </p>
+                <div class="pr">
+                    <p>250LE</p>
+                    <button>Order Now</button>
+                </div>
+            </div>
+            <div class="card">
+
+                <img src={img1} alt="./image/Image(1).png" />
+                <p>Dessert </p>
+                <div class="pr">
+                    <p>250LE</p>
+                    <button>Order Now</button>
+                </div>
+            </div>
         </div>
-      </main>
+
+
+    </main>
+    <main>
+        <h1 class="main-title">main dishes</h1>
+
+        <div class="swiper" className="background-color: transparent">
+            {/* <!-- Additional required wrapper --> */}
+            <div class="swiper-wrapper">
+                {/* <!-- Slides --> */}
+                <div class="swiper-slide">
+                    <div class="card">
+
+                        <img src={img1} alt="./image/Image(1).png" />
+                        <p>Dessert </p>
+                        <div class="pr">
+                            <p>250LE</p>
+                            <button>Order Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+
+                        <img src={img8} alt="./image/Image(8).png" />
+                        <p>Dessert </p>
+                        <div class="pr">
+                            <p>250LE</p>
+                            <button>Order Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+
+                        <img src={img7} alt="./image/Image(7).png" />
+                        <p>Dessert </p>
+                        <div class="pr">
+                            <p>250LE</p>
+                            <button>Order Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+
+                        <img src={img2} alt="./image/Image(2).png" />
+                        <p>Dessert </p>
+                        <div class="pr">
+                            <p>250LE</p>
+                            <button>Order Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+
+                        <img src={img3} alt="./image/Image(3).png" />
+                        <p>Dessert </p>
+                        <div class="pr">
+                            <p>250LE</p>
+                            <button>Order Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+
+                        <img src={img4} alt="./image/Image(4).png" />
+                        <p>Dessert </p>
+                        <div class="pr">
+                            <p>250LE</p>
+                            <button>Order Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+
+                        <img src={img5} alt="./image/Image(5).png" />
+                        <p>Dessert </p>
+                        <div class="pr">
+                            <p>250LE</p>
+                            <button>Order Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+
+                        <img src={img6} alt="./image/Image(6).png" />
+                        <p>Dessert </p>
+                        <div class="pr">
+                            <p>250LE</p>
+                            <button>Order Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+
+                        <img src={img7} alt="./image/Image(7).png" />
+                        <p>Dessert </p>
+                        <div class="pr">
+                            <p>250LE</p>
+                            <button>Order Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+
+                        <img src={img8} alt="./image/Image(8).png" />
+                        <p>Dessert </p>
+                        <div class="pr">
+                            <p>250LE</p>
+                            <button>Order Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+
+                        <img src={img10} alt="./image/Image(10).png" />
+                        <p>Dessert </p>
+                        <div class="pr">
+                            <p>250LE</p>
+                            <button>Order Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+
+                        <img src={img9} alt="./image/Image(9).png" />
+                        <p>Dessert </p>
+                        <div class="pr">
+                            <p>250LE</p>
+                            <button>Order Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-button-prev">
+
+                <i class="fa-solid fa-chevron-left le"></i>
+                <i class="fa-solid fa-chevron-left"></i>
+
+            </div>
+            <div class="swiper-button-next">
+                <i class="fa-solid fa-chevron-right"></i>
+                <i class="fa-solid fa-chevron-right ri"></i>
+
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </main>
+
+    <main>
+        <h1 class="main-title">pizza</h1>
+
+        <div class="swiper" className="background-color: transparent">
+            {/* <!-- Additional required wrapper --> */}
+            <div class="swiper-wrapper">
+                {/* <!-- Slides --> */}
+                <div class="swiper-slide">
+                    <div class="card">
+
+                        <img src={img1} alt="./image/Image(1).png" />
+                        <p>Dessert </p>
+                        <div class="pr">
+                            <p>250LE</p>
+                            <button>Order Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+
+                        <img src={img8} alt="./image/Image(8).png" />
+                        <p>Dessert </p>
+                        <div class="pr">
+                            <p>250LE</p>
+                            <button>Order Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+
+                        <img src={img7} alt="./image/Image(7).png" />
+                        <p>Dessert </p>
+                        <div class="pr">
+                            <p>250LE</p>
+                            <button>Order Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+
+                        <img src={img2} alt="./image/Image(2).png" />
+                        <p>Dessert </p>
+                        <div class="pr">
+                            <p>250LE</p>
+                            <button>Order Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+
+                        <img src={img3} alt="./image/Image(3).png" />
+                        <p>Dessert </p>
+                        <div class="pr">
+                            <p>250LE</p>
+                            <button>Order Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+
+                        <img src={img4} alt="./image/Image(4).png" />
+                        <p>Dessert </p>
+                        <div class="pr">
+                            <p>250LE</p>
+                            <button>Order Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+
+                        <img src={img5} alt="./image/Image(5).png" />
+                        <p>Dessert </p>
+                        <div class="pr">
+                            <p>250LE</p>
+                            <button>Order Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+
+                        <img src={img6} alt="./image/Image(6).png" />
+                        <p>Dessert </p>
+                        <div class="pr">
+                            <p>250LE</p>
+                            <button>Order Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+
+                        <img src={img7} alt="./image/Image(7).png" />
+                        <p>Dessert </p>
+                        <div class="pr">
+                            <p>250LE</p>
+                            <button>Order Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+
+                        <img src={img8} alt="./image/Image(8).png" />
+                        <p>Dessert </p>
+                        <div class="pr">
+                            <p>250LE</p>
+                            <button>Order Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+
+                        <img src={img10} alt="./image/Image(10).png" />
+                        <p>Dessert </p>
+                        <div class="pr">
+                            <p>250LE</p>
+                            <button>Order Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+
+                        <img src={img9} alt="./image/Image(9).png" />
+                        <p>Dessert </p>
+                        <div class="pr">
+                            <p>250LE</p>
+                            <button>Order Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-button-prev">
+
+                <i class="fa-solid fa-chevron-left le"></i>
+                <i class="fa-solid fa-chevron-left"></i>
+
+            </div>
+            <div class="swiper-button-next">
+                <i class="fa-solid fa-chevron-right"></i>
+                <i class="fa-solid fa-chevron-right ri"></i>
+
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </main>
+
+    <main>
+        <h1 class="main-title">pasta</h1>
+
+        <div class="swiper" className="background-color: transparent">
+            {/* <!-- Additional required wrapper --> */}
+            <div class="swiper-wrapper">
+                {/* <!-- Slides --> */}
+                <div class="swiper-slide">
+                    <div class="card">
+
+                        <img src={img1} alt="./image/Image(1).png" />
+                        <p>Dessert </p>
+                        <div class="pr">
+                            <p>250LE</p>
+                            <button>Order Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+
+                        <img src={img8} alt="./image/Image(8).png" />
+                        <p>Dessert </p>
+                        <div class="pr">
+                            <p>250LE</p>
+                            <button>Order Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+
+                        <img src={img7} alt="./image/Image(7).png" />
+                        <p>Dessert </p>
+                        <div class="pr">
+                            <p>250LE</p>
+                            <button>Order Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+
+                        <img src={img2} alt="./image/Image(2).png" />
+                        <p>Dessert </p>
+                        <div class="pr">
+                            <p>250LE</p>
+                            <button>Order Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+
+                        <img src={img3} alt="./image/Image(3).png" />
+                        <p>Dessert </p>
+                        <div class="pr">
+                            <p>250LE</p>
+                            <button>Order Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+
+                        <img src={img4} alt="./image/Image(4).png" />
+                        <p>Dessert </p>
+                        <div class="pr">
+                            <p>250LE</p>
+                            <button>Order Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+
+                        <img src={img5} alt="./image/Image(5).png" />
+                        <p>Dessert </p>
+                        <div class="pr">
+                            <p>250LE</p>
+                            <button>Order Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+
+                        <img src={img6} alt="./image/Image(6).png" />
+                        <p>Dessert </p>
+                        <div class="pr">
+                            <p>250LE</p>
+                            <button>Order Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+
+                        <img src={img7} alt="./image/Image(7).png" />
+                        <p>Dessert </p>
+                        <div class="pr">
+                            <p>250LE</p>
+                            <button>Order Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+
+                        <img src={img8} alt="./image/Image(8).png" />
+                        <p>Dessert </p>
+                        <div class="pr">
+                            <p>250LE</p>
+                            <button>Order Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+
+                        <img src={img10} alt="./image/Image(10).png" />
+                        <p>Dessert </p>
+                        <div class="pr">
+                            <p>250LE</p>
+                            <button>Order Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+
+                        <img src={img9} alt="./image/Image(9).png" />
+                        <p>Dessert </p>
+                        <div class="pr">
+                            <p>250LE</p>
+                            <button>Order Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-button-prev">
+
+                <i class="fa-solid fa-chevron-left le"></i>
+                <i class="fa-solid fa-chevron-left"></i>
+
+            </div>
+            <div class="swiper-button-next">
+                <i class="fa-solid fa-chevron-right"></i>
+                <i class="fa-solid fa-chevron-right ri"></i>
+
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </main>
+
+
+    <main>
+        <h1 class="main-title">sandwiches</h1>
+
+        <div class="swiper" className="background-color: transparent">
+            {/* <!-- Additional required wrapper --> */}
+            <div class="swiper-wrapper">
+                {/* <!-- Slides --> */}
+                <div class="swiper-slide">
+                    <div class="card">
+
+                        <img src={img1} alt="./image/Image(1).png" />
+                        <p>Dessert </p>
+                        <div class="pr">
+                            <p>250LE</p>
+                            <button>Order Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+
+                        <img src={img8} alt="./image/Image(8).png" />
+                        <p>Dessert </p>
+                        <div class="pr">
+                            <p>250LE</p>
+                            <button>Order Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+
+                        <img src={img7} alt="./image/Image(7).png" />
+                        <p>Dessert </p>
+                        <div class="pr">
+                            <p>250LE</p>
+                            <button>Order Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+
+                        <img src={img2} alt="./image/Image(2).png" />
+                        <p>Dessert </p>
+                        <div class="pr">
+                            <p>250LE</p>
+                            <button>Order Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+
+                        <img src={img3} alt="./image/Image(3).png" />
+                        <p>Dessert </p>
+                        <div class="pr">
+                            <p>250LE</p>
+                            <button>Order Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+
+                        <img src={img4} alt="./image/Image(4).png" />
+                        <p>Dessert </p>
+                        <div class="pr">
+                            <p>250LE</p>
+                            <button>Order Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+
+                        <img src={img5} alt="./image/Image(5).png" />
+                        <p>Dessert </p>
+                        <div class="pr">
+                            <p>250LE</p>
+                            <button>Order Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+
+                        <img src="./image/Image(6).png" alt="./image/Image(6).png" />
+                        <p>Dessert </p>
+                        <div class="pr">
+                            <p>250LE</p>
+                            <button>Order Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+
+                        <img src={img7} alt="./image/Image(7).png" />
+                        <p>Dessert </p>
+                        <div class="pr">
+                            <p>250LE</p>
+                            <button>Order Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+
+                        <img src={img8} alt="./image/Image(8).png" />
+                        <p>Dessert </p>
+                        <div class="pr">
+                            <p>250LE</p>
+                            <button>Order Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+
+                        <img src={img10} alt="./image/Image(10).png" />
+                        <p>Dessert </p>
+                        <div class="pr">
+                            <p>250LE</p>
+                            <button>Order Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+
+                        <img src={img9} alt="./image/Image(9).png" />
+                        <p>Dessert </p>
+                        <div class="pr">
+                            <p>250LE</p>
+                            <button>Order Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-button-prev">
+
+                <i class="fa-solid fa-chevron-left le"></i>
+                <i class="fa-solid fa-chevron-left"></i>
+
+            </div>
+            <div class="swiper-button-next">
+                <i class="fa-solid fa-chevron-right"></i>
+                <i class="fa-solid fa-chevron-right ri"></i>
+
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </main>
+
+    <main>
+        <h1 class="main-title">destert</h1>
+
+        <div class="swiper" className="background-color: transparent">
+            {/* <!-- Additional required wrapper --> */}
+            <div class="swiper-wrapper">
+                {/* <!-- Slides --> */}
+                <div class="swiper-slide">
+                    <div class="card">
+
+                        <img src={img1} alt="./image/Image(1).png" />
+                        <p>Dessert </p>
+                        <div class="pr">
+                            <p>250LE</p>
+                            <button>Order Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+
+                        <img src={img8} alt="./image/Image(8).png" />
+                        <p>Dessert </p>
+                        <div class="pr">
+                            <p>250LE</p>
+                            <button>Order Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+
+                        <img src={img7} alt="./image/Image(7).png" />
+                        <p>Dessert </p>
+                        <div class="pr">
+                            <p>250LE</p>
+                            <button>Order Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+
+                        <img src={img2} alt="./image/Image(2).png" />
+                        <p>Dessert </p>
+                        <div class="pr">
+                            <p>250LE</p>
+                            <button>Order Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+
+                        <img src={img3} alt="./image/Image(3).png" />
+                        <p>Dessert </p>
+                        <div class="pr">
+                            <p>250LE</p>
+                            <button>Order Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+
+                        <img src={img4} alt="./image/Image(4).png" />
+                        <p>Dessert </p>
+                        <div class="pr">
+                            <p>250LE</p>
+                            <button>Order Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+
+                        <img src={img5} alt="./image/Image(5).png" />
+                        <p>Dessert </p>
+                        <div class="pr">
+                            <p>250LE</p>
+                            <button>Order Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+
+                        <img src={img6} alt="./image/Image(6).png" />
+                        <p>Dessert </p>
+                        <div class="pr">
+                            <p>250LE</p>
+                            <button>Order Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+
+                        <img src={img7} alt="./image/Image(7).png" />
+                        <p>Dessert </p>
+                        <div class="pr">
+                            <p>250LE</p>
+                            <button>Order Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+
+                        <img src={img8} alt="./image/Image(8).png" />
+                        <p>Dessert </p>
+                        <div class="pr">
+                            <p>250LE</p>
+                            <button>Order Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+
+                        <img src={img10} alt="./image/Image(10).png" />
+                        <p>Dessert </p>
+                        <div class="pr">
+                            <p>250LE</p>
+                            <button>Order Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+
+                        <img src={img9} alt="./image/Image(9).png" />
+                        <p>Dessert </p>
+                        <div class="pr">
+                            <p>250LE</p>
+                            <button>Order Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-button-prev">
+
+                <i class="fa-solid fa-chevron-left le"></i>
+                <i class="fa-solid fa-chevron-left"></i>
+
+            </div>
+            <div class="swiper-button-next">
+                <i class="fa-solid fa-chevron-right"></i>
+                <i class="fa-solid fa-chevron-right ri"></i>
+
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </main>
+
+    <main>
+        <h1 class="main-title">hot drinks</h1>
+
+        <div  className="background-color: transparent">{Swiper}
+            {/* <!-- Additional required wrapper --> */}
+            <div class="swiper-wrapper">
+                {/* <!-- Slides --> */}
+                <div class="swiper-slide">
+                    <div class="card">
+
+                        <img src={img1} alt="./image/Image(1).png" />
+                        <p>Dessert </p>
+                        <div class="pr">
+                            <p>250LE</p>
+                            <button>Order Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+
+                        <img src={img8} alt="./image/Image(8).png" />
+                        <p>Dessert </p>
+                        <div class="pr">
+                            <p>250LE</p>
+                            <button>Order Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+
+                        <img src={img7} alt="./image/Image(7).png" />
+                        <p>Dessert </p>
+                        <div class="pr">
+                            <p>250LE</p>
+                            <button>Order Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+
+                        <img src={img2} alt="./image/Image(2).png" />
+                        <p>Dessert </p>
+                        <div class="pr">
+                            <p>250LE</p>
+                            <button>Order Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+
+                        <img src={img3} alt="./image/Image(3).png" />
+                        <p>Dessert </p>
+                        <div class="pr">
+                            <p>250LE</p>
+                            <button>Order Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+
+                        <img src={img4} alt="./image/Image(4).png" />
+                        <p>Dessert </p>
+                        <div class="pr">
+                            <p>250LE</p>
+                            <button>Order Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+
+                        <img src={img5} alt="./image/Image(5).png" />
+                        <p>Dessert </p>
+                        <div class="pr">
+                            <p>250LE</p>
+                            <button>Order Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+
+                        <img src={img6} alt="./image/Image(6).png" />
+                        <p>Dessert </p>
+                        <div class="pr">
+                            <p>250LE</p>
+                            <button>Order Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+
+                        <img src={img7} alt="./image/Image(7).png" />
+                        <p>Dessert </p>
+                        <div class="pr">
+                            <p>250LE</p>
+                            <button>Order Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+
+                        <img src={img8} alt="./image/Image(8).png" />
+                        <p>Dessert </p>
+                        <div class="pr">
+                            <p>250LE</p>
+                            <button>Order Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+
+                        <img src={img10} alt="./image/Image(10).png" />
+                        <p>Dessert </p>
+                        <div class="pr">
+                            <p>250LE</p>
+                            <button>Order Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+
+                        <img src={img9} alt="./image/Image(9).png" />
+                        <p>Dessert </p>
+                        <div class="pr">
+                            <p>250LE</p>
+                            <button>Order Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-button-prev">
+
+                <i class="fa-solid fa-chevron-left le"></i>
+                <i class="fa-solid fa-chevron-left"></i>
+
+            </div>
+            <div class="swiper-button-next">
+                <i class="fa-solid fa-chevron-right"></i>
+                <i class="fa-solid fa-chevron-right ri"></i>
+
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </main>
+    <main>
+        <h1 class="main-title">Gold drinks</h1>
+
+        <div class="swiper" className="background-color: transparent">
+            {/* <!-- Additional required wrapper --> */}
+            <div class="swiper-wrapper">
+                {/* <!-- Slides --> */}
+                <div class="swiper-slide">
+                    <div class="card">
+
+                        <img src={img1} alt="./image/Image(1).png" />
+                        <p>Dessert </p>
+                        <div class="pr">
+                            <p>250LE</p>
+                            <button>Order Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+
+                        <img src={img8} alt="./image/Image(8).png" />
+                        <p>Dessert </p>
+                        <div class="pr">
+                            <p>250LE</p>
+                            <button>Order Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+
+                        <img src={img7} alt="./image/Image(7).png" />
+                        <p>Dessert </p>
+                        <div class="pr">
+                            <p>250LE</p>
+                            <button>Order Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+
+                        <img src={img2} alt="./image/Image(2).png" />
+                        <p>Dessert </p>
+                        <div class="pr">
+                            <p>250LE</p>
+                            <button>Order Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+
+                        <img src={img3} alt="./image/Image(3).png" />
+                        <p>Dessert </p>
+                        <div class="pr">
+                            <p>250LE</p>
+                            <button>Order Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+
+                        <img src={img4} alt="./image/Image(4).png" />
+                        <p>Dessert </p>
+                        <div class="pr">
+                            <p>250LE</p>
+                            <button>Order Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+
+                        <img src={img5} alt="./image/Image(5).png" />
+                        <p>Dessert </p>
+                        <div class="pr">
+                            <p>250LE</p>
+                            <button>Order Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+
+                        <img src={img6} alt="./image/Image(6).png" />
+                        <p>Dessert </p>
+                        <div class="pr">
+                            <p>250LE</p>
+                            <button>Order Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+
+                        <img src={img7} alt="./image/Image(7).png" />
+                        <p>Dessert </p>
+                        <div class="pr">
+                            <p>250LE</p>
+                            <button>Order Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+
+                        <img src={img8} alt="./image/Image(8).png" />
+                        <p>Dessert </p>
+                        <div class="pr">
+                            <p>250LE</p>
+                            <button>Order Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+
+                        <img src={img10} alt="./image/Image(10).png" />
+                        <p>Dessert </p>
+                        <div class="pr">
+                            <p>250LE</p>
+                            <button>Order Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="card">
+
+                        <img src={img9} alt="./image/Image(9).png" />
+                        <p>Dessert </p>
+                        <div class="pr">
+                            <p>250LE</p>
+                            <button>Order Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-button-prev">
+
+                <i class="fa-solid fa-chevron-left le"></i>
+                <i class="fa-solid fa-chevron-left"></i>
+
+            </div>
+            <div class="swiper-button-next">
+                <i class="fa-solid fa-chevron-right"></i>
+                <i class="fa-solid fa-chevron-right ri"></i>
+
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </main>
+
+    
+   
     </div>
-  );
+  )
 }
 
-export default Kitchen;
+export default Kitchensckm
