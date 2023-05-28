@@ -21,7 +21,7 @@ const Kitchensckm = () => {
 
   swiperContainers.forEach(function (container) {
       var swiper = new Swiper(container, {
-          loop: true,
+          loop: false,
           speed: 700,
           pagination: {
               el: container.querySelector(".swiper-pagination"),
