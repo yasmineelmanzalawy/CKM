@@ -118,6 +118,8 @@ const Kitchensckm = () => {
     <main>
         <h1 class="main-title">main dishes</h1>
 
+        
+
         <div class="swiper" className="background-color: transparent">
             {/* <!-- Additional required wrapper --> */}
             <div class="swiper-wrapper">
@@ -1050,6 +1052,9 @@ const Kitchensckm = () => {
 
         <div class="swiper" className="background-color: transparent">
             {/* <!-- Additional required wrapper --> */}
+            
+
+            
             <div class="swiper-wrapper">
                 {/* <!-- Slides --> */}
                 <div class="swiper-slide">
