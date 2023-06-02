@@ -2,34 +2,33 @@ import React from 'react'
 import { useNavigate } from 'react-router';
 import axios from '../axios.config';
 import { useState } from 'react';
+import { toast } from 'react-hot-toast';
 const Employee = () => {
     const navigate = useNavigate()
     const initialState = {
-        address: "",
+        role: "",
         name: "",
-        email: "",
-        category: "",
+        sallery: "",
+        address: "",
         phone: "",
-        notes: "",
+        email: "",
       }
       const [data, setData] = useState(initialState);
       const [error,setError] = useState();
-    const handleSubmit = async (e) => {
+      const sucessful = () => toast.success('Successfully Added!')
+      const handleSubmit = async (e) => {
         e.preventDefault();
-        try {
-          const url = "";
-          const { data: res } = await axios.post(url, data);
-          navigate("/menusetup");
-          console.log(res.message);
-        } catch (error) {
-          if (
-            error.response &&
-            error.response.status >= 400 &&
-            error.response.status <= 500
-          ) {
-            setError(error.response.data.message);
-          }
-        }
+        const url = "api/Staff";
+        axios
+          .post(url, data)
+          .then((data) => {
+            console.log(data.data);
+            sucessful()
+            setData(initialState)
+          })
+          .catch((error) => {
+            console.log(error);
+          });
       };
   return (
     <div className="h-screen flex justify-center items-center bg-gray-100 ">
@@ -56,7 +55,7 @@ const Employee = () => {
             </label>
             <input
               
-              
+              value={data.name}
               name="name"
               type="text"
               className=" bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -68,15 +67,15 @@ const Employee = () => {
             <label
               className="block mb-2 text-lg font-medium text-gray-900 dark:text-white"
             >
-              Address
+              Employee Address
             </label>
             <input
               
-              
+              value={data.address}
               name="Address"
               type="text"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              placeholder="Address"
+              placeholder="Employee Address"
               required
             />
           </div>
@@ -88,9 +87,9 @@ const Employee = () => {
             </label>
             <input
               
-              
-              name="email"
-              type="email"
+              value={data.role}
+              name="role"
+              type="text"
               id="Inventory Categories"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               placeholder="Role"
@@ -104,8 +103,9 @@ const Employee = () => {
                 Phone
             </label>
             <input
+            value={data.phone}
               type='number'
-              name="category"
+              name="phone"
               placeholder='Phone Number'
               className="bg-gray-50 px-6 border border-gray-300 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             />
@@ -115,12 +115,12 @@ const Employee = () => {
             <label
               className="block mb-2 text-lg font-medium text-gray-900 dark:text-white"
             >
-              Employment Date
+              Email
             </label>
             <input
-              
-              name="date"
-              type="tel"
+              value={data.email}
+              name="email"
+              type="email"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               placeholder="Employment Date"
               required
@@ -133,8 +133,8 @@ const Employee = () => {
               Salary
             </label>
             <input
-              
-              name="notes"
+              value={data.sallery}
+              name="sallery"
               type="Number"
               id="Inventory Categories"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"

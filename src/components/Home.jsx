@@ -35,12 +35,20 @@ function Home() {
             Reviews
           </li>
         </ul>
+     <div className=" flex  gap-4">
+     <a
+          href="/register"
+          className=" bg-indigo-800 font-russo text-white rounded p-2 px-6"
+        >
+          Sign up
+        </a>
         <a
           href="/login"
           className=" bg-indigo-800 font-russo text-white rounded p-2 px-6"
         >
-          Login
+          login
         </a>
+     </div>
       </div>
       {/* Hero Section */}
       <div className="flex max-w-[1240px] mx-auto px-4 pt-10">

@@ -16,6 +16,7 @@ const Register = () => {
           <button onClick={()=>{
             setclient(true);
             setowner(false);
+            localStorage.setItem("role","customer")
           }} className="py-20 px-6 rounded-3xl border-4  cursor-pointer hover:bg-gray-300 hover:scale-105 duration-300 ease-out  focus:border-black ">
             <div className="flex justify-center pb-4">
               <ImUser size={20} />
@@ -29,6 +30,7 @@ const Register = () => {
           onClick={()=>{
             setclient(false);
             setowner(true);
+            localStorage.setItem("role","owner")
           }}
           className="py-20 px-28 rounded-3xl border-4 cursor-pointer hover:bg-gray-300 hover:scale-105 duration-300 ease-out focus:border-black ">
             <div className="flex justify-center pb-4">

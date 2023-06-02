@@ -31,6 +31,7 @@ const Supplier = () => {
       })
       .catch((error) => {
         console.log(error);
+        setError(error)
       });
   };
   return (

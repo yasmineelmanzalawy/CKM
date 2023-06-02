@@ -5,10 +5,11 @@ import sign from "../data/sign.png";
 
 const Signup = () => {
   const [data, setData] = useState({
-    firstName: "",
-    lastName: "",
+    name:"",
     email: "",
     password: "",
+    phone :"",
+    role : "", 
   });
   const [error, setError] = useState();
   const navigate = useNavigate();
@@ -30,6 +31,7 @@ const Signup = () => {
           window.location.reload();
           console.log(data.data);
           console.log(data.data.token);
+          localStorage.removeItem("role")
         })
         .catch((error) => {
           if (
@@ -47,7 +49,7 @@ const Signup = () => {
       <span className="main-text p-10 font-russo text-[74px] text-gradient-to-r from-[#5A38FD]">
         CKM
       </span>
-      <div className="my-[45px] flex justify-center">
+      <div className="flex justify-center">
         <div className="w-0 md:w-0 lg:w-[500px]">
           <img src={sign} alt="" />
         </div>
@@ -85,6 +87,20 @@ const Signup = () => {
               value={data.password}
               required
               className="text-center display: block border-[3px] border-[#0C147A] my-[20px] mx-auto rounded-[10px] h-[50px] w-[250px]"
+            />
+            <h1 className="text-center mb-[-20px] text-[#0C147A]">phone</h1>
+            <input
+              value={data.phone}
+              type="number"
+              onChange={handleChange}
+              placeholder="phone"
+              name="phone"
+              required
+              className="text-center display: block border-[3px] border-[#0C147A] my-[20px] mx-auto rounded-[10px] h-[50px] w-[250px]"
+            />
+            <input
+              value={data.role = localStorage.getItem("role")}
+              className="hidden"
             />
             {error && <div className="">{error}</div>}
             <button type="submit" className="display: block mx-auto rounded-[10px] h-[40px] w-[100px] bg-[#0C147A] text-white mt-[20px] my-[20px] text-center">Sign Up</button>
