@@ -6,10 +6,11 @@ import { Link, useNavigate } from "react-router-dom";
 const CreateBrand = () => {
   const [data, setData] = useState({
     name: "",
-    logo: "",
+    logo:"",
     cuisine: "",
     description:"",
-    cover: ""
+    cover:"",
+    user_id:""
   });
   const [error, setError] = useState("");
   const navigate = useNavigate();
@@ -62,10 +63,8 @@ const CreateBrand = () => {
 
               <input
                 type="file"
-                alt="logo"
-                id="img"
                 name="logo"
-                accept="image/*"
+                accept=".png, .jpg, .jpeg"
                 onChange={handleChange}
                 value={data.logo}
                 className="text-center w-[400px] my-[20px] bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -112,14 +111,13 @@ const CreateBrand = () => {
               </label>
               <input
                 type="file"
-                alt="logo"
-                id="img"
-                name="logo"
-                accept="image/*"
+                name="cover"
                 onChange={handleChange}
+                accept=".png, .jpg, .jpeg"
                 value={data.cover}
                 className="text-center w-[400px] my-[20px] bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               />
+              <input className="hidden" value={data.user_id = localStorage.getItem("id")} />
             </div>
             <div className="flex justify-center mt-6">
               

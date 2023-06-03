@@ -26,6 +26,7 @@ const Signup = () => {
       axios
         .post(url, data)
         .then((data) => {
+          localStorage.setItem("id",data.data.user.id);
           localStorage.setItem("token", data.data.token);
           navigate("/createbrand");
           window.location.reload();

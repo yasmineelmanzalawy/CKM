@@ -8,7 +8,7 @@ import Header from "./Header";
 const Loginpage = (props) => {
   
   const navigate = useNavigate();
-  const [data, setData] = useState({ email: "", password: "" });
+  const [data, setData] = useState({ email: "", password: ""});
   const [error, setError] = useState("");
   const setUserData = useUserStore((state) => state.setUserData)
   const handleChange = ({ currentTarget: input }) => {
@@ -26,6 +26,7 @@ const Loginpage = (props) => {
           .post(url, data)
           .then((data) => {
             localStorage.setItem("token", data.data.token);
+            localStorage.setItem("id",data.data.user.id)
             navigate("/controlunit");
             console.log(data.data);
             console.log(data.data.token);
