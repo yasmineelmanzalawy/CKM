@@ -3,6 +3,7 @@ module.exports = {
     darkMode: 'class',
     theme: {
       fontFamily: {
+        'russo':['Russo One','sans-serif'],
         'jarkata':['Plus Jakarta Sans','sans serif'],
         display: ['Open Sans', 'sans-serif'],
         body: ['Open Sans', 'sans-serif'],

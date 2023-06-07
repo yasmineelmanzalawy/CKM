@@ -10,7 +10,7 @@ const CreateBrand = () => {
     cuisine: "",
     description:"",
     cover:"",
-    user_id:""
+    user_id:"",
   });
   const [error, setError] = useState("");
   const navigate = useNavigate();
@@ -25,7 +25,8 @@ const CreateBrand = () => {
       .post(url, data)
       .then((data) => {
         navigate("/supplier");
-        console.log(data.data);
+        console.log(data);
+        localStorage.setItem("brand_id", data.data.data.id)
       })
       .catch((error) => {
         console.log(error);
@@ -56,7 +57,7 @@ const CreateBrand = () => {
                 required
               />
             </div>
-            <div>
+            {/* <div>
               <label className="text-center block mb-2 text-lg font-medium text-gray-900 dark:text-white">
                 Logo
               </label>
@@ -69,7 +70,7 @@ const CreateBrand = () => {
                 value={data.logo}
                 className="text-center w-[400px] my-[20px] bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               />
-            </div>
+            </div> */}
             <div>
               <label className="text-center dark:text-white block text-lg font-medium text-gray-900 ">
                 Cuisine

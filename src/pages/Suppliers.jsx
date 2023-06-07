@@ -8,25 +8,16 @@ function Supplier() {
   const url = "api/Supplier";
   const [supplier, setsupplier] = useState([]);
   const [suppliers,setsuppliers] = useState([])
-  const fetchSuppliers = async () =>{
-    const res = await axios.get(url);
-    loading()
-    setsuppliers(res.data)
-  }
-  useEffect(()=>{
-    fetchSuppliers();
-  },[])
-  
-  
   
   useEffect(() => {
     const getsupplier = async () => {
-      const { data } = await axios.get(url);
-      setsupplier(data);
+      const data  = await axios.get(url);
+      console.log(data)
+      console.log(supplier);
+      setsupplier(data.data.data);
     };
     getsupplier();
   }, []);
-  console.log(supplier);
   const loading = () => toast('Welcome Back', {
     icon: '👋',
   });
@@ -82,12 +73,6 @@ function Supplier() {
                     scope="col"
                     className="px-6 py-3 text-xs font-bold text-left text-black uppercase bg-[#ebeced] "
                   >
-                    Category
-                  </th>
-                  <th
-                    scope="col"
-                    className="px-6 py-3 text-xs font-bold text-left text-black uppercase bg-[#ebeced] "
-                  >
                     phone
                   </th>
                   <th
@@ -126,9 +111,7 @@ function Supplier() {
                       <td className="px-6 dark:text-white py-4 text-sm font-medium text-gray-800 whitespace-nowrap">
                         {x.address}
                       </td>
-                      <td className="px-6 dark:text-white py-4 text-sm font-medium text-gray-800 whitespace-nowrap">
-                        {x.category}
-                      </td>
+                      
                       <td className="px-6 dark:text-white py-4 text-sm font-medium text-gray-800 whitespace-nowrap">
                         {x.phone}
                       </td>

@@ -1,11 +1,7 @@
 import React from "react";
 import { TypeAnimation } from "react-type-animation";
 import information1 from "../data/Cloud-Kitchen-Market-Size-2021-to-2030.jpg";
-import { TiTickOutline } from "react-icons/ti";
 import banner1 from "../data/image 1.svg";
-import partner1 from "../data/Talabat_logo.svg";
-import partner2 from "../data/Uber_Eats_2020_logo.svg";
-import partner3 from "../data/Mrsool-01.svg";
 function Home() {
   return (
     // **** Navbar ******

@@ -1,8 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { AiOutlineDelete, AiFillEdit } from "react-icons/ai";
-
+import { useEffect , useState } from "react";
+import axios from "../axios.config";
 const Stock = () => {
+  
+  // const [staff,setStaff] = useState()
+  // useEffect(() => {
+  //   const getsupplier = async () => {
+  //     const url = ""
+  //     const data  = await axios.get(url);
+  //     console.log(data)
+  //     console.log(staff);
+  //     setStaff(data.data.data);
+  //   };
+  //   getsupplier();
+  // }, []);
   return (
     <div className="flex flex-col">
       <div className=" text-center pb-10">

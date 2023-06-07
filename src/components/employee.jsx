@@ -12,10 +12,14 @@ const Employee = () => {
         address: "",
         phone: "",
         email: "",
+        brand_id:"",
       }
       const [data, setData] = useState(initialState);
       const [error,setError] = useState();
       const sucessful = () => toast.success('Successfully Added!')
+      const handleChange = ({ currentTarget: input }) => {
+        setData({ ...data, [input.name]: input.value });
+      };
       const handleSubmit = async (e) => {
         e.preventDefault();
         const url = "api/Staff";
@@ -31,7 +35,7 @@ const Employee = () => {
           });
       };
   return (
-    <div className="h-screen flex justify-center items-center bg-gray-100 ">
+    <div className="h-screen flex justify-center font-russo items-center bg-gray-100 ">
       <div>
       </div>
       <form
@@ -51,15 +55,16 @@ const Employee = () => {
             htmlFor=""
               className="block mb-2 text-lg font-medium text-gray-900 dark:text-white"
             >
-              Employee Name
+              Name
             </label>
             <input
               
               value={data.name}
+              onChange={handleChange}
               name="name"
               type="text"
               className=" bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              placeholder="Employee Name"
+              placeholder="name"
               required
             />
           </div>
@@ -72,7 +77,8 @@ const Employee = () => {
             <input
               
               value={data.address}
-              name="Address"
+              onChange={handleChange}
+              name="address"
               type="text"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               placeholder="Employee Address"
@@ -86,7 +92,7 @@ const Employee = () => {
               Role
             </label>
             <input
-              
+              onChange={handleChange}
               value={data.role}
               name="role"
               type="text"
@@ -105,6 +111,7 @@ const Employee = () => {
             <input
             value={data.phone}
               type='number'
+              onChange={handleChange}
               name="phone"
               placeholder='Phone Number'
               className="bg-gray-50 px-6 border border-gray-300 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -120,9 +127,10 @@ const Employee = () => {
             <input
               value={data.email}
               name="email"
+              onChange={handleChange}
               type="email"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              placeholder="Employment Date"
+              placeholder="Email"
               required
             />
           </div>
@@ -135,12 +143,14 @@ const Employee = () => {
             <input
               value={data.sallery}
               name="sallery"
+              onChange={handleChange}
               type="Number"
               id="Inventory Categories"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              placeholder="Enter Your Note"
+              placeholder="Salary"
               required
             />
+            <input className='hidden' value={data.brand_id=localStorage.getItem("brand_id")} />
           </div>
         </div>
         <div className="flex justify-between">

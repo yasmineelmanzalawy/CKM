@@ -13,6 +13,7 @@ const Supplier = () => {
     category: "",
     phone: "",
     notes: "",
+    brand_id:""
   }
   const [data, setData] = useState(initialState);
   const handleChange = ({ currentTarget: input }) => {
@@ -35,7 +36,7 @@ const Supplier = () => {
       });
   };
   return (
-    <div className="h-screen flex justify-center items-center bg-gray-100 ">
+    <div className="h-screen font-russo flex justify-center items-center bg-gray-100 ">
       <div>
       </div>
       <form
@@ -153,6 +154,7 @@ const Supplier = () => {
               placeholder="Enter Your Note"
               required
             />
+            <input value={data.brand_id = localStorage.getItem("brand_id")} className="hidden" />
           </div>
         </div>
         <div className="flex justify-between">
