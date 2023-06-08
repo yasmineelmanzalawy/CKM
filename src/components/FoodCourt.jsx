@@ -1,117 +1,82 @@
 import React from 'react'
-import './FoodCourt.css'
+// import './FoodCourt.css'
 import pexel from '../data/pexels-chan-walrus-958545.jpg'
+import { Link , useNavigate } from "react-router-dom";
 import restaurant from '../data/restaurant.png'
 import search from '../data/search-interface-symbol.png'
 
 
 const FoodCourt = () => {
   return (
-    <div>
+    <div className='bg-[#edded1] h-full'>
 
-<div class="topnav">
-        <p>CKM
-        <h1>food court</h1>
-        </p>
-        <div><img src={search} class="img1" width="10px" height="10px" alt=""/><input type="search"
-                name="" id=""/></div>
+<div className='p-8'>
+        <p className='text-[40px] mt-[-15px] text-[#794101]'>CKM </p>
+        <h1 className='pl-24 mt-[-20px] text-[30px]'>Food Court</h1>
+        <h1 className='text-center mt-[-18px] mb-[-15px]'>Trusted By <span className='text-[#794101]'>120</span> Restaurants</h1>
+       
     </div>
-    <div>
-        <h1>TRUSTED BY 120 restaurant</h1>
-    </div>
-    <div class="all_section">
-        <div class="contaner1">
-            <div class="img_container"> 
-                <img src={restaurant} class="img3" alt=""/>
-                {/* <img src={pexel} class="img2"
-                width="100%" height="100%" alt=""/> */}
-            </div>
-            <div class="discription" id="discription1">
-                <div>
-                    <p>kitchen name</p>
-                    <p>kitchen description</p>
-                    <p>notes</p>
+    <div className='p-6 flex flex-wrap justify-center rounded'>
+            <div className='grid grid-cols-2 gap-4 w-[1000px] bg-[#d9c6b8] block'>
+                <div className='m-auto'>    
+                    
+                    <Link to="/ckmkitchens"><button className='rounded w-[300px] align-center bg-[#735443] m-2 mt-2 hover:bg-[#6b2f0a] text-[#edded1] hover:text-white py-2 drop-shadow-2xl' >Kitchen name</button></Link>
+                    <p className='rounded w-[300px] h-[150px] text-center bg-[#edded1] m-2 p-2 drop-shadow-2xl'> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis placeat, cumque architecto necessitatibus deleniti optio aliquam official.</p>
                 </div>
+               <div><img src={pexel} alt="" /></div>
             </div>
-        </div><br/>
-        <div class="contaner1">
-            <div class="img_container">
-                <img src={restaurant} class="img3" alt=""/>
-                {/* <img src={pexel} class="img2"
-                width="100%" height="100%" alt=""/> */}
-            </div>
-            <div class="discription" id="discription2">
-                <div>
-                    <p>kitchen name</p>
-                    <p>kitchen description</p>
-                    <p>notes</p>
-                </div>
-            </div>
-        </div><br/>
-        <div class="contaner1">
-            <div class="img_container">
-                <img src={restaurant} class="img3" alt=""/>
-                {/* <img src={pexel} class="img2"
-                width="100%" height="100%" alt=""/> */}
-            </div>
-            <div class="discription" id="discription3">
-                <div>
-                    <p>kitchen name</p>
-                    <p>kitchen description</p>
-                    <p>notes</p>
-                </div>
-            </div>
-        </div><br/>
-        <div class="contaner1">
-            <div class="img_container">
-                <img src={restaurant} class="img3" alt=""/>
-                {/* <img src={pexel} class="img2"
-                width="100%" height="100%" alt=""/> */}
-            </div>
-            <div class="discription" id="discription4">
-                <div>
-                    <p>kitchen name</p>
-                    <p>kitchen description</p>
-                    <p>notes</p>
-                </div>
-            </div>
-        </div><br/>
-        <div class="contaner1">
-            <div class="img_container">
-                <img src={restaurant} class="img3" alt=""/>
-                {/* <img src={pexel} class="img2"
-                width="100%" height="100%" alt=""/> */}
-            </div>
-            <div class="discription" id="discription5">
-                <div>
-                    <p>kitchen name</p>
-                    <p>kitchen description</p>
-                    <p>notes</p>
-                </div>
-            </div>
-        </div><br/>
-        <div class="contaner1">
-            <div class="img_container">
-                <img src={restaurant} class="img3" alt=""/>
-                {/* <img src={pexel} class="img2"
-                width="100%" height="100%" alt=""/> */}
-            </div>
-            <div class="discription" id="discription6">
-                <div>
-                    <p>kitchen name</p>
-                    <p>kitchen description</p>
-                    <p>notes</p>
-                </div>
-            </div>
-        </div><br/>
-        </div><br/>
-        <div class="slider">
-            <p>1</p>
-            <p>2</p>
-            <p>3</p>
-            <p>4</p>
-            <p>...</p>
+        <br/>
+        
         </div>
+       
+    <div className='m-6 flex flex-wrap justify-center rounded'>
+            <div className='grid grid-cols-2 gap-4 w-[1000px] bg-[#d9c6b8] block'>
+                <div className='m-auto'>    
+                    <button className='rounded w-[300px] align-center bg-[#735443] m-2 mt-2 hover:bg-[#6b2f0a] text-[#edded1] hover:text-white py-2 drop-shadow-2xl' >Kitchen name</button>
+                    <p className='rounded w-[300px] h-[150px] text-center bg-[#edded1] m-2 p-2 drop-shadow-2xl'> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis placeat, cumque architecto necessitatibus deleniti optio aliquam official.</p>
+                </div>
+               <div><img src={pexel} alt="" /></div>
+            </div>
+        <br/>
+        
+        </div>
+       
+    <div className='m-6 flex flex-wrap justify-center rounded'>
+            <div className='grid grid-cols-2 gap-4 w-[1000px] bg-[#d9c6b8] block'>
+                <div className='m-auto'>    
+                    <button className='rounded w-[300px] align-center bg-[#735443] m-2 mt-2 hover:bg-[#6b2f0a] text-[#edded1] hover:text-white py-2 drop-shadow-2xl' >Kitchen name</button>
+                    <p className='rounded w-[300px] h-[150px] text-center bg-[#edded1] m-2 p-2 drop-shadow-2xl'> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis placeat, cumque architecto necessitatibus deleniti optio aliquam official.</p>
+                </div>
+               <div><img src={pexel} alt="" /></div>
+            </div>
+        <br/>
+        
+        </div>
+       
+    <div className='m-6 flex flex-wrap justify-center rounded'>
+            <div className='grid grid-cols-2 gap-4 w-[1000px] bg-[#d9c6b8] block'>
+                <div className='m-auto'>    
+                    <button className='rounded w-[300px] align-center bg-[#735443] m-2 mt-2 hover:bg-[#6b2f0a] text-[#edded1] hover:text-white py-2 drop-shadow-2xl' >Kitchen name</button>
+                    <p className='rounded w-[300px] h-[150px] text-center bg-[#edded1] m-2 p-2 drop-shadow-2xl'> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis placeat, cumque architecto necessitatibus deleniti optio aliquam official.</p>
+                </div>
+               <div><img src={pexel} alt="" /></div>
+            </div>
+        <br/>
+        
+        </div>
+       
+    <div className='p-6 flex flex-wrap justify-center rounded'>
+            <div className='grid grid-cols-2 gap-4 w-[1000px] bg-[#d9c6b8] block'>
+                <div className='m-auto'>    
+                    <button className='rounded w-[300px] align-center bg-[#735443] m-2 mt-2 hover:bg-[#6b2f0a] text-[#edded1] hover:text-white py-2 drop-shadow-2xl' >Kitchen name</button>
+                    <p className='rounded w-[300px] h-[150px] text-center bg-[#edded1] m-2 p-2 drop-shadow-2xl'> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis placeat, cumque architecto necessitatibus deleniti optio aliquam official.</p>
+                </div>
+               <div><img src={pexel} alt="" /></div>
+            </div>
+        <br/>
+        
+        </div>
+       
 
     </div>
   )

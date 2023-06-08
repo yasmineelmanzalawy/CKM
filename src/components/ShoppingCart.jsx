@@ -13,17 +13,17 @@ function ShoppingCart({
 }) {
   return (
     <div
-      className="bg-[#dadee0] rounded mx-2 px-4 py-4"
+      className="bg-[#735443] rounded mx-2 px-4 py-4"
       style={{
         display: visibilty ? "block" : "none",
       }}
     >
       <div className="shoppingCart">
         <div className="flex flex-wrap">
-          <button className="btn close-btn" onClick={onClose}>
+          <button className="btn close-btn text-[#edded1]" onClick={onClose}>
             <AiFillCloseCircle size={30} />
           </button>
-          <h2 className="pl-2 pt-1.5">Shopping cart</h2>
+          <h2 className="pl-2 pt-1.5 text-[#edded1]">Shopping cart</h2>
         </div>
         <div className=" flex flex-wrap gap-4 justify-center">
           {products.length === 0 && (
@@ -31,7 +31,7 @@ function ShoppingCart({
           )}
           {products.map((product) => (
           <div className=""> 
-          <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 my-[50px] p-[10px]" key={product.id}>
+          <div className="max-w-sm bg-white border border-gray-200 rounded-lg bg-[#edded1] shadow dark:bg-gray-800 dark:border-gray-700 my-[50px] p-[10px]" key={product.id}>
               <img src={product.image} alt={product.name} />
               <div className="product-info">
                 <h3 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{product.name}</h3>
@@ -66,7 +66,7 @@ function ShoppingCart({
           ))}
           </div>
           {products.length > 0 && (
-            <div><a href="/customerdata" className="w-[120px] block h-[40px] items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit Order</a>
+            <div><a href="/customerdata" className="w-[120px] block h-[40px] items-center px-3 py-2 text-sm font-medium text-center text-brown bg-[#edded1] rounded-lg hover:bg-orange-700 focus:ring-4 focus:outline-none focus:ring-orannge-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit Order</a>
             </div>
           )}
       </div>
