@@ -1,8 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { AiOutlineDelete, AiFillEdit } from "react-icons/ai";
-
+import { useState , useEffect } from "react";
+import axios from "../axios.config";
 const Staff = () => {
+  const [staff,setStaff] = useState([]);
+  useEffect(() => {
+    const getStaff = async () => {
+      const url = "api/Staff"
+      const data  = await axios.get(url);
+      console.log(data)
+      console.log(staff);
+      setStaff(data.data.data);
+    };
+    getStaff();
+  }, []);
   return (
     <div>
       <div className="flex flex-col justify-center mx-[50px]">
@@ -35,7 +47,13 @@ const Staff = () => {
                       scope="col"
                       className="px-6 py-3 text-xs font-bold text-left text-[#575859] uppercase bg-[#ebeced] "
                     >
-                      Email
+                      Role
+                    </th>
+                    <th
+                      scope="col"
+                      className="px-6 py-3 text-xs font-bold text-left text-[#575859] uppercase bg-[#ebeced] "
+                    >
+                      Salary
                     </th>
                     <th
                       scope="col"
@@ -53,40 +71,64 @@ const Staff = () => {
                       scope="col"
                       className="px-6 py-3 text-xs font-bold text-left text-[#575859] uppercase bg-[#ebeced] "
                     >
-                      Role
-                    </th>
-                    <th
-                      scope="col"
-                      className="px-6 py-3 text-xs font-bold text-left text-[#575859] uppercase bg-[#ebeced] "
-                    >
-                      Salary
+                      Email
                     </th>
                     <th
                       scope="col"
                       className="px-2 py-3 text-xs font-bold text-left text-[#575859] uppercase bg-[#ebeced] "
+                    >
+                      Employed At
+                    </th>
+                    <th 
+                    scope="col"
+                    className="px-2 py-3 text-xs font-bold text-left text-[#575859] uppercase bg-[#ebeced] "
                     ></th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-200">
-                  <tr>
-                    <td>-------</td>
-                    <td>-------</td>
-                    <td>-------</td>
-                    <td>-------</td>
-                    <td>-------</td>
-                    <td>-------</td>
-                    <td>-------</td>
-                    <td className="flex gap-2">
-                      <AiOutlineDelete
-                        className=" hover:scale-110 ease-out duration-300 text-red-600"
-                        size={20}
-                      />
-                      <AiFillEdit
+                {staff.map((x, i) => {
+                  return (
+                    <tr key={i}>
+                      <td className="px-6 dark:text-white py-4 text-sm font-medium text-gray-800 whitespace-nowrap">
+                        {x.id}
+                      </td>
+                      <td className="px-6 dark:text-white py-4 text-sm font-medium text-gray-800 whitespace-nowrap">
+                        {x.name}
+                      </td>
+                      <td className="px-6 dark:text-white py-4 text-sm font-medium text-gray-800 whitespace-nowrap">
+                        {x.role}
+                      </td>
+                      <td className="px-6 dark:text-white py-4 text-sm font-medium text-gray-800 whitespace-nowrap">
+                        {x.sallery}
+                      </td>
+                      <td className="px-6 dark:text-white py-4 text-sm font-medium text-gray-800 whitespace-nowrap">
+                        {x.address}
+                      </td>
+                      
+                      <td className="px-6 dark:text-white py-4 text-sm font-medium text-gray-800 whitespace-nowrap">
+                        {x.phone}
+                      </td>
+                      <td className="px-6 dark:text-white py-4 text-sm font-medium text-gray-800 whitespace-nowrap">
+                        {x.email}
+                      </td>
+                      <td className="px-6 dark:text-white py-4 text-sm font-medium text-gray-800 whitespace-nowrap">
+                        {x.created_at}
+                      </td>
+                      <td className=" px-1 py-4 flex gap-4 text-right whitespace-nowrap">
+                        <button
+                        className=" hover:scale-110 duration-300 ease-out text-red-500 hover:text-red-700 cursor-pointer">
+                          <AiOutlineDelete size={20} />
+                        </button>
+                        <button>
+                        <AiFillEdit
                         className="hover:scale-110 ease-out duration-300"
                         size={20}
                       />
-                    </td>
-                  </tr>
+                        </button>
+                      </td>
+                    </tr>
+                  );
+                })}
                 </tbody>
               </table>
             </div>
