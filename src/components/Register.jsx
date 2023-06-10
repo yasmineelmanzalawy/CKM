@@ -8,9 +8,11 @@ const Register = () => {
   const [owner, setowner] = useState(false);
   return (
     <div className="">
+      <Link to="/">
       <span className="main-text inline-block font-russo pl-10 text-[74px] text-indigo-800">
         CKM
       </span>
+      </Link>
       <div className="flex h-[80vh] items-center justify-center flex-col  ">
         <div className="flex gap-8 justify-center">
           <button onClick={()=>{
@@ -58,7 +60,7 @@ const Register = () => {
           <h6 className=" text-center font-jarkata text-sm pt-6 text-cyan-700">
             Already Registered <br />{" "}
             <Link className=" underline" to="/login">
-              Sign In instead
+              Log In instead
             </Link>
           </h6>
         </div>

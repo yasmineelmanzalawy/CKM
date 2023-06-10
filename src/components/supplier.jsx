@@ -44,7 +44,7 @@ const Supplier = () => {
         className="  rounded-3xl flex flex-col justify-center h-[80%] "
       >
         <div className="text-right pb-4 text-2xl underline underline-offset-1 text-[#3B1EC5]">
-          <a href="./inventory">Skip</a>
+          <a href="./inventory">Next</a>
         </div>
   
         <h1 className="text-center text-5xl text-[#3B1EC5]">
@@ -164,9 +164,7 @@ const Supplier = () => {
           >
             ADD
           </button>
-          <button className=" text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-lg  sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-            Next
-          </button>
+          
         </div>
       </form>
     </div>

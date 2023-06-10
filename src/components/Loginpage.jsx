@@ -46,10 +46,11 @@ const Loginpage = (props) => {
  
   return (
     <div className="">
-      <span className="main-text  p-10 font-russo text-[74px] text-gradient-to-r from-[#5A38FD]">
+      <Link to="/"><span className="main-text  p-10 font-russo text-[74px] text-[#0C147A] text-gradient-to-r from-[#5A38FD]">
         CKM
       </span>
-      <div className="my-[70px] font-russo flex justify-center">
+      </Link>
+      <div className="mt-[-20px] font-russo flex justify-center">
         <div className="w-0 md:w-0 lg:w-[450px]"><img src={log} alt="" /></div>
         <div className="">
           <form className="" onSubmit={handleSubmit}>

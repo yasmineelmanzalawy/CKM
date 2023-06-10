@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Link , useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "../axios.config";
 
@@ -170,9 +170,11 @@ const MenuSetUp = () => {
             >
               ADD DISH
             </button>
+            <Link to="/controlunit">
             <button className=" text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-lg  sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
               Finish
             </button>
+            </Link>
           </div>
         </form>
       </div>

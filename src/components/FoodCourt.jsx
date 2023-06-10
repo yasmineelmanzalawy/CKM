@@ -10,10 +10,13 @@ const FoodCourt = () => {
   return (
     <div className='bg-[#edded1] h-full'>
 
-<div className='p-8'>
-        <p className='text-[40px] mt-[-15px] text-[#794101]'>CKM </p>
-        <h1 className='pl-24 mt-[-20px] text-[30px]'>Food Court</h1>
-        <h1 className='text-center mt-[-18px] mb-[-15px]'>Trusted By <span className='text-[#794101]'>120</span> Restaurants</h1>
+<div className=''>
+        <Link to="/">
+        <span className="main-text  p-10 font-russo text-[74px] text-[#794101] text-gradient-to-r from-[#5A38FD]">
+        CKM
+      </span></Link>
+        <h1 className='pl-[218px] mt-[-65px] text-[30px]'>Food Court</h1>
+        <h1 className='text-center mt-[-35px] mb-[-15px]'>Trusted By <span className='text-[#794101]'>120</span> Restaurants</h1>
        
     </div>
     <div className='p-6 flex flex-wrap justify-center rounded'>

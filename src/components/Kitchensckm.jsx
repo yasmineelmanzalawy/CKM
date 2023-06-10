@@ -169,7 +169,7 @@ function Kitchen() {
         <div className=" mx-[60px] pb-[50px]">
             <div className=" flex flex-wrap gap-10 justify-center">
           {products.map((product) => (
-            <div className=" max-w-sm border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 my-[50px] p-[10px] bg-[#edded1] text-[#794101]" key={product.id} >
+            <div className=" max-w-sm border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 my-[50px] p-[10px] bg-[#0] text-[#794101]" key={product.id} >
               <img
                 className="rounded m-auto my-4"
                 src={product.image}

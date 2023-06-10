@@ -7,9 +7,10 @@ function Home() {
     // **** Navbar ******
     <div>
       <div className="flex justify-between items-center h-24 mx-auto px-4 max-w-[1240px]">
-        <h1 className="main-text font-russo text-[74px] text-indigo-800">
-          CKM
-        </h1>
+       
+        <span className="main-text  p-10 font-russo text-[74px] text-[#0C147A] text-gradient-to-r from-[#5A38FD]">
+        CKM
+      </span>
         <ul className="flex">
           <a href="/foodcourt">
             <li className="p-4 font-russo text-[24px] hover:scale-125 ease-linear duration-300 text-[#794101]">
@@ -105,11 +106,14 @@ function Home() {
             class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100"
           >
             <h5 class="mb-2 text-2xl font-bold tracking-tight text-indigo-800">
-              Noteworthy technology acquisitions 2021
+            CKM Helps You To 
+Manage..
             </h5>
             <p class="font-normal text-gray-700 ">
-              Here are the biggest enterprise technology acquisitions of 2021 so
-              far, in reverse chronological order.
+            Here Are The Biggest Innovation 
+With Management Inventory And
+Suppliers
+ 
             </p>
           </a>
           <a
@@ -117,11 +121,13 @@ function Home() {
             class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100"
           >
             <h5 class="mb-2 text-2xl font-bold tracking-tight text-indigo-800">
-              Noteworthy technology acquisitions 2021
+            CKM Helps You To 
+Manage..
             </h5>
             <p class="font-normal text-gray-700 ">
-              Here are the biggest enterprise technology acquisitions of 2021 so
-              far, in reverse chronological order.
+            Your Kitchen With Your Own
+ Ingredients, Your Profit From
+Orders And What It’s Cost
             </p>
           </a>
           <a
@@ -129,11 +135,15 @@ function Home() {
             class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100"
           >
             <h5 class="mb-2 text-2xl font-bold tracking-tight text-indigo-800">
-              Noteworthy technology acquisitions 2021
+            CKM Helps You To 
+Manage..
             </h5>
             <p class="font-normal text-gray-700 ">
-              Here are the biggest enterprise technology acquisitions of 2021 so
-              far, in reverse chronological order.
+            All Your Insights Will Be Helping
+By Advanced Analytic Dashboard
+And With Care by Professional 
+                   Website
+
             </p>
           </a>
         </div>
@@ -141,15 +151,15 @@ function Home() {
           <div className=" w-[100%]">
             <img className="main-img" src={information1} alt="" />
           </div>
-          <div className=" text-left pl-8 ">
+          <div className=" text-left pl-8 pt-12 ">
             <h1 className="main-text font-russo text-6xl ">CKM</h1>
             <p className=" font-russo text-2xl w-[80%] pt-6 pb-20 ">
               is a SAAS model that allows cloud kitchen owners cloud kitchen
               owners to excel with their business to a new level
             </p>
-            <button className=" bg-indigo-800 text-white px-8 py-2 rounded-lg font-russo hover:scale-105 duration-150 ease-out ">
+            {/* <button className=" bg-indigo-800 text-white px-8 py-2 rounded-lg font-russo hover:scale-105 duration-150 ease-out ">
               Get Started
-            </button>
+            </button> */}
           </div>
         </div>
       </div>
@@ -188,165 +198,12 @@ function Home() {
             }}
           />
         </div>
-        <div className="flex gap-4 pb-10">
-          <div class="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
-            <h5 class="mb-4 text-xl font-medium text-gray-500 dark:text-gray-400">
-              Standard plan
-            </h5>
-            <div class="flex items-baseline text-gray-900 dark:text-white">
-              <span class="text-3xl font-semibold">$</span>
-              <span class="text-5xl font-extrabold tracking-tight">29,99</span>
-              <span class="ml-1 text-xl font-normal text-gray-500 dark:text-gray-400">
-                /month
-              </span>
-            </div>
-
-            <ul role="list" class="space-y-5 my-7">
-              <li class="flex space-x-3">
-                <svg
-                  aria-hidden="true"
-                  class="flex-shrink-0 w-5 h-5 text-blue-600 dark:text-blue-500"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <title>Check icon</title>
-                  <path
-                    fill-rule="evenodd"
-                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                    clip-rule="evenodd"
-                  ></path>
-                </svg>
-                <span class="text-base font-normal leading-tight text-gray-500 dark:text-gray-400">
-                  2 team members
-                </span>
-              </li>
-              <li class="flex space-x-3">
-                <svg
-                  aria-hidden="true"
-                  class="flex-shrink-0 w-5 h-5 text-blue-600 dark:text-blue-500"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <title>Check icon</title>
-                  <path
-                    fill-rule="evenodd"
-                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                    clip-rule="evenodd"
-                  ></path>
-                </svg>
-                <span class="text-base font-normal leading-tight text-gray-500 dark:text-gray-400">
-                  20GB Cloud storage
-                </span>
-              </li>
-              <li class="flex space-x-3">
-                <svg
-                  aria-hidden="true"
-                  class="flex-shrink-0 w-5 h-5 text-blue-600 dark:text-blue-500"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <title>Check icon</title>
-                  <path
-                    fill-rule="evenodd"
-                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                    clip-rule="evenodd"
-                  ></path>
-                </svg>
-                <span class="text-base font-normal leading-tight text-gray-500 dark:text-gray-400">
-                  Integration help
-                </span>
-              </li>
-              <li class="flex space-x-3 line-through decoration-gray-500">
-                <svg
-                  aria-hidden="true"
-                  class="flex-shrink-0 w-5 h-5 text-gray-400 dark:text-gray-500"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <title>Check icon</title>
-                  <path
-                    fill-rule="evenodd"
-                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                    clip-rule="evenodd"
-                  ></path>
-                </svg>
-                <span class="text-base font-normal leading-tight text-gray-500">
-                  Sketch Files
-                </span>
-              </li>
-              <li class="flex space-x-3 line-through decoration-gray-500">
-                <svg
-                  aria-hidden="true"
-                  class="flex-shrink-0 w-5 h-5 text-gray-400 dark:text-gray-500"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <title>Check icon</title>
-                  <path
-                    fill-rule="evenodd"
-                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                    clip-rule="evenodd"
-                  ></path>
-                </svg>
-                <span class="text-base font-normal leading-tight text-gray-500">
-                  API Access
-                </span>
-              </li>
-              <li class="flex space-x-3 line-through decoration-gray-500">
-                <svg
-                  aria-hidden="true"
-                  class="flex-shrink-0 w-5 h-5 text-gray-400 dark:text-gray-500"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <title>Check icon</title>
-                  <path
-                    fill-rule="evenodd"
-                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                    clip-rule="evenodd"
-                  ></path>
-                </svg>
-                <span class="text-base font-normal leading-tight text-gray-500">
-                  Complete documentation
-                </span>
-              </li>
-              <li class="flex space-x-3 line-through decoration-gray-500">
-                <svg
-                  aria-hidden="true"
-                  class="flex-shrink-0 w-5 h-5 text-gray-400 dark:text-gray-500"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <title>Check icon</title>
-                  <path
-                    fill-rule="evenodd"
-                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                    clip-rule="evenodd"
-                  ></path>
-                </svg>
-                <span class="text-base font-normal leading-tight text-gray-500">
-                  24×7 phone & email support
-                </span>
-              </li>
-            </ul>
-            <button
-              type="button"
-              class="text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-200 dark:focus:ring-blue-900 font-medium rounded-lg text-sm px-5 py-2.5 inline-flex justify-center w-full text-center"
-            >
-              Choose plan
-            </button>
-          </div>
+        <div className="flex justify-center gap-16 pb-10">
+          
 
           <div class="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
             <h5 class="mb-4 text-xl font-medium text-gray-500 dark:text-gray-400">
-              Standard plan
+            Permium
             </h5>
             <div class="flex items-baseline text-gray-900 dark:text-white">
               <span class="text-3xl font-semibold">$</span>
@@ -373,7 +230,8 @@ function Home() {
                   ></path>
                 </svg>
                 <span class="text-base font-normal leading-tight text-gray-500 dark:text-gray-400">
-                  2 team members
+                1 year free upgrades
+&priority support
                 </span>
               </li>
               <li class="flex space-x-3">
@@ -392,7 +250,7 @@ function Home() {
                   ></path>
                 </svg>
                 <span class="text-base font-normal leading-tight text-gray-500 dark:text-gray-400">
-                  20GB Cloud storage
+                1 GB free cloud storage
                 </span>
               </li>
               <li class="flex space-x-3">
@@ -411,7 +269,7 @@ function Home() {
                   ></path>
                 </svg>
                 <span class="text-base font-normal leading-tight text-gray-500 dark:text-gray-400">
-                  Integration help
+                Access from 1pc
                 </span>
               </li>
               <li class="flex space-x-3 line-through decoration-gray-500">

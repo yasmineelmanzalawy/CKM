@@ -53,16 +53,17 @@ const Signup = () => {
   };
   return (
     <div>
-      <span className="main-text p-10 font-russo text-[74px] text-gradient-to-r from-[#5A38FD]">
+      <Link to="/"><span className="main-text p-10 font-russo text-[#0C147A] text-[74px] text-gradient-to-r from-[#5A38FD] mb-[-30px]">
         CKM
       </span>
-      <div className="flex justify-center">
+      </Link>
+      <div className="flex justify-center mt-[-30px]">
         <div className="w-0 md:w-0 lg:w-[500px]">
-          <img src={sign} alt="" />
+          <img src={sign} alt="" className="mt-[-15px]" />
         </div>
         <div>
           <form onSubmit={handleSubmit}>
-            <h1 className="text-center text-[#0C147A] font-russo text-[40px] display: block mt-[50px]">
+            <h1 className="text-center text-[#0C147A] font-russo text-[40px] display: block mt-[5px]">
               Create an account
             </h1>
             <h1 className="text-center mt-[50px] font-russo mb-[-20px] text-[#0C147A]">Name</h1>
