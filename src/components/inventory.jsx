@@ -126,7 +126,7 @@ const Inventory = () => {
               <option value="select">Select</option>
               <option value="kilograms">kilograms</option>
               <option value="Grams">Grams</option>
-              <option value="Liters">Liters</option>
+              <option value="liters">Liters</option>
             </select>
           </div>
           <input className="hidden" value={data.brand_id = localStorage.getItem("brand_id")} />

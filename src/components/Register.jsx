@@ -21,10 +21,10 @@ const Register = () => {
             localStorage.setItem("role","customer")
           }} className="py-20 px-6 rounded-3xl border-4  cursor-pointer hover:bg-gray-300 hover:scale-105 duration-300 ease-out  focus:border-black ">
             <div className="flex justify-center pb-4">
-              <ImUser size={20} />
+              <ImUser size={50} />
             </div>
-            <h1 className=" font-jarkata text-xl">
-              I'm a client looking to order some food {"🍕"}
+            <h1 className=" text-center font-russo text-2xl">
+              I'm a client looking to order <br /> some food {"🍕"}
             </h1>
           </button>
 
@@ -34,11 +34,11 @@ const Register = () => {
             setowner(true);
             localStorage.setItem("role","owner")
           }}
-          className="py-20 px-28 rounded-3xl border-4 cursor-pointer hover:bg-gray-300 hover:scale-105 duration-300 ease-out focus:border-black ">
+          className="py-20 px-14 rounded-3xl border-4 cursor-pointer hover:bg-gray-300 hover:scale-105 duration-300 ease-out focus:border-black ">
             <div className="flex justify-center pb-4">
-              <ImUserTie size={20} />
+              <ImUserTie size={50} />
             </div>
-            <h1 className="font-jarkata text-xl  ">
+            <h1 className="font-russo text-2xl  ">
               I'm a Kitchen Owner {"🍽️"}
             </h1>
           </button>
@@ -52,7 +52,7 @@ const Register = () => {
           >
             <a href="/signup">
 
-            {client ? "Join as a user" : owner ? "Join as Kitchen Owner" : `Create Account` }
+            {client ? "Join as a Customer" : owner ? "Join as Kitchen Owner" : `Create Account` }
             
             </a>
           </button>

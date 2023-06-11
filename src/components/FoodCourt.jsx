@@ -4,9 +4,20 @@ import pexel from '../data/pexels-chan-walrus-958545.jpg'
 import { Link , useNavigate } from "react-router-dom";
 import restaurant from '../data/restaurant.png'
 import search from '../data/search-interface-symbol.png'
-
+import axios from '../axios.config';
+import { useEffect , useState } from 'react';
 
 const FoodCourt = () => {
+    const[brand,setbrand]=useState([])
+    useEffect(() => {
+        const getBrand = async () => {
+            const url = "api/Brand";
+          const { data } = await axios.get(url);
+          setbrand(data);
+        };
+        getBrand();
+      }, []);
+      console.log(brand)
   return (
     <div className='bg-[#edded1] h-full'>
 

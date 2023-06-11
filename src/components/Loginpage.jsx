@@ -26,8 +26,14 @@ const Loginpage = (props) => {
           .post(url, data)
           .then((data) => {
             localStorage.setItem("token", data.data.token);
-            localStorage.setItem("id",data.data.user.id)
-            navigate("/controlunit");
+            localStorage.setItem("id",data.data.user.id);
+            localStorage.setItem("role",data.data.user.role);
+            if (localStorage.getItem("role")=== "owner") {
+              navigate("/controlunit");
+            }
+            else if (localStorage.getItem("role")=== "customer"){
+              navigate("/foodcourt");
+            }
             console.log(data.data);
             console.log(data.data.token);
             setUserData(data.data.user.name)

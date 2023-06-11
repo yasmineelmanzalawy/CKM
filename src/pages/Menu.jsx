@@ -59,14 +59,16 @@ const Menu = () => {
           Add Dish
         </a>
       </div>
+      <div className="flex flex-wrap justify-center">
+
       {menu.map((x,i)=>{
         return (
-          <div key={i} className="flex flex-wrap gap-[80px] mx-[50px] my-[30px]  rounded-4 justify-center">
-        <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+          <div key={i} className="flex gap-[80px] mx-[50px] my-[30px]  rounded-4 justify-center">
+        <div className="  w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
           <img className=" rounded-t-lg" src={x.image} alt="" />
           <div className=" ">
             <h5 className=" text-3xl text-center font-semibold tracking-tight text-gray-900 pt-2 dark:text-white">
-              {x.item_name} <span className=" text-yellow-500">{`${x.category}`}</span>
+              {x.item_name} <span className=" text-yellow-500">{`(${x.category})`}</span>
             </h5>
             <p className="text-center">
               {x.description}
@@ -92,6 +94,7 @@ const Menu = () => {
         )
 
       })}
+      </div>
       
     </div>
   );
