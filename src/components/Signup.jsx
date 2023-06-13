@@ -30,6 +30,7 @@ const Signup = () => {
           localStorage.setItem("token", data.data.token);
           if (localStorage.getItem("role") === "customer") {
             navigate("/foodcourt")
+            window.location.reload();
           }
           else if (localStorage.getItem("role") === "owner")
           {
