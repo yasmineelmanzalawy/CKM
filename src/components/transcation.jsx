@@ -1,30 +1,9 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { AiOutlineDelete, AiFillEdit } from "react-icons/ai";
-import { GrTransaction } from "react-icons/gr";
-import { useEffect, useState } from "react";
-import axios from "../axios.config";
-const Stock = () => {
-  const [inventory, setInventory] = useState([]);
-  useEffect(() => {
-    const getinventory = async () => {
-      const url = "api/Inventory";
-      const data = await axios.get(url);
-      console.log(data);
-      console.log(inventory);
-      setInventory(data.data);
-    };
-    getinventory();
-  }, []);
+import React from 'react'
+import { AiOutlineDelete } from 'react-icons/ai'
+const Transcation = () => {
   return (
-    <div className="flex flex-col font-russo">
-      <div className=" text-center pb-10">
-        <Link to="/inventory">
-          <button className="bg-[#ebeced] p-4 text-lg text text-[#575859] rounded-lg">
-            Add Stock
-          </button>
-        </Link>
-      </div>
+  <div className="flex flex-col font-russo">
+    <h1 className='text-center text-3xl pb-12'>Transcations</h1>
       <div className="overflow-x-auto px-16">
         <div className="p-1.5 w-full inline-block align-middle">
           <div className="overflow-hidden border rounded-lg">
@@ -76,53 +55,43 @@ const Stock = () => {
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-200">
-                {inventory.map((x, i) => {
-                  return (
-                    <tr key={i}>
+                    <tr >
                       <td className="px-6 dark:text-white py-4 text-sm font-medium text-gray-800 whitespace-nowrap">
-                        {x.id}
+                        tester
                       </td>
                       <td className="px-6 dark:text-white py-4 text-sm font-medium text-gray-800 whitespace-nowrap">
-                        {x.item_name}
+                        tester
                       </td>
                       <td className="px-6 dark:text-white py-4 text-sm font-medium text-gray-800 whitespace-nowrap">
-                        {x.total_quantity}
+                        tester
                       </td>
                       <td className="px-6 dark:text-white py-4 text-sm font-medium text-gray-800 whitespace-nowrap">
-                        {x.unit_of_measurement}
+                        tester
                       </td>
 
                       <td className="px-6 dark:text-white py-4 text-sm font-medium text-gray-800 whitespace-nowrap">
-                        {x.unit_price}
+                        tester
                       </td>
                       <td className="px-6 dark:text-white py-4 text-sm font-medium text-gray-800 whitespace-nowrap">
-                        {x.created_at.slice(0, 19)}
+                        tester
                       </td>
                       <td className=" px-1 py-4 flex gap-4 text-right whitespace-nowrap">
                         <button className=" hover:scale-110 duration-300 ease-out text-red-500 hover:text-red-700 cursor-pointer">
                           <AiOutlineDelete size={20} />
                          
                         </button>
-                        <button>
-                          <Link to="/controlunit/Stock/transcations">
-                          
-                          <GrTransaction
-                            className="hover:scale-110 ease-out duration-300"
-                            size={20}
-                          />
-                          </Link>
-                        </button>
+                        
                       </td>
                     </tr>
-                  );
-                })}
+                  
+            
               </tbody>
             </table>
           </div>
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Stock;
+export default Transcation

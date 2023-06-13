@@ -4,6 +4,7 @@ import { FiSettings } from "react-icons/fi";
 import { TooltipComponent } from "@syncfusion/ej2-react-popups";
 
 import { Navbar, Footer, Sidebar, ThemeSettings } from "../components";
+import Transcation from "./transcation";
 import {
   Analytics,
   Employees,
@@ -83,6 +84,7 @@ function Controlunit() {
 
                 {/* pages  */}
                 <Route path="/stock" element={<Stock />} />
+                <Route path="/stock/transcations" element={<Transcation/>}/>
                 <Route path="/employees" element={<Employees />} />
                 <Route path="/customers" element={<Customers />} />
                 <Route path="/suppliers" element={<Supplier />} />

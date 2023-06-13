@@ -1,14 +1,25 @@
 import React from "react";
 import { MdOutlineCancel } from "react-icons/md";
-import { useUserStore } from "../hooks/username";
 import { Button } from ".";
 import { userProfileData } from "../data/dummy";
 import { useStateContext } from "../contexts/ContextProvider";
-import avatar from "../data/avatar.jpg";
+import avatar from "../data/avatar2.jpg";
 import { useNavigate } from "react-router";
 import axios from "../axios.config";
-
+import { useEffect ,useState } from "react";
 const UserProfile = () => {
+  const[user,setUser] = useState([]);
+  useEffect(() => {
+    const getUser = async () => {
+      const url = "api/User"
+      const data  = await axios.get(url);
+      console.log(data)
+      console.log(user);
+      setUser(data.data.users);
+    };
+    getUser();
+  }, []);
+  console.log(user)
   const logout = (e) => {
     const url = "api/auth/logout";
     axios
@@ -27,7 +38,6 @@ const UserProfile = () => {
   };
   const navigate = useNavigate();
   const { currentColor } = useStateContext();
-  const userData = useUserStore((state) => state.user);
   return (
     <div className="nav-item absolute right-1 top-16 bg-white dark:bg-[#42464D] p-8 rounded-lg w-96">
       <div className="flex justify-between items-center">
@@ -48,8 +58,11 @@ const UserProfile = () => {
         />
         <div>
           <p className="font-semibold text-xl dark:text-gray-200">
-            {" "}
-            {userData}{" "}
+            {user.map((x) => {
+              
+              return <span>{x.name}</span>
+              
+            })}
           </p>
           <p className="text-gray-500 text-sm dark:text-gray-400">
             {" "}
