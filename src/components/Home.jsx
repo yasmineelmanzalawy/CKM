@@ -13,7 +13,7 @@ function Home() {
       </span>
         <ul className="flex">
           <a href="/foodcourt">
-            <li className="p-4 font-russo text-[24px] hover:scale-125 ease-linear duration-300 text-[#794101]">
+            <li className="p-4 font-russo text-[24px] hover:scale-125 ease-linear duration-300 text-[#E55807]">
               CKM Food Court
             </li>
           </a>
