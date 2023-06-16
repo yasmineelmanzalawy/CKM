@@ -15,6 +15,7 @@ const Staff = () => {
     };
     getStaff();
   }, []);
+  
   return (
     <div>
       <div className="flex flex-col justify-center mx-[50px]">

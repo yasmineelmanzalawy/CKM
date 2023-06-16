@@ -6,11 +6,12 @@ function Home() {
   return (
     // **** Navbar ******
     <div>
-      <div className="flex justify-between items-center h-24 mx-auto px-4 max-w-[1240px]">
-       
+      <div className="flex justify-between items-center h-24 mx- px-4 max-w-[1240px]">
+       <div>
         <span className="main-text  p-10 font-russo text-[74px] text-[#0C147A] text-gradient-to-r from-[#5A38FD]">
         CKM
-      </span>
+      </span></div>
+      <div  className="pl-12">
         <ul className="flex">
           <a href="/foodcourt">
             <li className="p-4 font-russo text-[24px] hover:scale-125 ease-linear duration-300 text-[#E55807]">
@@ -28,20 +29,20 @@ function Home() {
               About Us
             </li>
           </a>
-          <li className="p-4 font-russo text-[24px] hover:scale-125 ease-linear duration-300 text-[#3B1EC5]">
+          {/* <li className="p-4 font-russo text-[24px] hover:scale-125 ease-linear duration-300 text-[#3B1EC5]">
             Reviews
-          </li>
-        </ul>
-     <div className=" flex  gap-4">
+          </li> */}
+        </ul></div>
+     <div className=" flex gap-6">
      <a
           href="/register"
-          className=" bg-indigo-800 font-russo text-white rounded p-2 px-6"
+          className=" bg-indigo-800 font-russo text-white rounded p-2 px-6 hover:bg-indigo-900 hover:scale-125 ease-liner duration-300"
         >
           Sign up
         </a>
         <a
           href="/login"
-          className=" bg-indigo-800 font-russo text-white rounded p-2 px-6"
+          className=" bg-indigo-800 font-russo text-white rounded p-2 px-6 hover:bg-indigo-900 hover:scale-125 ease-liner duration-300"
         >
           login
         </a>
@@ -58,9 +59,9 @@ function Home() {
             Manage
           </p>
           <div className="text-center pt-[120px]">
-            <button className="Main-button font-russo px-4 py-2 text-white text-[32px] hover:scale-105 duration-150 ease-in">
+            {/* <button className="Main-button font-russo px-4 py-2 text-white text-[32px] hover:scale-105 duration-150 ease-in">
               For More
-            </button>
+            </button> */}
           </div>
         </div>
         <div>

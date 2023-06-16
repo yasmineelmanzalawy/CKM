@@ -23,7 +23,7 @@ const FoodCourt = () => {
 
 <div className='mb-4'>
         <Link to="/">
-        <span className="main-text  p-10 font-russo text-[74px] text-[#E55807] text-gradient-to-r from-[#5A38FD]">
+        <span className="main-text p-10 font-russo text-[74px] text-[#E55807] text-gradient-to-r from-[#5A38FD]">
         CKM
       </span></Link>
         <h1 className='pl-[218px] mt-[-65px] text-[30px]'>Food Court</h1>
