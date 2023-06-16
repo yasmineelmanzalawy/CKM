@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { AiFillCloseCircle } from "react-icons/ai";
 import { RiDeleteBin6Line } from "react-icons/ri";
+import axios from "../axios.config";
 import Swal from "sweetalert2";
 
 
@@ -11,6 +12,17 @@ function ShoppingCart({
   onClose,
   onQuantityChange,
 }) {
+  const[brand,setBrand] = useState([])
+  useEffect(() => {
+    const getinventory = async () => {
+        const url = `https://battaria.glowrank.com/api/menu-items/${localStorage.getItem("test")}`;
+        const data = await axios.get(url);
+        console.log(data);
+        console.log(brand);
+        setBrand(data.data);
+      };
+      getinventory();
+    }, []);
   return (
     <div
       className="bg-[#fae9de] px-4 py-4"
@@ -29,12 +41,12 @@ function ShoppingCart({
           {products.length === 0 && (
             <span className="text-[20px] py-4 text-[#E55807]">Your basket is currently empty</span>
           )}
-          {products.map((product) => (
+          {brand.map((product) => (
           <div className=""> 
           <div className="max-w-sm bg-white border border-gray-200 rounded-lg bg-[#edded1] shadow dark:bg-gray-800 dark:border-gray-700 my-[50px] p-[10px]" key={product.id}>
               <img src={product.image} alt={product.name} />
               <div className="product-info">
-                <h3 className="mb-2 text-2xl font-bold tracking-tight text-[#E55807] text-center dark:text-white">{product.name}</h3>
+                <h3 className="mb-2 text-2xl font-bold tracking-tight text-[#E55807] text-center dark:text-white">{product.item_name}</h3>
                 <span className="">
                   {product.price * product.count}$
                 </span>
