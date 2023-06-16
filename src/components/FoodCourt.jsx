@@ -11,7 +11,7 @@ const FoodCourt = () => {
     const[brand,setbrand]=useState([])
     useEffect(() => {
         const getBrand = async () => {
-            const url = "api/Brand";
+            const url = "api/all-brands";
           const { data } = await axios.get(url);
           setbrand(data);
         };
