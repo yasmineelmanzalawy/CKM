@@ -25,6 +25,7 @@ import FoodCourt from "./components/FoodCourt";
 import Billing from "./components/Billing";
 import Register from "./components/Register";
 import Transcation from "./components/transcation";
+import T2 from "./components/T2";
 
 const user = localStorage.getItem("token");
 ReactDOM.render(
@@ -36,6 +37,7 @@ ReactDOM.render(
         <Route path="/signup" element={<Signup />} />
         <Route path="/billing" element={<Billing/>}  />
         <Route path="/inventory" element={<Inventory />} />
+        <Route path="/t2" element={<T2 />} />
         <Route path="/employees" element={<Employee />} />
         <Route path="/ckmkitchens" element={<Kitchenckm />} />
         <Route path="/customerdata" element={<Customerdata />} />

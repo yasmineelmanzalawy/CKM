@@ -30,18 +30,21 @@ const MenuSetUp = () => {
   const sucessful = () => toast.success("Successfully Added!");
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const url = "api/Menu";
-    axios
-      .post(url, data)
-      .then((data) => {
-        console.log(data.data);
-        sucessful();
-        setData(initialState);
-      })
-      .catch((error) => {
-        console.log(error);
-        setError(error);
-      });
+    console.log({...data,ingredients:ingredients})
+    try {
+      const url = "api/Menu";
+      const { data: res } = await axios.post(url,{...data,ingredients:ingredients});
+      sucessful()
+      console.log(res.message);
+    } catch (error) {
+      if (
+        error.response &&
+        error.response.status >= 400 &&
+        error.response.status <= 500
+      ) {
+        setError(error.response.data.message);
+      }
+    }
   };
   useEffect(() => {
     const getinventory = async () => {
@@ -181,7 +184,7 @@ const MenuSetUp = () => {
                   value={unit}
                   required
                   type="text"
-                  placeholder="Quantity"
+                  placeholder="kilograms/grams/piece/liters"
                   className="text-center bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 />
               </div>
@@ -198,6 +201,7 @@ const MenuSetUp = () => {
                       unit_of_measurement:unit,
                     };
                     setIngredients([...ingredients, object]);
+                    console.log(object)
                   }}
                   className="text-center bg-gray-200 border-[3px] border-[blue] text-[blue] text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 "
                 >

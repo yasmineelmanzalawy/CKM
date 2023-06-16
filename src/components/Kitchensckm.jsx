@@ -1,111 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { GiShoppingBag } from "react-icons/gi";
 import ShoppingCart from "./ShoppingCart";
-
-
-const products = [
-  {
-    id: 1,
-    name: "Vivamus vitae",
-    rating: 4.3,
-    description:
-      "Vivamus vitae neque accumsan, ultrices nisl et, viverra magna. Fusce nec maximus sem.",
-    price: 199,
-    image: require("../data/Image(4).png"),
-  },
-  {
-    id: 2,
-    name: "Fusce sit amet ipsum",
-    rating: 4.2,
-    description:
-      "Maecenas fermentum urna egestas urna ullamcorper sodales. Sed a enim imperdiet, tempus massa a, iaculis tellus.",
-    price: 229,
-    image: require("../data/Image(10).png"),
-  },
-  {
-    id: 3,
-    name: "Etiam volutpat aliquam",
-    rating: 3.2,
-    description:
-      "Praesent et orci vel nunc interdum aliquet et non dolor. Etiam eget finibus justo",
-    price: 99,
-    image: require("../data/Image(3).png"),
-  },
-  {
-    id: 4,
-    name: "Lorem ipsum dolor",
-    rating: 4.8,
-    description:
-      "Duis nibh sapien, placerat non nulla ac, suscipit laoreet tortor.",
-    price: 119,
-    image: require("../data/Image(1).png"),
-  },
-  {
-    id: 4,
-    name: "Lorem ipsum dolor",
-    rating: 4.8,
-    description:
-      "Duis nibh sapien, placerat non nulla ac, suscipit laoreet tortor.",
-    price: 119,
-    image: require("../data/Image(3).png"),
-  },
-  {
-    id: 4,
-    name: "Lorem ipsum dolor",
-    rating: 4.8,
-    description:
-      "Duis nibh sapien, placerat non nulla ac, suscipit laoreet tortor.",
-    price: 119,
-    image: require("../data/Image(7).png"),
-  },
-  {
-    id: 4,
-    name: "Lorem ipsum dolor",
-    rating: 4.8,
-    description:
-      "Duis nibh sapien, placerat non nulla ac, suscipit laoreet tortor.",
-    price: 119,
-    image: require("../data/Image(9).png"),
-  },
-  {
-    id: 4,
-    name: "Lorem ipsum dolor",
-    rating: 4.8,
-    description:
-      "Duis nibh sapien, placerat non nulla ac, suscipit laoreet tortor.",
-    price: 119,
-    image: require("../data/Image(11).png"),
-  },
-  {
-    id: 4,
-    name: "Lorem ipsum dolor",
-    rating: 4.8,
-    description:
-      "Duis nibh sapien, placerat non nulla ac, suscipit laoreet tortor.",
-    price: 119,
-    image: require("../data/Image(6).png"),
-  },
-  {
-    id: 5,
-    name: "Ultrices nisl",
-    rating: 4.5,
-    description:
-      "Phasellus condimentum, ante et dictum placerat, nulla ipsum commodo lorem, ut mollis nibh turpis a metus.",
-    price: 85,
-    image: require("../data/Image(6).png"),
-  },
-  {
-    id: 6,
-    name: "Curabitur in elementum tortor",
-    rating: 3.8,
-    description:
-      " Mauris convallis diam nibh, non malesuada enim facilisis non. Etiam sapien augue, molestie a porta sed",
-    price: 149,
-    image: require("../data/Image(5).png"),
-  },
-];
+import axios from "../axios.config";
 
 function Kitchen() {
+  const[brand,setBrand] = useState([])
+ 
   const [cartsVisibilty, setCartVisible] = useState(false);
   const [productsInCart, setProducts] = useState(
     JSON.parse(localStorage.getItem("shopping-cart")) || []
@@ -142,7 +42,16 @@ function Kitchen() {
       return [...oldState];
     });
   };
-
+  useEffect(() => {
+    const getinventory = async () => {
+        const url = `https://battaria.glowrank.com/api/menu-items/${localStorage.getItem("test")}`;
+        const data = await axios.get(url);
+        console.log(data);
+        console.log(brand);
+        setBrand(data.data);
+      };
+      getinventory();
+    }, []);
   return (
     <div className="bg-[white]">
       <ShoppingCart
@@ -168,14 +77,14 @@ function Kitchen() {
       <main>
         <div className=" mx-[60px] pb-[50px]">
             <div className=" flex flex-wrap gap-10 justify-center">
-          {products.map((product) => (
+          {brand.map((product) => (
             <div className=" max-w-sm border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 my-[50px] p-[10px] bg-[#0] text-[#794101]" key={product.id} >
               <img
                 className="rounded m-auto my-4"
                 src={product.image}
                 alt={product.image}
               />
-              <h4 className="mb-2 text-2xl text-[#E55807] font-bold tracking-tight text-gray-900 dark:text-[#fef5ea] text-center ">{product.name}</h4>
+              <h4 className="mb-2 text-2xl text-[#E55807] font-bold tracking-tight text-gray-900 dark:text-[#fef5ea] text-center ">{product.item_name}</h4>
 
               <p className="mb-3 font-normal text-[black] dark:text-gray-400 text-center">{product.description}</p>
               <span className="text-[#E55807] justify-center">{product.price}$</span>

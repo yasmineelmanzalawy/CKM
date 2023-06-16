@@ -1,62 +1,106 @@
-import React from "react";
+import React, { useState } from "react";
 import { TypeAnimation } from "react-type-animation";
 import information1 from "../data/Cloud-Kitchen-Market-Size-2021-to-2030.jpg";
 import banner1 from "../data/image 1.svg";
+import { Link } from "react-router-dom";
 function Home() {
+   const [client, setclient] = useState(false);
+  
   return (
     // **** Navbar ******
     <div>
-      <div className="flex justify-between items-center h-24 mx- px-4 max-w-[1240px]">
-       <div>
-        <span className="main-text  p-10 font-russo text-[74px] text-[#0C147A] text-gradient-to-r from-[#5A38FD]">
-        CKM
-      </span></div>
-      <div  className="pl-12">
-        <ul className="flex">
-          <a href="/foodcourt">
-            <li className="p-4 font-russo text-[24px] hover:scale-125 ease-linear duration-300 text-[#E55807]">
-              CKM Food Court
-            </li>
-          </a>
-          <a href="#Price">
+      <div className="flex justify-between items-center h-24 px-4 ">
+        <div>
+          <span className="main-text p-14 font-russo text-[74px] text-[#0C147A] text-gradient-to-r from-[#5A38FD]">
+            CKM
+          </span>
+        </div>
+        <div  className="mr-[50px]">
+          <ul className="flex">
+              <Link to="/signup">
+              
+            <button onClick={()=>{
+              localStorage.setItem("role","customer")
+            }} >
+              <li className="p-4 font-russo text-[24px] hover:scale-125 ease-linear duration-300 text-[#E55807]">
+                CKM Food Court
+              </li>
+            </button>
+              </Link>
+            <a href="#Price">
+              <li className="p-4 font-russo text-[24px] hover:scale-125 ease-linear duration-300 text-[#3B1EC5]">
+                Pricing
+              </li>
+            </a>
+            <a href="#About">
+              {" "}
+              <li className="p-4 font-russo text-[24px] hover:scale-125 ease-linear duration-300 text-[#3B1EC5]">
+                About Us
+              </li>
+            </a>
             <li className="p-4 font-russo text-[24px] hover:scale-125 ease-linear duration-300 text-[#3B1EC5]">
-              Pricing
+              Reviews
             </li>
-          </a>
-          <a href="#About">
-            {" "}
-            <li className="p-4 font-russo text-[24px] hover:scale-125 ease-linear duration-300 text-[#3B1EC5]">
-              About Us
-            </li>
-          </a>
-          {/* <li className="p-4 font-russo text-[24px] hover:scale-125 ease-linear duration-300 text-[#3B1EC5]">
-            Reviews
-          </li> */}
-        </ul></div>
-     <div className=" flex gap-6">
-     <a
-          href="/register"
-          className=" bg-indigo-800 font-russo text-white rounded p-2 px-6 hover:bg-indigo-900 hover:scale-125 ease-liner duration-300"
-        >
-          Sign up
-        </a>
-        <a
-          href="/login"
-          className=" bg-indigo-800 font-russo text-white rounded p-2 px-6 hover:bg-indigo-900 hover:scale-125 ease-liner duration-300"
-        >
-          login
-        </a>
-     </div>
+
+            <a
+              href="/register"
+              className="m-4 w-42 bg-indigo-800 font-russo text-white rounded p-2 px-6 hover:bg-indigo-900 hover:scale-125 ease-liner duration-300"
+            >
+              {" "}
+              <li>Sign up</li>
+            </a>
+
+            <a
+              href="/login"
+              className="m-4 w-42 bg-indigo-800 font-russo text-white rounded p-2 px-6 hover:bg-indigo-900 hover:scale-125 ease-liner duration-300"
+            >
+              {" "}
+              <li>login</li>
+            </a>
+          </ul>
+          
+        </div>
+        
       </div>
       {/* Hero Section */}
       <div className="flex max-w-[1240px] mx-auto px-4 pt-10">
-        <div className=" w-[50%]">
-          <h1 className=" text-[#0C147A] font-russo text-[48px]">
-            Cloud kitchen manager
+        <div className="pr-8 mt-12 mb-4 w-[50%]">
+        <div className="flex items-center justify-center">
+          <h1 className="text-center font-russo text-4xl py-8 uppercase">
+            &nbsp;{" "}
           </h1>
-          <p className="text-center pt-[100px] text-[#0C147A] font-russo text-[30px]">
-            With CKM Manage Your Kitchen Virtually CKM Is Your Wise Choice To
-            Manage
+          <TypeAnimation
+            sequence={[
+              "", // Types 'One'
+              200,
+              "",
+              1000,
+              "Cloud Kitchen Manager",
+              2000,
+              () => {
+                console.log("Sequence completed"); // Place optional callbacks anywhere in the array
+              },
+            ]}
+            wrapper="span"
+            cursor={true}
+            repeat={Infinity}
+            style={{
+              fontSize: "32px",
+              display: "inline-block",
+              fontFamily: ["Russo One", "sans-serif"],
+              color: "#0C147A",
+              textTransform: "uppercase",
+            }}
+          />
+        </div>
+          
+          <p className="text-center text-[black] font-russo text-[30px]">
+            Create your kitchen and manage it in every aspect virtually with CKM
+
+            <br />
+            <br />
+            <span className="text-[#0C147A]">CKM Is Your Wise Choice To
+            Manage</span>
           </p>
           <div className="text-center pt-[120px]">
             {/* <button className="Main-button font-russo px-4 py-2 text-white text-[32px] hover:scale-105 duration-150 ease-in">
@@ -107,14 +151,11 @@ function Home() {
             class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100"
           >
             <h5 class="mb-2 text-2xl font-bold tracking-tight text-indigo-800">
-            CKM Helps You To 
-Manage..
+              CKM Helps You To Manage..
             </h5>
             <p class="font-normal text-gray-700 ">
-            Here Are The Biggest Innovation 
-With Management Inventory And
-Suppliers
- 
+              Here Are The Biggest Innovation With Management Inventory And
+              Suppliers
             </p>
           </a>
           <a
@@ -122,13 +163,11 @@ Suppliers
             class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100"
           >
             <h5 class="mb-2 text-2xl font-bold tracking-tight text-indigo-800">
-            CKM Helps You To 
-Manage..
+              CKM Helps You To Manage..
             </h5>
             <p class="font-normal text-gray-700 ">
-            Your Kitchen With Your Own
- Ingredients, Your Profit From
-Orders And What It’s Cost
+              Your Kitchen With Your Own Ingredients, Your Profit From Orders
+              And What It’s Cost
             </p>
           </a>
           <a
@@ -136,15 +175,11 @@ Orders And What It’s Cost
             class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100"
           >
             <h5 class="mb-2 text-2xl font-bold tracking-tight text-indigo-800">
-            CKM Helps You To 
-Manage..
+              CKM Helps You To Manage..
             </h5>
             <p class="font-normal text-gray-700 ">
-            All Your Insights Will Be Helping
-By Advanced Analytic Dashboard
-And With Care by Professional 
-                   Website
-
+              All Your Insights Will Be Helping By Advanced Analytic Dashboard
+              And With Care by Professional Website
             </p>
           </a>
         </div>
@@ -200,11 +235,9 @@ And With Care by Professional
           />
         </div>
         <div className="flex justify-center gap-16 pb-10">
-          
-
           <div class="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
             <h5 class="mb-4 text-xl font-medium text-gray-500 dark:text-gray-400">
-            Permium
+              Permium
             </h5>
             <div class="flex items-baseline text-gray-900 dark:text-white">
               <span class="text-3xl font-semibold">$</span>
@@ -231,8 +264,7 @@ And With Care by Professional
                   ></path>
                 </svg>
                 <span class="text-base font-normal leading-tight text-gray-500 dark:text-gray-400">
-                1 year free upgrades
-&priority support
+                  1 year free upgrades &priority support
                 </span>
               </li>
               <li class="flex space-x-3">
@@ -251,7 +283,7 @@ And With Care by Professional
                   ></path>
                 </svg>
                 <span class="text-base font-normal leading-tight text-gray-500 dark:text-gray-400">
-                1 GB free cloud storage
+                  1 GB free cloud storage
                 </span>
               </li>
               <li class="flex space-x-3">
@@ -270,7 +302,7 @@ And With Care by Professional
                   ></path>
                 </svg>
                 <span class="text-base font-normal leading-tight text-gray-500 dark:text-gray-400">
-                Access from 1pc
+                  Access from 1pc
                 </span>
               </li>
               <li class="flex space-x-3 line-through decoration-gray-500">

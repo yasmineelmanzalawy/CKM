@@ -1,6 +1,19 @@
 import React from 'react'
-import { AiOutlineDelete } from 'react-icons/ai'
+import { AiOutlineDelete , AiFillEdit } from 'react-icons/ai'
+import { useEffect, useState } from "react";
+import axios from "../axios.config";
 const Transcation = () => {
+  const [inventory, setInventory] = useState([]);
+  useEffect(() => {
+    const getinventory = async () => {
+      const url = "api/Inventory";
+      const data = await axios.get(url);
+      console.log(data);
+      console.log(inventory);
+      setInventory(data.data);
+    };
+    getinventory();
+  }, []);
   return (
   <div className="flex flex-col font-russo">
     <h1 className='text-center text-3xl pb-12'>Transcations</h1>
@@ -55,34 +68,38 @@ const Transcation = () => {
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-200">
-                    <tr >
+              {inventory.map((x, i) => {
+                  return (
+                    <tr key={i}>
                       <td className="px-6 dark:text-white py-4 text-sm font-medium text-gray-800 whitespace-nowrap">
-                        tester
+                        {x.id}
                       </td>
                       <td className="px-6 dark:text-white py-4 text-sm font-medium text-gray-800 whitespace-nowrap">
-                        tester
+                        {x.item_name}
                       </td>
                       <td className="px-6 dark:text-white py-4 text-sm font-medium text-gray-800 whitespace-nowrap">
-                        tester
+                        {x.total_quantity}
                       </td>
                       <td className="px-6 dark:text-white py-4 text-sm font-medium text-gray-800 whitespace-nowrap">
-                        tester
+                        {x.unit_of_measurement}
                       </td>
 
                       <td className="px-6 dark:text-white py-4 text-sm font-medium text-gray-800 whitespace-nowrap">
-                        tester
+                        {x.unit_price}
                       </td>
                       <td className="px-6 dark:text-white py-4 text-sm font-medium text-gray-800 whitespace-nowrap">
-                        tester
+                        {x.created_at.slice(0, 19)}
                       </td>
-                      <td className=" px-1 py-4 flex gap-4 text-right whitespace-nowrap">
-                        <button className=" hover:scale-110 duration-300 ease-out text-red-500 hover:text-red-700 cursor-pointer">
-                          <AiOutlineDelete size={20} />
-                         
-                        </button>
-                        
+                      <td>
+                        <a href="/t2">
+
+                        <AiFillEdit className="cursor-pointer hover:scale-110 ease-out duration-300"
+                            size={20} />
+                        </a>
                       </td>
                     </tr>
+                  );
+                })}
                   
             
               </tbody>

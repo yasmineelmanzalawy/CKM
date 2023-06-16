@@ -11,7 +11,8 @@ const Inventory = () => {
     item_name: "",
     unit_of_measurement: "",
     unit_price: "",
-    brand_id:""
+    category:"",
+    brand_id:"",
   };
   const [data, setData] = useState(initialState);
   const handleChange = ({ currentTarget: input }) => {
@@ -76,6 +77,26 @@ const Inventory = () => {
           </div>
           <div>
             <label
+              for="Raw Material"
+              className="block mb-2 text-lg font-medium text-gray-900 dark:text-white"
+            >
+              Item Name
+            </label>
+            <select className=" px-14 bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value={data.category} onChange={handleChange} name="category">
+              <option value="select">select</option>
+              <option value="dry_goods">dry_goods</option>
+              <option value="meats">meats</option>
+              <option value="seafood">seafood</option>
+              <option value="vegetables">vegetables</option>
+              <option value="legume">legume</option>
+              <option value="spices">spices</option>
+              <option value="herbs">herbs</option>
+              <option value="others">others</option>
+              <option value="liquid">liquid</option>
+            </select>
+          </div>
+          <div>
+            <label
               for="company"
               className="block mb-2 text-lg font-medium text-gray-900 dark:text-white"
             >
@@ -121,7 +142,7 @@ const Inventory = () => {
               onChange={handleChange}
               name="unit_of_measurement"
               value={data.unit_of_measurement}
-              className="bg-gray-50 border px-20 border-gray-300 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block  py-4 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="bg-gray-50 border px-16 border-gray-300 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block  py-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             >
               <option value="select">Select</option>
               <option value="kilograms">kilograms</option>
