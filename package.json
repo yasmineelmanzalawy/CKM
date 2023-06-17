@@ -19,7 +19,6 @@
     "chart.js": "^4.3.0",
     "react": "^17.0.2",
     "react-chartjs-2": "^5.2.0",
-    "react-data-table-component": "^7.5.3",
     "react-dom": "^17.0.2",
     "react-hot-toast": "^2.4.1",
     "react-icons": "^4.8.0",
@@ -27,9 +26,7 @@
     "react-router-dom": "^6.2.1",
     "react-scripts": "5.0.0",
     "react-type-animation": "^3.0.1",
-    "sweetalert2": "^11.7.5",
-    "swiper": "^9.3.2",
-    "zustand": "^4.3.8"
+    "sweetalert2": "^11.7.5"
   },
   "scripts": {
     "start": "react-scripts start",

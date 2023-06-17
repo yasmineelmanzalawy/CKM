@@ -1,7 +1,6 @@
 import { useState } from "react";
 import axios from "../axios.config";
 import { Link , useNavigate } from "react-router-dom";
-import { useUserStore } from "../hooks/username";
 import log from "../data/log.png"
 import Header from "./Header";
 
@@ -10,7 +9,6 @@ const Loginpage = (props) => {
   const navigate = useNavigate();
   const [data, setData] = useState({ email: "", password: ""});
   const [error, setError] = useState("");
-  const setUserData = useUserStore((state) => state.setUserData)
   const handleChange = ({ currentTarget: input }) => {
     setData({ ...data, [input.name]: input.value });
   };
