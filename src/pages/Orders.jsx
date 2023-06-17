@@ -1,6 +1,19 @@
 import React from "react";
-
-const Orders = () => (
+import axios from "../axios.config";
+import { useState , useEffect } from "react";
+const Orders = () => {
+  const[order,setorder] = useState([])
+  useEffect(() => {
+    const getinventory = async () => {
+      const url = "api/Orders";
+      const data = await axios.get(url);
+      console.log(data);
+      console.log(order);
+      setorder(data.data);
+    };
+    getinventory();
+  }, []);
+  return (
   <div className="mt-[-100px] mb-[-110px]">
     <div class="overflow-x-auto">
       <div class="min-w-screen min-h-screen flex items-center justify-center overflow-hidden">
@@ -17,10 +30,11 @@ const Orders = () => (
                 </tr>
               </thead>
               <tbody class="text-gray-600 text-sm font-light">
-                <tr class="border-b border-gray-200 hover:bg-gray-100">
+                {order.map((x,i)=>{
+                  return <tr class="border-b border-gray-200 hover:bg-gray-100">
                   <td class="py-3 px-6 text-left whitespace-nowrap">
                     <div class="flex items-center">
-                      <span class="font-medium">25</span>
+                      <span class="font-medium">{x.id}</span>
                     </div>
                   </td>
                   <td class="py-3 px-6 text-left">
@@ -28,7 +42,7 @@ const Orders = () => (
                       <span>Eshal Rosas</span>
                     </div>
                   </td>
-                  <td class="py-3 px-6 text-center">------</td>
+                  <td class="py-3 px-6 text-center">{x.menu_items.id}</td>
                   <td class="py-3 px-6 text-center">Regular pizza</td>
                   <td className=" pt-2 text-right">
                     <button
@@ -45,6 +59,7 @@ const Orders = () => (
                     </button>
                   </td>
                 </tr>
+                })}
               </tbody>
             </table>
           </div>
@@ -53,5 +68,5 @@ const Orders = () => (
     </div>
   </div>
 );
-
+  };
 export default Orders;

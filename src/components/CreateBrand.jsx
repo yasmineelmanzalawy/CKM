@@ -6,32 +6,57 @@ import { Link, useNavigate } from "react-router-dom";
 const CreateBrand = () => {
   const [data, setData] = useState({
     name: "",
-    logo:"",
+    logo: null,
     cuisine: "",
-    description:"",
-    cover:"",
-    user_id:"",
+    description: "",
+    image_cover: null,
+    user_id: "",
   });
   const [error, setError] = useState("");
   const navigate = useNavigate();
+  
   const handleChange = ({ currentTarget: input }) => {
     setData({ ...data, [input.name]: input.value });
+  };
+  
+  const handleLogo = (event) => {
+    setData({ ...data, logo: event.target.files[0] });
+    console.log(event.target.files);
+  };
+  
+  const handleCover = (event) => {
+    setData({ ...data, image_cover: event.target.files[0] });
+    console.log(event.target.files);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const url = "api/Brand";
-    axios
-      .post(url, data)
-      .then((data) => {
-        navigate("/supplier");
-        console.log(data);
-        localStorage.setItem("brand_id", data.data.data.id)
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    
+    const formData = new FormData();
+    formData.append("name", data.name);
+    formData.append("logo", data.logo);
+    formData.append("cuisine", data.cuisine);
+    formData.append("description", data.description);
+    formData.append("image_cover", data.image_cover);
+    formData.append("user_id", data.user_id);
+    
+    const config = {
+      headers: {
+        "content-type": "multipart/form-data",
+      },
+    };
+    
+    try {
+      const response = await axios.post(url, formData, config);
+      navigate("/supplier");
+      console.log(response.data);
+      localStorage.setItem("brand_id", response.data.data.id);
+    } catch (error) {
+      console.log(error);
+    }
   };
+  
   return (
     <div className="flex justify-center item-center h-screen bg-gray-100">
       <div className="flex items-center flex-col justify-center">
@@ -57,38 +82,23 @@ const CreateBrand = () => {
                 required
               />
             </div>
-            {/* <div>
-              <label className="text-center block mb-2 text-lg font-medium text-gray-900 dark:text-white">
-                Logo
-              </label>
-
-              <input
-                type="file"
-                name="logo"
-                accept=".png, .jpg, .jpeg"
-                onChange={handleChange}
-                value={data.logo}
-                className="text-center w-[400px] my-[20px] bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              />
-            </div> */}
             <div>
               <label className="text-center dark:text-white block text-lg font-medium text-gray-900 ">
                 Cuisine
               </label>
               <select
                 name="cuisine"
-                value={data.cuisine}
                 onChange={handleChange}
-                required
-                className="text-center w-[400px] my-[20px] bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 px-16 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                value={data.cuisine}
+                className="text-center w-[400px] my-[20px] bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               >
                 <option value="Select">Select</option>
                 <option value="American">American</option>
                 <option value="Egyptian">Egyptian</option>
-                <option value="Chinesse">Chinesse</option>
+                <option value="Chinese">Chinese</option>
                 <option value="Oriental">Oriental</option>
-                <option value="Japanesse">Japanesse</option>
-                <option value="Indonisian">Indonisian</option>
+                <option value="Japanese">Japanese</option>
+                <option value="Indonesian">Indonesian</option>
                 <option value="French">French</option>
               </select>
             </div>
@@ -112,24 +122,40 @@ const CreateBrand = () => {
               </label>
               <input
                 type="file"
-                name="cover"
-                onChange={handleChange}
-                accept=".png, .jpg, .jpeg"
-                value={data.cover}
+                onChange={handleCover}
                 className="text-center w-[400px] my-[20px] bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                accept="image/jpeg, image/png, image/jpg, image/gif"
               />
-              <input className="hidden" value={data.user_id = localStorage.getItem("id")} />
+              <input
+                className="hidden"
+                value={(data.user_id = localStorage.getItem("id"))}
+              />
+            </div>
+            <div>
+              <label className="text-center block mb-2 text-lg font-medium text-gray-900 dark:text-white">
+                Brand Logo
+              </label>
+              <input
+                type="file"
+                onChange={handleLogo}
+                className="text-center w-[400px] my-[20px] bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                accept="image/jpeg, image/png, image/jpg, image/gif"
+              />
+              <input
+                className="hidden"
+                value={(data.user_id = localStorage.getItem("id"))}
+              />
             </div>
             <div className="flex justify-center mt-6">
-              
-                <input
-                  type="submit"
-                  className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-lg sm:w-auto px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                />
-              
+              <input
+                type="submit"
+                className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 focus:ring-offset-2 font-medium font-semibold text-lg rounded-lg p-3.5 cursor-pointer"
+                value="Create"
+              />
             </div>
+            {error && <p className="text-red-500">{error}</p>}
           </form>
-        </div>{" "}
+        </div>
       </div>
     </div>
   );

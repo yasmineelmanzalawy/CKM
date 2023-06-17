@@ -15,7 +15,7 @@
     "@syncfusion/ej2-react-richtexteditor": "^19.4.50",
     "@syncfusion/ej2-react-schedule": "^19.4.50",
     "axios": "^1.4.0",
-    "bootstrap": "^5.3.0-alpha3",
+    "bootstrap": "^5.2.2",
     "chart.js": "^4.3.0",
     "react": "^17.0.2",
     "react-chartjs-2": "^5.2.0",
@@ -26,7 +26,13 @@
     "react-router-dom": "^6.2.1",
     "react-scripts": "5.0.0",
     "react-type-animation": "^3.0.1",
-    "sweetalert2": "^11.7.5"
+    "sweetalert2": "^11.7.5",
+    "swiper": "^9.3.2",
+    "zustand": "^4.3.8",
+    "react-bootstrap": "^2.5.0",
+    "react-scroll": "^1.8.7",
+    "aos": "^2.3.4",
+    "bootstrap-icons": "^1.9.1"
   },
   "scripts": {
     "start": "react-scripts start",

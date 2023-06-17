@@ -13,7 +13,7 @@ const NavButton = ({ title, customFunc, icon, dotColor }) => (
     <button
       type="button"
       onClick={() => customFunc()}
-      className="text-[#1F0E74] dark:text-white relative text-xl rounded-full p-3 hover:bg-light-gray"
+      className="text-[#1F0E74] dark:text-white flex ml-auto text-xl rounded-full p-3 hover:bg-light-gray"
     >
       <span className="absolute inline-flex rounded-full h-2 w-2 right-2 top-2" />
       {icon}
@@ -23,11 +23,12 @@ const NavButton = ({ title, customFunc, icon, dotColor }) => (
 
 const Navbar = () => {
   const url = "api/Brand";
-  const [brand,setbrand] = useState([])
+  const [brand, setbrand] = useState([]);
   useEffect(() => {
     const getBrand = async () => {
       const { data } = await axios.get(url);
       setbrand(data);
+      localStorage.setItem("brand_id",data[0].id)
     };
     getBrand();
   }, []);
@@ -41,7 +42,6 @@ const Navbar = () => {
     setScreenSize,
     screenSize,
   } = useStateContext();
-  
   useEffect(() => {
     const handleResize = () => setScreenSize(window.innerWidth);
 
@@ -60,12 +60,10 @@ const Navbar = () => {
     }
   }, [screenSize]);
 
-    
- 
   const handleActiveMenu = () => setActiveMenu(!activeMenu);
 
   return (
-    <div className="flex justify-between p-2 md:ml-6 md:mr-6 relative">
+    <div className="flex ml-auto w-full justify-between p-2 md:ml-6 md:mr-6 relative">
       <NavButton
         title="sidebar"
         customFunc={handleActiveMenu}
@@ -85,9 +83,7 @@ const Navbar = () => {
             />
             <p>
               <span className="text-gray-400 text-14">Hi,</span>{" "}
-              <span className="text-gray-400 font-bold ml-1 text-14">
-
-              </span>
+              <span className="text-gray-400 font-bold ml-1 text-14"></span>
               <span>{brand[0]?.name}</span>
             </p>
             <MdKeyboardArrowDown className="text-gray-400 text-14" />

@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "../axios.config";
 import { Link , useNavigate } from "react-router-dom";
 import log from "../data/log.png"
-import Header from "./Header";
+
 
 const Loginpage = (props) => {
   
@@ -26,6 +26,7 @@ const Loginpage = (props) => {
             localStorage.setItem("token", data.data.token);
             localStorage.setItem("id",data.data.user.id);
             localStorage.setItem("role",data.data.user.role);
+            
             if (localStorage.getItem("role")=== "owner") {
               navigate("/controlunit");
               window.location.reload();
