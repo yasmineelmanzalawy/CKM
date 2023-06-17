@@ -11,7 +11,7 @@ function ShoppingCart({
   onProductRemove,
   onClose,
   onQuantityChange,
-}) {
+}) {                         
   const[brand,setBrand] = useState([])
   useEffect(() => {
     const getinventory = async () => {

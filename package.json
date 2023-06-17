@@ -29,7 +29,12 @@
     "react-type-animation": "^3.0.1",
     "sweetalert2": "^11.7.5",
     "swiper": "^9.3.2",
-    "zustand": "^4.3.8"
+    "zustand": "^4.3.8",
+    "react-bootstrap": "^2.5.0",
+    "react-scroll": "^1.8.7",
+    "aos": "^2.3.4",
+    "bootstrap-icons": "^1.9.1"
+
   },
   "scripts": {
     "start": "react-scripts start",

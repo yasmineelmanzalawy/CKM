@@ -7,7 +7,6 @@ import { UserProfile } from ".";
 import { useStateContext } from "../contexts/ContextProvider";
 import { useState } from "react";
 import axios from "../axios.config";
-import { useUserStore } from "../hooks/username";
 
 const NavButton = ({ title, customFunc, icon, dotColor }) => (
   <TooltipComponent content={title} position="BottomCenter">
@@ -42,7 +41,6 @@ const Navbar = () => {
     setScreenSize,
     screenSize,
   } = useStateContext();
-  const userData = useUserStore((state) => state.user)
   useEffect(() => {
     const handleResize = () => setScreenSize(window.innerWidth);
 

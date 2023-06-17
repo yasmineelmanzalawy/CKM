@@ -11,11 +11,11 @@ const UserProfile = () => {
   const[user,setUser] = useState([]);
   useEffect(() => {
     const getUser = async () => {
-      const url = "api/User"
+      const url = "api/me"
       const data  = await axios.get(url);
       console.log(data)
       console.log(user);
-      setUser(data.data.users);
+      setUser(data.data.user);
     };
     getUser();
   }, []);
@@ -58,19 +58,13 @@ const UserProfile = () => {
         />
         <div>
           <p className="font-semibold text-xl dark:text-gray-200">
-            {user.map((x) => {
-              
-              return <span>{x.name}</span>
-              
-            })}
+            {user.name}
           </p>
-          <p className="text-gray-500 text-sm dark:text-gray-400">
-            {" "}
-            Administrator{" "}
+          <p className="text-gray-500 text-[18px] dark:text-gray-400">
+           {user.role}
           </p>
           <p className="text-gray-500 text-sm font-semibold dark:text-gray-400">
-            {" "}
-            CKM.com{" "}
+            {user.email}
           </p>
         </div>
       </div>
