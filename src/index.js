@@ -29,6 +29,7 @@ import Register from "./components/Register";
 import Transcation from "./components/transcation";
 import T2 from "./components/T2";
 import { Tester, data, options } from './components/TestComponent';
+import CustomerProfile from "./components/Customerprofile";
 
 const user = localStorage.getItem("token");
 ReactDOM.render(
@@ -44,6 +45,7 @@ ReactDOM.render(
           <Route path="/t2" element={<T2 />} />
           <Route path="/employees" element={<Employee />} />
           <Route path="/ckmkitchens" element={<App />} />
+          <Route path="/customerprofile" element={<CustomerProfile />} />
           <Route path="/customerdata" element={<Customerdata />} />
           <Route path="/foodcourt" element={<FoodCourt />} />
           <Route path="/register" element={<Register />} />
