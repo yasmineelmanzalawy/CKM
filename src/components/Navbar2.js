@@ -8,7 +8,9 @@ const Navbar = () => {
     <NavbarBs sticky="top" className="bg-white shadow-sm mb-3">
       <Container>
         <Nav className="me-auto">
-         
+        <span className="main-text font-russo text-[32px] text-[#0C147A] text-gradient-to-r from-[#5A38FD]">
+            CKM
+          </span>
         </Nav>
         {cartQuantity > 0 && (
           <Button

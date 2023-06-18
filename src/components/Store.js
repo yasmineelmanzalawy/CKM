@@ -1,6 +1,5 @@
 import React from "react";
 import { Col, Row } from "react-bootstrap";
-import storeItems from "../data/items.json";
 import StoreItem from "./StoreItem";
 import { useEffect , useState } from "react";
 import axios from "../axios.config";
