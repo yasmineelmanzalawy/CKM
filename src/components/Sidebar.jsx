@@ -19,11 +19,11 @@ const Sidebar = () => {
   const normalLink = 'flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-md text-gray-700 dark:text-gray-200 dark:hover:text-black hover:bg-light-gray m-2';
 
   return (
-    <div className=" md:overflow-hidden overflow-auto md:hover:overflow-auto">
+    <div className=" md:overflow-hidden h-[1500px] overflow-auto md:hover:overflow-auto">
       {activeMenu && (
         <>
           <div className="flex justify-between items-center">
-            <Link to="/" onClick={handleCloseSideBar} className="ml-[20px] items-center gap-3 mt-4 flex text-transparent bg-clip-text bg-gradient-to-br from-[#0f005a] to-[#0f79a3] text-5xl font-extrabold tracking-tight dark:text-white text-slate-900">
+            <Link to="/" onClick={handleCloseSideBar} className="ml-[25px] items-center gap-3 mt-4 flex text-transparent bg-clip-text bg-gradient-to-br from-[#0f005a] to-[#0f79a3] text-5xl font-extrabold tracking-tight dark:text-white text-slate-900">
              <span>CKM</span>
             </Link>
             <TooltipComponent content="close" position="BottomCenter">

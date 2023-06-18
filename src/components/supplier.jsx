@@ -46,7 +46,7 @@ const Supplier = () => {
        </span>
       </Link>
       </div>
-        <div className="text-right mr-12 mt-[-80px]  underline underline-offset-1 text-[#3B1EC5] text-transparent bg-clip-text bg-gradient-to-br from-[#0f005a] to-[#0f79a3] ">
+        <div className="text-right mb-[60px] mr-12 mt-[-80px]  underline underline-offset-1 text-[#3B1EC5] text-transparent bg-clip-text bg-gradient-to-br from-[#0f005a] to-[#0f79a3] ">
           <a href="./controlunit">Skip To Controlunit</a>
         </div>
       <div className="font-russo flex justify-center items-center">

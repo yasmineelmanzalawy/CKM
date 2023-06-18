@@ -18,9 +18,9 @@ const Stock = () => {
   }, []);
   return (
     <div className="flex flex-col font-russo">
-      <div className=" text-center pb-10">
+      <div className=" text-center mt-[-20px]">
         <Link to="/inventory">
-          <button className="bg-[#ebeced] p-4 text-lg text text-[#575859] rounded-lg">
+          <button className="text-center mt-[-50px] bg-[#ebeced] p-2 text-lg text text-[#575859] rounded-lg">
             Add Stock
           </button>
         </Link>

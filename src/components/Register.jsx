@@ -57,9 +57,9 @@ const Register = () => {
             </a>
           </button>
           
-          <h6 className=" text-center font-jarkata text-sm pt-6 text-black">
+          <h6 className="font-russo text-center text-sm pt-6 text-black">
             Already Registered <br />{" "}
-            <Link className=" underline " to="/login">
+            <Link className=" underline hover:text-[#0f79a3] " to="/login">
               Log In instead
             </Link>
           </h6>
