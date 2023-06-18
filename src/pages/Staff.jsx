@@ -19,9 +19,9 @@ const Staff = () => {
   return (
     <div>
       <div className="flex flex-col justify-center mx-[50px]">
-        <div className=" text-center pb-10">
+        <div className=" text-center">
           <Link to="/employees">
-          <button className="bg-[#ebeced] p-4 text-lg text text-[#575859] rounded-lg">
+          <button className="text-center mt-[-50px]  bg-[#ebeced] p-2 text-lg text text-[#575859] rounded-lg">
             Add Staff
           </button>
           </Link>

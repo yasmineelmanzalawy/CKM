@@ -50,10 +50,10 @@ const Menu = () => {
   };
 
   return (
-    <div className=" font-jarkata">
-      <div className="flex justify-center">
+    <div className=" font-russo">
+      <div className="text-center ">
         <a
-          className="display: block  mr-[10px]  items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          className="text-center mt-[-50px] p-2 bg-[#ebeced] p-2 text-lg text text-[#575859] rounded-lg"
           href="/menusetup"
         >
           Add Dish
@@ -64,7 +64,7 @@ const Menu = () => {
       {menu.map((x,i)=>{
         return (
           <div key={i} className="flex gap-[80px] mx-[50px] my-[30px]  rounded-4 justify-center">
-        <div className="  w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+        <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
           <img className=" rounded-t-lg" src={x.image} alt="" />
           <div className=" ">
             <h5 className=" text-3xl text-center font-semibold tracking-tight text-gray-900 pt-2 dark:text-white">

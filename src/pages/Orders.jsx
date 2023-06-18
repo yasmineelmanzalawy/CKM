@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "../axios.config";
 
+
 const Orders = () => {
   const [order, setOrder] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -32,10 +33,10 @@ const Orders = () => {
   }
 
   return (
-    <div className="mt-[-100px] mb-[-110px]">
+    <div className="mt-[-30px] mb-[-110px]">
       <div className="overflow-x-auto">
         <div className="min-w-screen min-h-screen flex items-center justify-center overflow-hidden">
-          <div className="w-full lg:w-5/6">
+          <div className="mt-[-600px] w-full lg:w-5/6">
             <div className="bg-white shadow-md rounded my-6">
               <table className="min-w-max w-full table-auto">
                 <thead>

@@ -31,9 +31,9 @@ function Supplier() {
   }
   return (
     <div className="flex flex-col">
-      <div className=" text-center pb-10">
+      <div className="text-center">
         <Link to="/supplier">
-        <button className="bg-[#ebeced] p-4 text-lg text text-[#575859] rounded-lg">
+        <button className="text-center mt-[-50px]  bg-[#ebeced] p-2 text-lg text text-[#575859] rounded-lg">
           Add suppliers
         </button>
         
