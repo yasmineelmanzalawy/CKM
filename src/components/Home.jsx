@@ -44,7 +44,7 @@ function Home() {
 
             <a
               href="/register"
-              className="m-4 w-[80px] bg-gradient-to-br from-[#0f005a] to-[#0f79a3] text-center font-russo text-white rounded p-2 px-6 hover:bg-indigo-900 hover:scale-125 ease-liner duration-300"
+              className="m-4 h-[40px] w-[80px] bg-gradient-to-br from-[#0f005a] to-[#0f79a3] text-center font-russo text-white rounded p-2 px-6 hover:bg-indigo-900 hover:scale-125 ease-liner duration-300"
             >
               {" "}
               <li>Sign up</li>
@@ -52,7 +52,7 @@ function Home() {
 
             <a
               href="/login"
-              className="m-4 ml-[-50px] w-[80px] bg-gradient-to-br from-[#0f005a] to-[#0f79a3] text-center font-russo text-white rounded p-2 px-6 hover:bg-indigo-900 hover:scale-125 ease-liner duration-300"
+              className="m-4 h-[40px] ml-[-50px] w-[80px] bg-gradient-to-br from-[#0f005a] to-[#0f79a3] text-center font-russo text-white rounded p-2 px-6 hover:bg-indigo-900 hover:scale-125 ease-liner duration-300"
             >
               {" "}
               <li>login</li>
@@ -63,9 +63,9 @@ function Home() {
         
       </div>
       {/* Hero Section */}
-      <div className="flex max-w-[1240px] mx-auto px-4 pt-10">
-        <div className="pr-8 mt-12 mb-4 w-[50%]">
-        <div className="flex items-center justify-center">
+      <div className="flex max-w-[1240px] mt-4 mx-auto px-2 pt-8">
+        <div className="mt-[20px] w-[50%]">
+        <div className=" flex items-center justify-center">
           <h1 className="text-center font-russo text-4xl py-8 uppercase">
             &nbsp;{" "}
           </h1>
@@ -74,7 +74,7 @@ function Home() {
               "", // Types 'One'
               100,
               "Cloud Kitchen Manager",
-              3000,
+              10000,
               () => {
                 console.log("Sequence completed"); // Place optional callbacks anywhere in the array
               },
@@ -83,7 +83,7 @@ function Home() {
             cursor={true}
             repeat={Infinity}
             style={{
-              fontSize: "32px",
+              fontSize: "28px",
               display: "inline-block",
               fontFamily: ["Russo One", "sans-serif"],
               color: "#0C147A",
@@ -92,13 +92,14 @@ function Home() {
           />
         </div>
           
-          <p className="text-center text-[black] font-russo text-[30px]">
-            Create your kitchen and manage it in every aspect virtually with CKM
+          <p className="text-center text-[black] font-russo text-[25px]">
+          Transform your cloud kitchen operations with CKM, the ultimate solution for seamless management, efficient order processing, and exceptional culinary experiences.
 
+            <br />
             <br />
 
             <span className="text-[#0C147A]">CKM Is Your Wise Choice To
-            Manage Your Kitchen</span>
+            Manage. </span>
           </p>
           <div className="text-center pt-[120px]">
             {/* <button className="Main-button font-russo px-4 py-2 text-white text-[32px] hover:scale-105 duration-150 ease-in">
@@ -106,7 +107,7 @@ function Home() {
             </button> */}
           </div>
         </div>
-        <div>
+        <div className="m-12 mt-[-25px]">
           <img src={banner1} alt="" />
         </div>
       </div>
@@ -118,7 +119,7 @@ function Home() {
       >
         <div className="flex items-center justify-center">
           <h1 className="text-center font-russo text-4xl py-8 uppercase">
-            How to manage your&nbsp;{" "}
+            What is &nbsp;{" "}
           </h1>
           <TypeAnimation
             sequence={[
@@ -126,7 +127,7 @@ function Home() {
               1000,
               "",
               1000,
-              "Cloud Kitchen",
+              "Cloud Kitchen Manager?",
               () => {
                 console.log("Sequence completed"); // Place optional callbacks anywhere in the array
               },
@@ -152,8 +153,7 @@ function Home() {
               CKM Helps You To Manage..
             </h5>
             <p class="font-normal text-gray-700 ">
-              Here Are The Biggest Innovation With Management Inventory And
-              Suppliers
+            Discover CKM, the game-changing software solution designed to streamline and optimize every aspect of cloud kitchen management, from order processing and inventory.
             </p>
           </a>
           <a
@@ -164,8 +164,7 @@ function Home() {
               CKM Helps You To Manage..
             </h5>
             <p class="font-normal text-gray-700 ">
-              Your Kitchen With Your Own Ingredients, Your Profit From Orders
-              And What It’s Cost
+            Gain a competitive edge in the fast-paced food delivery industry by harnessing the power of CKM to enhance operational efficiency, maximize customer satisfaction, and drive business growth in your cloud kitchen.
             </p>
           </a>
           <a
@@ -176,20 +175,18 @@ function Home() {
               CKM Helps You To Manage..
             </h5>
             <p class="font-normal text-gray-700 ">
-              All Your Insights Will Be Helping By Advanced Analytic Dashboard
-              And With Care by Professional Website
+            Gain a competitive edge in the fast-paced food delivery industry by harnessing the power of CKM to enhance operational efficiency, maximize customer satisfaction, and drive business growth in your cloud kitchen.
             </p>
           </a>
         </div>
         <div className="flex justify-between pt-10">
           <div className=" w-[100%]">
-            <img className="main-img" src={information1} alt="" />
+            <img className="w-[600px]" src={information1} alt="" />
           </div>
-          <div className=" text-left pl-8 pt-12 ">
-            <h1 className="main-text font-russo text-6xl ">CKM</h1>
-            <p className=" font-russo text-2xl w-[80%] pt-6 pb-20 ">
-              is a SAAS model that allows cloud kitchen owners cloud kitchen
-              owners to excel with their business to a new level
+          <div className="pl-[-50px]  text-left pt-8 ">
+            <h1 className="font-russo text-3xl ">CKM</h1>
+            <p className="font-russo text-[20px] w-[550px]  pb-20 ">
+            CKM (Cloud Kitchen Management) is a powerful software solution designed to revolutionize the way cloud kitchens operate. With CKM, you can effortlessly manage orders, streamline inventory, customize menus, optimize delivery logistics, and gain valuable insights for growth, all in one comprehensive platform.
             </p>
             {/* <button className=" bg-indigo-800 text-white px-8 py-2 rounded-lg font-russo hover:scale-105 duration-150 ease-out ">
               Get Started

@@ -39,7 +39,7 @@ function Supplier() {
         
         </Link>
       </div>
-      <div className="overflow-x-auto px-14">
+      <div className=" overflow-x-auto mx-14">
         <div className="p-1.5 w-full inline-block align-middle">
           <div className="overflow-hidden border rounded-lg">
             <table className="min-w-full divide-y divide-gray-200">
