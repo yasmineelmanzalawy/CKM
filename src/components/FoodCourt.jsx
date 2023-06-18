@@ -10,7 +10,6 @@ import { useEffect , useState } from 'react';
 const FoodCourt = () => {
   const navigate = useNavigate()
     const[brand,setbrand]=useState([]);
-    const[ids,setIds] = useState(JSON.parse(localStorage.getItem("test"))||[]);
     useEffect(() => {
         const getBrand = async () => {
             const url = "api/all-brands";
@@ -60,7 +59,8 @@ const FoodCourt = () => {
        {brand.map((x,i)=>{
         return <button onClick={()=>{
           
-          localStorage.setItem("test",x.id)
+          localStorage.setItem("test",x.id);
+          localStorage.setItem("user_id",x.user_id);
           navigate("/ckmkitchens")
         }} key={i} className='p-6 flex flex-wrap justify-center mx-auto '>
         <div className='grid grid-cols-2 gap-4 w-[1000px] bg-[#ffdfcc] block rounded-3xl'>

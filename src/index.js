@@ -29,7 +29,7 @@ import Billing from "./components/Billing";
 import Register from "./components/Register";
 import Transcation from "./components/transcation";
 import T2 from "./components/T2";
-import ImageUpload from "./components/ImageUpload";
+import { Tester, data, options } from './components/TestComponent';
 
 const user = localStorage.getItem("token");
 ReactDOM.render(
@@ -48,7 +48,7 @@ ReactDOM.render(
           <Route path="/customerdata" element={<Customerdata />} />
           <Route path="/foodcourt" element={<FoodCourt />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/tester" element={<ImageUpload />} />
+          <Route path="/tester" element={<Tester />} />
           {user && <Route path="/supplier" element={<Supplier />} />}
           {user && <Route path="/menusetup" element={<MenuSetUp />} />}
           {user && <Route path="/createbrand" element={<CreateBrand />} />}

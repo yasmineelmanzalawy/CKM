@@ -1,340 +1,229 @@
 import React from "react";
-import { logo } from "../data/avatar2.jpg";
+import { Tester, data, options } from "../components/TestComponent";
+import {FiUsers} from 'react-icons/fi'
+import { MdOutlineSentimentSatisfiedAlt } from "react-icons/md";
+import { AiFillDollarCircle , AiFillFile } from "react-icons/ai";
+import { AnotherChart } from "../components/Barchart1";
+import { DoughnutChart } from "../components/Doughnutchart1";
+import { PieChart } from "../components/Piechart1";
+import StackedBarChart from "../components/Stackedbarchart1";
+import { HorizontalBarChart } from "../components/Hbarchart1";
 
 const Analytics = () => {
   return (
-    <div className="px-8">
-      <div className="content">
-        <div className="container-fluid">
-          <div className="row">
-            <div className="col-lg-6">
-              <div className="card">
-                <div className="card-header border-0">
-                  <div className="d-flex justify-content-between">
-                    <h3 className="card-title">Online Store Visitors</h3>
-                    <a href="javascript:void(0);">View Report</a>
-                  </div>
-                </div>
-                <div className="card-body">
-                  <div className="d-flex">
-                    <p className="d-flex flex-column">
-                      <span className="text-bold text-lg">820</span>
-                      <span>Visitors Over Time</span>
-                    </p>
-                    <p className="ml-auto d-flex flex-column text-right">
-                      <span className="text-success">
-                        <i className="fas fa-arrow-up" /> 12.5%
-                      </span>
-                      <span className="text-muted">Since last week</span>
-                    </p>
-                  </div>
-                  {/* /.d-flex */}
-                  <div className="position-relative mb-4">
-                    <canvas id="visitors-chart" height={200} />
-                  </div>
-                  <div className="d-flex flex-row justify-content-end">
-                    <span className="mr-2">
-                      <i className="fas fa-square text-primary" /> This Week
-                    </span>
-                    <span>
-                      <i className="fas fa-square text-gray" /> Last Week
-                    </span>
-                  </div>
-                </div>
-              </div>
-              {/* /.card */}
-              <div className="card">
-                <div className="card-header border-0">
-                  <h3 className="card-title">Products</h3>
-                  <div className="card-tools">
-                    <a href="#" className="btn btn-tool btn-sm">
-                      <i className="fas fa-download" />
-                    </a>
-                    <a href="#" className="btn btn-tool btn-sm">
-                      <i className="fas fa-bars" />
-                    </a>
-                  </div>
-                </div>
-                <div className="card-body table-responsive p-0">
-                  <table className="table table-striped table-valign-middle">
-                    <thead>
-                      <tr>
-                        <th>Product</th>
-                        <th>Price</th>
-                        <th>Sales</th>
-                        <th>More</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>
-                          <img
-                            src="dist/img/default-150x150.png"
-                            alt="Product 1"
-                            className="img-circle img-size-32 mr-2 inline"
-                          />
-                          Some Product
-                        </td>
-                        <td>$13 USD</td>
-                        <td>
-                          <small className="text-success mr-1">
-                            <i className="fas fa-arrow-up" />
-                            12%
-                          </small>
-                          12,000 Sold
-                        </td>
-                        <td>
-                          <a href="#" className="text-muted">
-                            <i className="fas fa-search" />
-                          </a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <img
-                            src="dist/img/default-150x150.png"
-                            alt="Product 1"
-                            className="img-circle img-size-32 mr-2 inline"
-                          />
-                          Another Product
-                        </td>
-                        <td>$29 USD</td>
-                        <td>
-                          <small className="text-warning mr-1">
-                            <i className="fas fa-arrow-down" />
-                            0.5%
-                          </small>
-                          123,234 Sold
-                        </td>
-                        <td>
-                          <a href="#" className="text-muted">
-                            <i className="fas fa-search" />
-                          </a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <img
-                            src="dist/img/default-150x150.png"
-                            alt="Product 1"
-                            className="img-circle img-size-32 mr-2 inline "
-                          />
-                          Amazing Product
-                        </td>
-                        <td>$1,230 USD</td>
-                        <td>
-                          <small className="text-danger mr-1">
-                            <i className="fas fa-arrow-down" />
-                            3%
-                          </small>
-                          198 Sold
-                        </td>
-                        <td>
-                          <a href="#" className="text-muted">
-                            <i className="fas fa-search" />
-                          </a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <img
-                            src="dist/img/default-150x150.png"
-                            alt="Product 1"
-                            className="img-circle img-size-32 mr-2 inline"
-                          />
-                          Perfect Item
-                          <span className="badge bg-danger">NEW</span>
-                        </td>
-                        <td>$199 USD</td>
-                        <td>
-                          <small className="text-success mr-1">
-                            <i className="fas fa-arrow-up" />
-                            63%
-                          </small>
-                          87 Sold
-                        </td>
-                        <td>
-                          <a href="#" className="text-muted">
-                            <i className="fas fa-search" />
-                          </a>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-              {/* /.card */}
+    <div>
+      <div id="stats" class="grid gird-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 mb-4">
+    <div class=" bg-gray-50 shadow-md p-6 rounded-lg ml-6">
+        <div class="flex flex-row space-x-4 items-center">
+            <div id="stats-1">
+                <FiUsers size={30} className="text-[#575859]"  />
             </div>
-            {/* /.col-md-6 */}
-            <div className="col-lg-6">
-              <div className="card">
-                <div className="card-header border-0">
-                  <div className="d-flex justify-content-between">
-                    <h3 className="card-title">Sales</h3>
-                    <a href="javascript:void(0);">View Report</a>
-                  </div>
-                </div>
-                <div className="card-body">
-                  <div className="d-flex">
-                    <p className="d-flex flex-column">
-                      <span className="text-bold text-lg">$18,230.00</span>
-                      <span>Sales Over Time</span>
-                    </p>
-                    <p className="ml-auto d-flex flex-column text-right">
-                      <span className="text-success">
-                        <i className="fas fa-arrow-up" /> 33.1%
-                      </span>
-                      <span className="text-muted">Since last month</span>
-                    </p>
-                  </div>
-                  {/* /.d-flex */}
-                  <div className="position-relative mb-4">
-                    <canvas id="sales-chart" height={200} />
-                  </div>
-                  <div className="d-flex flex-row justify-content-end">
-                    <span className="mr-2">
-                      <i className="fas fa-square text-primary" /> This year
-                    </span>
+            <div>
+                <p class="text-indigo-600 text-sm font-medium uppercase leading-4">Users</p>
+                <p class="text-[#575859] font-bold text-2xl inline-flex items-center space-x-2">
+                    <span>+28</span>
                     <span>
-                      <i className="fas fa-square text-gray" /> Last year
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941" />
+                          </svg>
+                          
                     </span>
-                  </div>
-                </div>
-              </div>
-              {/* /.card */}
-              <div className="card">
-                <div className="card-header border-0">
-                  <h3 className="card-title">Online Store Overview</h3>
-                  <div className="card-tools">
-                    <a href="#" className="btn btn-sm btn-tool">
-                      <i className="fas fa-download" />
-                    </a>
-                    <a href="#" className="btn btn-sm btn-tool">
-                      <i className="fas fa-bars" />
-                    </a>
-                  </div>
-                </div>
-                <div className="card-body">
-                  <div className="d-flex justify-content-between align-items-center border-bottom mb-3">
-                    <p className="text-success text-xl">
-                      <i className="ion ion-ios-refresh-empty" />
-                    </p>
-                    <p className="d-flex flex-column text-right">
-                      <span className="font-weight-bold">
-                        <i className="ion ion-android-arrow-up text-success" />{" "}
-                        12%
-                      </span>
-                      <span className="text-muted">CONVERSION RATE</span>
-                    </p>
-                  </div>
-                  {/* /.d-flex */}
-                  <div className="d-flex justify-content-between align-items-center border-bottom mb-3">
-                    <p className="text-warning text-xl">
-                      <i className="ion ion-ios-cart-outline" />
-                    </p>
-                    <p className="d-flex flex-column text-right">
-                      <span className="font-weight-bold">
-                        <i className="ion ion-android-arrow-up text-warning" />{" "}
-                        0.8%
-                      </span>
-                      <span className="text-muted">SALES RATE</span>
-                    </p>
-                  </div>
-                  {/* /.d-flex */}
-                  <div className="d-flex justify-content-between align-items-center mb-0">
-                    <p className="text-danger text-xl">
-                      <i className="ion ion-ios-people-outline" />
-                    </p>
-                    <p className="d-flex flex-column text-right">
-                      <span className="font-weight-bold">
-                        <i className="ion ion-android-arrow-down text-danger" />{" "}
-                        1%
-                      </span>
-                      <span className="text-muted">REGISTRATION RATE</span>
-                    </p>
-                  </div>
-                  {/* /.d-flex */}
-                </div>
-              </div>
+                </p>
             </div>
-            {/* /.col-md-6 */}
-          </div>
-          {/* /.row */}
         </div>
-        {/* /.container-fluid */}
-      </div>
+    </div>
+    <div class="bg-gray-50 shadow-md p-6 rounded-lg mx-4 ">
+        <div class="flex flex-row space-x-4 items-center">
+            <div id="stats-1">
+                <AiFillDollarCircle size={30} className="text-[#575859]"/>
+            </div>
+            <div>
+                <p class="text-teal-300 text-sm font-medium uppercase leading-4">Income</p>
+                <p class="text-[#575859] font-bold text-2xl inline-flex items-center space-x-2">
+                    <span>$2,873.88</span>
+                    <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941" />
+                          </svg>
+                          
+                    </span>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="bg-gray-50 shadow-md p-6 rounded-lg mx-4">
+        <div class="flex flex-row space-x-4 items-center">
+            <div id="stats-1">
+              <AiFillFile size={30} className="text-[#575859]"/>
+                  
+            </div>
+            <div>
+                <p class="text-blue-300 text-sm font-medium uppercase leading-4">Invoices</p>
+                <p class="text-[#575859] font-bold text-2xl inline-flex items-center space-x-2">
+                    <span>+79</span>
+                    <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941" />
+                          </svg>
+                          
+                    </span>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="w-full flex justify-center items-center">
+    <div class="container flex flex-col gap-4 mx-8">
+        <label class="text-[#575859] font-semibold tracking-wider text-lg">Last Week</label>
+        <div class="bg-gray-100 rounded-lg w-full h-auto py-4 flex flex-row justify-between divide-x divide-solid divide-gray-400">
+            
+            <div class="relative flex-1 flex flex-col gap-2 px-4">
+                <label class="text-[#575859] text-base font-semibold tracking-wider">Total Revenue</label>
+                <label class="text-black text-4xl font-bold">14K</label>
+                <div class="absolute bg-red-400 rounded-md font-semibold text-xs text-gray-100 p-2 right-4 bottom-0">
+                    - 5%
+                </div>
+            </div>
+            <div class="relative flex-1 flex flex-col gap-2 px-4">
+                <label class="text-[#575859] text-base font-semibold tracking-wider">Total Expenses</label>
+                <label class="text-black text-4xl font-bold">14K</label>
+                <div class="absolute bg-red-400 rounded-md font-semibold text-xs text-gray-100 p-2 right-4 bottom-0">
+                    - 5%
+                </div>
+            </div>
+            
+            <div class="relative flex-1 flex flex-col gap-2 px-4">
+                <label class="text-[#575859] text-base font-semibold tracking-wider">Total Profit</label>
+                <label class="text-black text-4xl font-bold">$1.2M</label>
+                <div class="absolute bg-green-400 rounded-md font-semibold text-xs text-gray-100 p-2 right-4 bottom-0">
+                    + 5%
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-      <div>
-        <div className="row">
-          <div className="col-lg-3 col-6">
-            {/* small box */}
-            <div className="small-box bg-info">
-              <div className="inner">
-                <h3>150</h3>
-                <p>New Orders</p>
-              </div>
-              <div className="icon">
-                <i className="ion ion-bag" />
-              </div>
-              <a href="#" className="small-box-footer">
-                More info <i className="fas fa-arrow-circle-right" />
-              </a>
+
+      <div className="grid grid-cols-3 gap-2 ">
+        <section class="antialiased text-gray-600 mt-3 ml-10 ">
+    <div class=" flex flex-col ">
+        <div class="w-full max-w-2xl py-3 bg-white rounded-xl ">
+            <header class="px-5 py-4 border-b border-gray-100">
+                <h2 class="font-semibold text-gray-800">Customers</h2>
+            </header>
+            <div class="p-3">
+                <div class="overflow-x-auto">
+                    <table class="table-auto w-full">
+                        <thead class="text-xs font-semibold uppercase text-gray-400 bg-gray-50">
+                            <tr>
+                                <th class="p-2 whitespace-nowrap">
+                                    <div class="font-semibold text-left">Name</div>
+                                </th>
+                                <th class="p-2 whitespace-nowrap">
+                                    <div class="font-semibold text-left">Email</div>
+                                </th>
+                                <th class="p-2 whitespace-nowrap">
+                                    <div class="font-semibold text-left">Spent</div>
+                                </th>
+                                <th class="p-2 whitespace-nowrap">
+                                    <div class="font-semibold text-center">Country</div>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-sm divide-y divide-gray-100">
+                            <tr>
+                                <td class="p-2 whitespace-nowrap">
+                                    <div class="flex items-center">
+                                        <div class="w-10 h-10 flex-shrink-0 mr-2 sm:mr-3"><img class="rounded-full" src="https://raw.githubusercontent.com/cruip/vuejs-admin-dashboard-template/main/src/images/user-36-05.jpg" width="40" height="40" alt="Alex Shatov"/></div>
+                                        <div class="font-medium text-gray-800">Alex Shatov</div>
+                                    </div>
+                                </td>
+                                <td class="p-2 whitespace-nowrap">
+                                    <div class="text-left">alexshatov@gmail.com</div>
+                                </td>
+                                <td class="p-2 whitespace-nowrap">
+                                    <div class="text-left font-medium text-green-500">$2,890.66</div>
+                                </td>
+                                <td class="p-2 whitespace-nowrap">
+                                    <div class="text-lg text-center">??</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-          </div>
-          {/* ./col */}
-          <div className="col-lg-3 col-6">
-            {/* small box */}
-            <div className="small-box bg-success">
-              <div className="inner">
-                <h3>
-                  53<sup style={{ fontSize: 20 }}>%</sup>
-                </h3>
-                <p>Bounce Rate</p>
-              </div>
-              <div className="icon">
-                <i className="ion ion-stats-bars" />
-              </div>
-              <a href="#" className="small-box-footer">
-                More info <i className="fas fa-arrow-circle-right" />
-              </a>
-            </div>
-          </div>
-          {/* ./col */}
-          <div className="col-lg-3 col-6">
-            {/* small box */}
-            <div className="small-box bg-warning">
-              <div className="inner">
-                <h3>44</h3>
-                <p>User Registrations</p>
-              </div>
-              <div className="icon">
-                <i className="ion ion-person-add" />
-              </div>
-              <a href="#" className="small-box-footer">
-                More info <i className="fas fa-arrow-circle-right" />
-              </a>
-            </div>
-          </div>
-          {/* ./col */}
-          <div className="col-lg-3 col-6">
-            {/* small box */}
-            <div className="small-box bg-danger">
-              <div className="inner">
-                <h3>65</h3>
-                <p>Unique Visitors</p>
-              </div>
-              <div className="icon">
-                <i className="ion ion-pie-graph" />
-              </div>
-              <a href="#" className="small-box-footer">
-                More info <i className="fas fa-arrow-circle-right" />
-              </a>
-            </div>
-          </div>
-          {/* ./col */}
+        </div>
+    </div>
+</section>
+      <div className=" bg-gray-50 rounded-lg pt-3">
+        <div className="bg-gray-100 h-full">
+        <div className="bg-white rounded-lg py-10 p-4">
+      <h2 className="text-xl font-semibold mb-4">Customer Satisfaction</h2>
+      <div className="flex items-center mb-2">
+        <div className="w-10 h-10 bg-green-500 rounded-full flex-shrink-0"></div>
+        <div className="ml-2">
+          <span className="text-gray-600">Satisfied</span>
+          <span className="text-green-500 font-semibold ml-1">80%</span>
+        </div>
+      </div>
+      <div className="flex items-center mb-2">
+        <div className="w-10 h-10 bg-yellow-500 rounded-full flex-shrink-0"></div>
+        <div className="ml-2">
+          <span className="text-gray-600">Neutral</span>
+          <span className="text-yellow-500 font-semibold ml-1">15%</span>
+        </div>
+      </div>
+      <div className="flex items-center">
+        <div className="w-10 h-10 bg-red-500 rounded-full flex-shrink-0"></div>
+        <div className="ml-2">
+          <span className="text-gray-600">Unsatisfied</span>
+          <span className="text-red-500 font-semibold ml-1">5%</span>
+        </div>
+      </div>
+    </div>
+        </div>
+      </div>
+      <div className=" bg-gray-50 rounded-lg pt-3 ">
+        <div className="bg-gray-100 h-full">
+        <div className="bg-white rounded-lg h-full p-4">
+      <h2 className="text-xl font-semibold mb-4">Business Growth Rate</h2>
+      <div className="flex items-center">
+        <svg className="w-10 h-10 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
+          <path
+            fillRule="evenodd"
+            d="M10 18a8 8 0 100-16 8 8 0 000 16zm0-2a6 6 0 100-12 6 6 0 000 12zm0-9a1 1 0 011 1v2a1 1 0 11-2 0V8a1 1 0 011-1zm-1 5a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1z"
+            clipRule="evenodd"
+          />
+        </svg>
+        <div>
+          <span className="text-gray-600">Current Growth Rate:</span>
+          <span className="text-green-500 font-semibold ml-1">10%</span>
+        </div>
+      </div>
+    </div>
         </div>
       </div>
 
+        <div>
+          <Tester />
+        </div>
+        <div>
+          <AnotherChart />
+        </div>
+        <div>
+          <StackedBarChart />
+        </div>
+        <div>
+          <HorizontalBarChart />
+        </div>
+        <div className="w-96">
+          <DoughnutChart />
+        </div>
+        <div className="w-96">
+          <PieChart />
+        </div>
+      </div>
+      
     </div>
   );
 };

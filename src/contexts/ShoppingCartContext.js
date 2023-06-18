@@ -15,7 +15,7 @@ const ShoppingCartProvider = ({ children }) => {
       menu_items:cartItems.map((x)=>{
         return {
           menu_item_id:x.id,
-          quantity:x.quantity
+          quantity:x.quantity,
         }
       })})
   
