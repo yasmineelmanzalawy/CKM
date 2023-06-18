@@ -1,41 +1,86 @@
-import React from "react";
-import { Link , useNavigate } from "react-router-dom";
-import { useState , useEffect} from "react";
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "../axios.config";
 import { TypeAnimation } from "react-type-animation";
 import { toast } from "react-hot-toast";
+
 const MenuSetUp = () => {
-  const initialState2 = []
-  const initialState3 = []
-  const initialState4 = ""
-  const [inventory,setInventory] = useState(initialState2)
-  const [ingredients, setIngredients] = useState(initialState3);
+  const handleAddIngredient = () => {
+    const newIngredient = {
+      inventory_item_id: ingredient,
+      quantity: ingredientQuantity,
+      unit_of_measurement: unit,
+    };
+  
+    setIngredientData((prevData) => [...prevData, newIngredient]);
+  
+    // Clear the input fields
+   
+  };
+  
+
+  const initialState2 = [];
+  const initialState4 = "";
+  const [inventory, setInventory] = useState(initialState2);
+  const [ingredients, setIngredients] = useState([]);
   const [ingredientQuantity, setIngredientQuantity] = useState("");
-  const [unit,setunit] = useState(initialState4)
+  const [unit, setUnit] = useState(initialState4);
   const [ingredient, setIngredient] = useState("");
+  const [ingredientData, setIngredientData] = useState([]);
+
   const initialState = {
     price: "",
     item_name: "",
     category: "",
     description: "",
-    brand_id:""
+    brand_id: "",
   };
+  const [image, setImage] = useState(null);
   const [data, setData] = useState(initialState);
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
-  const handleChange = ({ currentTarget: input }) => {
-    setData({ ...data, [input.name]: input.value });
+  const handleChange = (e) => {
+    setData({ ...data, [e.target.name]: e.target.value });
   };
 
-  const sucessful = () => toast.success("Successfully Added!");
+  const handleLogo = (e) => {
+    setImage(e.target.files[0]);
+    console.log(e.target.files);
+  };
+
+  const successful = () => toast.success("Successfully Added!");
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log({...data,ingredients:ingredients})
     try {
+      const formData = new FormData();
+      formData.append("image", image);
+      formData.append("price", data.price);
+      formData.append("item_name", data.item_name);
+      formData.append("category", data.category);
+      formData.append("description", data.description);
+      formData.append("brand_id", data.brand_id);
+      ingredientData.forEach((ingredient, index) => {
+        formData.append(
+          `ingredients[${index}][inventory_item_id]`,
+          ingredient.inventory_item_id
+        );
+        formData.append(`ingredients[${index}][quantity]`, ingredient.quantity);
+        formData.append(
+          `ingredients[${index}][unit_of_measurement]`,
+          ingredient.unit_of_measurement
+        );
+      });
+
+      const config = { headers: { "Content-Type": "multipart/form-data" } };
       const url = "api/Menu";
-      const { data: res } = await axios.post(url,{...data,ingredients:ingredients});
-      sucessful()
+      const { data: res } = await axios.post(url, formData, config);
+      successful();
+      setIngredient("");
+      setIngredientQuantity("");
+      setUnit("");
+      setIngredientData([])
       console.log(res.message);
     } catch (error) {
       if (
@@ -47,63 +92,66 @@ const MenuSetUp = () => {
       }
     }
   };
+
   useEffect(() => {
-    const getinventory = async () => {
-      const url = "api/Inventory"
-      const data  = await axios.get(url);
-      console.log(data)
+    const getInventory = async () => {
+      const url = "api/Inventory";
+      const { data } = await axios.get(url);
+      console.log(data);
       console.log(inventory);
-      setInventory(data.data);
+      setInventory(data);
     };
-    getinventory();
+    getInventory();
   }, []);
+
+  console.log(ingredientData);
+
   return (
     <div className="h-screen bg-gray-100 ">
       <div>
-       <Link to="/"><span className="ml-6 px-4 main-text font-russo text-[74px] text-transparent bg-clip-text bg-gradient-to-br from-[#0f005a] to-[#0f79a3] ">
+        <Link to="/">
+          <span className="ml-6 px-4 main-text font-russo text-[74px] text-transparent bg-clip-text bg-gradient-to-br from-[#0f005a] to-[#0f79a3] ">
             CKM
-       </span>
-      </Link>
+          </span>
+        </Link>
       </div>
       <div className="mb-[50px] text-right mr-12 mt-[-80px]  underline underline-offset-1 text-[#3B1EC5] text-transparent bg-clip-text bg-gradient-to-br from-[#0f005a] to-[#0f79a3] ">
-          <a href="./controlunit">Skip To Controlunit</a>
-        </div>
+        <a href="./controlunit">Skip To Controlunit</a>
+      </div>
       <a href="./inventory">
-            <h1 className="ml-[200px] text-2xl underline underline-offset-1 inline">
-              Back
-            </h1>
-          </a>
+        <h1 className="ml-[200px] text-2xl underline underline-offset-1 inline">
+          Back
+        </h1>
+      </a>
       <div className="flex justify-center items-center">
         <form
           onSubmit={handleSubmit}
           className="  rounded-3xl flex flex-col justify-center h-[80%] "
         >
-           <div className="flex items-center justify-center mb-[-50px]">
-          <h1 className="text-center font-russo text-4xl py-8 uppercase">
-            &nbsp;{" "}
-          </h1>
-          <TypeAnimation
-            sequence={[
-              
-              
-              "let's create a dish!",
-              5000000,
-              () => {
-                console.log("Sequence completed"); // Place optional callbacks anywhere in the array
-              },
-            ]}
-            wrapper="span"
-            cursor={true}
-            repeat={Infinity}
-            style={{
-              fontSize: "32px",
-              display: "inline-block",
-              fontFamily: ["Russo One", "sans-serif"],
-              color: "#0C147A",
-              textTransform: "uppercase",
-            }}
-          />
-        </div>
+          <div className="flex items-center justify-center mb-[-50px]">
+            <h1 className="text-center font-russo text-4xl py-8 uppercase">
+              &nbsp;{" "}
+            </h1>
+            <TypeAnimation
+              sequence={[
+                "let's create a dish!",
+                5000000,
+                () => {
+                  console.log("Sequence completed"); // Place optional callbacks anywhere in the array
+                },
+              ]}
+              wrapper="span"
+              cursor={true}
+              repeat={Infinity}
+              style={{
+                fontSize: "32px",
+                display: "inline-block",
+                fontFamily: ["Russo One", "sans-serif"],
+                color: "#0C147A",
+                textTransform: "uppercase",
+              }}
+            />
+          </div>
           {/* <h1 className="text-center text-5xl text-[#3B1EC5]">
             Create Your Dish
           </h1> */}
@@ -137,6 +185,15 @@ const MenuSetUp = () => {
               />
             </div>
             <div>
+              <input
+                type="file"
+                onChange={handleLogo}
+                accept="image/*"
+                className="w-[300px] text-center bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                required
+              />
+            </div>
+            <div>
               <label className="text-center block mb-2 text-lg font-medium text-gray-900 dark:text-white">
                 Dish Category
               </label>
@@ -162,7 +219,10 @@ const MenuSetUp = () => {
                 placeholder="Price"
                 required
               />
-              <input className="hidden" value={data.brand_id = localStorage.getItem("brand_id")} />
+              <input
+                className="hidden"
+                value={(data.brand_id = localStorage.getItem("brand_id"))}
+              />
             </div>
           </div>
           <div>
@@ -172,30 +232,36 @@ const MenuSetUp = () => {
               </h1>
             </div>
             <div class="grid gap-6 mb-6 md:grid-cols-4 justify-items-center pt-[80px]">
-             { <div>
-                <label className="text-center block mb-2 text-lg font-medium text-gray-900 dark:text-white">
-                  Ingredient
-                </label>
+              {
+                <div>
+                  <label className="text-center block mb-2 text-lg font-medium text-gray-900 dark:text-white">
+                    Ingredient
+                  </label>
 
-                {<select
-                  onChange={(e) => {
-                    setIngredient(e.target.value);
-                  }}
-                  value={ingredient}
-                  required
-                  id="searchbar"
-                  onkeyup="search"
-                  type="text"
-                  name="inventory_item_id"
-                  placeholder=""
-                  className="w-[300px] text-center bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 "
-                >
-                  <option className="hidden" value="">Select Your ingredent</option>
-                  {inventory.map((x,i) => {
-                    return <option value={x.id}>{x.item_name}</option>
-                  })}
-                </select>}
-              </div> } 
+                  {
+                    <select
+                      onChange={(e) => {
+                        setIngredient(e.target.value);
+                      }}
+                      value={ingredient}
+                      required
+                      id="searchbar"
+                      onkeyup="search"
+                      type="text"
+                      name="inventory_item_id"
+                      placeholder=""
+                      className="w-[300px] text-center bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 "
+                    >
+                      <option className="hidden" value="">
+                        Select Your ingredent
+                      </option>
+                      {inventory.map((x, i) => {
+                        return <option value={x.id}>{x.item_name}</option>;
+                      })}
+                    </select>
+                  }
+                </div>
+              }
               <div>
                 <label className="text-center block mb-2 text-lg font-medium text-gray-900 dark:text-white">
                   Ingredient Quantity
@@ -219,7 +285,7 @@ const MenuSetUp = () => {
                 <input
                   name="unit"
                   onChange={(e) => {
-                    setunit(e.target.value);
+                    setUnit(e.target.value);
                   }}
                   value={unit}
                   required
@@ -228,30 +294,24 @@ const MenuSetUp = () => {
                   className="w-[300px] text-center bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 />
               </div>
-              <div >
+              <div>
                 <label className="text-center block mb-2 text-lg font-medium text-gray-900 dark:text-white">
                   Add the ingredient
                 </label>
                 <button
                   type="button"
-                  onClick={() => {
-                    const object = {
-                      inventory_item_id: ingredient,
-                      quantity: ingredientQuantity,
-                      unit_of_measurement:unit,
-                    };
-                    setIngredients([...ingredients, object]);
-                    console.log(object)
-                  }}
-                  className="w-[300px] text-center bg-gray-200 border-[3px] border-[#0C147A] text-[#0C147A] text-lg rounded-lg focus:ring-[#0C147A] focus:border-[#0C147A]  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 "
+                  onClick={handleAddIngredient}
+                  className="w-[300px] text-center bg-gray-200 border-[3px] border-[#0C147A] text-[#0C147A] text-lg rounded-lg focus:ring-[#0C147A] focus:border-[#0C147A]  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 >
                   Save Ingredient
                 </button>
                 <ul>
-                  {ingredients.map((item,index) => (
+                  {ingredientData.map((item, index) => (
                     <li key={index} className="flex justify-between">
                       <div>{item.inventory_item_id}</div>
-                      <div>{item.quantity} {"GM"}</div>
+                      <div>
+                        {item.quantity} {"GM"}
+                      </div>
                     </li>
                   ))}
                 </ul>
@@ -267,9 +327,9 @@ const MenuSetUp = () => {
               ADD DISH
             </button>
             <Link to="/controlunit">
-            <button className="text-white rounded px-4 hover:scale-125 ease-linear duration-300 bg-gradient-to-br from-[#0f005a] to-[#0f79a3] text-center h-12">
-              Finish
-            </button>
+              <button className="text-white rounded px-4 hover:scale-125 ease-linear duration-300 bg-gradient-to-br from-[#0f005a] to-[#0f79a3] text-center h-12">
+                Finish
+              </button>
             </Link>
           </div>
         </form>
