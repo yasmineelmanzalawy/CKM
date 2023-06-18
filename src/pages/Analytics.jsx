@@ -20,7 +20,7 @@ const Analytics = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("your-api-endpoint-url");
+        const response = await axios.get(`api/staff-stats/${localStorage.getItem("brand_id")}`);
   
         // Extract the data from the response
         const { total_staff_count, average_salary } = response.data;
