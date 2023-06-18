@@ -1,8 +1,11 @@
 import React from "react";
 import { useState } from "react";
-import { useNavigate } from "react-router";
 import axios from "../axios.config";
 import  toast  from "react-hot-toast";
+import { Link, useNavigate } from "react-router-dom";
+import { TypeAnimation } from "react-type-animation";
+
+
 const Supplier = () => {
   const navigate = useNavigate();
   const [error, setError] = useState("");
@@ -36,25 +39,60 @@ const Supplier = () => {
       });
   };
   return (
-    <div className="h-screen font-russo flex justify-center items-center bg-gray-100 ">
+    <div className="h-screen bg-gray-100 ">
       <div>
+       <Link to="/"><span className="ml-6 px-4 main-text font-russo text-[74px] text-transparent bg-clip-text bg-gradient-to-br from-[#0f005a] to-[#0f79a3] ">
+            CKM
+       </span>
+      </Link>
+      </div>
+        <div className="text-right mr-12 mt-[-80px]  underline underline-offset-1 text-[#3B1EC5] text-transparent bg-clip-text bg-gradient-to-br from-[#0f005a] to-[#0f79a3] ">
+          <a href="./controlunit">Skip To Controlunit</a>
+        </div>
+      <div className="font-russo flex justify-center items-center">
       </div>
       <form
         onSubmit={handleSubmit}
-        className="  rounded-3xl flex flex-col justify-center h-[80%] "
+        className=" rounded-3xl flex flex-wrap flex-col justify-center h-[80%] "
       >
-        <div className="text-right pb-4 text-2xl underline underline-offset-1 text-[#3B1EC5]">
-          <a href="./inventory">Next</a>
+        <div className="text-right mr-48 mt-[-80px] text-2xl underline underline-offset-1 text-[#3B1EC5] text-transparent bg-clip-text bg-gradient-to-br from-[#0f005a] to-[#0f79a3] ">
+          <a href="./employees">Next</a>
         </div>
   
-        <h1 className="text-center text-5xl text-[#3B1EC5]">
+        <div className="flex items-center justify-center mb-[-50px]">
+          <h1 className="text-center font-russo text-4xl py-8 uppercase">
+            &nbsp;{" "}
+          </h1>
+          <TypeAnimation
+            sequence={[
+              
+              
+              "please enter you suppliers!",
+              5000000,
+              () => {
+                console.log("Sequence completed"); // Place optional callbacks anywhere in the array
+              },
+            ]}
+            wrapper="span"
+            cursor={true}
+            repeat={Infinity}
+            style={{
+              fontSize: "32px",
+              display: "inline-block",
+              fontFamily: ["Russo One", "sans-serif"],
+              color: "#0C147A",
+              textTransform: "uppercase",
+            }}
+          />
+        </div>
+        {/* <h1 className="text-center text-5xl text-[#3B1EC5]">
           Add Your Suppliers
-        </h1>
-        <div className="grid gap-6 mb-6 md:grid-cols-3 justify-items-center pt-[80px]">
+        </h1> */}
+        <div className="mx-24 grid gap-6 mb-6 md:grid-cols-3 justify-items-center pt-[80px]">
           <div>
             <label
             htmlFor=""
-              className="block mb-2 text-lg font-medium text-gray-900 dark:text-white"
+              className="block text-center mb-2 text-lg font-medium text-gray-900 dark:text-white"
             >
               Supplier name
             </label>
@@ -63,14 +101,14 @@ const Supplier = () => {
               value={data.name}
               name="name"
               type="text"
-              className=" bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="w-[350px] text-center bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               placeholder="Supplier name"
               required
             />
           </div>
           <div>
             <label
-              className="block mb-2 text-lg font-medium text-gray-900 dark:text-white"
+              className="block text-center mb-2 text-lg font-medium text-gray-900 dark:text-white"
             >
               Supplier Location
             </label>
@@ -79,14 +117,14 @@ const Supplier = () => {
               value={data.address}
               name="address"
               type="text"
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="bg-gray-50 border text-center w-[350px] border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               placeholder="Supplier Location"
               required
             />
           </div>
           <div>
             <label
-              className="block mb-2 text-lg font-medium text-gray-900 dark:text-white"
+              className="block text-center mb-2 text-lg font-medium text-gray-900 dark:text-white"
             >
               Supplier Email
             </label>
@@ -96,14 +134,14 @@ const Supplier = () => {
               name="email"
               type="email"
               id="Inventory Categories"
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="bg-gray-50 border text-center w-[350px] border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               placeholder="Supplier Email"
               required
             />
           </div>
           <div>
             <label
-              className="block mb-2 text-lg font-medium text-gray-900 dark:text-white"
+              className="block text-center mb-2 text-lg font-medium text-gray-900 dark:text-white"
             >
               Category
             </label>
@@ -111,9 +149,9 @@ const Supplier = () => {
               onChange={handleChange}
               name="category"
               value={data.category}
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="bg-gray-50 border w-[350px] text-center border-gray-300 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             >
-              <option value="select">Select</option>
+              <option className="hidden" value="select">Select</option>
               <option value="Meat_Items">Meat_Items</option>
               <option value="Poultry">Poultry</option>
               <option value="Dairy">Dairy</option>
@@ -124,7 +162,7 @@ const Supplier = () => {
           </div>
           <div>
             <label
-              className="block mb-2 text-lg font-medium text-gray-900 dark:text-white"
+              className="block text-center mb-2 text-lg font-medium text-gray-900 dark:text-white"
             >
               Supplier Phone
             </label>
@@ -133,14 +171,14 @@ const Supplier = () => {
               value={data.phone}
               name="phone"
               type="tel"
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="bg-gray-50 border w-[350px] text-center border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               placeholder="Supplier Phone"
               required
             />
           </div>
           <div>
             <label
-              className="block mb-2 text-lg font-medium text-gray-900 dark:text-white"
+              className="block text-center mb-2 text-lg font-medium text-gray-900 dark:text-white"
             >
               Note
             </label>
@@ -150,7 +188,7 @@ const Supplier = () => {
               name="notes"
               type="text"
               id="Inventory Categories"
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="bg-gray-50 border text-center w-[350px] border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               placeholder="Enter Your Note"
               required
             />
@@ -160,7 +198,7 @@ const Supplier = () => {
         <div className="flex justify-between">
           <button
             type="submit"
-            className=" text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-lg  sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            className="ml-[140px] text-white bg-gradient-to-br from-[#0f005a] to-[#0f79a3] hover:bg-blue-800 hover:scale-125 ease-liner duration-300 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-lg  sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
           >
             ADD
           </button>

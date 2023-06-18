@@ -9,9 +9,9 @@ const Register = () => {
   return (
     <div className="">
       <Link to="/">
-      <span className="main-text inline-block font-russo pl-10 text-[74px] text-indigo-800">
-        CKM
-      </span>
+      <span className="ml-6 px-4 main-text font-russo text-[74px] text-transparent bg-clip-text bg-gradient-to-br from-[#0f005a] to-[#0f79a3] ">
+            CKM
+          </span>
       </Link>
       <div className="flex h-[80vh] items-center justify-center flex-col  ">
         <div className="flex gap-8 justify-center">
@@ -48,7 +48,7 @@ const Register = () => {
           <button
             disabled={!client || !owner }
             type="button"
-            className={`w-80 flex py-3 font-jarkata justify-center items-center font  rounded-md text-xl border border-transparent font-semibold bg-blue-500 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all dark:focus:ring-offset-gray-800 ${!client && !owner ? " cursor-not-allowed bg-[#9aaa97] hover:bg-[#9aaa97] " : ""}`}
+            className={`bg-gradient-to-br from-[#0f005a] to-[#0f79a3] text-white text-2xl p-4 rounded-2xl ${!client && !owner ? " cursor-not-allowed bg-[#9aaa97] hover:bg-[#9aaa97] " : ""}`}
           >
             <a href="/signup">
 
@@ -57,9 +57,9 @@ const Register = () => {
             </a>
           </button>
           
-          <h6 className=" text-center font-jarkata text-sm pt-6 text-cyan-700">
+          <h6 className=" text-center font-jarkata text-sm pt-6 text-black">
             Already Registered <br />{" "}
-            <Link className=" underline" to="/login">
+            <Link className=" underline " to="/login">
               Log In instead
             </Link>
           </h6>

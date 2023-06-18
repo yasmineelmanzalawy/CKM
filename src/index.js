@@ -14,7 +14,6 @@ import Signup from "./components/Signup";
 import Controlunit from "./components/Controlunit";
 import { Analytics, Customers, Employees, Orders } from "./pages";
 import Employee from "./components/employee";
-import Partners from "./pages/Partners";
 import Staff from "./pages/Staff";
 import Supplier from "./components/supplier";
 import Menu from "./pages/Menu";
@@ -63,7 +62,6 @@ ReactDOM.render(
             <Route path="/controlunit/employees" element={<Employees />} />
             <Route path="/controlunit/customers" element={<Customers />} />
             <Route path="/controlunit/orders" element={<Orders />} />
-            <Route path="/controlunit/partners" element={<Partners />} />
             <Route path="/controlunit/staff" element={<Staff />} />
             <Route path="/controlunit/suppliers" element={<Suppliers />} />
             <Route path="/controlunit/menu" element={<Menu />} />

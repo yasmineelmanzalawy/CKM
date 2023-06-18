@@ -2,6 +2,8 @@ import { useState } from "react";
 import React from "react";
 import axios from "../axios.config";
 import { Link, useNavigate } from "react-router-dom";
+import { TypeAnimation } from "react-type-animation";
+
 
 const CreateBrand = () => {
   const [data, setData] = useState({
@@ -58,17 +60,53 @@ const CreateBrand = () => {
   };
   
   return (
-    <div className="flex justify-center item-center h-screen bg-gray-100">
+    <div className=" h-screen bg-gray-100">
+     <div>
+       <Link to="/"><span className="ml-6 px-4 main-text font-russo text-[74px] text-transparent bg-clip-text bg-gradient-to-br from-[#0f005a] to-[#0f79a3] ">
+            CKM
+       </span>
+      </Link>
+      </div>
+      <div className="flex flex-wrap justify-center item-center mt-4">
       <div className="flex items-center flex-col justify-center">
-        <h1 className="pb-16 text-center text-5xl text-[#3B1EC5] ">
+        <div>
+        <div className="flex items-center justify-center mb-4">
+          <h1 className="text-center font-russo text-4xl py-8 uppercase">
+            &nbsp;{" "}
+          </h1>
+          <TypeAnimation
+            sequence={[
+              "welcome!",
+              2000,
+              "Let's Start By Creating Your Brand!",
+              5000000,
+              () => {
+                console.log("Sequence completed"); // Place optional callbacks anywhere in the array
+              },
+            ]}
+            wrapper="span"
+            cursor={true}
+            repeat={Infinity}
+            style={{
+              fontSize: "32px",
+              display: "inline-block",
+              fontFamily: ["Russo One", "sans-serif"],
+              color: "#0C147A",
+              textTransform: "uppercase",
+            }}
+          />
+        </div>
+
+        </div>
+        {/* <h1 className="pb-16 text-center text-5xl text-transparent bg-clip-text bg-gradient-to-br from-[#0f005a] to-[#0f79a3]">
           Create Your Brand
-        </h1>
+        </h1> */}
         <div className="">
           <form
             onSubmit={handleSubmit}
-            className=" rounded-3xl flex flex-col justify-center h-[80%] "
+            className=" rounded-3xl flex flex-wrap gap-5 justify-center h-[80%] "
           >
-            <div>
+            <div className="">
               <label className="text-center block mb-2 text-lg font-medium text-gray-900 dark:text-white">
                 Kitchen Name
               </label>
@@ -77,7 +115,7 @@ const CreateBrand = () => {
                 onChange={handleChange}
                 value={data.name}
                 type="text"
-                className="text-center w-[400px] my-[20px] bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                className="text-center w-[350px] my-[20px] bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="Kitchen Name"
                 required
               />
@@ -90,19 +128,19 @@ const CreateBrand = () => {
                 name="cuisine"
                 onChange={handleChange}
                 value={data.cuisine}
-                className="text-center w-[400px] my-[20px] bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                className="text-center w-[350px] my-[20px] bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               >
-                <option value="Select">Select</option>
-                <option value="American">American</option>
-                <option value="Egyptian">Egyptian</option>
-                <option value="Chinese">Chinese</option>
-                <option value="Oriental">Oriental</option>
-                <option value="Japanese">Japanese</option>
-                <option value="Indonesian">Indonesian</option>
-                <option value="French">French</option>
+                <option value="Select" className="hidden">Select</option>
+                <option value="American" className="text-center">American</option>
+                <option value="Egyptian" className="text-center">Egyptian</option>
+                <option value="Chinese" className="text-center">Chinese</option>
+                <option value="Oriental" className="text-center">Oriental</option>
+                <option value="Japanese" className="text-center">Japanese</option>
+                <option value="Indonesian" className="text-center">Indonesian</option>
+                <option value="French" className="text-center">French</option>
               </select>
             </div>
-            <div>
+            <div className="block"> 
               <label className="text-center block mb-2 text-lg font-medium text-gray-900 dark:text-white">
                 Description
               </label>
@@ -111,19 +149,19 @@ const CreateBrand = () => {
                 onChange={handleChange}
                 value={data.description}
                 type="text"
-                className="text-center w-[400px] my-[20px] bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                className="text-center w-[350px] my-[20px] bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="Kitchen Name"
                 required
               />
             </div>
-            <div>
+            <div className="block">
               <label className="text-center block mb-2 text-lg font-medium text-gray-900 dark:text-white">
                 Brand cover
               </label>
               <input
                 type="file"
                 onChange={handleCover}
-                className="text-center w-[400px] my-[20px] bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                className="text-center w-[350px] my-[20px] bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 accept="image/jpeg, image/png, image/jpg, image/gif"
               />
               <input
@@ -138,7 +176,7 @@ const CreateBrand = () => {
               <input
                 type="file"
                 onChange={handleLogo}
-                className="text-center w-[400px] my-[20px] bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                className="text-center w-[350px] my-[20px] bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 accept="image/jpeg, image/png, image/jpg, image/gif"
               />
               <input
@@ -146,10 +184,11 @@ const CreateBrand = () => {
                 value={(data.user_id = localStorage.getItem("id"))}
               />
             </div>
+            
             <div className="flex justify-center mt-6">
               <input
                 type="submit"
-                className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 focus:ring-offset-2 font-medium font-semibold text-lg rounded-lg p-3.5 cursor-pointer"
+                className="text-white bg-gradient-to-br from-[#0f005a] to-[#0f79a3] hover:bg-blue-800 hover:scale-125 ease-liner duration-300 focus:ring-4 focus:outline-none focus:ring-blue-300 focus:ring-offset-2 font-medium text-lg rounded-lg p-3.5 cursor-pointer block mt-4 pb-[20px] h-[50px]"
                 value="Create"
               />
             </div>
@@ -157,6 +196,7 @@ const CreateBrand = () => {
           </form>
         </div>
       </div>
+    </div>
     </div>
   );
 };

@@ -10,8 +10,8 @@ function Home() {
     // **** Navbar ******
     <div>
       <div className="flex justify-between items-center h-24 px-4 ">
-        <div>
-          <span className="main-text p-14 font-russo text-[74px] text-[#0C147A] text-gradient-to-r from-[#5A38FD]">
+        <div className="ml-6">
+          <span className="main-text font-russo text-[74px] text-transparent bg-clip-text bg-gradient-to-br from-[#0f005a] to-[#0f79a3] ">
             CKM
           </span>
         </div>
@@ -28,23 +28,23 @@ function Home() {
             </button>
               </Link>
             <a href="#Price">
-              <li className="p-4 font-russo text-[24px] hover:scale-125 ease-linear duration-300 text-[#3B1EC5]">
+              <li className="p-4 font-russo text-[24px] hover:scale-125 ease-linear duration-300  text-transparent bg-clip-text bg-gradient-to-br from-[#0f005a] to-[#0f79a3] ">
                 Pricing
               </li>
             </a>
             <a href="#About">
               {" "}
-              <li className="p-4 font-russo text-[24px] hover:scale-125 ease-linear duration-300 text-[#3B1EC5]">
+              <li className="p-4 font-russo text-[24px] hover:scale-125 ease-linear duration-300  text-transparent bg-clip-text bg-gradient-to-br from-[#0f005a] to-[#0f79a3] ">
                 About Us
               </li>
             </a>
-            <li className="p-4 font-russo text-[24px] hover:scale-125 ease-linear duration-300 text-[#3B1EC5]">
+            <li className="p-4 font-russo text-[24px] hover:scale-125 ease-linear duration-300  text-transparent bg-clip-text bg-gradient-to-br from-[#0f005a] to-[#0f79a3] ">
               Reviews
             </li>
 
             <a
               href="/register"
-              className="m-4 w-42 bg-indigo-800 font-russo text-white rounded p-2 px-6 hover:bg-indigo-900 hover:scale-125 ease-liner duration-300"
+              className="m-4 w-[80px] bg-gradient-to-br from-[#0f005a] to-[#0f79a3] text-center font-russo text-white rounded p-2 px-6 hover:bg-indigo-900 hover:scale-125 ease-liner duration-300"
             >
               {" "}
               <li>Sign up</li>
@@ -52,7 +52,7 @@ function Home() {
 
             <a
               href="/login"
-              className="m-4 w-42 bg-indigo-800 font-russo text-white rounded p-2 px-6 hover:bg-indigo-900 hover:scale-125 ease-liner duration-300"
+              className="m-4 ml-[-50px] w-[80px] bg-gradient-to-br from-[#0f005a] to-[#0f79a3] text-center font-russo text-white rounded p-2 px-6 hover:bg-indigo-900 hover:scale-125 ease-liner duration-300"
             >
               {" "}
               <li>login</li>
@@ -72,11 +72,9 @@ function Home() {
           <TypeAnimation
             sequence={[
               "", // Types 'One'
-              200,
-              "",
-              1000,
+              100,
               "Cloud Kitchen Manager",
-              2000,
+              3000,
               () => {
                 console.log("Sequence completed"); // Place optional callbacks anywhere in the array
               },
@@ -98,9 +96,9 @@ function Home() {
             Create your kitchen and manage it in every aspect virtually with CKM
 
             <br />
-            <br />
+
             <span className="text-[#0C147A]">CKM Is Your Wise Choice To
-            Manage</span>
+            Manage Your Kitchen</span>
           </p>
           <div className="text-center pt-[120px]">
             {/* <button className="Main-button font-russo px-4 py-2 text-white text-[32px] hover:scale-105 duration-150 ease-in">

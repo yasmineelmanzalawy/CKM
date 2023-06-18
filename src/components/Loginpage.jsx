@@ -53,15 +53,15 @@ const Loginpage = (props) => {
  
   return (
     <div className="">
-      <Link to="/"><span className="main-text  p-10 font-russo text-[74px] text-[#0C147A] text-gradient-to-r from-[#5A38FD]">
-        CKM
-      </span>
+      <Link to="/"><span className="ml-6 px-4 main-text font-russo text-[74px] text-transparent bg-clip-text bg-gradient-to-br from-[#0f005a] to-[#0f79a3] ">
+            CKM
+          </span>
       </Link>
       <div className="mt-[-20px] font-russo flex justify-center">
-        <div className="w-0 md:w-0 lg:w-[450px]"><img src={log} alt="" /></div>
+        <div className="w-0 pr-4 md:w-0 lg:w-[450px]"><img src={log} alt="" /></div>
         <div className="">
-          <form className="" onSubmit={handleSubmit}>
-            <h1 className="text-center text-[#0C147A] text-[40px] display: block mt-[50px]">Login to your account</h1>
+          <form className="pl-4" onSubmit={handleSubmit}>
+            <h1 className="text-center text-transparent bg-clip-text bg-gradient-to-br from-[#0f005a] to-[#0f79a3] text-[40px] display: block mt-[50px]">Login to your account</h1>
             <h1 className="text-center mt-[50px] mb-[-20px] text-[#0C147A]">Email</h1>
             <input
               type="email"
@@ -83,7 +83,7 @@ const Loginpage = (props) => {
               className="text-center display: block border-[3px] border-[#0C147A] my-[20px] mx-auto rounded-[10px] h-[50px] w-[250px]"
             />
             {error && <div className="text-center text-red-600 text-xs underline font ">{error}</div>}
-            <button className="display: block mx-auto rounded-[10px] h-[40px] w-[100px] bg-[#0C147A] text-white mt-[70px] my-[20px] text-center" type="submit">Log In</button>
+            <button className="display: block mx-auto rounded-[10px] h-[40px] w-[100px]  bg-gradient-to-br from-[#0f005a] to-[#0f79a3]  hover:scale-125 ease-liner duration-300 text-white mt-[70px] my-[20px] text-center" type="submit">Log In</button>
         <div>
           <h1 className="text-center">You don't have an account? </h1>
           <Link to="/signup">

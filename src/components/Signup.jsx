@@ -54,17 +54,17 @@ const Signup = () => {
   };
   return (
     <div>
-      <Link to="/"><span className="main-text p-10 font-russo text-[#0C147A] text-[74px] text-gradient-to-r from-[#5A38FD] mb-[-30px]">
-        CKM
-      </span>
+      <Link to="/"><span className="ml-6 px-4 main-text font-russo text-[74px] text-transparent bg-clip-text bg-gradient-to-br from-[#0f005a] to-[#0f79a3] ">
+            CKM
+          </span>
       </Link>
-      <div className="flex justify-center mt-[-30px]">
-        <div className="w-0 md:w-0 lg:w-[500px]">
+      <div className="flex justify-center ">
+        <div className="w-0 md:w-0 mt-[-30px] lg:w-[500px]">
           <img src={sign} alt="" className="mt-[-15px]" />
         </div>
-        <div>
+        <div className="mt-[-20px]">
           <form onSubmit={handleSubmit}>
-            <h1 className="text-center text-[#0C147A] font-russo text-[40px] display: block mt-[5px]">
+            <h1 className="text-center text-transparent bg-clip-text bg-gradient-to-br from-[#0f005a] to-[#0f79a3] font-russo text-[40px] display: block mt-[5px]">
               Create an account
             </h1>
             <h1 className="text-center mt-[50px] font-russo mb-[-20px] text-[#0C147A]">Name</h1>
@@ -112,7 +112,7 @@ const Signup = () => {
               className="hidden"
             />
             {error && <div className="">{error}</div>}
-            <button type="submit" className="font-russo display: block mx-auto rounded-[10px] h-[40px] w-[100px] bg-[#0C147A] text-white mt-[20px] my-[20px] text-center">Sign Up</button>
+            <button type="submit" className="font-russo display: block mx-auto rounded-[10px] h-[40px] w-[100px]  bg-gradient-to-br from-[#0f005a] to-[#0f79a3]  hover:scale-125 ease-liner duration-300 text-white mt-[20px] my-[20px] text-center">Sign Up</button>
             <h1 className="text-center font-russo">Already have an account?</h1>
             <Link to="/login">
               <button type="button" className=" font-russo display: block mx-auto text-center underline underline-offset-1">Log in</button>

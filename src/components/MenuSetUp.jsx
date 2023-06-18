@@ -2,6 +2,7 @@ import React from "react";
 import { Link , useNavigate } from "react-router-dom";
 import { useState , useEffect} from "react";
 import axios from "../axios.config";
+import { TypeAnimation } from "react-type-animation";
 import { toast } from "react-hot-toast";
 const MenuSetUp = () => {
   const initialState2 = []
@@ -57,16 +58,55 @@ const MenuSetUp = () => {
     getinventory();
   }, []);
   return (
-    <div>
-      {" "}
-      <div className="h-screen flex justify-center items-center bg-gray-100 ">
+    <div className="h-screen bg-gray-100 ">
+      <div>
+       <Link to="/"><span className="ml-6 px-4 main-text font-russo text-[74px] text-transparent bg-clip-text bg-gradient-to-br from-[#0f005a] to-[#0f79a3] ">
+            CKM
+       </span>
+      </Link>
+      </div>
+      <div className="mb-[50px] text-right mr-12 mt-[-80px]  underline underline-offset-1 text-[#3B1EC5] text-transparent bg-clip-text bg-gradient-to-br from-[#0f005a] to-[#0f79a3] ">
+          <a href="./controlunit">Skip To Controlunit</a>
+        </div>
+      <a href="./inventory">
+            <h1 className="ml-[200px] text-2xl underline underline-offset-1 inline">
+              Back
+            </h1>
+          </a>
+      <div className="flex justify-center items-center">
         <form
           onSubmit={handleSubmit}
           className="  rounded-3xl flex flex-col justify-center h-[80%] "
         >
-          <h1 className="text-center text-5xl text-[#3B1EC5]">
-            Create Your Dish
+           <div className="flex items-center justify-center mb-[-50px]">
+          <h1 className="text-center font-russo text-4xl py-8 uppercase">
+            &nbsp;{" "}
           </h1>
+          <TypeAnimation
+            sequence={[
+              
+              
+              "let's create a dish!",
+              5000000,
+              () => {
+                console.log("Sequence completed"); // Place optional callbacks anywhere in the array
+              },
+            ]}
+            wrapper="span"
+            cursor={true}
+            repeat={Infinity}
+            style={{
+              fontSize: "32px",
+              display: "inline-block",
+              fontFamily: ["Russo One", "sans-serif"],
+              color: "#0C147A",
+              textTransform: "uppercase",
+            }}
+          />
+        </div>
+          {/* <h1 className="text-center text-5xl text-[#3B1EC5]">
+            Create Your Dish
+          </h1> */}
           <div class="grid gap-6 mb-6 md:grid-cols-4 justify-items-center pt-[80px]">
             <div>
               <label className="text-center block mb-2 text-lg font-medium text-gray-900 dark:text-white">
@@ -77,7 +117,7 @@ const MenuSetUp = () => {
                 onChange={handleChange}
                 value={data.item_name}
                 type="text"
-                className="text-center bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                className="w-[300px] text-center bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="Item Name"
                 required
               />
@@ -91,7 +131,7 @@ const MenuSetUp = () => {
                 onChange={handleChange}
                 value={data.description}
                 type="text"
-                className="text-center bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                className="w-[300px] text-center bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="Dish description"
                 required
               />
@@ -106,7 +146,7 @@ const MenuSetUp = () => {
                 value={data.category}
                 placeholder="Category"
                 required
-                className="text-center bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                className="w-[300px] text-center bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               />
             </div>
             <div>
@@ -118,7 +158,7 @@ const MenuSetUp = () => {
                 onChange={handleChange}
                 value={data.price}
                 type="number"
-                className="text-center bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                className="w-[300px] text-center bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="Price"
                 required
               />
@@ -127,8 +167,8 @@ const MenuSetUp = () => {
           </div>
           <div>
             <div>
-              <h1 className="text-center text-[30px] text-[#3B1EC5] mb-[-40px] mt-[30px]">
-                Choose your Ingredients
+              <h1 className="text-center text-[30px] text-[#0C147A] mb-[-40px] mt-[30px]">
+                Pick your Ingredients
               </h1>
             </div>
             <div class="grid gap-6 mb-6 md:grid-cols-4 justify-items-center pt-[80px]">
@@ -148,9 +188,9 @@ const MenuSetUp = () => {
                   type="text"
                   name="inventory_item_id"
                   placeholder=""
-                  className="text-center bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 "
+                  className="w-[300px] text-center bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 "
                 >
-                  <option value="">Select Your ingredent</option>
+                  <option className="hidden" value="">Select Your ingredent</option>
                   {inventory.map((x,i) => {
                     return <option value={x.id}>{x.item_name}</option>
                   })}
@@ -169,7 +209,7 @@ const MenuSetUp = () => {
                   required
                   type="number"
                   placeholder="Quantity"
-                  className="text-center bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  className="w-[300px] text-center bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 />
               </div>
               <div>
@@ -185,7 +225,7 @@ const MenuSetUp = () => {
                   required
                   type="text"
                   placeholder="kilograms/grams/piece/liters"
-                  className="text-center bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  className="w-[300px] text-center bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 />
               </div>
               <div >
@@ -203,7 +243,7 @@ const MenuSetUp = () => {
                     setIngredients([...ingredients, object]);
                     console.log(object)
                   }}
-                  className="text-center bg-gray-200 border-[3px] border-[blue] text-[blue] text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 "
+                  className="w-[300px] text-center bg-gray-200 border-[3px] border-[#0C147A] text-[#0C147A] text-lg rounded-lg focus:ring-[#0C147A] focus:border-[#0C147A]  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 "
                 >
                   Save Ingredient
                 </button>
@@ -222,12 +262,12 @@ const MenuSetUp = () => {
             {error && <div className="">{error}</div>}
             <button
               type="submit"
-              className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-lg  sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              className="text-white rounded px-4 hover:scale-125 ease-linear duration-300 bg-gradient-to-br from-[#0f005a] to-[#0f79a3] text-center h-12"
             >
               ADD DISH
             </button>
             <Link to="/controlunit">
-            <button className=" text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-lg  sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+            <button className="text-white rounded px-4 hover:scale-125 ease-linear duration-300 bg-gradient-to-br from-[#0f005a] to-[#0f79a3] text-center h-12">
               Finish
             </button>
             </Link>
