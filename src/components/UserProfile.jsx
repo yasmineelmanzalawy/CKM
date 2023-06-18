@@ -1,40 +1,39 @@
 import React from "react";
 import { MdOutlineCancel } from "react-icons/md";
+import { IoMdSettings } from "react-icons/io";
 import { Button } from ".";
 import { userProfileData } from "../data/dummy";
 import { useStateContext } from "../contexts/ContextProvider";
 import avatar from "../data/avatar2.jpg";
 import { useNavigate } from "react-router";
 import axios from "../axios.config";
-import { useEffect ,useState } from "react";
+import { useEffect, useState } from "react";
 const UserProfile = () => {
-  const[user,setUser] = useState([]);
+  const [user, setUser] = useState([]);
   useEffect(() => {
     const getUser = async () => {
-      const url = "api/me"
-      const data  = await axios.get(url);
-      console.log(data)
+      const url = "api/me";
+      const data = await axios.get(url);
+      console.log(data);
       console.log(user);
       setUser(data.data.user);
     };
     getUser();
   }, []);
-  console.log(user)
+  console.log(user);
   const logout = (e) => {
     const url = "api/auth/logout";
-    axios
-      .get("sanctum/csrf-cookie")
-      .then(async () => {
-        axios
-          .post(url)
-          .then((data) => {
-            localStorage.removeItem("token");
-            navigate("/")
-          })
-          .catch((error) => {
-            console.log(error);
-          });
-      });
+    axios.get("sanctum/csrf-cookie").then(async () => {
+      axios
+        .post(url)
+        .then((data) => {
+          localStorage.removeItem("token");
+          navigate("/");
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    });
   };
   const navigate = useNavigate();
   const { currentColor } = useStateContext();
@@ -61,46 +60,29 @@ const UserProfile = () => {
             {user.name}
           </p>
           <p className="text-gray-500 text-[18px] dark:text-gray-400">
-           {user.role}
+            {user.role}
           </p>
           <p className="text-gray-500 text-sm font-semibold dark:text-gray-400">
             {user.email}
           </p>
         </div>
       </div>
-      <div>
-        {userProfileData.map((item, index) => (
-          <div
-            key={index}
-            className="flex gap-5 border-b-1 border-color p-4 hover:bg-light-gray cursor-pointer  dark:hover:bg-[#42464D]"
-          >
-            <button
-              type="button"
-              style={{ color: item.iconColor, backgroundColor: item.iconBg }}
-              className=" text-xl rounded-lg p-3 hover:bg-light-gray"
-            >
-              {item.icon}
-            </button>
-
-            <div>
-              <p className="font-semibold dark:text-gray-200 ">{item.title}</p>
-              <p className="text-gray-500 text-sm dark:text-gray-400">
-                {" "}
-                {item.desc}{" "}
-              </p>
-            </div>
-          </div>
-        ))}
+      <div className="flex">
+        <button
+          type="button"
+          className="py-2.5 flex justify-center items-center w-full gap-4 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+        >
+          <IoMdSettings size={20} />
+          Alternative
+        </button>
       </div>
       <div className="mt-5">
-        <button onClick={logout}>
-          <Button
-            color="white"
-            bgColor={currentColor}
-            text="Logout"
-            borderRadius="10px"
-            width="full"
-          />
+        <button
+          type="button"
+          onClick={logout}
+          class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 w-full"
+        >
+          Logout
         </button>
       </div>
     </div>
