@@ -3,7 +3,6 @@ import { Offcanvas, Stack } from "react-bootstrap";
 import { useShoppingCart } from "../contexts/ShoppingCartContext";
 import CartItem from "./CartItem";
 import FormatCurrency from "./FormatCurrency";
-import storeItems from "../data/items.json";
 import axios from "../axios.config";
 
 const ShoppingCart = () => {
