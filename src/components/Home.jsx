@@ -3,197 +3,198 @@ import { TypeAnimation } from "react-type-animation";
 import information1 from "../data/Cloud-Kitchen-Market-Size-2021-to-2030.jpg";
 import banner1 from "../data/image 1.svg";
 import { Link } from "react-router-dom";
+import { FiMenu } from "react-icons/fi";
+
 function Home() {
-   const [client, setclient] = useState(false);
-  
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   return (
     // **** Navbar ******
     <div>
-      <div className="flex justify-between items-center h-24 px-4 ">
+      <div className="flex justify-between items-center h-24 px-4">
         <div className="ml-6">
-          <span className="main-text font-russo text-[74px] text-transparent bg-clip-text bg-gradient-to-br from-[#0f005a] to-[#0f79a3] ">
+          <span className="main-text font-russo text-4xl text-transparent bg-clip-text bg-gradient-to-br from-[#0f005a] to-[#0f79a3]">
             CKM
           </span>
         </div>
-        <div  className="mr-[50px]">
-          <ul className="flex">
-              <Link to="/signup">
-              
-            <button onClick={()=>{
-              localStorage.setItem("role","customer")
-            }} >
-              <li className="p-4 font-russo text-[24px] hover:scale-125 ease-linear duration-300 text-[#E55807]">
-                CKM Food Court
-              </li>
+        <div className="mr-4 md:hidden">
+          <div className="relative">
+            <button
+              type="button"
+              className="p-4 font-russo text-lg text-[#E55807] hover:scale-125 ease-linear duration-300 focus:outline-none"
+              onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+            >
+              <FiMenu size={30} />
             </button>
-              </Link>
-            <a href="#Price">
-              <li className="p-4 font-russo text-[24px] hover:scale-125 ease-linear duration-300  text-transparent bg-clip-text bg-gradient-to-br from-[#0f005a] to-[#0f79a3] ">
-                Pricing
-              </li>
-            </a>
-            <a href="#About">
-              {" "}
-              <li className="p-4 font-russo text-[24px] hover:scale-125 ease-linear duration-300  text-transparent bg-clip-text bg-gradient-to-br from-[#0f005a] to-[#0f79a3] ">
-                About Us
-              </li>
-            </a>
-            <li className="p-4 font-russo text-[24px] hover:scale-125 ease-linear duration-300  text-transparent bg-clip-text bg-gradient-to-br from-[#0f005a] to-[#0f79a3] ">
-              Reviews
-            </li>
-
-            <a
-              href="/register"
-              className="m-4 h-[40px] w-[80px] bg-gradient-to-br from-[#0f005a] to-[#0f79a3] text-center font-russo text-white rounded p-2 px-6 hover:bg-indigo-900 hover:scale-125 ease-liner duration-300"
-            >
-              {" "}
-              <li>Sign up</li>
-            </a>
-
-            <a
-              href="/login"
-              className="m-4 h-[40px] ml-[-50px] w-[80px] bg-gradient-to-br from-[#0f005a] to-[#0f79a3] text-center font-russo text-white rounded p-2 px-6 hover:bg-indigo-900 hover:scale-125 ease-liner duration-300"
-            >
-              {" "}
-              <li>login</li>
-            </a>
-          </ul>
-          
-        </div>
-        
-      </div>
-      {/* Hero Section */}
-      <div className="flex max-w-[1240px] mt-4 mx-auto px-2 pt-8">
-        <div className="mt-[20px] w-[50%]">
-        <div className=" flex items-center justify-center">
-          <h1 className="text-center font-russo text-4xl py-8 uppercase">
-            &nbsp;{" "}
-          </h1>
-          <TypeAnimation
-            sequence={[
-              "", // Types 'One'
-              100,
-              "Cloud Kitchen Manager",
-              10000,
-              () => {
-                console.log("Sequence completed"); // Place optional callbacks anywhere in the array
-              },
-            ]}
-            wrapper="span"
-            cursor={true}
-            repeat={Infinity}
-            style={{
-              fontSize: "28px",
-              display: "inline-block",
-              fontFamily: ["Russo One", "sans-serif"],
-              color: "#0C147A",
-              textTransform: "uppercase",
-            }}
-          />
-        </div>
-          
-          <p className="text-center text-[black] font-russo text-[25px]">
-          Transform your cloud kitchen operations with CKM, the ultimate solution for seamless management, efficient order processing, and exceptional culinary experiences.
-
-            <br />
-            <br />
-
-            <span className="text-[#0C147A]">CKM Is Your Wise Choice To
-            Manage. </span>
-          </p>
-          <div className="text-center pt-[120px]">
-            {/* <button className="Main-button font-russo px-4 py-2 text-white text-[32px] hover:scale-105 duration-150 ease-in">
-              For More
-            </button> */}
+            {isDropdownOpen && (
+              <div className="absolute right-0 top-14 w-40 bg-white rounded shadow-lg">
+                <ul className="py-2">
+                  <li className="px-4 py-2 hover:bg-gray-200">
+                    <a href="/register">Sign up</a>
+                  </li>
+                  <li className="px-4 py-2 hover:bg-gray-200">
+                    <a href="/login">Login</a>
+                  </li>
+                </ul>
+              </div>
+            )}
           </div>
         </div>
-        <div className="m-12 mt-[-25px]">
-          <img src={banner1} alt="" />
+        <div className="hidden md:flex">
+          <ul className="flex">
+            <li className="p-4 font-russo text-lg hover:scale-125 ease-linear duration-300">
+              <Link
+                to="/signup"
+                onClick={() => localStorage.setItem("role", "customer")}
+              >
+                CKM Food Court
+              </Link>
+            </li>
+            <li className="p-4 font-russo text-lg hover:scale-125 ease-linear duration-300">
+              <a href="#Price">Pricing</a>
+            </li>
+            <li className="p-4 font-russo text-lg hover:scale-125 ease-linear duration-300">
+              <a href="#About">About Us</a>
+            </li>
+            <li className="p-4 font-russo text-lg hover:scale-125 ease-linear duration-300">
+              Reviews
+            </li>
+            <li className="p-4 font-russo text-lg hover:scale-125 ease-linear duration-300">
+              <a href="/register">Sign up</a>
+            </li>
+            <li className="p-4 font-russo text-lg hover:scale-125 ease-linear duration-300">
+              <a href="/login">Login</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      {/* Hero Section */}
+      <div className="flex flex-col items-center px-4 pt-8 md:flex-row md:max-w-[1240px] md:mx-auto">
+        <div className="w-full md:w-1/2 md:mr-12">
+          <div className="flex items-center justify-center mb-4">
+            <h1 className="text-center font-russo text-4xl pt-12 md:pt-12 uppercase">
+              Cloud Kitchen Manager
+            </h1>
+          </div>
+
+          <p className="text-center text-black font-russo text-lg md:text-xl">
+            Transform your cloud kitchen operations with CKM, the ultimate
+            solution for seamless management, efficient order processing, and
+            exceptional culinary experiences.
+            <br />
+            <br />
+            <span className="text-[#0C147A]">
+              CKM Is Your Wise Choice To Manage.{" "}
+            </span>
+          </p>
+
+          <div className="text-center mt-8">
+            <button className="Main-button font-russo w-full md:w-1/2 rounded-xl px-4 py-2 bg-indigo-600 text-white text-lg md:text-2xl hover:scale-105 duration-150 ease-in">
+              For More
+            </button>
+          </div>
+        </div>
+        <div className=" md:w-1/2 md:visible w-0">
+          <img src={banner1} alt="" className="mx-auto" />
         </div>
       </div>
 
-      {/* Information Section */}
       <div
         id="About"
         className="max-w-[1240px] mx-auto px-4 pt-10 border-b-gray-900"
       >
-        <div className="flex items-center justify-center">
-          <h1 className="text-center font-russo text-4xl py-8 uppercase">
-            What is &nbsp;{" "}
-          </h1>
-          <TypeAnimation
-            sequence={[
-              "Cloud Kitchen", // Types 'One'
-              1000,
-              "",
-              1000,
-              "Cloud Kitchen Manager?",
-              () => {
-                console.log("Sequence completed"); // Place optional callbacks anywhere in the array
-              },
-            ]}
-            wrapper="span"
-            cursor={true}
-            repeat={Infinity}
-            style={{
-              fontSize: "2em",
-              display: "inline-block",
-              fontFamily: ["Russo One", "sans-serif"],
-              color: "rgb(55,48,163)",
-              textTransform: "uppercase",
-            }}
-          />
-        </div>
-        <div className="flex justify-between">
-          <a
-            href="#"
-            class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100"
-          >
-            <h5 class="mb-2 text-2xl font-bold tracking-tight text-indigo-800">
-              CKM Helps You To Manage..
-            </h5>
-            <p class="font-normal text-gray-700 ">
-            Discover CKM, the game-changing software solution designed to streamline and optimize every aspect of cloud kitchen management, from order processing and inventory.
-            </p>
-          </a>
-          <a
-            href="#"
-            class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100"
-          >
-            <h5 class="mb-2 text-2xl font-bold tracking-tight text-indigo-800">
-              CKM Helps You To Manage..
-            </h5>
-            <p class="font-normal text-gray-700 ">
-            Gain a competitive edge in the fast-paced food delivery industry by harnessing the power of CKM to enhance operational efficiency, maximize customer satisfaction, and drive business growth in your cloud kitchen.
-            </p>
-          </a>
-          <a
-            href="#"
-            class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100"
-          >
-            <h5 class="mb-2 text-2xl font-bold tracking-tight text-indigo-800">
-              CKM Helps You To Manage..
-            </h5>
-            <p class="font-normal text-gray-700 ">
-            Gain a competitive edge in the fast-paced food delivery industry by harnessing the power of CKM to enhance operational efficiency, maximize customer satisfaction, and drive business growth in your cloud kitchen.
-            </p>
-          </a>
-        </div>
-        <div className="flex justify-between pt-10">
-          <div className=" w-[100%]">
-            <img className="w-[600px]" src={information1} alt="" />
+        <div className="flex flex-col items-center md:flex-col">
+          <div className="flex justify-center items-center md:w-full">
+            <h1 className="text-center font-russo text-4xl py-8 uppercase">
+              What is &nbsp;{" "}
+            </h1>
+            <TypeAnimation
+              sequence={[
+                "CKM?", // Types 'One'
+                2000,
+                "",
+                2000,
+                () => {
+                  console.log("Sequence completed"); // Place optional callbacks anywhere in the array
+                },
+              ]}
+              wrapper="span"
+              cursor={true}
+              repeat={Infinity}
+              style={{
+                fontSize: "2em",
+                display: "block",
+                fontFamily: ["Russo One", "sans-serif"],
+                color: "rgb(55,48,163)",
+                textTransform: "uppercase",
+              }}
+            />
           </div>
-          <div className="pl-[-50px]  text-left pt-8 ">
-            <h1 className="font-russo text-3xl ">CKM</h1>
-            <p className="font-russo text-[20px] w-[550px]  pb-20 ">
-            CKM (Cloud Kitchen Management) is a powerful software solution designed to revolutionize the way cloud kitchens operate. With CKM, you can effortlessly manage orders, streamline inventory, customize menus, optimize delivery logistics, and gain valuable insights for growth, all in one comprehensive platform.
+          <div className="grid md:grid-cols-3 grid-cols-1 gap-2">
+            <a
+              href="#"
+              className="block max-w-sm p-6 mb-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100"
+            >
+              <h5 className="mb-2 text-2xl font-bold tracking-tight text-indigo-800">
+                CKM Helps You To Manage..
+              </h5>
+              <p className="font-normal text-gray-700">
+                Discover CKM, the game-changing software solution designed to
+                streamline and optimize every aspect of cloud kitchen
+                management, from order processing and inventory.
+              </p>
+            </a>
+            <a
+              href="#"
+              className="block max-w-sm p-6 mb-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100"
+            >
+              <h5 className="mb-2 text-2xl font-bold tracking-tight text-indigo-800">
+                CKM Helps You To Manage..
+              </h5>
+              <p className="font-normal text-gray-700">
+                Gain a competitive edge in the fast-paced food delivery industry
+                by harnessing the power of CKM to enhance operational
+                efficiency, maximize customer satisfaction, and drive business
+                growth in your cloud kitchen.
+              </p>
+            </a>
+            <a
+              href="#"
+              className="block max-w-sm p-6 mb-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100"
+            >
+              <h5 className="mb-2 text-2xl font-bold tracking-tight text-indigo-800">
+                CKM Helps You To Manage..
+              </h5>
+              <p className="font-normal text-gray-700">
+                Gain a competitive edge in the fast-paced food delivery industry
+                by harnessing the power of CKM to enhance operational
+                efficiency, maximize customer satisfaction, and drive business
+                growth in your cloud kitchen.
+              </p>
+            </a>
+          </div>
+        </div>
+        <div className="flex flex-col-reverse md:flex-row md:justify-between pt-10">
+          <div className="w-full md:w-[50%]">
+            <img className="w-full mx-auto" src={information1} alt="" />
+          </div>
+          <div className="pl-0 md:pl-8 text-left pt-8">
+            <h1 className="font-russo text-3xl">CKM</h1>
+            <p className="font-russo text-lg md:text-xl w-full md:w-[550px] md:pb-8">
+              CKM (Cloud Kitchen Management) is a powerful software solution
+              designed to revolutionize the way cloud kitchens operate. With
+              CKM, you can effortlessly manage orders, streamline inventory,
+              customize menus, optimize delivery logistics, and gain valuable
+              insights for growth, all in one comprehensive platform.
             </p>
-            {/* <button className=" bg-indigo-800 text-white px-8 py-2 rounded-lg font-russo hover:scale-105 duration-150 ease-out ">
-              Get Started
-            </button> */}
+            <div className="flex justify-center pb-4 pt-4 md:justify-start">
+              <button className="bg-indigo-800 text-white px-8 py-2 rounded-lg font-russo hover:scale-105 duration-150 ease-out">
+                Get Started
+              </button>
+            </div>
           </div>
         </div>
       </div>
+
       {/* Pricing */}
       <div
         id="Price"
@@ -203,10 +204,11 @@ function Home() {
           Pricing
         </h1>
         <div className="flex items-center justify-center py-10">
-          <h1 className=" font-russo text-4xl">
+          <h1 className=" font-russo text-base  md:text-4xl">
             Start Growing 10x faster with&nbsp;
           </h1>
           <TypeAnimation
+            className=""
             sequence={[
               "CKM", // Types 'One'
               1500,
@@ -221,7 +223,7 @@ function Home() {
             cursor={true}
             repeat={Infinity}
             style={{
-              fontSize: "2.25rem",
+              fontSize: "2rem",
               display: "inline-block",
               fontFamily: ["Russo One", "sans-serif"],
               color: "rgb(55,48,163)",
@@ -229,7 +231,7 @@ function Home() {
             }}
           />
         </div>
-        <div className="flex justify-center gap-16 pb-10">
+        <div className="flex flex-col items-center md:flex-row justify-center gap-3 md:gap-8 pb-10">
           <div class="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
             <h5 class="mb-4 text-xl font-medium text-gray-500 dark:text-gray-400">
               Permium
@@ -259,7 +261,7 @@ function Home() {
                   ></path>
                 </svg>
                 <span class="text-base font-normal leading-tight text-gray-500 dark:text-gray-400">
-                  1 year free upgrades &priority support
+                  1 year free upgrades & priority support
                 </span>
               </li>
               <li class="flex space-x-3">
@@ -297,83 +299,7 @@ function Home() {
                   ></path>
                 </svg>
                 <span class="text-base font-normal leading-tight text-gray-500 dark:text-gray-400">
-                  Access from 1pc
-                </span>
-              </li>
-              <li class="flex space-x-3 line-through decoration-gray-500">
-                <svg
-                  aria-hidden="true"
-                  class="flex-shrink-0 w-5 h-5 text-gray-400 dark:text-gray-500"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <title>Check icon</title>
-                  <path
-                    fill-rule="evenodd"
-                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                    clip-rule="evenodd"
-                  ></path>
-                </svg>
-                <span class="text-base font-normal leading-tight text-gray-500">
-                  Sketch Files
-                </span>
-              </li>
-              <li class="flex space-x-3 line-through decoration-gray-500">
-                <svg
-                  aria-hidden="true"
-                  class="flex-shrink-0 w-5 h-5 text-gray-400 dark:text-gray-500"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <title>Check icon</title>
-                  <path
-                    fill-rule="evenodd"
-                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                    clip-rule="evenodd"
-                  ></path>
-                </svg>
-                <span class="text-base font-normal leading-tight text-gray-500">
-                  API Access
-                </span>
-              </li>
-              <li class="flex space-x-3 line-through decoration-gray-500">
-                <svg
-                  aria-hidden="true"
-                  class="flex-shrink-0 w-5 h-5 text-gray-400 dark:text-gray-500"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <title>Check icon</title>
-                  <path
-                    fill-rule="evenodd"
-                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                    clip-rule="evenodd"
-                  ></path>
-                </svg>
-                <span class="text-base font-normal leading-tight text-gray-500">
-                  Complete documentation
-                </span>
-              </li>
-              <li class="flex space-x-3 line-through decoration-gray-500">
-                <svg
-                  aria-hidden="true"
-                  class="flex-shrink-0 w-5 h-5 text-gray-400 dark:text-gray-500"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <title>Check icon</title>
-                  <path
-                    fill-rule="evenodd"
-                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                    clip-rule="evenodd"
-                  ></path>
-                </svg>
-                <span class="text-base font-normal leading-tight text-gray-500">
-                  24×7 phone & email support
+                  Unlimited email accounts
                 </span>
               </li>
             </ul>
@@ -386,11 +312,11 @@ function Home() {
           </div>
           <div class="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
             <h5 class="mb-4 text-xl font-medium text-gray-500 dark:text-gray-400">
-              Standard plan
+              Permium
             </h5>
             <div class="flex items-baseline text-gray-900 dark:text-white">
               <span class="text-3xl font-semibold">$</span>
-              <span class="text-5xl font-extrabold tracking-tight">49,99</span>
+              <span class="text-5xl font-extrabold tracking-tight">99,99</span>
               <span class="ml-1 text-xl font-normal text-gray-500 dark:text-gray-400">
                 /month
               </span>
@@ -413,7 +339,7 @@ function Home() {
                   ></path>
                 </svg>
                 <span class="text-base font-normal leading-tight text-gray-500 dark:text-gray-400">
-                  2 team members
+                  1 year free upgrades & priority support
                 </span>
               </li>
               <li class="flex space-x-3">
@@ -432,7 +358,7 @@ function Home() {
                   ></path>
                 </svg>
                 <span class="text-base font-normal leading-tight text-gray-500 dark:text-gray-400">
-                  20GB Cloud storage
+                  1 GB free cloud storage
                 </span>
               </li>
               <li class="flex space-x-3">
@@ -451,13 +377,34 @@ function Home() {
                   ></path>
                 </svg>
                 <span class="text-base font-normal leading-tight text-gray-500 dark:text-gray-400">
-                  Integration help
+                  Unlimited email accounts
                 </span>
               </li>
-              <li class="flex space-x-3 line-through decoration-gray-500">
+            </ul>
+            <button
+              type="button"
+              class="text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-200 dark:focus:ring-blue-900 font-medium rounded-lg text-sm px-5 py-2.5 inline-flex justify-center w-full text-center"
+            >
+              Choose plan
+            </button>
+          </div>
+          <div class="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+            <h5 class="mb-4 text-xl font-medium text-gray-500 dark:text-gray-400">
+              Permium
+            </h5>
+            <div class="flex items-baseline text-gray-900 dark:text-white">
+              <span class="text-3xl font-semibold">$</span>
+              <span class="text-5xl font-extrabold tracking-tight">99,99</span>
+              <span class="ml-1 text-xl font-normal text-gray-500 dark:text-gray-400">
+                /month
+              </span>
+            </div>
+
+            <ul role="list" class="space-y-5 my-7">
+              <li class="flex space-x-3">
                 <svg
                   aria-hidden="true"
-                  class="flex-shrink-0 w-5 h-5 text-gray-400 dark:text-gray-500"
+                  class="flex-shrink-0 w-5 h-5 text-blue-600 dark:text-blue-500"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                   xmlns="http://www.w3.org/2000/svg"
@@ -469,14 +416,14 @@ function Home() {
                     clip-rule="evenodd"
                   ></path>
                 </svg>
-                <span class="text-base font-normal leading-tight text-gray-500">
-                  Sketch Files
+                <span class="text-base font-normal leading-tight text-gray-500 dark:text-gray-400">
+                  1 year free upgrades & priority support
                 </span>
               </li>
-              <li class="flex space-x-3 line-through decoration-gray-500">
+              <li class="flex space-x-3">
                 <svg
                   aria-hidden="true"
-                  class="flex-shrink-0 w-5 h-5 text-gray-400 dark:text-gray-500"
+                  class="flex-shrink-0 w-5 h-5 text-blue-600 dark:text-blue-500"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                   xmlns="http://www.w3.org/2000/svg"
@@ -488,14 +435,14 @@ function Home() {
                     clip-rule="evenodd"
                   ></path>
                 </svg>
-                <span class="text-base font-normal leading-tight text-gray-500">
-                  API Access
+                <span class="text-base font-normal leading-tight text-gray-500 dark:text-gray-400">
+                  1 GB free cloud storage
                 </span>
               </li>
-              <li class="flex space-x-3 line-through decoration-gray-500">
+              <li class="flex space-x-3">
                 <svg
                   aria-hidden="true"
-                  class="flex-shrink-0 w-5 h-5 text-gray-400 dark:text-gray-500"
+                  class="flex-shrink-0 w-5 h-5 text-blue-600 dark:text-blue-500"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                   xmlns="http://www.w3.org/2000/svg"
@@ -507,27 +454,8 @@ function Home() {
                     clip-rule="evenodd"
                   ></path>
                 </svg>
-                <span class="text-base font-normal leading-tight text-gray-500">
-                  Complete documentation
-                </span>
-              </li>
-              <li class="flex space-x-3 line-through decoration-gray-500">
-                <svg
-                  aria-hidden="true"
-                  class="flex-shrink-0 w-5 h-5 text-gray-400 dark:text-gray-500"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <title>Check icon</title>
-                  <path
-                    fill-rule="evenodd"
-                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                    clip-rule="evenodd"
-                  ></path>
-                </svg>
-                <span class="text-base font-normal leading-tight text-gray-500">
-                  24×7 phone & email support
+                <span class="text-base font-normal leading-tight text-gray-500 dark:text-gray-400">
+                  Unlimited email accounts
                 </span>
               </li>
             </ul>
@@ -648,7 +576,7 @@ function Home() {
               </ul>
             </div>
           </div>
-          <div class="px-4 py-6 dark:bg-gray-700 md:flex md:items-center md:justify-between">
+          <div class="px-4 py-6  dark:bg-gray-700 md:flex md:items-center md:justify-between">
             <span class="text-sm text-gray-500 dark:text-gray-300 sm:text-center">
               © 2023 <a href="https://flowbite.com/">Flowbite™</a>. All Rights
               Reserved.
