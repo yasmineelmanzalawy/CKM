@@ -14,19 +14,22 @@ import axios from "../axios.config";
 import InventoryWidget from "../components/InventoryWidget";
 import MostUsedItemsWidget from "../components/InventoryWidget";
 import { InventoryChart } from "../components/InventoryChart";
+import { ThreeDots } from 'react-loader-spinner';
 const Analytics = () => {
   const [totalStaffCount, setTotalStaffCount] = useState(0);
   const [averageSalary, setAverageSalary] = useState(0);
   const [staffMembers, setStaffMembers] = useState([]);
   const [totalCost, setTotalCost] = useState('');
   const [totalRawMaterialsCount, setTotalRawMaterialsCount] = useState(0);
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
+    
     const fetchData = async () => {
       try {
         const response = await axios.get(
           `api/staff-stats/${localStorage.getItem("brand_id")}`
         );
-
+        setLoading(false)
         // Extract the data from the response
         const { total_staff_count, average_salary, latest_staff_members } =
           response.data;
@@ -47,6 +50,7 @@ const Analytics = () => {
       try {
         const response = await axios.get(`api/inventory-stats/${localStorage.getItem('brand_id')}`);
         const data = response.data;
+        setLoading(false)
         // Process the data and update the state or perform any necessary actions
         // For example, if you are using state hooks:
         setTotalCost(data.total_cost);
@@ -57,7 +61,13 @@ const Analytics = () => {
     };
     fetchInventory();
   }, []);
- 
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center h-screen">
+        <ThreeDots color="#999999" height={80} width={80} />
+      </div>
+    );
+  }
   return (
     <div>
       <div class="w-full flex justify-center items-center pb-4 ">

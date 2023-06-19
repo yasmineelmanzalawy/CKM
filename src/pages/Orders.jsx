@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import axios from "../axios.config";
 import { ThreeDots } from 'react-loader-spinner';
-
+import Swal from 'sweetalert2';
 
 const Orders = () => {
-  const [order, setOrder] = useState([]);
+  const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const getOrders = async () => {
+    const fetchOrders = async () => {
       try {
         const url = "api/Orders";
         const response = await axios.get(url);
-        setOrder(response.data);
+        setOrders(response.data);
         setLoading(false);
       } catch (error) {
         console.error("Error fetching orders:", error);
@@ -22,13 +22,73 @@ const Orders = () => {
       }
     };
 
-    getOrders();
+    fetchOrders();
   }, []);
+
+  const handleAcceptOrder = async (orderId) => {
+    try {
+      const url = `api/Orders/${orderId}`;
+      await axios.put(url , {status:"completed" , _method:"PUT"});
+      // Show success message
+      Swal.fire('Success', 'Order accepted successfully', 'success');
+      // Update the order status locally
+      const updatedOrders = orders.map((orderItem) => {
+        if (orderItem.id === orderId) {
+          return { ...orderItem, status: 'completed' };
+        }
+        return orderItem;
+      });
+      setOrders(updatedOrders);
+    } catch (error) {
+      console.error("Error accepting order:", error);
+      Swal.fire('Error', 'Failed to accept order', 'error');
+    }
+  };
+
+  const handleRejectOrder = async (orderId) => {
+    try {
+      const url = `api/Orders/${orderId}`;
+      await axios.put(url, {status:"cancelled" , _method:"PUT"});
+      // Show success message
+      Swal.fire('Success', 'Order rejected successfully', 'success');
+      // Update the order status locally
+      const updatedOrders = orders.map((orderItem) => {
+        if (orderItem.id === orderId) {
+          return { ...orderItem, status: 'cancelled' };
+        }
+        return orderItem;
+      });
+      setOrders(updatedOrders);
+    } catch (error) {
+      console.error("Error rejecting order:", error);
+      Swal.fire('Error', 'Failed to reject order', 'error');
+    }
+  };
+
+  const handleCompleteOrder = async (orderId) => {
+    try {
+      const url = `api/Orders/${orderId}`;
+      await axios.put(url , {status:"completed" , _method:"PUT"});
+      // Show success message
+      Swal.fire('Success', 'Order completed successfully', 'success');
+      // Update the order status locally
+      const updatedOrders = orders.map((orderItem) => {
+        if (orderItem.id === orderId) {
+          return { ...orderItem, status: 'completed' };
+        }
+        return orderItem;
+      });
+      setOrders(updatedOrders);
+    } catch (error) {
+      console.error("Error completing order:", error);
+      Swal.fire('Error', 'Failed to complete order', 'error');
+    }
+  };
 
   if (loading) {
     return (
       <div className="flex items-center justify-center h-screen">
-        <ThreeDots color="#999999" height={80} width={80} />
+        <ThreeDots color="#6366F1" height={80} width={80} />
       </div>
     );
   }
@@ -38,25 +98,25 @@ const Orders = () => {
   }
 
   return (
-    <div className="mt-[-30px] mb-[-110px]">
+    <div className=" mb-[-110px]">
       <div className="overflow-x-auto">
         <div className="min-w-screen min-h-screen flex items-center justify-center overflow-hidden">
-          <div className="mt-[-600px] w-full lg:w-5/6">
-            <div className="bg-white shadow-md rounded my-6">
+          <div className="mt-[-300px] w-full lg:w-5/6">
+            <div className="bg-white shadow-md rounded">
               <table className="min-w-max w-full table-auto">
                 <thead>
                   <tr className="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
                     <th className="py-3 px-6 text-left">Order ID</th>
                     <th className="py-3 px-6 text-left">Customer Name</th>
-                    <th className="py-3 px-6 text-center">Dish ID</th>
-                    <th className="py-3 px-6 text-center">Dish Name</th>
-                    <th></th>
+                    <th className="py-3 px-6 text-center">Menu Item ID</th>
+                    <th className="py-3 px-6 text-center">Menu Item Name</th>
+                    <th className="py-3 px-6 text-right">Actions</th>
                   </tr>
                 </thead>
                 <tbody className="text-gray-600 text-sm font-light">
-                  {order.map((orderItem, index) => (
+                  {orders.map((orderItem) => (
                     <tr
-                      key={index}
+                      key={orderItem.id}
                       className="border-b border-gray-200 hover:bg-gray-100"
                     >
                       <td className="py-3 px-6 text-left whitespace-nowrap">
@@ -80,18 +140,34 @@ const Orders = () => {
                         ))}
                       </td>
                       <td className="pt-2 text-right">
-                        <button
-                          type="button"
-                          className="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-2 py-1 text-center mr-2 mb-2"
-                        >
-                          Accept
-                        </button>
-                        <button
-                          type="button"
-                          className="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-2 py-1 text-center mr-2 mb-2"
-                        >
-                          Reject
-                        </button>
+                        {orderItem.status === 'cancelled' ? (
+                          <span className="text-red-500 px-6 text-lg font-medium ">Cancelled</span>
+                        ) : orderItem.status === 'completed' ? (
+                          <button
+                            type="button"
+                            onClick={() => handleCompleteOrder(orderItem.id)}
+                            className="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-2 py-1 text-center mr-2 mb-2"
+                          >
+                            Complete Order
+                          </button>
+                        ) : (
+                          <>
+                            <button
+                              type="button"
+                              className="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-2 py-1 text-center mr-2 mb-2"
+                              onClick={() => handleAcceptOrder(orderItem.id)}
+                            >
+                              Accept
+                            </button>
+                            <button
+                              type="button"
+                              className="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-2 py-1 text-center mr-2 mb-2"
+                              onClick={() => handleRejectOrder(orderItem.id)}
+                            >
+                              Reject
+                            </button>
+                          </>
+                        )}
                       </td>
                     </tr>
                   ))}

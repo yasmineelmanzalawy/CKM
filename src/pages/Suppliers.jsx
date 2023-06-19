@@ -4,23 +4,25 @@ import { useEffect } from "react";
 import axios from "../axios.config";
 import { Link } from "react-router-dom";
 import { toast } from "react-hot-toast";
+import { ThreeDots } from 'react-loader-spinner';
 function Supplier() {
   const url = "api/Supplier";
   const [supplier, setsupplier] = useState([]);
-  const [suppliers,setsuppliers] = useState([])
-  
+  const [loader, setLoading] = useState(true);
   useEffect(() => {
+    const loading = () => toast('Welcome Back', {
+      icon: '👋',
+    });
     const getsupplier = async () => {
       const data  = await axios.get(url);
+      setLoading(false)
+      loading()
       console.log(data)
       console.log(supplier);
       setsupplier(data.data.data);
     };
     getsupplier();
   }, []);
-  const loading = () => toast('Welcome Back', {
-    icon: '👋',
-  });
   const handleDelete = async (id) =>{
     const deleteUrl = "api/Supplier"
     try {
@@ -28,6 +30,13 @@ function Supplier() {
     } catch (error) {
       console.log(error)
     }
+  }
+  if (loader) {
+    return (
+      <div className="flex items-center justify-center h-screen">
+        <ThreeDots color="#999999" height={80} width={80} />
+      </div>
+    );
   }
   return (
     <div className="flex flex-col">

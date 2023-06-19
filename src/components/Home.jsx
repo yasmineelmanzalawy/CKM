@@ -43,7 +43,7 @@ function Home() {
           <ul className="flex">
             <li className="p-4 font-russo text-lg hover:scale-125 ease-linear duration-300">
               <Link
-                to="/signup"
+                to="/login"
                 onClick={() => localStorage.setItem("role", "customer")}
               >
                 CKM Food Court
@@ -121,7 +121,7 @@ function Home() {
               cursor={true}
               repeat={Infinity}
               style={{
-                fontSize: "2em",
+                fontSize: "2.5em",
                 display: "block",
                 fontFamily: ["Russo One", "sans-serif"],
                 color: "rgb(55,48,163)",

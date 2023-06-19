@@ -4,12 +4,15 @@ import { useEffect, useState } from "react";
 import axios from "../axios.config";
 import soura from "../data/photo_5873190094939209046_y.jpg";
 import { AiOutlineDelete, AiFillEdit } from "react-icons/ai";
+import { ThreeDots } from 'react-loader-spinner';
 const Menu = () => {
+  const [loading, setLoading] = useState(true);
   const [menu, setMenu] = useState([]);
   useEffect(() => {
     const getsupplier = async () => {
       const url = "api/Menu";
       const data = await axios.get(url);
+      setLoading(false);
       console.log(data);
       console.log(menu);
       setMenu(data.data);
@@ -48,7 +51,13 @@ const Menu = () => {
       }
     });
   };
-
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center h-screen">
+        <ThreeDots color="#999999" height={80} width={80} />
+      </div>
+    );
+  }
   return (
     <div className=" font-russo">
       <div className="text-center ">

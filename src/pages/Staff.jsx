@@ -3,19 +3,28 @@ import { Link } from "react-router-dom";
 import { AiOutlineDelete, AiFillEdit } from "react-icons/ai";
 import { useState , useEffect } from "react";
 import axios from "../axios.config";
+import { ThreeDots } from 'react-loader-spinner';
 const Staff = () => {
+  const [loading, setLoading] = useState(true);
   const [staff,setStaff] = useState([]);
   useEffect(() => {
     const getStaff = async () => {
       const url = "api/Staff"
       const data  = await axios.get(url);
+      setLoading(false)
       console.log(data)
       console.log(staff);
       setStaff(data.data.data);
     };
     getStaff();
   }, []);
-  
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center h-screen">
+        <ThreeDots color="#999999" height={80} width={80} />
+      </div>
+    );
+  }
   return (
     <div>
       <div className="flex flex-col justify-center mx-[50px]">
