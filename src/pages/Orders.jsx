@@ -28,13 +28,13 @@ const Orders = () => {
   const handleAcceptOrder = async (orderId) => {
     try {
       const url = `api/Orders/${orderId}`;
-      await axios.put(url , {status:"completed" , _method:"PUT"});
+      await axios.put(url , {status: "processing", _method: "PUT"});
       // Show success message
       Swal.fire('Success', 'Order accepted successfully', 'success');
       // Update the order status locally
       const updatedOrders = orders.map((orderItem) => {
         if (orderItem.id === orderId) {
-          return { ...orderItem, status: 'completed' };
+          return { ...orderItem, status: 'processing' };
         }
         return orderItem;
       });
@@ -48,7 +48,7 @@ const Orders = () => {
   const handleRejectOrder = async (orderId) => {
     try {
       const url = `api/Orders/${orderId}`;
-      await axios.put(url, {status:"cancelled" , _method:"PUT"});
+      await axios.put(url, {status: "cancelled", _method: "PUT"});
       // Show success message
       Swal.fire('Success', 'Order rejected successfully', 'success');
       // Update the order status locally
@@ -68,7 +68,7 @@ const Orders = () => {
   const handleCompleteOrder = async (orderId) => {
     try {
       const url = `api/Orders/${orderId}`;
-      await axios.put(url , {status:"completed" , _method:"PUT"});
+      await axios.put(url, {status: "completed", _method: "PUT"});
       // Show success message
       Swal.fire('Success', 'Order completed successfully', 'success');
       // Update the order status locally
@@ -85,10 +85,14 @@ const Orders = () => {
     }
   };
 
+  // Separate completed orders from pending/cancelled orders
+  const completedOrders = orders.filter(orderItem => orderItem.status === 'completed');
+  const pendingOrders = orders.filter(orderItem => orderItem.status !== 'completed');
+
   if (loading) {
     return (
       <div className="flex items-center justify-center h-screen">
-        <ThreeDots color="#6366F1" height={80} width={80} />
+        <ThreeDots color="#6366F1" height={120} width={120} />
       </div>
     );
   }
@@ -114,7 +118,7 @@ const Orders = () => {
                   </tr>
                 </thead>
                 <tbody className="text-gray-600 text-sm font-light">
-                  {orders.map((orderItem) => (
+                  {pendingOrders.map((orderItem) => (
                     <tr
                       key={orderItem.id}
                       className="border-b border-gray-200 hover:bg-gray-100"
@@ -142,7 +146,7 @@ const Orders = () => {
                       <td className="pt-2 text-right">
                         {orderItem.status === 'cancelled' ? (
                           <span className="text-red-500 px-6 text-lg font-medium ">Cancelled</span>
-                        ) : orderItem.status === 'completed' ? (
+                        ) : orderItem.status === 'processing' ? (
                           <button
                             type="button"
                             onClick={() => handleCompleteOrder(orderItem.id)}
@@ -168,6 +172,36 @@ const Orders = () => {
                             </button>
                           </>
                         )}
+                      </td>
+                    </tr>
+                  ))}
+                  {completedOrders.map((orderItem) => (
+                    <tr
+                      key={orderItem.id}
+                      className="border-b border-gray-200 hover:bg-gray-100"
+                    >
+                      <td className="py-3 px-6 text-left whitespace-nowrap">
+                        <div className="flex items-center">
+                          <span className="font-medium">{orderItem.id}</span>
+                        </div>
+                      </td>
+                      <td className="py-3 px-6 text-left">
+                        <div className="flex items-center">
+                          <span>{orderItem.name}</span>
+                        </div>
+                      </td>
+                      <td className="py-3 px-6 text-center">
+                        {orderItem.menu_items.map((menuItem, idx) => (
+                          <span key={idx}>{menuItem.id}</span>
+                        ))}
+                      </td>
+                      <td className="py-3 px-6 text-center">
+                        {orderItem.menu_items.map((menuItem, idx) => (
+                          <span key={idx}>{menuItem.item_name}</span>
+                        ))}
+                      </td>
+                      <td className="pt-2 text-right">
+                        <span className="text-green-500 px-6 text-lg font-medium">Completed</span>
                       </td>
                     </tr>
                   ))}

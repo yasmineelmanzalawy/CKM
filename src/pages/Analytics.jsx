@@ -14,7 +14,7 @@ import axios from "../axios.config";
 import InventoryWidget from "../components/InventoryWidget";
 import MostUsedItemsWidget from "../components/InventoryWidget";
 import { InventoryChart } from "../components/InventoryChart";
-import { ThreeDots } from 'react-loader-spinner';
+import { Audio , FidgetSpinner ,MutatingDots ,Bars , BallTriangle , Circles , CirclesWithBar } from 'react-loader-spinner';
 const Analytics = () => {
   const [totalStaffCount, setTotalStaffCount] = useState(0);
   const [averageSalary, setAverageSalary] = useState(0);
@@ -64,7 +64,7 @@ const Analytics = () => {
   if (loading) {
     return (
       <div className="flex items-center justify-center h-screen">
-        <ThreeDots color="#999999" height={80} width={80} />
+        <BallTriangle color="#6366F1" height={120} width={120} />
       </div>
     );
   }

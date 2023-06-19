@@ -54,7 +54,7 @@ const Menu = () => {
   if (loading) {
     return (
       <div className="flex items-center justify-center h-screen">
-        <ThreeDots color="#999999" height={80} width={80} />
+        <ThreeDots color="#6366F1" height={120} width={120} />
       </div>
     );
   }

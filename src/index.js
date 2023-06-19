@@ -30,6 +30,7 @@ import Transcation from "./components/transcation";
 import T2 from "./components/T2";
 import { Tester, data, options } from './components/TestComponent';
 import CustomerProfile from "./components/Customerprofile";
+import Test from "./components/Test";
 
 const user = localStorage.getItem("token");
 ReactDOM.render(
@@ -49,7 +50,7 @@ ReactDOM.render(
           <Route path="/customerdata" element={<Customerdata />} />
           <Route path="/foodcourt" element={<FoodCourt />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/tester" element={<Tester />} />
+          <Route path="/tester" element={<Test />} />
           {user && <Route path="/supplier" element={<Supplier />} />}
           {user && <Route path="/menusetup" element={<MenuSetUp />} />}
           {user && <Route path="/createbrand" element={<CreateBrand />} />}

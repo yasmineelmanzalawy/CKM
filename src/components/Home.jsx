@@ -5,8 +5,13 @@ import banner1 from "../data/image 1.svg";
 import { Link } from "react-router-dom";
 import { FiMenu } from "react-icons/fi";
 
+
 function Home() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(false);
+  const toggleDarkMode = () => {
+    setIsDarkMode(!isDarkMode);
+  };
   return (
     // **** Navbar ******
     <div>
@@ -43,7 +48,7 @@ function Home() {
           <ul className="flex">
             <li className="p-4 font-russo text-lg hover:scale-125 ease-linear duration-300">
               <Link
-                to="/login"
+                to="/loginpa"
                 onClick={() => localStorage.setItem("role", "customer")}
               >
                 CKM Food Court
@@ -63,6 +68,8 @@ function Home() {
             </li>
             <li className="p-4 font-russo text-lg hover:scale-125 ease-linear duration-300">
               <a href="/login">Login</a>
+            </li>
+            <li className="p-4 font-russo text-lg hover:scale-125 ease-linear duration-300">
             </li>
           </ul>
         </div>

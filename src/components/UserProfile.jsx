@@ -54,7 +54,7 @@ const UserProfile = () => {
       </div>
       {isLoading ? (
         <div className="flex justify-center items-center mt-6">
-          <ThreeDots color="#999999" height={80} width={80} />
+          <ThreeDots color="#6366F1" height={80} width={80} />
         </div>
       ) : (
         <div className="flex gap-5 items-center mt-6 border-color border-b-1 pb-6">
