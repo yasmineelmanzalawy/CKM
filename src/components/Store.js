@@ -3,7 +3,9 @@ import { Col, Row } from "react-bootstrap";
 import StoreItem from "./StoreItem";
 import { useEffect , useState } from "react";
 import axios from "../axios.config";
+import './fade.css'
 const Store = () => {
+ 
   const [menu,setMenu] = useState([])
   useEffect(() => {
     const getinventory = async () => {
@@ -17,15 +19,21 @@ const Store = () => {
   }, []);
   return (
     <>
-      <h1>Store</h1>
-      <Row md={2} xs={1} lg={3} className="g-3">
-        {menu.map((item) => (
-          <Col key={item.id}>
-            <StoreItem {...item} />
-          </Col>
-        ))}
-      </Row>
-    </>
+    <div className="root">
+      <div className="store-container">
+      <h1 className="text-3xl text-center font-bold text-orange-500 mb-4">
+        Brand Name
+      </h1>
+        <div className="grid grid-cols-4 gap-4">
+          {menu.map((item) => (
+            <Col className="card" key={item.id}>
+              <StoreItem {...item} />
+            </Col>
+          ))}
+        </div>
+      </div>
+    </div>
+  </>
   );
 };
 

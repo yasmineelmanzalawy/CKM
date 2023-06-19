@@ -108,7 +108,7 @@ const FoodCourt = () => {
             key={i}
             className="p-6 flex flex-wrap justify-center mx-auto "
           >
-            <div className="grid grid-cols-2 gap-4 w-[1000px] bg-[#ffdfcc] block rounded-3xl">
+            <div className="grid grid-cols-2 gap-4 w-[1000px] bg-[#ffdfcc] relative rounded-3xl">
               <div className="m-auto">
                 <button className="rounded w-[300px] align-center bg-[#E55807] m-2 mt-2 hover:bg-[#6b2f0a] text-[white] hover:text-white py-2 drop-shadow-2xl  duration-300">
                   {x.name}
@@ -117,6 +117,9 @@ const FoodCourt = () => {
                   {" "}
                   {x.description}
                 </p>
+              </div>
+              <div className=" absolute rounded-full border-3 border-black w-44 top-[25%] left-[43%]  ">
+                <img src={x.logo} alt={x.logo} className=" rounded-full" />
               </div>
               <div>
                 <img

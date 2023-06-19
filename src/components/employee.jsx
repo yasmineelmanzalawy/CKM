@@ -132,7 +132,7 @@ const Employee = () => {
                 <label className="text-center block mb-2 text-lg font-medium text-gray-900 dark:text-white">
                   Role
                 </label>
-                <input
+                <select
                   onChange={handleChange}
                   value={data.role}
                   name="role"
@@ -141,7 +141,14 @@ const Employee = () => {
                   className="text-center w-[350px] bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder="Role"
                   required
-                />
+                >
+                  <option className="hidden" value="">Select</option>
+                  <option value="cooker">Cheif</option>
+                  <option value="security">Security Man</option>
+                  <option value="dustman">Dustman</option>
+                  <option value="casher">Cashier</option>
+                  <option value="another">Delivery</option>
+                </select>
               </div>
               <div>
                 <label className="text-center block mb-2 text-lg font-medium text-gray-900 dark:text-white">

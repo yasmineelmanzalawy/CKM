@@ -4,6 +4,7 @@ import { useShoppingCart } from "../contexts/ShoppingCartContext";
 import CartItem from "./CartItem";
 import FormatCurrency from "./FormatCurrency";
 import axios from "../axios.config";
+import './fade.css'
 
 const ShoppingCart = () => {
   const { closeCart, cartItems, isOpen, menuitem, clearcart } = useShoppingCart();
@@ -11,8 +12,9 @@ const ShoppingCart = () => {
   const handleSubmit = async () => {
     const url = "api/Orders";
     const user_id = localStorage.getItem("user_id");
+    const brand_id = localStorage.getItem("brand_id")
     
-    axios.post(url, { ...menuitem, user_id })
+    axios.post(url, { ...menuitem, user_id,brand_id })
       .then((data) => {
         clearcart();
         console.log(data.data);
@@ -21,7 +23,7 @@ const ShoppingCart = () => {
   
   
   return (
-    <Offcanvas show={isOpen} onHide={closeCart} placement="end">
+    <Offcanvas show={isOpen} onHide={closeCart} placement="end" className="fade">
       <Offcanvas.Header closeButton>
         <Offcanvas.Title>Cart</Offcanvas.Title>
       </Offcanvas.Header>
