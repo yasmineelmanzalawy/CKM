@@ -48,7 +48,7 @@ function Home() {
           <ul className="flex">
             <li className="p-4 font-russo text-lg hover:scale-125 ease-linear duration-300">
               <Link
-                to="/loginpa"
+                to="/foodcourt"
                 onClick={() => localStorage.setItem("role", "customer")}
               >
                 CKM Food Court

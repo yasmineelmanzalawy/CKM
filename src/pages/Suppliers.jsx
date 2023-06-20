@@ -5,32 +5,65 @@ import axios from "../axios.config";
 import { Link } from "react-router-dom";
 import { toast } from "react-hot-toast";
 import { ThreeDots } from 'react-loader-spinner';
+import Swal from 'sweetalert2';
+
 function Supplier() {
   const url = "api/Supplier";
   const [supplier, setsupplier] = useState([]);
   const [loader, setLoading] = useState(true);
+
   useEffect(() => {
     const loading = () => toast('Welcome Back', {
       icon: '👋',
     });
+
     const getsupplier = async () => {
-      const data  = await axios.get(url);
-      setLoading(false)
-      loading()
-      console.log(data)
-      console.log(supplier);
-      setsupplier(data.data.data);
+      try {
+        const response = await axios.get(url);
+        setLoading(false);
+        loading();
+        setsupplier(response.data.data);
+      } catch (error) {
+        console.log(error);
+      }
     };
+
     getsupplier();
   }, []);
-  const handleDelete = async (id) =>{
-    const deleteUrl = "api/Supplier"
-    try {
-      await axios.delete(`${deleteUrl}/${id}`)
-    } catch (error) {
-      console.log(error)
-    }
-  }
+
+  const handleDelete = (id) => {
+    const deleteUrl = `api/Supplier/${id}`;
+
+    // Show sweet alert prompt
+    Swal.fire({
+      title: 'Are you sure?',
+      text: 'This action cannot be undone!',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#d33',
+      cancelButtonColor: '#3085d6',
+      confirmButtonText: 'Delete',
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        try {
+          const response = await axios.delete(deleteUrl);
+
+          if (response.status === 200) {
+            // Remove the deleted supplier from the state
+            setsupplier((prevSupplier) =>
+              prevSupplier.filter((item) => item.id !== id)
+            );
+
+            // Show success message
+            toast.success('Supplier deleted successfully!');
+          }
+        } catch (error) {
+          console.log(error);
+        }
+      }
+    });
+  };
+
   if (loader) {
     return (
       <div className="flex items-center justify-center h-screen">
@@ -38,14 +71,14 @@ function Supplier() {
       </div>
     );
   }
+
   return (
     <div className="flex flex-col">
       <div className="text-center">
         <Link to="/supplier">
-        <button className="text-center mt-[-50px]  bg-[#ebeced] p-2 text-lg text text-[#575859] rounded-lg">
-          Add suppliers
-        </button>
-        
+          <button className="text-center mt-[-50px]  bg-[#ebeced] p-2 text-lg text text-[#575859] rounded-lg">
+            Add suppliers
+          </button>
         </Link>
       </div>
       <div className=" overflow-x-auto mx-14">
@@ -96,12 +129,7 @@ function Supplier() {
                   >
                     Established at
                   </th>
-                  <th
-                    scope="col"
-                    className="px-6 py-3 text-xs font-bold text-left text-black uppercase bg-[#ebeced] "
-                  >
-                  
-                  </th>
+                  <th scope="col" className="px-6 py-3 text-xs font-bold text-left text-black uppercase bg-[#ebeced] "></th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-200">
@@ -120,7 +148,6 @@ function Supplier() {
                       <td className="px-6 dark:text-white py-4 text-sm font-medium text-gray-800 whitespace-nowrap">
                         {x.address}
                       </td>
-                      
                       <td className="px-6 dark:text-white py-4 text-sm font-medium text-gray-800 whitespace-nowrap">
                         {x.phone}
                       </td>
@@ -128,12 +155,13 @@ function Supplier() {
                         {x.notes}
                       </td>
                       <td className="px-6 dark:text-white py-4 text-sm font-medium text-gray-800 whitespace-nowrap">
-                        {x.created_at.slice(0,19)}
+                        {x.created_at.slice(0, 19)}
                       </td>
                       <td className="px-6 py-4 text-right whitespace-nowrap">
                         <button
-                        onClick={() =>handleDelete(x.id)}
-                        className=" hover:scale-110 duration-300 ease-out text-red-500 hover:text-red-700 cursor-pointer">
+                          onClick={() => handleDelete(x.id)}
+                          className="hover:scale-110 duration-300 ease-out text-red-500 hover:text-red-700 cursor-pointer"
+                        >
                           <AiOutlineDelete size={20} />
                         </button>
                       </td>
