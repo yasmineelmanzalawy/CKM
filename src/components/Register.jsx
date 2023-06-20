@@ -9,7 +9,7 @@ const Register = () => {
   return (
     <div className="">
       <Link to="/">
-      <span className="ml-6 px-4 main-text font-russo text-[74px] text-transparent bg-clip-text bg-gradient-to-br from-[#0f005a] to-[#0f79a3] ">
+      <span className="ml-6 px-4 main-text font-russo text-6xl text-transparent bg-clip-text bg-gradient-to-br from-[#0f005a] to-[#0f79a3] ">
             CKM
           </span>
       </Link>

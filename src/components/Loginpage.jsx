@@ -145,7 +145,7 @@ const Loginpage = (props) => {
             </button>
             <div>
               <h1 className={`text-center text-${isDarkMode ? "gray-300" : "black"}`}>You don't have an account? </h1>
-              <Link to="/signup">
+              <Link to="/register">
                 <button className={`display: block mx-auto text-center underline underline-offset-1`}>
                   Sign Up
                 </button>

@@ -70,6 +70,7 @@ const Signup = () => {
       >
         {isDarkMode ? <FaMoon /> : <FaSun />}
       </button>
+      
       <Link to="/">
         <span
           className={`ml-6 px-4 main-text font-russo text-[74px] text-transparent bg-clip-text bg-gradient-to-br ${
