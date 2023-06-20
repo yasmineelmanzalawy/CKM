@@ -16,8 +16,8 @@ function Home() {
     // **** Navbar ******
     <div>
       <div className="flex justify-between items-center h-24 px-4">
-        <div className="ml-6">
-          <span className="main-text font-russo text-4xl text-transparent bg-clip-text bg-gradient-to-br from-[#0f005a] to-[#0f79a3]">
+        <div className="pl-6">
+          <span className="main-text font-russo text-6xl text-transparent bg-clip-text bg-gradient-to-br from-[#0f005a] to-[#0f79a3]">
             CKM
           </span>
         </div>
@@ -46,7 +46,7 @@ function Home() {
         </div>
         <div className="hidden md:flex">
           <ul className="flex">
-            <li className="p-4 font-russo text-lg hover:scale-125 ease-linear duration-300">
+            <li className="p-4 font-russo text-lg hover:scale-125 ease-linear duration-300 text-transparent bg-clip-text bg-gradient-to-br from-[#ab3f00] to-[#fc955a]">
               <Link
                 to="/foodcourt"
                 onClick={() => localStorage.setItem("role", "customer")}
@@ -54,22 +54,22 @@ function Home() {
                 CKM Food Court
               </Link>
             </li>
-            <li className="p-4 font-russo text-lg hover:scale-125 ease-linear duration-300">
+            <li className="p-4 font-russo text-lg hover:scale-125 ease-linear duration-300 text-transparent bg-clip-text bg-gradient-to-br from-[#0f005a] to-[#0f79a3]">
               <a href="#Price">Pricing</a>
             </li>
-            <li className="p-4 font-russo text-lg hover:scale-125 ease-linear duration-300">
+            <li className="p-4 font-russo text-lg hover:scale-125 ease-linear duration-300 text-transparent bg-clip-text bg-gradient-to-br from-[#0f005a] to-[#0f79a3]">
               <a href="#About">About Us</a>
             </li>
-            <li className="p-4 font-russo text-lg hover:scale-125 ease-linear duration-300">
+            <li className="p-4 font-russo text-lg hover:scale-125 ease-linear duration-300 text-transparent bg-clip-text bg-gradient-to-br from-[#0f005a] to-[#0f79a3]">
               Reviews
             </li>
-            <li className="p-4 font-russo text-lg hover:scale-125 ease-linear duration-300">
-              <a href="/register">Sign up</a>
+            <li className="m-4 ml-[-50px] w-[80px] bg-gradient-to-br from-[#0f005a] to-[#0f79a3] text-center font-russo text-white rounded p-2 px-6 hover:bg-indigo-900 hover:scale-125 ease-liner duration-300">
+              <a className="" href="/register">Sign up</a>
             </li>
-            <li className="p-4 font-russo text-lg hover:scale-125 ease-linear duration-300">
+            <li className="m-4 ml-[-50px] w-[80px] bg-gradient-to-br from-[#0f005a] to-[#0f79a3] text-center font-russo text-white rounded p-2 px-6 hover:bg-indigo-900 hover:scale-125 ease-liner duration-300">
               <a href="/login">Login</a>
             </li>
-            <li className="p-4 font-russo text-lg hover:scale-125 ease-linear duration-300">
+            <li className="p-4 font-russo text-lg hover:scale-125 ease-linear duration-300 text-transparent bg-clip-text bg-gradient-to-br from-[#0f005a] to-[#0f79a3]">
             </li>
           </ul>
         </div>
