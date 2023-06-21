@@ -30,9 +30,7 @@ import Transcation from "./components/transcation";
 import T2 from "./components/T2";
 import { Tester, data, options } from './components/TestComponent';
 import CustomerProfile from "./components/Customerprofile";
-import Test from "./components/Test";
-import AdminDashboard from "./components/Test";
-import Dashboard from "./components/Test";
+import Dashboard from "./components/SuperAdmin.jsx";
 
 const user = localStorage.getItem("token");
 ReactDOM.render(

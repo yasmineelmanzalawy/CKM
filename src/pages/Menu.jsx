@@ -1,27 +1,29 @@
 import React, { useEffect, useState } from "react";
 import Swal from "sweetalert2";
-import { AiOutlineDelete, AiFillEdit } from "react-icons/ai";
+import { AiOutlineDelete, AiFillEdit, AiFillCloseCircle, AiFillCheckCircle } from "react-icons/ai";
 import { ThreeDots } from 'react-loader-spinner';
 import axios from "../axios.config";
 
 const Menu = () => {
   const [loading, setLoading] = useState(true);
   const [menu, setMenu] = useState([]);
+  const [editingItemId, setEditingItemId] = useState(null);
+  const [updatedPrice, setUpdatedPrice] = useState("");
 
   useEffect(() => {
-    const getMenuItems = async () => {
-      try {
-        const response = await axios.get("api/Menu");
-        setMenu(response.data);
-        setLoading(false);
-      } catch (error) {
-        console.error(error);
-        setLoading(false);
-      }
-    };
-
     getMenuItems();
   }, []);
+
+  const getMenuItems = async () => {
+    try {
+      const response = await axios.get("api/Menu");
+      setMenu(response.data);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const handleDelete = (id) => {
     Swal.fire({
@@ -33,26 +35,58 @@ const Menu = () => {
       cancelButtonColor: "#3085d6",
       confirmButtonText: "Delete",
       cancelButtonText: "Cancel",
-    }).then((confirmDelete) => {
-      if (confirmDelete.isConfirmed) {
-        axios
-          .delete(`api/Menu/${id}`)
-          .then(() => {
-            setMenu((prevMenu) => prevMenu.filter((item) => item.id !== id));
-            Swal.fire("Deleted!", "The menu item has been deleted.", "success");
-          })
-          .catch((error) => {
-            console.error(error);
-            Swal.fire(
-              "Error",
-              "An error occurred while deleting the menu item.",
-              "error"
-            );
-          });
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        try {
+          await axios.delete(`api/Menu/${id}`);
+          setMenu((prevMenu) => prevMenu.filter((item) => item.id !== id));
+          Swal.fire("Deleted!", "The menu item has been deleted.", "success");
+        } catch (error) {
+          console.error(error);
+          Swal.fire(
+            "Error",
+            "An error occurred while deleting the menu item.",
+            "error"
+          );
+        }
       }
     });
   };
-  
+
+  const handleEditPrice = (itemId, initialPrice) => {
+    setEditingItemId(itemId);
+    setUpdatedPrice(initialPrice);
+  };
+
+  const handlePriceInputChange = (e) => {
+    setUpdatedPrice(e.target.value);
+  };
+
+  const handleCancelEditPrice = () => {
+    setEditingItemId(null);
+    setUpdatedPrice("");
+  };
+
+  const handleAcceptEditPrice = async (itemId) => {
+    try {
+      await axios.post(`api/Menu/${itemId}`, { price: updatedPrice , _method:"PUT" });
+      setMenu((prevMenu) =>
+        prevMenu.map((item) =>
+          item.id === itemId ? { ...item, price: updatedPrice } : item
+        )
+      );
+      setEditingItemId(null);
+      setUpdatedPrice("");
+      Swal.fire("Updated!", "The menu item price has been updated.", "success");
+    } catch (error) {
+      console.error(error);
+      Swal.fire(
+        "Error",
+        "An error occurred while updating the menu item price.",
+        "error"
+      );
+    }
+  };
 
   if (loading) {
     return (
@@ -73,33 +107,54 @@ const Menu = () => {
         </a>
       </div>
       <div className="flex flex-wrap justify-center">
-        {menu.map((x) => (
-          <div key={x.id} className="flex gap-[80px] mx-[50px] my-[30px]  rounded-4 justify-center">
+        {menu.map(({ id, image, item_name, category, description, price }) => (
+          <div key={id} className="flex gap-[80px] mx-[50px] my-[30px]  rounded-4 justify-center">
             <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-              <img className="rounded-t-lg" src={x.image} alt="" />
+              <img className="rounded-t-lg" src={image} alt="" />
               <div className="">
                 <h5 className="text-3xl text-center font-semibold tracking-tight text-gray-900 pt-2 dark:text-white">
-                  {x.item_name}{" "}
-                  <span className="text-yellow-500">({x.category})</span>
+                  {item_name} <span className="text-yellow-500">({category})</span>
                 </h5>
-                <p className="text-center">{x.description}</p>
+                <p className="text-center">{description}</p>
                 <div className="flex items-center justify-between px-5 py-8">
-                  <span className="text-3xl font-bold text-gray-900 dark:text-white">
-                    {x.price}
-                  </span>
-                  <button
-                    className="bg-gray-100 hover:bg-gray-200 focus:ring-4 flex gap-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                    onClick={() => handleDelete(x.id)}
-                  >
-                    <AiOutlineDelete
-                      className="text-red-500 hover:scale-125 duration-300 ease-out"
-                      size={20}
-                    />
-                    <AiFillEdit
-                      className="hover:scale-125 duration-300 ease-out"
-                      size={20}
-                    />
-                  </button>
+                  {editingItemId === id ? (
+                    <>
+                      <input
+                        type="text"
+                        value={updatedPrice}
+                        onChange={handlePriceInputChange}
+                        className="w-1/2 px-2 py-1 text-lg border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      />
+                      <div className="flex gap-2">
+                        <AiFillCheckCircle
+                          className="text-green-500 hover:scale-125 duration-300 ease-out cursor-pointer"
+                          size={20}
+                          onClick={() => handleAcceptEditPrice(id)}
+                        />
+                        <AiFillCloseCircle
+                          className="text-red-500 hover:scale-125 duration-300 ease-out cursor-pointer"
+                          size={20}
+                          onClick={handleCancelEditPrice}
+                        />
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      <span className="text-3xl font-bold text-gray-900 dark:text-white">
+                        {price}
+                      </span>
+                      <AiFillEdit
+                        className="hover:scale-125 duration-300 ease-out cursor-pointer"
+                        size={20}
+                        onClick={() => handleEditPrice(id, price)}
+                      />
+                      <AiOutlineDelete
+                        className="text-red-500 hover:scale-125 duration-300 ease-out cursor-pointer"
+                        size={20}
+                        onClick={() => handleDelete(id)}
+                      />
+                    </>
+                  )}
                 </div>
               </div>
             </div>
