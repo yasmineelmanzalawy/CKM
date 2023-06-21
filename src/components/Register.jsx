@@ -8,12 +8,14 @@ const Register = () => {
   const [owner, setowner] = useState(false);
   return (
     <div className="">
+      <div className="mt-4">
       <Link to="/">
       <span className="ml-6 px-4 main-text font-russo text-6xl text-transparent bg-clip-text bg-gradient-to-br from-[#0f005a] to-[#0f79a3] ">
             CKM
           </span>
       </Link>
-      <div className="flex h-[80vh] items-center justify-center flex-col  ">
+      </div>
+      <div className="flex h-[80vh] items-center justify-center flex-col mt-4 ">
         <div className="flex gap-8 justify-center">
           <button onClick={()=>{
             setclient(true);

@@ -70,21 +70,22 @@ const Signup = () => {
       >
         {isDarkMode ? <FaMoon /> : <FaSun />}
       </button>
-      
-      <Link to="/">
-        <span
-          className={`ml-6 px-4 main-text font-russo text-[74px] text-transparent bg-clip-text bg-gradient-to-br ${
-            isDarkMode ? "from-white to-white" : "from-[#0f005a] to-[#0f79a3]"
-          }`}
-        >
-          CKM
-        </span>
-      </Link>
+      <div className="pt-4">
+        <Link to="/">
+          <span
+            className={`ml-6 px-4 main-text font-russo text-6xl text-transparent bg-clip-text bg-gradient-to-br ${
+              isDarkMode ? "from-white to-white" : "from-[#0f005a] to-[#0f79a3]"
+            }`}
+          >
+            CKM
+          </span>
+        </Link>
+      </div>
       <div className="flex justify-center">
         <div className="w-0 md:w-0 mt-[-30px] lg:w-[500px]">
           <img src={sign} alt="" className="mt-[-15px]" />
         </div>
-        <div className="mt-[-20px]">
+        <div className="mt-[-35px]">
           <form onSubmit={handleSubmit}>
             <h1
               className={`text-center text-transparent bg-clip-text bg-gradient-to-br ${

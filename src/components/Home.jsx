@@ -5,7 +5,6 @@ import banner1 from "../data/image 1.svg";
 import { Link } from "react-router-dom";
 import { FiMenu } from "react-icons/fi";
 
-
 function Home() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -60,66 +59,68 @@ function Home() {
             <li className="p-4 font-russo text-lg hover:scale-125 ease-linear duration-300 text-transparent bg-clip-text bg-gradient-to-br from-[#0f005a] to-[#0f79a3]">
               <a href="#About">About Us</a>
             </li>
-            <li className="p-4 font-russo text-lg hover:scale-125 ease-linear duration-300 text-transparent bg-clip-text bg-gradient-to-br from-[#0f005a] to-[#0f79a3]">
-              Reviews
-            </li>
             <li className="m-4 ml-[-50px] w-[80px] bg-gradient-to-br from-[#0f005a] to-[#0f79a3] text-center font-russo text-white rounded p-2 px-6 hover:bg-indigo-900 hover:scale-125 ease-liner duration-300">
-              <a className="" href="/register">Sign up</a>
+              <a className="" href="/register">
+                Sign up
+              </a>
             </li>
             <li className="m-4 ml-[-50px] w-[80px] bg-gradient-to-br from-[#0f005a] to-[#0f79a3] text-center font-russo text-white rounded p-2 px-6 hover:bg-indigo-900 hover:scale-125 ease-liner duration-300">
               <a href="/login">Login</a>
-            </li>
-            <li className="p-4 font-russo text-lg hover:scale-125 ease-linear duration-300 text-transparent bg-clip-text bg-gradient-to-br from-[#0f005a] to-[#0f79a3]">
             </li>
           </ul>
         </div>
       </div>
       {/* Hero Section */}
-      <div className="flex flex-col items-center px-4 pt-8 md:flex-row md:max-w-[1240px] md:mx-auto">
-        <div className="w-full md:w-1/2 md:mr-12">
-          <div className="flex items-center justify-center mb-4">
-            <h1 className="text-center font-russo text-4xl pt-12 md:pt-12 uppercase">
-              Cloud Kitchen Manager
-            </h1>
+      <section className="">
+        <div className="flex flex-col items-center px-4 pt-8 md:h-screen md:text-3xl md:my-[-110px] md:mb-[10px] md:flex-row md:max-w-[1240px] md:mx-auto">
+          <div className="w-[250px] md:w-1/2 md:mr-12">
+            <div className="flex items-center justify-center mb-4">
+              <h1 className="text-center md:text-4xl font-russo text-transparent bg-clip-text bg-gradient-to-br from-[#0f005a] to-[#0f79a3] pt-12 md:pt-12 uppercase">
+                Cloud Kitchen Manager
+              </h1>
+            </div>
+            <div>
+              <h2 className="text-center text-black font-russo md:text-2xl">
+                Transform your cloud kitchen operations with CKM, the ultimate
+                solution for seamless management, efficient order processing,
+                and exceptional culinary experiences.
+              </h2>
+              <br />
+              <p className="text-[#0C147A] text-transparent bg-clip-text bg-gradient-to-br from-[#0f005a] to-[#0f79a3] md:text-3xl text-center">
+                CKM Is Your Wise Choice To Manage.{" "}
+              </p>
+            </div>
+            <div className="md:mx-[60px] md:mt-12">
+              <a href="#About">
+                <button className="Main-button w-[80%] mx-4 mt-4 md:text-2xl py-2 bg-gradient-to-br from-[#0f005a] to-[#0f79a3] text-center font-russo text-white rounded px-8 hover:bg-indigo-900 hover:scale-125 ease-liner duration-300">
+                  For More
+                </button>
+              </a>
+            </div>
           </div>
-
-          <p className="text-center text-black font-russo text-lg md:text-xl">
-            Transform your cloud kitchen operations with CKM, the ultimate
-            solution for seamless management, efficient order processing, and
-            exceptional culinary experiences.
-            <br />
-            <br />
-            <span className="text-[#0C147A]">
-              CKM Is Your Wise Choice To Manage.{" "}
-            </span>
-          </p>
-
-          <div className="text-center mt-8">
-            <button className="Main-button font-russo w-full md:w-1/2 rounded-xl px-4 py-2 bg-indigo-600 text-white text-lg md:text-2xl hover:scale-105 duration-150 ease-in">
-              For More
-            </button>
+          <div className=" md:w-1/2 md:visible w-0">
+            <img src={banner1} alt="" className="mx-auto" />
           </div>
         </div>
-        <div className=" md:w-1/2 md:visible w-0">
-          <img src={banner1} alt="" className="mx-auto" />
-        </div>
-      </div>
+      </section>
+
+      <hr class="w-48 h-1 mx-auto my-2 bg-gray-500 border-0 rounded md:my-10 dark:bg-gray-700" />
 
       <div
         id="About"
-        className="max-w-[1240px] mx-auto px-4 pt-10 border-b-gray-900"
+        className="max-w-[1240px] mx-auto px-4 pt-6 border-b-gray-900"
       >
         <div className="flex flex-col items-center md:flex-col">
           <div className="flex justify-center items-center md:w-full">
-            <h1 className="text-center font-russo text-4xl py-8 uppercase">
+            <h1 className="text-center font-russo text-[28px] py-2 uppercase text-transparent bg-clip-text bg-gradient-to-br from-[#0f005a] to-[#0f79a3]">
               What is &nbsp;{" "}
             </h1>
             <TypeAnimation
               sequence={[
-                "CKM?", // Types 'One'
-                2000,
-                "",
-                2000,
+                "", // Types 'One'
+                100,
+                "CKM?",
+                5000,
                 () => {
                   console.log("Sequence completed"); // Place optional callbacks anywhere in the array
                 },
@@ -128,20 +129,17 @@ function Home() {
               cursor={true}
               repeat={Infinity}
               style={{
-                fontSize: "2.5em",
+                fontSize: "25px",
                 display: "block",
                 fontFamily: ["Russo One", "sans-serif"],
-                color: "rgb(55,48,163)",
+                color: "black",
                 textTransform: "uppercase",
               }}
             />
           </div>
           <div className="grid md:grid-cols-3 grid-cols-1 gap-2">
-            <a
-              href="#"
-              className="block max-w-sm p-6 mb-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100"
-            >
-              <h5 className="mb-2 text-2xl font-bold tracking-tight text-indigo-800">
+            <div className="block max-w-sm p-6 mb-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100">
+              <h5 className="mb-2 text-2xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-br from-[#0f005a] to-[#0f79a3]">
                 CKM Helps You To Manage..
               </h5>
               <p className="font-normal text-gray-700">
@@ -149,12 +147,9 @@ function Home() {
                 streamline and optimize every aspect of cloud kitchen
                 management, from order processing and inventory.
               </p>
-            </a>
-            <a
-              href="#"
-              className="block max-w-sm p-6 mb-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100"
-            >
-              <h5 className="mb-2 text-2xl font-bold tracking-tight text-indigo-800">
+            </div>
+            <div className="block max-w-sm p-6 mb-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100">
+              <h5 className="mb-2 text-2xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-br from-[#0f005a] to-[#0f79a3]">
                 CKM Helps You To Manage..
               </h5>
               <p className="font-normal text-gray-700">
@@ -163,12 +158,9 @@ function Home() {
                 efficiency, maximize customer satisfaction, and drive business
                 growth in your cloud kitchen.
               </p>
-            </a>
-            <a
-              href="#"
-              className="block max-w-sm p-6 mb-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100"
-            >
-              <h5 className="mb-2 text-2xl font-bold tracking-tight text-indigo-800">
+            </div>
+            <div className="block max-w-sm p-6 mb-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100">
+              <h5 className="mb-2 text-2xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-br from-[#0f005a] to-[#0f79a3]">
                 CKM Helps You To Manage..
               </h5>
               <p className="font-normal text-gray-700">
@@ -177,30 +169,40 @@ function Home() {
                 efficiency, maximize customer satisfaction, and drive business
                 growth in your cloud kitchen.
               </p>
-            </a>
+            </div>
           </div>
         </div>
-        <div className="flex flex-col-reverse md:flex-row md:justify-between pt-10">
+        <div className="flex flex-col-reverse md:flex-row md:justify-between pt-4">
           <div className="w-full md:w-[50%]">
-            <img className="w-full mx-auto" src={information1} alt="" />
+            <img
+              className="w-full mx-auto mt-[-15px]"
+              src={information1}
+              alt=""
+            />
           </div>
-          <div className="pl-0 md:pl-8 text-left pt-8">
-            <h1 className="font-russo text-3xl">CKM</h1>
-            <p className="font-russo text-lg md:text-xl w-full md:w-[550px] md:pb-8">
+          <div className="pl-0 md:pl-8 text-left pt-2">
+            <h1 className="font-russo text-3xl mb-4 mt-[-20px] text-transparent bg-clip-text bg-gradient-to-br from-[#0f005a] to-[#0f79a3]">
+              CKM
+            </h1>
+            <p className="font-russo text-lg md:text-xl w-full md:w-[550px] md:pb-4">
               CKM (Cloud Kitchen Management) is a powerful software solution
               designed to revolutionize the way cloud kitchens operate. With
               CKM, you can effortlessly manage orders, streamline inventory,
               customize menus, optimize delivery logistics, and gain valuable
               insights for growth, all in one comprehensive platform.
             </p>
-            <div className="flex justify-center pb-4 pt-4 md:justify-start">
-              <button className="bg-indigo-800 text-white px-8 py-2 rounded-lg font-russo hover:scale-105 duration-150 ease-out">
-                Get Started
-              </button>
-            </div>
+            <Link to="/register">
+              <div className="flex justify-center pb-[10px] pt-2 md:justify-start">
+                <button className="Main-button w-[80%] mx-12 mt-2 md:text-2xl py-2 bg-gradient-to-br from-[#0f005a] to-[#0f79a3] text-center font-russo text-white rounded px-24 hover:bg-indigo-900 hover:scale-125 ease-liner duration-300">
+                  Get Started
+                </button>
+              </div>
+            </Link>
           </div>
         </div>
       </div>
+
+      <hr class="w-48 h-1 mx-auto my-[3px] bg-gray-500 border-0 rounded md:my-10 dark:bg-gray-700" />
 
       {/* Pricing */}
       <div
@@ -211,7 +213,7 @@ function Home() {
           Pricing
         </h1>
         <div className="flex items-center justify-center py-10">
-          <h1 className=" font-russo text-base  md:text-4xl">
+          <h1 className=" font-russo text-base md:text-4xl">
             Start Growing 10x faster with&nbsp;
           </h1>
           <TypeAnimation
@@ -489,11 +491,7 @@ function Home() {
                     About
                   </a>
                 </li>
-                <li class="mb-4">
-                  <a href="#" class="hover:underline">
-                    Careers
-                  </a>
-                </li>
+                
                 <li class="mb-4">
                   <a href="#" class="hover:underline">
                     Brand Center
@@ -557,7 +555,7 @@ function Home() {
             </div>
             <div>
               <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
-                Download
+                Usage
               </h2>
               <ul class="text-gray-500 dark:text-gray-400 font-medium">
                 <li class="mb-4">
@@ -584,10 +582,10 @@ function Home() {
             </div>
           </div>
           <div class="px-4 py-6  dark:bg-gray-700 md:flex md:items-center md:justify-between">
-            <span class="text-sm text-gray-500 dark:text-gray-300 sm:text-center">
-              © 2023 <a href="https://flowbite.com/">Flowbite™</a>. All Rights
-              Reserved.
-            </span>
+            <p className="dark:text-gray-200 text-gray-700 text-center m-2">
+              © 2023 All rights reserved by{" "}
+              <span className="text-[#3B1EC5]"> CKM</span>.com
+            </p>
             <div class="flex mt-4 space-x-6 sm:justify-center md:mt-0">
               <a
                 href="#"
@@ -657,24 +655,7 @@ function Home() {
                 </svg>
                 <span class="sr-only">GitHub account</span>
               </a>
-              <a
-                href="#"
-                class="text-gray-400 hover:text-gray-900 dark:hover:text-white"
-              >
-                <svg
-                  class="w-5 h-5"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                  aria-hidden="true"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10c5.51 0 10-4.48 10-10S17.51 2 12 2zm6.605 4.61a8.502 8.502 0 011.93 5.314c-.281-.054-3.101-.629-5.943-.271-.065-.141-.12-.293-.184-.445a25.416 25.416 0 00-.564-1.236c3.145-1.28 4.577-3.124 4.761-3.362zM12 3.475c2.17 0 4.154.813 5.662 2.148-.152.216-1.443 1.941-4.48 3.08-1.399-2.57-2.95-4.675-3.189-5A8.687 8.687 0 0112 3.475zm-3.633.803a53.896 53.896 0 013.167 4.935c-3.992 1.063-7.517 1.04-7.896 1.04a8.581 8.581 0 014.729-5.975zM3.453 12.01v-.26c.37.01 4.512.065 8.775-1.215.25.477.477.965.694 1.453-.109.033-.228.065-.336.098-4.404 1.42-6.747 5.303-6.942 5.629a8.522 8.522 0 01-2.19-5.705zM12 20.547a8.482 8.482 0 01-5.239-1.8c.152-.315 1.888-3.656 6.703-5.337.022-.01.033-.01.054-.022a35.318 35.318 0 011.823 6.475 8.4 8.4 0 01-3.341.684zm4.761-1.465c-.086-.52-.542-3.015-1.659-6.084 2.679-.423 5.022.271 5.314.369a8.468 8.468 0 01-3.655 5.715z"
-                    clip-rule="evenodd"
-                  />
-                </svg>
-                <span class="sr-only">Dribbble account</span>
-              </a>
+             
             </div>
           </div>
         </div>

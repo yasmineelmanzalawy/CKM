@@ -23,7 +23,7 @@ const Sidebar = () => {
       {activeMenu && (
         <>
           <div className="flex justify-between items-center">
-            <Link to="/" onClick={handleCloseSideBar} className="ml-[25px] items-center gap-3 mt-4 flex text-transparent bg-clip-text bg-gradient-to-br from-[#0f005a] to-[#0f79a3] text-5xl font-extrabold tracking-tight dark:text-white text-slate-900">
+            <Link to="/controlunit/Analytics" onClick={handleCloseSideBar} className="ml-[25px] items-center gap-3 mt-4 flex text-transparent bg-clip-text bg-gradient-to-br from-[#0f005a] to-[#0f79a3] text-5xl font-extrabold tracking-tight dark:text-white text-slate-900">
              <span>CKM</span>
             </Link>
             <TooltipComponent content="close" position="BottomCenter">
