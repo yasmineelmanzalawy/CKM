@@ -102,7 +102,7 @@ const Orders = () => {
   }
 
   return (
-    <div className=" mb-[-110px]">
+    <div className="mt-[-200px] mb-[-450px]">
       <div className="overflow-x-auto">
         <div className="min-w-screen min-h-screen flex items-center justify-center overflow-hidden">
           <div className="mt-[-300px] w-full lg:w-5/6">

@@ -41,11 +41,13 @@ const Inventory = () => {
   return (
     <div className="h-screen bg-gray-100 ">
       <div>
-       <Link to="/"><span className="ml-6 px-4 main-text font-russo text-[74px] text-transparent bg-clip-text bg-gradient-to-br from-[#0f005a] to-[#0f79a3] ">
+      <div className="pt-4">
+       <Link to="/"><span className="ml-6 px-4 main-text font-russo text-6xl text-transparent bg-clip-text bg-gradient-to-br from-[#0f005a] to-[#0f79a3]">
             CKM
        </span>
       </Link>
-      <div className="mb-[80px] text-right mr-12 mt-[-80px]  underline underline-offset-1 text-[#3B1EC5] text-transparent bg-clip-text bg-gradient-to-br from-[#0f005a] to-[#0f79a3] ">
+      </div>
+      <div className="pt-4 mb-[80px] text-right mr-12 mt-[-80px]  underline underline-offset-1 text-[#3B1EC5] text-transparent bg-clip-text bg-gradient-to-br from-[#0f005a] to-[#0f79a3] ">
           <a href="./controlunit">Skip To Controlunit</a>
         </div>
       </div>

@@ -61,8 +61,8 @@ const CreateBrand = () => {
   
   return (
     <div className=" h-screen bg-gray-100">
-     <div>
-       <Link to="/"><span className="ml-6 px-4 main-text font-russo text-[74px] text-transparent bg-clip-text bg-gradient-to-br from-[#0f005a] to-[#0f79a3] ">
+     <div className="pt-4">
+       <Link to="/"><span className="ml-6 px-4 main-text font-russo text-6xl text-transparent bg-clip-text bg-gradient-to-br from-[#0f005a] to-[#0f79a3]">
             CKM
        </span>
       </Link>
@@ -150,7 +150,7 @@ const CreateBrand = () => {
                 value={data.description}
                 type="text"
                 className="text-center w-[350px] my-[20px] bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                placeholder="Kitchen Name"
+                placeholder="Describe Your Kitchen"
                 required
               />
             </div>

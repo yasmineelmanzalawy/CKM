@@ -108,28 +108,28 @@ const MenuSetUp = () => {
 
   return (
     <div className="h-screen bg-gray-100 ">
-      <div>
-        <Link to="/">
-          <span className="ml-6 px-4 main-text font-russo text-[74px] text-transparent bg-clip-text bg-gradient-to-br from-[#0f005a] to-[#0f79a3] ">
+      <div className="pt-4">
+       <Link to="/"><span className="ml-6 px-4 main-text font-russo text-6xl text-transparent bg-clip-text bg-gradient-to-br from-[#0f005a] to-[#0f79a3]">
             CKM
-          </span>
-        </Link>
+       </span>
+      </Link>
       </div>
-      <div className="mb-[50px] text-right mr-12 mt-[-80px]  underline underline-offset-1 text-[#3B1EC5] text-transparent bg-clip-text bg-gradient-to-br from-[#0f005a] to-[#0f79a3] ">
+      <div className="pt-4 mb-[50px] text-right mr-12 mt-[-80px]  underline underline-offset-1 text-[#3B1EC5] text-transparent bg-clip-text bg-gradient-to-br from-[#0f005a] to-[#0f79a3] ">
         <a href="./controlunit">Skip To Controlunit</a>
       </div>
+      <div className="ml-24">
       <a href="./inventory">
-        <h1 className="ml-[200px] text-2xl underline underline-offset-1 inline">
-          Back
-        </h1>
-      </a>
+            <h1 className="text-2xl underline underline-offset-1 inline">
+              Back
+            </h1>
+          </a></div>
       <div className="flex justify-center items-center">
         <form
           onSubmit={handleSubmit}
           className="  rounded-3xl flex flex-col justify-center h-[80%] "
         >
-          <div className="flex items-center justify-center mb-[-50px]">
-            <h1 className="text-center font-russo text-4xl py-8 uppercase">
+          <div className="flex items-center justify-center mb-[-80px]">
+            <h1 className="mt-[-100px] text-center font-russo text-4xl py-8 uppercase">
               &nbsp;{" "}
             </h1>
             <TypeAnimation
@@ -155,7 +155,7 @@ const MenuSetUp = () => {
           {/* <h1 className="text-center text-5xl text-[#3B1EC5]">
             Create Your Dish
           </h1> */}
-          <div class="grid gap-6 mb-6 md:grid-cols-4 justify-items-center pt-[80px]">
+          <div class="grid gap-6 mb-4 md:grid-cols-3 justify-items-center pt-[80px]">
             <div>
               <label className="text-center block mb-2 text-lg font-medium text-gray-900 dark:text-white">
                 Item Name
@@ -185,6 +185,9 @@ const MenuSetUp = () => {
               />
             </div>
             <div>
+            <label className="text-center block mb-2 text-lg font-medium text-gray-900 dark:text-white">
+                Dish Image  
+              </label>
               <input
                 type="file"
                 onChange={handleLogo}
@@ -227,7 +230,7 @@ const MenuSetUp = () => {
           </div>
           <div>
             <div>
-              <h1 className="text-center text-[30px] text-[#0C147A] mb-[-40px] mt-[30px]">
+              <h1 className="text-center text-[30px] text-[#0C147A] mb-[-50px] mt-[6px]">
                 Pick your Ingredients
               </h1>
             </div>

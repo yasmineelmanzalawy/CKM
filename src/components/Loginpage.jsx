@@ -18,43 +18,41 @@ const Loginpage = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const url = "api/auth/login";
-    
+
     setIsLoading(true); // Set isLoading to true when submitting the form
 
-    axios
-      .get("sanctum/csrf-cookie")
-      .then(async () => {
-        axios
-          .post(url, data)
-          .then((data) => {
-            localStorage.setItem("token", data.data.token);
-            localStorage.setItem("id", data.data.user.id);
-            localStorage.setItem("role", data.data.user.role);
+    axios.get("sanctum/csrf-cookie").then(async () => {
+      axios
+        .post(url, data)
+        .then((data) => {
+          localStorage.setItem("token", data.data.token);
+          localStorage.setItem("id", data.data.user.id);
+          localStorage.setItem("role", data.data.user.role);
 
-            if (localStorage.getItem("role") === "owner") {
-              navigate("/controlunit");
-              window.location.reload();
-            } else if (localStorage.getItem("role") === "customer") {
-              navigate("/foodcourt");
-              window.location.reload();
-            }
-            
-            console.log(data.data);
-            console.log(data.data.token);
-          })
-          .catch((error) => {
-            if (
-              error.response &&
-              error.response.status >= 400 &&
-              error.response.status <= 500
-            ) {
-              setError(error.response.data.message);
-            }
-          })
-          .finally(() => {
-            setIsLoading(false); // Set isLoading to false when the request is completed
-          });
-      });
+          if (localStorage.getItem("role") === "owner") {
+            navigate("/controlunit");
+            window.location.reload();
+          } else if (localStorage.getItem("role") === "customer") {
+            navigate("/foodcourt");
+            window.location.reload();
+          }
+
+          console.log(data.data);
+          console.log(data.data.token);
+        })
+        .catch((error) => {
+          if (
+            error.response &&
+            error.response.status >= 400 &&
+            error.response.status <= 500
+          ) {
+            setError(error.response.data.message);
+          }
+        })
+        .finally(() => {
+          setIsLoading(false); // Set isLoading to false when the request is completed
+        });
+    });
   };
 
   const toggleDarkMode = () => {
@@ -62,32 +60,52 @@ const Loginpage = (props) => {
   };
 
   return (
-    <div className={`${isDarkMode ? " bg-slate-900 text-white" : "bg-white text-black"} h-screen`}>
+    <div
+      className={`${
+        isDarkMode ? " bg-slate-900 text-white" : "bg-white text-black"
+      } h-screen`}
+    >
       <button
         onClick={toggleDarkMode}
-       className={`${isDarkMode ? " text-white " : " text-black"} p-2 rounded absolute top-4 right-4 z-10 `}
+        className={`${
+          isDarkMode ? " text-white " : " text-black"
+        } p-2 rounded absolute top-4 right-4 z-10 `}
       >
         {isDarkMode ? <FaMoon /> : <FaSun />}
       </button>
-      <Link to="/">
-      <span
-          className={`ml-6 px-4 main-text font-russo text-[74px] text-transparent bg-clip-text bg-gradient-to-br ${
-            isDarkMode ? "from-white to-white" : "from-[#0f005a] to-[#0f79a3]"
-          }`}
-        >
-          CKM
-        </span>
-      </Link>
+      <div className="pt-4">
+        <Link to="/">
+          <span
+            className={`ml-6 px-4 main-text font-russo text-6xl text-transparent bg-clip-text bg-gradient-to-br ${
+              isDarkMode ? "from-white to-white" : "from-[#0f005a] to-[#0f79a3]"
+            }`}
+          >
+            CKM
+          </span>
+        </Link>
+      </div>
       <div className="mt-[-20px] font-russo flex justify-center">
         <div className="w-0 pr-4 md:w-0 lg:w-[450px]">
           <img src={log} alt="" />
         </div>
         <div className="">
-          <form className="pl-4" onSubmit={handleSubmit}>
-            <h1 className={`text-center text-${isDarkMode ? "white" : "black"} text-[40px] display: block mt-[50px]`}>
+          <form className="mt-16 pl-12" onSubmit={handleSubmit}>
+          <h1
+              className={`text-center text-transparent bg-clip-text bg-gradient-to-br ${
+                isDarkMode
+                  ? "from-white to-white"
+                  : "from-[#0f005a] to-[#0f79a3]"
+              } font-russo text-[38px] display: block mt-[5px]`}
+            >
               Login to your account
             </h1>
-            <h1 className={`text-center mt-[50px] mb-[-20px] text-${isDarkMode ? "gray-300" : "blue-800"}`}>Email</h1>
+            <h1
+              className={`text-center mt-[50px] mb-[-20px] text-${
+                isDarkMode ? "gray-300" : "blue-800"
+              }`}
+            >
+              Email
+            </h1>
             <input
               type="email"
               placeholder="Email"
@@ -101,7 +119,13 @@ const Loginpage = (props) => {
                 isDarkMode ? "bg-gray-900 text-white" : "bg-white text-black"
               }`}
             />
-            <h1 className={`text-center mt-[20px] mb-[-20px] text-${isDarkMode ? "gray-300" : "blue-800"}`}>Password</h1>
+            <h1
+              className={`text-center mt-[20px] mb-[-20px] text-${
+                isDarkMode ? "gray-300" : "blue-800"
+              }`}
+            >
+              Password
+            </h1>
             <input
               type="password"
               placeholder="Password"
@@ -116,21 +140,37 @@ const Loginpage = (props) => {
               }`}
             />
             {error && (
-              <div className={`text-center ${isDarkMode ? "text-red-300" : "text-red-600"} text-xs underline font`}>
+              <div
+                className={`text-center ${
+                  isDarkMode ? "text-red-300" : "text-red-600"
+                } text-xs underline font`}
+              >
                 {error}
               </div>
             )}
             <button
               className={`display: block mx-auto rounded-[10px] h-[40px] w-[100px] ${
-                isDarkMode ? "bg-slate-600" : "bg-gradient-to-br from-[#0f005a] to-[#0f79a3]"
+                isDarkMode
+                  ? "bg-slate-600"
+                  : "bg-gradient-to-br from-[#0f005a] to-[#0f79a3]"
               }  hover:scale-125 ease-liner duration-300 text-white mt-[70px] my-[20px] text-center`}
               type="submit"
               disabled={isLoading}
             >
               {isLoading ? (
                 <span className="flex items-center justify-center">
-                  <svg className="animate-spin h-5 w-5 mr-1 ml-1" viewBox="0 0 24 24">
-                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                  <svg
+                    className="animate-spin h-5 w-5 mr-1 ml-1"
+                    viewBox="0 0 24 24"
+                  >
+                    <circle
+                      className="opacity-25"
+                      cx="12"
+                      cy="12"
+                      r="10"
+                      stroke="currentColor"
+                      strokeWidth="4"
+                    />
                     <path
                       className="opacity-75"
                       fill="currentColor"
@@ -144,9 +184,17 @@ const Loginpage = (props) => {
               )}
             </button>
             <div>
-              <h1 className={`text-center text-${isDarkMode ? "gray-300" : "black"}`}>You don't have an account? </h1>
+              <h1
+                className={`text-center text-${
+                  isDarkMode ? "gray-300" : "black"
+                }`}
+              >
+                You don't have an account?{" "}
+              </h1>
               <Link to="/register">
-                <button className={`display: block mx-auto text-center underline underline-offset-1`}>
+                <button
+                  className={`display: block mx-auto text-center underline underline-offset-1`}
+                >
                   Sign Up
                 </button>
               </Link>
