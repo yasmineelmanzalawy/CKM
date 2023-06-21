@@ -15,7 +15,7 @@ export const options = {
     title: {
       display: true,
       text: 'Staff Roles Chart',
-      fontSize: 50, // Increase the font size here
+      fontSize: 50,
     },
   },
 };
@@ -38,7 +38,7 @@ export function Tester() {
             {
               label: 'Staff Count',
               data: counts,
-              backgroundColor: 'rgba(255, 99, 132, 0.5)',
+              backgroundColor: 'rgba(255, 0, 0, 0.5)', // Bright red color
             },
           ],
         };
@@ -53,7 +53,7 @@ export function Tester() {
   }, []);
 
   return (
-    <div>
+    <div className="chart-container rounded-lg bg-gray-100 p-6">
       {chartData ? (
         <Bar options={options} data={chartData} />
       ) : (
