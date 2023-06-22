@@ -124,7 +124,7 @@ const Inventory = () => {
               <option className="text-center" value="lequid">liquid</option>
             </select>
           </div>
-          <div>
+          <div className="text-center">
             <label
               for="company"
               className="text-center block mb-2 text-lg font-medium text-gray-900 dark:text-white"
