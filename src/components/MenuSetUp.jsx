@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "../axios.config";
 import { TypeAnimation } from "react-type-animation";
 import { toast } from "react-hot-toast";
+import { MdOutlineArrowForward } from "react-icons/md";
 
 const MenuSetUp = () => {
   const handleAddIngredient = () => {
@@ -11,13 +12,11 @@ const MenuSetUp = () => {
       quantity: ingredientQuantity,
       unit_of_measurement: unit,
     };
-  
+
     setIngredientData((prevData) => [...prevData, newIngredient]);
-  
+
     // Clear the input fields
-   
   };
-  
 
   const initialState2 = [];
   const initialState4 = "";
@@ -80,7 +79,7 @@ const MenuSetUp = () => {
       setIngredient("");
       setIngredientQuantity("");
       setUnit("");
-      setIngredientData([])
+      setIngredientData([]);
       console.log(res.message);
     } catch (error) {
       if (
@@ -108,21 +107,24 @@ const MenuSetUp = () => {
 
   return (
     <div className="h-screen bg-gray-100 ">
-      <div className="pt-4">
-       <Link to="/"><span className="ml-6 px-4 main-text font-russo text-6xl text-transparent bg-clip-text bg-gradient-to-br from-[#0f005a] to-[#0f79a3]">
-            CKM
-       </span>
-      </Link>
+      <div>
+        <div className="pt-4">
+          <a href="./controlunit">
+            <span className="ml-6 px-4 main-text font-russo md:text-6xl text-4xl text-transparent bg-clip-text bg-gradient-to-br from-[#0f005a] to-[#0f79a3]">
+              CKM
+            </span>
+          </a>
+          <div className="flex mx-72 justify-end mt-6">
+            <a className="" href="./controlunit">
+              <MdOutlineArrowForward size={28}/>{" "}
+              
+            </a>
+          </div>
+        </div>
       </div>
-      <div className="pt-4 mb-[50px] text-right mr-12 mt-[-80px]  underline underline-offset-1 text-[#3B1EC5] text-transparent bg-clip-text bg-gradient-to-br from-[#0f005a] to-[#0f79a3] ">
-        <a href="./controlunit">Skip To Controlunit</a>
-      </div>
-      <div className="ml-24">
-      <a href="./inventory">
-            <h1 className="text-2xl underline underline-offset-1 inline">
-              Back
-            </h1>
-          </a></div>
+      <div className="flex mx-72 justify-end mt-6">
+            
+          </div>
       <div className="flex justify-center items-center">
         <form
           onSubmit={handleSubmit}
@@ -185,8 +187,8 @@ const MenuSetUp = () => {
               />
             </div>
             <div>
-            <label className="text-center block mb-2 text-lg font-medium text-gray-900 dark:text-white">
-                Dish Image  
+              <label className="text-center block mb-2 text-lg font-medium text-gray-900 dark:text-white">
+                Dish Image
               </label>
               <input
                 type="file"
