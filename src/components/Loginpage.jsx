@@ -35,6 +35,8 @@ const Loginpage = (props) => {
           } else if (localStorage.getItem("role") === "customer") {
             navigate("/foodcourt");
             window.location.reload();
+          } else {
+            navigate("/tester")
           }
 
           console.log(data.data);

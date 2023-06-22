@@ -34,7 +34,7 @@ const Navbar = () => {
   const showProfileIcon = !!token;
 
   return (
-    <div className="flex justify-between pt-2 bg-[#e55807] shadow-md rounded-b-3xl">
+    <div className="flex justify-between pt-2 bg-sky-400 shadow-md">
       <div>
         <h1 className="pl-6 pb-2 text-5xl font-bold tracking-wide text-white">
           CKM

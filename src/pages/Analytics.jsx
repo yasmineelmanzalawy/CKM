@@ -31,7 +31,6 @@ const Analytics = () => {
 
   useEffect(() => {
     let isMounted = true;
-
     const fetchData = async () => {
       try {
         const response = await axios.get(
@@ -188,7 +187,7 @@ const Analytics = () => {
       </div>
       <div className="grid grid-cols-3 pb-8  px-14 gap-4">
         <div>
-          <div className="bg-[#f9fafb] font-Inter font-bold rounded-lg shadow-md h-64 p-4">
+          <div className="bg-[#f9fafb] font-Inter font-bold rounded-lg shadow-md h-72 p-4">
             <h2 className="text-2xl font-bold mb-4">Best Selling Items</h2>
             {bestSellingItems.length > 0 ? (
               <ul className="space-y-4">
@@ -216,7 +215,7 @@ const Analytics = () => {
           </div>
         </div>
         <div>
-          <div className="bg-[#f9fafb] font-Inter font-semibold text-center rounded-lg shadow-md h-64 p-4">
+          <div className="bg-[#f9fafb] font-Inter font-semibold text-center rounded-lg shadow-md h-72 p-4">
             {growthRate[0] !== null && growthRate[0] !== undefined ? (
               <h1>{growthRate}</h1>
             ) : (
@@ -228,7 +227,7 @@ const Analytics = () => {
           </div>
         </div>
         <div>
-          <div className="bg-[#f9fafb] font-Inter font-semibold rounded-lg shadow-md h-64 p-4">
+          <div className="bg-[#f9fafb] font-Inter font-semibold rounded-lg shadow-md h-72 p-4">
             <div>
               <div className="flex justify-between">
                 <h1 className="text-2xl font-bold mb-4">Profit Margin</h1>
@@ -249,12 +248,13 @@ const Analytics = () => {
                     <p className="text-2xl pt-2 pb-2 ">Profit Margin: </p>
                     <CountUp
                       end={item.profit_margin}
-                      duration={1}
+                      duration={2}
                       separator=","
                       decimals={0}
                       decimal="."
                       className="dark:text-white text-green-500  text-4xl font-bold"
                     />
+                    <span className="text-2xl">%</span>
                   </div>
                 );
               })}

@@ -44,7 +44,7 @@ function Home() {
           </div>
         </div>
         <div className="hidden md:flex">
-          <ul className="flex">
+          <ul className="flex py-20">
             <li className="p-4 font-russo text-lg hover:scale-125 ease-linear duration-300 text-transparent bg-clip-text bg-gradient-to-br from-[#ab3f00] to-[#fc955a]">
               <Link
                 to="/foodcourt"
@@ -80,7 +80,7 @@ function Home() {
               </h1>
             </div>
             <div>
-              <h2 className="text-center text-black font-russo md:text-2xl">
+              <h2 className="text-center text-black font-russo md:text-3xl">
                 Transform your cloud kitchen operations with CKM, the ultimate
                 solution for seamless management, efficient order processing,
                 and exceptional culinary experiences.

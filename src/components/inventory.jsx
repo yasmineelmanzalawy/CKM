@@ -121,7 +121,7 @@ const Inventory = () => {
               <option className="text-center" value="spices">spices</option>
               <option className="text-center" value="herbs">herbs</option>
               <option className="text-center" value="others">others</option>
-              <option className="text-center" value="liquid">liquid</option>
+              <option className="text-center" value="lequid">liquid</option>
             </select>
           </div>
           <div>

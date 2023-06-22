@@ -3,8 +3,10 @@ import { Button, Card } from "react-bootstrap";
 import { useShoppingCart } from "../contexts/ShoppingCartContext";
 import FormatCurrency from "./FormatCurrency";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 import Swal from "sweetalert2";
-import {ThreeDots} from "react-loader-spinner";
+import { ThreeDots } from "react-loader-spinner";
+import axios from "../axios.config";
 
 const StoreItem = ({ id, item_name, price, image, description }) => {
   const {
@@ -18,6 +20,7 @@ const StoreItem = ({ id, item_name, price, image, description }) => {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
 
+  
   const handleAddToCart = () => {
     const token = localStorage.getItem("token");
     if (token) {
@@ -40,26 +43,29 @@ const StoreItem = ({ id, item_name, price, image, description }) => {
   };
 
   return (
-    <Card className="h-100 font-Inter font-semibold">
-      {/* Card image */}
-      <Card.Img
-        variant="top"
-        src={image}
-        style={{ height: "200px", objectFit: "cover" }}
-        className="rounded"
-      />
-      <Card.Body className="d-flex flex-column">
-        <div className="flex flex-col justify-center items-center mb-4">
-          {/* Item name, description, and price */}
-          <span className="text-3xl">{item_name}</span>
-          <p>{description}</p>
-        </div>
-        <div className="mt-auto">
-          <h6 className=" text-center text-muted">{FormatCurrency(price)}</h6>
+    <div className=" font-Inter font-semibold">
+      <div class="border border-gray-200  rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+        <a href=".">
+          <img
+            class=" w-full h-64 rounded-t-lg"
+            src={image}
+            alt={image}
+          />
+        </a>
+        <div class=" flex flex-col pb-4">
+          <h1 className="text-center text-2xl pb-4">{item_name}</h1>
+          <p href=".">
+            <h5 class="text-xl px-4 font-semibold tracking-tight text-gray-900 dark:text-white">
+              Apple Watch Series 7 GPS, Aluminium Case, Starlight Sport
+            </h5>
+          </p>
+          
+          <div className="mt-auto text-center">
+          <h6 className=" text-center text-2xl py-6">{price}</h6>
           {/* Add to Cart or Quantity/Remove buttons */}
           {quantity === 0 ? (
             <Button
-              className="w-100 bg-orange-500 border-white text-white py-2 px-4 rounded-lg shadow hover:bg-orange-600"
+              className="w-64 bg-orange-500 border-white text-white px-4 rounded-lg shadow hover:bg-orange-600"
               onClick={handleAddToCart}
             >
               Add To Cart
@@ -74,17 +80,17 @@ const StoreItem = ({ id, item_name, price, image, description }) => {
                 style={{ gap: "0.5rem" }}
               >
                 <Button
-                  className="bg-orange-500 border-white text-white py-2 px-4 rounded-lg shadow hover:bg-orange-600"
+                  className="bg-orange-500 border-white text-white px-4 rounded-lg shadow hover:bg-orange-600"
                   onClick={() => decreaseCartQuantity(id)}
                 >
                   -
                 </Button>
 
                 <div>
-                  <span className="fs-3">{quantity} in cart</span>
+                  <span className="">{quantity} in cart</span>
                 </div>
                 <Button
-                  className=" bg-orange-500 border-white text-white py-2 px-4 rounded-lg shadow hover:bg-orange-600"
+                  className=" bg-orange-500 border-white text-white  px-4 rounded-lg shadow hover:bg-orange-600"
                   onClick={() => increaseCartQuantity(id)}
                 >
                   +
@@ -101,13 +107,9 @@ const StoreItem = ({ id, item_name, price, image, description }) => {
             </div>
           )}
         </div>
-      </Card.Body>
-      {isLoading && (
-        <div className="d-flex justify-content-center align-items-center p-2">
-          <ThreeDots  color="#e55807" height={30} width={30} />
         </div>
-      )}
-    </Card>
+      </div>
+    </div>
   );
 };
 
