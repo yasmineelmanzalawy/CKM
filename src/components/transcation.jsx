@@ -9,7 +9,7 @@ const Transcation = () => {
   useEffect(() => {
     // Fetch transaction details based on the item ID
     axios
-      .get(`api/transaction`)
+      .get(`api/transaction/${itemId}`)
       .then(response => {
         setInventory(response.data);
       })
@@ -19,7 +19,7 @@ const Transcation = () => {
   }, []);
 
   return (
-    <div className="flex flex-col font-russo">
+    <div className="flex flex-col font-Inter font-semibold">
       <h1 className="text-center text-3xl pb-12">Transactions</h1>
       <div className="overflow-x-auto px-16">
         <div className="p-1.5 w-full inline-block align-middle">
@@ -92,9 +92,9 @@ const Transcation = () => {
                       {item.created_at.slice(0, 19)}
                     </td>
                     <td>
-                      <a href="/t2">
+                      <button href="/t2">
                         <AiFillEdit className="cursor-pointer hover:scale-110 ease-out duration-300" size={20} />
-                      </a>
+                      </button>
                     </td>
                   </tr>
                 ))}

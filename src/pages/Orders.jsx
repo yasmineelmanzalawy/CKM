@@ -125,8 +125,8 @@ const Orders = () => {
   return (
     <div className=" font-Inter font-bold">
       <div className="overflow-x-auto">
-        <div className="min-w-screen min-h-screen flex items-center justify-center overflow-hidden">
-          <div className="w-full lg:w-5/6 overflow-y-auto mb-52 h-[70vh]">
+        <div className="min-w-screen flex items-center justify-center overflow-hidden">
+          <div className="w-full lg:w-5/6 overflow-y-auto h-[70vh]">
             <div className="overflow-hidden border  rounded-lg">
               <div className="table-container">
                 <div className="overflow-x-auto">
