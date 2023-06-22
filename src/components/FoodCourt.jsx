@@ -43,14 +43,14 @@ const FoodCourt = () => {
   const showProfileIcon = !!token;
 
   return (
-    <div className="bg-[white] h-full">
+    <div className="bg-[white] h-full font-Inter font-semibold">
       <div className="mb-8">
         <div className="flex justify-between ">
           <h1 className=" p-4 main-text font-russo text-[64px] text-transparent bg-clip-text bg-gradient-to-br from-[#0f005a] to-[#0f79a3] ">
             CKM
           </h1>
           <div>
-            <h1 className="text-4xl pr-16 text pt-10">Food Court</h1>
+            <h1 className="text-6xl pr-32 pt-10">Food Court</h1>
           </div>
           <div className="relative mt-3">
             {showProfileIcon && (
@@ -62,14 +62,18 @@ const FoodCourt = () => {
                 onClick={toggleDropdown}
               >
                 <span className="sr-only">Open user menu</span>
-                <img className="w-12 h-12 rounded-full" src="https://cdn.iconscout.com/icon/free/png-512/free-profile-2456529-2036059.png?f=avif&w=256" alt="" />
+                <img
+                  className="w-12 h-12 rounded-full"
+                  src="https://cdn.iconscout.com/icon/free/png-512/free-profile-2456529-2036059.png?f=avif&w=256"
+                  alt=""
+                />
               </button>
             )}
 
             {isDropdownOpen && showProfileIcon && (
               <div
                 id="dropdownAvatar"
-                className="origin-top-right absolute right-0 mt-2 w-44 rounded-lg shadow bg-white divide-y divide-gray-100 dark:bg-gray-700 dark:divide-gray-600"
+                className="origin-top-right z-10 absolute right-0 mt-2 w-44 rounded-lg shadow bg-white divide-y divide-gray-100 dark:bg-gray-700 dark:divide-gray-600"
               >
                 <div className="px-4 py-3 text-sm text-gray-900 dark:text-white">
                   <div>Bonnie Green</div>
@@ -102,43 +106,61 @@ const FoodCourt = () => {
           </div>
         </div>
       </div>
-
-      {brand.map((x, i) => {
-        return (
-          <button
-            onClick={() => {
-              localStorage.setItem("test", x.id);
-              localStorage.setItem("user_id", x.user_id);
-              navigate("/ckmkitchens");
-            }}
-            key={i}
-            className="p-6 flex flex-wrap justify-center mx-auto "
-          >
-            <div className="grid grid-cols-2 gap-4 w-[1000px] bg-[#ffdfcc] relative rounded-3xl">
-              <div className="m-auto">
-                <button className="rounded w-[300px] align-center bg-[#E55807] m-2 mt-2 hover:bg-[#6b2f0a] text-[white] hover:text-white py-2 drop-shadow-2xl  duration-300">
-                  {x.name}
+      <div className=" grid md:grid-cols-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 px-4">
+        {brand.map((x, i) => {
+          return (
+            <div
+              onClick={() => {
+                localStorage.setItem("test", x.id);
+                localStorage.setItem("user_id", x.user_id);
+                navigate("/ckmkitchens");
+              }}
+              key={i}
+              className=" bg-gray-100 shadow-lg rounded-3xl"
+            >
+              <div class="dark:!bg-navy-800 shadow-shadow-500 shadow-3xl rounded-3xl relative mx-auto flex h-full w-full max-w-[550px] flex-col items-center bg-white p-[16px] dark:text-white dark:shadow-none">
+                <div class="relative mt-1 flex h-48 w-full justify-center rounded-xl">
+                  <img src={x.image_cover} alt="" />
+                  <div class="absolute -bottom-12 flex h-[88px] w-[88px] items-center justify-center rounded-full border-4  ">
+                    <img
+                      class="h-full w-full rounded-full"
+                      src={x.logo}
+                      alt=""
+                    />
+                  </div>
+                </div>
+                <div class="mt-16 flex flex-col items-center">
+                  <h4 class="text-bluePrimary text-xl font-bold">{x.name}</h4>
+                  <p class="text-lightSecondary text-center text-base font-normal">
+                    {x.description}
+                  </p>
+                </div>
+                <button
+                  onClick={() => {
+                    localStorage.setItem("test", x.id);
+                    localStorage.setItem("user_id", x.user_id);
+                    navigate("/ckmkitchens");
+                  }}
+                  type="button"
+                  class="text-white mt-auto bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="w-5 h-5 mr-2 -ml-1"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"></path>
+                  </svg>
+                  Check the Menu
                 </button>
-                <p className="rounded w-[300px] h-[150px] text-center bg-[#fae9de] m-2 p-2 drop-shadow-2xl">
-                  {" "}
-                  {x.description}
-                </p>
               </div>
-              <div className=" absolute rounded-full border-3 border-black w-44 top-[25%] left-[43%]  ">
-                <img src={x.logo} alt={x.logo} className=" rounded-full" />
-              </div>
-              <div>
-                <img
-                  src={x.image_cover}
-                  alt={x.image_cover}
-                  className="rounded-r-3xl"
-                />
-              </div>
+              <br />
             </div>
-            <br />
-          </button>
-        );
-      })}
+          );
+        })}
+      </div>
     </div>
   );
 };

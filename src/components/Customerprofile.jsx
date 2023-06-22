@@ -94,7 +94,7 @@ const YourComponent = () => {
   };
 
   return (
-    <div className="antialiased">
+    <div className="antialiased font-Inter font-semibold">
       <div className="w-full h-screen mt-24">
         <div>
           <div className="bg-white relative shadow rounded-lg w-5/6 md:w-5/6 lg:w-4/6 xl:w-3/6 mx-auto">

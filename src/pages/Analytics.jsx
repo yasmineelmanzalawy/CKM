@@ -12,7 +12,7 @@ import { HorizontalBarChart } from "../components/Hbarchart1";
 import axios from "../axios.config";
 import MostUsedItemsWidget from "../components/InventoryWidget";
 import { InventoryChart } from "../components/InventoryChart";
-import { BallTriangle } from "react-loader-spinner";
+import { ThreeDots } from "react-loader-spinner";
 import CountUp from "react-countup";
 const Analytics = () => {
   const [loading, setLoading] = useState(true);
@@ -129,7 +129,7 @@ const Analytics = () => {
   if (loading) {
     return (
       <div className="flex items-center justify-center h-screen">
-        <BallTriangle color="#6366F1" height={120} width={120} />
+        <ThreeDots color="#6366F1" height={120} width={120} />
       </div>
     );
   }
@@ -138,8 +138,8 @@ const Analytics = () => {
     <div>
       <div className="w-full flex justify-center items-center pb-4">
         <div className="container font-Inter font-extrabold flex flex-col gap-4 mx-8">
-          <h2 className="text-[#575859] dark:text-slate-200 font-semibold tracking-wider text-lg">
-            Last Week
+          <h2 className="text-[#575859] dark:text-slate-200 font-semibold tracking-wider text-xl">
+            Last Month
           </h2>
           <div className="bg-[#f9fafb] shadow-md  dark:bg-stone-900 rounded-lg w-full h-auto py-4 flex flex-row justify-between divide-x divide-solid divide-gray-400">
             <div className="relative flex-1 items-center flex flex-col gap-2 px-4">
