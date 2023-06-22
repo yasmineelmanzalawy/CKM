@@ -51,7 +51,7 @@ const CreateBrand = () => {
     
     try {
       const response = await axios.post(url, formData, config);
-      navigate("/supplier");
+      navigate("/billing");
       console.log(response.data);
       localStorage.setItem("brand_id", response.data.data.id);
     } catch (error) {

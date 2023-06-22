@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { AiOutlineDelete, AiFillEdit ,AiFillCloseCircle , AiFillCheckCircle } from "react-icons/ai";
+import {
+  AiOutlineDelete,
+  AiFillEdit,
+  AiFillCloseCircle,
+  AiFillCheckCircle,
+} from "react-icons/ai";
 import axios from "../axios.config";
 import { ThreeDots } from "react-loader-spinner";
 import Swal from "sweetalert2";
@@ -45,7 +50,11 @@ const Staff = () => {
             setStaff((prevStaff) =>
               prevStaff.filter((member) => member.id !== id)
             );
-            Swal.fire("Deleted!", "The staff member has been deleted.", "success");
+            Swal.fire(
+              "Deleted!",
+              "The staff member has been deleted.",
+              "success"
+            );
           })
           .catch((error) => {
             console.error(error);
@@ -69,7 +78,7 @@ const Staff = () => {
 
   const handleUpdateSalary = (id) => {
     const url = `api/Staff/${id}`;
-    const payload = { sallery: newSalary , _method:"PUT" };
+    const payload = { sallery: newSalary, _method: "PUT" };
     axios
       .post(url, payload)
       .then(() => {
@@ -83,7 +92,11 @@ const Staff = () => {
         );
         setEditingSalaryId(null);
         setNewSalary("");
-        Swal.fire("Success!", "The staff member's salary has been updated.", "success");
+        Swal.fire(
+          "Success!",
+          "The staff member's salary has been updated.",
+          "success"
+        );
       })
       .catch((error) => {
         console.error(error);
@@ -104,17 +117,20 @@ const Staff = () => {
   }
 
   return (
-    <div>
+    <div className="font-bold font-Inter">
       <div className="flex flex-col justify-center mx-[50px]">
-        <div className=" text-center">
+        <div className=" text-center pb-10">
           <Link to="/employees">
-            <button className="text-center mt-[-50px]  bg-[#ebeced] p-2 text-lg text text-[#575859] rounded-lg">
-              Add Staff
+            <button
+              type="button"
+              class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+            >
+            Add Staff
             </button>
           </Link>
         </div>
         <div className="overflow-x-auto">
-          <div className="p-1.5 w-full inline-block align-middle">
+          <div className="p-1.5 w-full inline-block  align-middle">
             <div className="overflow-hidden border rounded-lg">
               <table className="min-w-full divide-y divide-gray-200">
                 <thead className="bg-gray-50 font-jarkata font-medium">

@@ -29,6 +29,7 @@ const Navbar = () => {
       const { data } = await axios.get(url);
       setbrand(data);
       localStorage.setItem("brand_id",data[0].id)
+      localStorage.setItem("activation" , data[0].activation)
     };
     getBrand();
   }, []);

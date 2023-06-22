@@ -30,7 +30,7 @@ const FoodCourt = () => {
       axios
         .post(url)
         .then((data) => {
-          localStorage.removeItem("token");
+          localStorage.clear();
           navigate("/");
         })
         .catch((error) => {
@@ -38,6 +38,10 @@ const FoodCourt = () => {
         });
     });
   };
+
+  const token = localStorage.getItem("token");
+  const showProfileIcon = !!token;
+
   return (
     <div className="bg-[white] h-full">
       <div className="mb-8">
@@ -49,18 +53,20 @@ const FoodCourt = () => {
             <h1 className="text-4xl pr-16 text pt-10">Food Court</h1>
           </div>
           <div className="relative mt-3">
-            <button
-              id="dropdownUserAvatarButton"
-              data-dropdown-toggle="dropdownAvatar"
-              className="flex mx-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
-              type="button"
-              onClick={toggleDropdown}
-            >
-              <span className="sr-only">Open user menu</span>
-              <img className="w-12 h-12 rounded-full" src={avatar} alt="" />
-            </button>
+            {showProfileIcon && (
+              <button
+                id="dropdownUserAvatarButton"
+                data-dropdown-toggle="dropdownAvatar"
+                className="flex mx-3 text-sm bg-white rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
+                type="button"
+                onClick={toggleDropdown}
+              >
+                <span className="sr-only">Open user menu</span>
+                <img className="w-12 h-12 rounded-full" src="https://cdn.iconscout.com/icon/free/png-512/free-profile-2456529-2036059.png?f=avif&w=256" alt="" />
+              </button>
+            )}
 
-            {isDropdownOpen && (
+            {isDropdownOpen && showProfileIcon && (
               <div
                 id="dropdownAvatar"
                 className="origin-top-right absolute right-0 mt-2 w-44 rounded-lg shadow bg-white divide-y divide-gray-100 dark:bg-gray-700 dark:divide-gray-600"

@@ -123,29 +123,29 @@ const Orders = () => {
   }
 
   return (
-    <div className="">
+    <div className=" font-Inter font-bold">
       <div className="overflow-x-auto">
         <div className="min-w-screen min-h-screen flex items-center justify-center overflow-hidden">
           <div className="w-full lg:w-5/6 overflow-y-auto mb-52 h-[70vh]">
-            <div className="bg-white shadow-md rounded">
+            <div className="overflow-hidden border  rounded-lg">
               <div className="table-container">
                 <div className="overflow-x-auto">
                   <table className="min-w-max sticky top-0 w-full table-auto">
-                    <thead className="sticky top-0 bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
+                    <thead className="sticky  top-0 bg-gray-200 uppercase text-sm leading-normal">
                       <tr>
-                        <th className="sticky top-0 py-3 px-6 text-left bg-black text-white">
+                        <th className="sticky top-0 py-3 px-6 text-left text-black">
                           Order ID
                         </th>
-                        <th className="sticky top-0 py-3 px-6 text-left bg-black text-white">
+                        <th className="sticky top-0 py-3 px-6 text-left text-black">
                           Customer Name
                         </th>
-                        <th className="sticky top-0 py-3 px-6 text-center bg-black text-white">
+                        <th className="sticky top-0 py-3 px-6 text-center text-black">
                           Menu Item ID
                         </th>
-                        <th className="sticky top-0 py-3 px-6 text-center bg-black text-white">
+                        <th className="sticky top-0 py-3 px-6 text-center text-black">
                           Menu Item Name
                         </th>
-                        <th className="sticky top-0 py-3 px-6 text-right bg-black text-white">
+                        <th className="sticky top-0 py-3 px-6 text-right text-black">
                           Actions
                         </th>
                       </tr>

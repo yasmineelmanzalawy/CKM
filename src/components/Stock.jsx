@@ -93,6 +93,10 @@ const Stock = () => {
     setUpdatedQuantity("");
   };
 
+  const handleTransaction = (id) => {
+    localStorage.setItem("transaction", id);
+  };
+
   if (loading) {
     return (
       <div className="flex items-center justify-center h-screen">
@@ -102,17 +106,20 @@ const Stock = () => {
   }
 
   return (
-    <div className="flex flex-col font-russo">
+    <div className="flex flex-col  font-Inter font-bold">
       <div className="text-center mt-[-20px]">
         <Link to="/inventory">
-          <button className="text-center mt-[-50px] bg-[#ebeced] p-2 text-lg text text-[#575859] rounded-lg">
-            Add Stock
-          </button>
+        <button
+              type="button"
+              class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+            >
+            Add Items
+            </button>
         </Link>
       </div>
-      <div className="overflow-x-auto px-16">
+      <div className="overflow-x-auto h-[70vh] px-16">
         <div className="p-1.5 w-full inline-block align-middle">
-          <div className="overflow-hidden border rounded-lg">
+          <div className="overflow-hidden border  rounded-lg">
             <table className="min-w-full divide-y divide-gray-200">
               <thead className="bg-gray-50 font-jarkata font-medium">
                 <tr>
@@ -138,7 +145,13 @@ const Stock = () => {
                     scope="col"
                     className="px-6 py-3 text-xs font-bold text-left text-black uppercase bg-[#ebeced]"
                   >
-                    unit_of_measurement(KG/GM)
+                    Category
+                  </th>
+                  <th
+                    scope="col"
+                    className="px-6 py-3 text-xs font-bold text-left text-black uppercase bg-[#ebeced]"
+                  >
+                    Measurement
                   </th>
                   <th
                     scope="col"
@@ -182,6 +195,9 @@ const Stock = () => {
                       )}
                     </td>
                     <td className="px-6 dark:text-white py-4 text-sm font-medium text-gray-800 whitespace-nowrap">
+                      {item.category}
+                    </td>
+                    <td className="px-6 dark:text-white py-4 text-sm font-medium text-gray-800 whitespace-nowrap">
                       {item.unit_of_measurement}
                     </td>
                     <td className="px-6 dark:text-white py-4 text-sm font-medium text-gray-800 whitespace-nowrap">
@@ -220,7 +236,8 @@ const Stock = () => {
                           >
                             <AiFillEdit size={20} />
                           </button>
-                          <button>
+                          <button
+                          >
                             <Link to="/controlunit/Stock/transcations">
                               <GrTransaction
                                 className="hover:scale-110 ease-out duration-300"

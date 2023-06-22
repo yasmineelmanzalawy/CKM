@@ -4,8 +4,8 @@ import { useEffect } from "react";
 import axios from "../axios.config";
 import { Link } from "react-router-dom";
 import { toast } from "react-hot-toast";
-import { ThreeDots } from 'react-loader-spinner';
-import Swal from 'sweetalert2';
+import { ThreeDots } from "react-loader-spinner";
+import Swal from "sweetalert2";
 
 function Supplier() {
   const url = "api/Supplier";
@@ -13,15 +13,16 @@ function Supplier() {
   const [loader, setLoading] = useState(true);
 
   useEffect(() => {
-    const loading = () => toast('Welcome Back', {
-      icon: '👋',
-    });
+    const loading = () =>
+      toast("Welcome Back", {
+        icon: "👋",
+      });
 
     const getsupplier = async () => {
       try {
         const response = await axios.get(url);
         setLoading(false);
-        loading();
+        
         setsupplier(response.data.data);
       } catch (error) {
         console.log(error);
@@ -36,13 +37,13 @@ function Supplier() {
 
     // Show sweet alert prompt
     Swal.fire({
-      title: 'Are you sure?',
-      text: 'This action cannot be undone!',
-      icon: 'warning',
+      title: "Are you sure?",
+      text: "This action cannot be undone!",
+      icon: "warning",
       showCancelButton: true,
-      confirmButtonColor: '#d33',
-      cancelButtonColor: '#3085d6',
-      confirmButtonText: 'Delete',
+      confirmButtonColor: "#d33",
+      cancelButtonColor: "#3085d6",
+      confirmButtonText: "Delete",
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
@@ -55,7 +56,7 @@ function Supplier() {
             );
 
             // Show success message
-            toast.success('Supplier deleted successfully!');
+            toast.success("Supplier deleted successfully!");
           }
         } catch (error) {
           console.log(error);
@@ -73,11 +74,14 @@ function Supplier() {
   }
 
   return (
-    <div className="flex flex-col">
+    <div className="flex font-Inter font-semibold flex-col">
       <div className="text-center">
         <Link to="/supplier">
-          <button className="text-center mt-[-50px]  bg-[#ebeced] p-2 text-lg text text-[#575859] rounded-lg">
-            Add suppliers
+          <button
+            type="button"
+            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+          >
+            Add Suppliers
           </button>
         </Link>
       </div>
@@ -129,7 +133,10 @@ function Supplier() {
                   >
                     Established at
                   </th>
-                  <th scope="col" className="px-6 py-3 text-xs font-bold text-left text-black uppercase bg-[#ebeced] "></th>
+                  <th
+                    scope="col"
+                    className="px-6 py-3 text-xs font-bold text-left text-black uppercase bg-[#ebeced] "
+                  ></th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-200">

@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button, Card } from "react-bootstrap";
 import { useShoppingCart } from "../contexts/ShoppingCartContext";
 import FormatCurrency from "./FormatCurrency";
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
+import {ThreeDots} from "react-loader-spinner";
+
 const StoreItem = ({ id, item_name, price, image, description }) => {
   const {
     addCart,
@@ -11,27 +15,52 @@ const StoreItem = ({ id, item_name, price, image, description }) => {
     removeFromCart,
   } = useShoppingCart();
   const quantity = getItemQuantity(id);
+  const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleAddToCart = () => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      addCart({ item_name, price, description, id, image });
+    } else {
+      Swal.fire({
+        title: "Not Logged In",
+        text: "To order, you need to be logged in. Do you want to proceed to the login page?",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonText: "Yes",
+        cancelButtonText: "No",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          setIsLoading(true);
+          navigate("/login");
+        }
+      });
+    }
+  };
+
   return (
-    <Card className="h-100">
+    <Card className="h-100 font-Inter font-semibold">
+      {/* Card image */}
       <Card.Img
-          variant="top"
-          src={image}
-          style={{ height: "200px", objectFit: "cover" }}
-          className="rounded"
-        />
+        variant="top"
+        src={image}
+        style={{ height: "200px", objectFit: "cover" }}
+        className="rounded"
+      />
       <Card.Body className="d-flex flex-column">
-        <Card.Title className="d-flex justify-content-between align-items-baseline mb-4">
-          <span className="fs-2">{item_name}</span>
+        <div className="flex flex-col justify-center items-center mb-4">
+          {/* Item name, description, and price */}
+          <span className="text-3xl">{item_name}</span>
           <p>{description}</p>
-          <span className="ms-2 text-muted">{FormatCurrency(price)}</span>
-        </Card.Title>
+        </div>
         <div className="mt-auto">
+          <h6 className=" text-center text-muted">{FormatCurrency(price)}</h6>
+          {/* Add to Cart or Quantity/Remove buttons */}
           {quantity === 0 ? (
             <Button
               className="w-100 bg-orange-500 border-white text-white py-2 px-4 rounded-lg shadow hover:bg-orange-600"
-              onClick={() =>
-                addCart({ item_name, price, description, id, image })
-              }
+              onClick={handleAddToCart}
             >
               Add To Cart
             </Button>
@@ -73,6 +102,11 @@ const StoreItem = ({ id, item_name, price, image, description }) => {
           )}
         </div>
       </Card.Body>
+      {isLoading && (
+        <div className="d-flex justify-content-center align-items-center p-2">
+          <ThreeDots  color="#e55807" height={30} width={30} />
+        </div>
+      )}
     </Card>
   );
 };

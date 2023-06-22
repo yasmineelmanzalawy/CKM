@@ -16,7 +16,7 @@ function Home() {
     <div>
       <div className="flex justify-between items-center h-24 px-4">
         <div className="pl-6">
-          <span className="main-text font-russo text-6xl text-transparent bg-clip-text bg-gradient-to-br from-[#0f005a] to-[#0f79a3]">
+          <span className="main-text font-russo text-4xl md:text-6xl text-transparent bg-clip-text bg-gradient-to-br from-[#0f005a] to-[#0f79a3]">
             CKM
           </span>
         </div>
@@ -75,7 +75,7 @@ function Home() {
         <div className="flex flex-col items-center px-4 pt-8 md:h-screen md:text-3xl md:my-[-110px] md:mb-[10px] md:flex-row md:max-w-[1240px] md:mx-auto">
           <div className="w-[250px] md:w-1/2 md:mr-12">
             <div className="flex items-center justify-center mb-4">
-              <h1 className="text-center md:text-4xl font-russo text-transparent bg-clip-text bg-gradient-to-br from-[#0f005a] to-[#0f79a3] pt-12 md:pt-12 uppercase">
+              <h1 className="text-center text-3xl md:text-4xl font-russo text-transparent bg-clip-text bg-gradient-to-br from-[#0f005a] to-[#0f79a3] pt-12 md:pt-12 uppercase">
                 Cloud Kitchen Manager
               </h1>
             </div>
@@ -193,7 +193,7 @@ function Home() {
             </p>
             <Link to="/register">
               <div className="flex justify-center pb-[10px] pt-2 md:justify-start">
-                <button className="Main-button w-[80%] mx-12 mt-2 md:text-2xl py-2 bg-gradient-to-br from-[#0f005a] to-[#0f79a3] text-center font-russo text-white rounded px-24 hover:bg-indigo-900 hover:scale-125 ease-liner duration-300">
+                <button className="Main-button  w-[80%] mx-12 mt-2 md:text-2xl py-2 mb-4 bg-gradient-to-br from-[#0f005a] to-[#0f79a3] text-center font-russo text-white rounded px-24 hover:bg-indigo-900 hover:scale-125 ease-liner duration-300">
                   Get Started
                 </button>
               </div>
@@ -477,7 +477,7 @@ function Home() {
           </div>
         </div>
       </div>
-
+      <hr class="w-48 h-1 mx-auto my-[3px] bg-gray-500 border-0 rounded md:my-10 dark:bg-gray-700" />
       <footer class="bg-white dark:bg-gray-900">
         <div class="mx-auto w-full max-w-screen-xl">
           <div class="grid grid-cols-2 gap-8 px-4 py-6 lg:py-8 md:grid-cols-4">
@@ -487,7 +487,7 @@ function Home() {
               </h2>
               <ul class="text-gray-500 dark:text-gray-400 font-medium">
                 <li class="mb-4">
-                  <a href="#" class=" hover:underline">
+                  <a href="." class=" hover:underline">
                     About
                   </a>
                 </li>

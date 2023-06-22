@@ -24,15 +24,17 @@ import Stock from "./components/Stock";
 
 import Customerdata from "./components/Customerdata";
 import FoodCourt from "./components/FoodCourt";
-import Billing from "./components/Billing";
+import CreditCardForm from "./components/Billing";
 import Register from "./components/Register";
 import Transcation from "./components/transcation";
 import T2 from "./components/T2";
 import { Tester, data, options } from './components/TestComponent';
 import CustomerProfile from "./components/Customerprofile";
 import Dashboard from "./components/SuperAdmin.jsx";
-
+import WelcomeBackPage from "./components/Test";
 const user = localStorage.getItem("token");
+const activationStatus = localStorage.getItem("activation");
+
 ReactDOM.render(
   <BrowserRouter>
     <ContextProvider>
@@ -41,7 +43,7 @@ ReactDOM.render(
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Loginpage />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path="/billing" element={<Billing />} />
+          <Route path="/billing" element={<CreditCardForm />} />
           <Route path="/inventory" element={<Inventory />} />
           <Route path="/t2" element={<T2 />} />
           <Route path="/employees" element={<Employee />} />
@@ -51,24 +53,32 @@ ReactDOM.render(
           <Route path="/foodcourt" element={<FoodCourt />} />
           <Route path="/register" element={<Register />} />
           <Route path="/tester" element={<Dashboard />} />
+          <Route path="/test" element={<WelcomeBackPage />} />
           {user && <Route path="/supplier" element={<Supplier />} />}
           {user && <Route path="/menusetup" element={<MenuSetUp />} />}
           {user && <Route path="/createbrand" element={<CreateBrand />} />}
-          <Route path="controlunit" element={<Controlunit />}>
-            <Route path="/controlunit/analytics" element={<Analytics />} />
-            <Route path="/controlunit/stock" element={<Stock />}>
+            <Route path="/controlunit" element={<Controlunit />}>
+              <Route path="/controlunit/analytics" element={<Analytics />} />
+              <Route path="/controlunit/stock" element={<Stock />}>
+                <Route
+                  path="/controlunit/stock/transcations"
+                  element={<Transcation />}
+                />
+              </Route>
               <Route
-                path="/controlunit/stock/transcations"
-                element={<Transcation />}
+                path="/controlunit/employees"
+                element={<Employees />}
               />
+              <Route
+                path="/controlunit/customers"
+                element={<Customers />}
+              />
+              <Route path="/controlunit/orders" element={<Orders />} />
+              <Route path="/controlunit/staff" element={<Staff />} />
+              <Route path="/controlunit/suppliers" element={<Suppliers />} />
+              <Route path="/controlunit/menu" element={<Menu />} />
             </Route>
-            <Route path="/controlunit/employees" element={<Employees />} />
-            <Route path="/controlunit/customers" element={<Customers />} />
-            <Route path="/controlunit/orders" element={<Orders />} />
-            <Route path="/controlunit/staff" element={<Staff />} />
-            <Route path="/controlunit/suppliers" element={<Suppliers />} />
-            <Route path="/controlunit/menu" element={<Menu />} />
-          </Route>
+          
         </Routes>
       </React.StrictMode>
       <Toaster />

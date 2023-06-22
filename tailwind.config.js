@@ -4,6 +4,7 @@ module.exports = {
     theme: {
       fontFamily: {
         'russo':['Russo One','sans-serif'],
+        'Inter':['Inter','sans-serif'],
         'Domine':['Domine','serif'],
         'jarkata':['Plus Jakarta Sans','sans serif'],
         display: ['Open Sans', 'sans-serif'],

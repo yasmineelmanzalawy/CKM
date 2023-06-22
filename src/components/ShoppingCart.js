@@ -12,7 +12,7 @@ const ShoppingCart = () => {
   const handleSubmit = async () => {
     const url = "api/Orders";
     const user_id = localStorage.getItem("user_id");
-    const brand_id = localStorage.getItem("brand_id")
+    const brand_id = localStorage.getItem("test")
     
     axios.post(url, { ...menuitem, user_id,brand_id })
       .then((data) => {

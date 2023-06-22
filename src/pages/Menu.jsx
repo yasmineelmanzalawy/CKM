@@ -97,16 +97,17 @@ const Menu = () => {
   }
 
   return (
-    <div className="font-russo">
+    <div className="font-Inter">
       <div className="text-center">
+        
         <a
-          className="text-center mt-[-50px] p-2 bg-[#ebeced] p-2 text-lg text text-[#575859] rounded-lg"
+          className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
           href="/menusetup"
         >
           Add Dish
         </a>
       </div>
-      <div className="flex flex-wrap justify-center">
+      <div className="flex font-Inter font-semibold flex-wrap justify-center">
         {menu.map(({ id, image, item_name, category, description, price }) => (
           <div key={id} className="flex gap-[80px] mx-[50px] my-[30px]  rounded-4 justify-center">
             <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
@@ -115,7 +116,7 @@ const Menu = () => {
                 <h5 className="text-3xl text-center font-semibold tracking-tight text-gray-900 pt-2 dark:text-white">
                   {item_name} <span className="text-yellow-500">({category})</span>
                 </h5>
-                <p className="text-center">{description}</p>
+                <p className="text-center ">{description}</p>
                 <div className="flex items-center justify-between px-5 py-8">
                   {editingItemId === id ? (
                     <>
