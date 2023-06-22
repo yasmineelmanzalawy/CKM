@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "../axios.config";
 import { toast } from "react-hot-toast";
 import { TypeAnimation } from "react-type-animation";
-
+import { MdOutlineArrowForward } from "react-icons/md";
 const Inventory = () => {
   const navigate = useNavigate();
   const [error, setError] = useState("");
@@ -13,14 +13,13 @@ const Inventory = () => {
     item_name: "",
     unit_of_measurement: "",
     unit_price: "",
-    category:"",
-    brand_id:"",
+    category: "",
+    brand_id: "",
   };
   const [data, setData] = useState(initialState);
   const handleChange = ({ currentTarget: input }) => {
     setData({ ...data, [input.name]: input.value });
   };
- 
 
   const sucessful = () => toast.success("Successfully Added!");
   const handleSubmit = async (e) => {
@@ -41,65 +40,53 @@ const Inventory = () => {
   return (
     <div className="h-screen bg-gray-100 ">
       <div>
-      <div className="pt-4">
-       <Link to="/"><span className="ml-6 px-4 main-text font-russo text-6xl text-transparent bg-clip-text bg-gradient-to-br from-[#0f005a] to-[#0f79a3]">
-            CKM
-       </span>
-      </Link>
-      </div>
-      <div className="pt-4 mb-[80px] text-right mr-12 mt-[-80px]  underline underline-offset-1 text-[#3B1EC5] text-transparent bg-clip-text bg-gradient-to-br from-[#0f005a] to-[#0f79a3] ">
-          <a href="./controlunit">Skip To Controlunit</a>
+        <div className="pt-4">
+           <a href="./controlunit"><span className="ml-6 px-4 main-text font-russo md:text-6xl text-4xl text-transparent bg-clip-text bg-gradient-to-br from-[#0f005a] to-[#0f79a3]">
+              CKM
+            </span></a> 
         </div>
       </div>
-      <div className="mx-24 flex items-center font-russo">
-      <form
-        onSubmit={handleSubmit}
-        className="rounded-3xl flex flex-col items-center h-[80%]"
-      >
-        <div className="mt-6 flex justify-between gap-[645px]">
-          <a href="./employees">
-            <h1 className="pb-4 text-2xl underline underline-offset-1 inline">
-              Back
-            </h1>
-          </a>
-          <a href="./menusetup">
-            <h1 className="underline underline-offset-1 text-2xl text-transparent bg-clip-text bg-gradient-to-br from-[#0f005a] to-[#0f79a3] ">
-              Next
-            </h1>
-          </a>
-        </div>
-
-        <div className="flex items-center justify-center mb-[-50px]">
-          <h1 className="text-center font-russo text-4xl py-8 uppercase">
-            &nbsp;{" "}
-          </h1>
-          <TypeAnimation
-            sequence={[
+          <div className="flex mx-72 justify-end mt-6">
+            <a className="" href="./controlunit">
+              <MdOutlineArrowForward size={28}/>{" "}
               
-              
-              "Add Your Raw Materials!",
-              5000000,
-              () => {
-                console.log("Sequence completed"); // Place optional callbacks anywhere in the array
-              },
-            ]}
-            wrapper="span"
-            cursor={true}
-            repeat={Infinity}
-            style={{
-              fontSize: "32px",
-              display: "inline-block",
-              fontFamily: ["Russo One", "sans-serif"],
-              color: "#0C147A",
-              textTransform: "uppercase",
-            }}
-          />
-        </div>
+            </a>
+          </div>
+      <div className="items-center font-russo">
+        <form
+          onSubmit={handleSubmit}
+          className="rounded-3xl flex flex-col items-center h-[80%]"
+        >
 
-        {/* <h1 className="text-center text-5xl text-[#3B1EC5]">
+          <div className="flex items-center justify-center mb-[-50px]">
+            <h1 className="text-center font-russo text-4xl py-8 uppercase">
+              &nbsp;{" "}
+            </h1>
+            <TypeAnimation
+              sequence={[
+                "Add Your Raw Materials!",
+                5000000,
+                () => {
+                  console.log("Sequence completed"); // Place optional callbacks anywhere in the array
+                },
+              ]}
+              wrapper="span"
+              cursor={true}
+              repeat={Infinity}
+              style={{
+                fontSize: "26px",
+                display: "inline-block",
+                fontFamily: ["Russo One", "sans-serif"],
+                color: "#0C147A",
+                textTransform: "uppercase",
+              }}
+            />
+          </div>
+
+          {/* <h1 className="text-center text-5xl text-[#3B1EC5]">
           Add Your Raw Materials
         </h1> */}
-        <div class="mx-24 flex flex-wrap gap-4 justify-items-center pt-[80px]">
+        <div class="mx-24 md:grid md:grid-cols-3 gap-4 justify-items-center pt-[80px]">
           <div>
             <label
               for="Raw Material"
@@ -188,7 +175,7 @@ const Inventory = () => {
             >
               <option className="text-center hidden" value="select">Select</option>
               <option className="text-center" value="kilograms">kilograms</option>
-              <option className="text-center" value="grams">Grams</option>
+              <option className="text-center" value="Grams">Grams</option>
               <option className="text-center" value="liters">Liters</option>
             </select>
           </div>

@@ -4,6 +4,8 @@ import axios from "../axios.config";
 import  toast  from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 import { TypeAnimation } from "react-type-animation";
+import { MdOutlineArrowForward } from "react-icons/md";
+
 
 
 const Supplier = () => {
@@ -40,27 +42,26 @@ const Supplier = () => {
   };
   return (
     <div className="h-screen bg-gray-100 ">
-      <div className="pt-4">
-       <Link to="/"><span className="ml-6 px-4 main-text font-russo text-6xl text-transparent bg-clip-text bg-gradient-to-br from-[#0f005a] to-[#0f79a3]">
-            CKM
-       </span>
-      </Link>
-      </div>
-        <div className="pt-4 text-right mb-[60px] mr-12 mt-[-80px]  underline underline-offset-1 text-[#3B1EC5] text-transparent bg-clip-text bg-gradient-to-br from-[#0f005a] to-[#0f79a3] ">
-          <a href="./controlunit">Skip To Controlunit</a>
+        <div>
+        <div className="pt-4">
+           <a href="./controlunit"><span className="ml-6 px-4 main-text font-russo md:text-6xl text-4xl text-transparent bg-clip-text bg-gradient-to-br from-[#0f005a] to-[#0f79a3]">
+              CKM
+            </span></a> 
         </div>
-      <div className="font-russo flex justify-center items-center">
       </div>
+      <div className="flex mx-72 justify-end mb-[-50px] mt-6">
+            <a className="" href="./controlunit">
+              <MdOutlineArrowForward size={28}/>{" "}
+              
+            </a>
+          </div>
+    
       <form
         onSubmit={handleSubmit}
         className=" rounded-3xl flex flex-wrap flex-col justify-center h-[80%] "
       >
-        <div className="text-right mr-48 mt-[-80px] text-2xl underline underline-offset-1 text-[#3B1EC5] text-transparent bg-clip-text bg-gradient-to-br from-[#0f005a] to-[#0f79a3] ">
-          <a href="./employees">Next</a>
-        </div>
-  
-        <div className="flex items-center justify-center mb-[-50px]">
-          <h1 className="text-center font-russo text-4xl py-8 uppercase">
+        <div className="flex items-center justify-center">
+          <h1 className="text-center font-russo text-4xl uppercase">
             &nbsp;{" "}
           </h1>
           <TypeAnimation
