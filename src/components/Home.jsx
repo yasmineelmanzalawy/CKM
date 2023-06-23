@@ -164,10 +164,7 @@ function Home() {
                 CKM Helps You To Manage..
               </h5>
               <p className="font-normal text-gray-700">
-                Gain a competitive edge in the fast-paced food delivery industry
-                by harnessing the power of CKM to enhance operational
-                efficiency, maximize customer satisfaction, and drive business
-                growth in your cloud kitchen.
+              Unlock the potential of your cloud kitchen business with CKM's comprehensive suite of tools, empowering you to deliver exceptional customer experiences while simplifying your day-to-day management tasks.
               </p>
             </div>
           </div>
@@ -210,7 +207,7 @@ function Home() {
         className="flex flex-col max-w-[1240px] mx-auto px-4 pt-10"
       >
         <h1 className="text-center underline font-russo text-indigo-800 text-2xl">
-          Pricing
+          Subscription
         </h1>
         <div className="flex items-center justify-center py-10">
           <h1 className=" font-russo text-base md:text-4xl">
@@ -240,86 +237,178 @@ function Home() {
             }}
           />
         </div>
-        <div className="flex flex-col items-center md:flex-row justify-center gap-3 md:gap-8 pb-10">
-          
-       
-          <div class="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
-            <h5 class="mb-4 text-xl font-medium text-gray-500 dark:text-gray-400">
-              Permium
+        <div className="flex= items-center md:flex-row justify-center pb-10">
+          <div class="w-full p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+            <h5 class="mb-4 text-xl font-medium text-gray-500 dark:text-gray-400 text-center">
+              Subscription Plan
             </h5>
-            <div class="flex items-baseline text-gray-900 dark:text-white">
-              <span class="text-3xl font-semibold">$</span>
-              <span class="text-5xl font-extrabold tracking-tight">99,99</span>
+            <div class="items-baseline text-center text-gray-900 dark:text-white">
+              <span class="text-3xl font-semibold">L.E</span>
+              <span class="text-5xl font-extrabold tracking-tight">1,080</span>
               <span class="ml-1 text-xl font-normal text-gray-500 dark:text-gray-400">
-                /month
+                /year
               </span>
             </div>
-
             <ul role="list" class="space-y-5 my-7">
-              <li class="flex space-x-3">
-                <svg
-                  aria-hidden="true"
-                  class="flex-shrink-0 w-5 h-5 text-blue-600 dark:text-blue-500"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <title>Check icon</title>
-                  <path
-                    fill-rule="evenodd"
-                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                    clip-rule="evenodd"
-                  ></path>
-                </svg>
-                <span class="text-base font-normal leading-tight text-gray-500 dark:text-gray-400">
-                  1 year free upgrades & priority support
-                </span>
-              </li>
-              <li class="flex space-x-3">
-                <svg
-                  aria-hidden="true"
-                  class="flex-shrink-0 w-5 h-5 text-blue-600 dark:text-blue-500"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <title>Check icon</title>
-                  <path
-                    fill-rule="evenodd"
-                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                    clip-rule="evenodd"
-                  ></path>
-                </svg>
-                <span class="text-base font-normal leading-tight text-gray-500 dark:text-gray-400">
-                  1 GB free cloud storage
-                </span>
-              </li>
-              <li class="flex space-x-3">
-                <svg
-                  aria-hidden="true"
-                  class="flex-shrink-0 w-5 h-5 text-blue-600 dark:text-blue-500"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <title>Check icon</title>
-                  <path
-                    fill-rule="evenodd"
-                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                    clip-rule="evenodd"
-                  ></path>
-                </svg>
-                <span class="text-base font-normal leading-tight text-gray-500 dark:text-gray-400">
-                  Unlimited email accounts
-                </span>
-              </li>
+              <div className="m-8 grid grid-cols-2">
+                <div className="">
+                  <li class="flex space-x-3 my-4">
+                    <svg
+                      aria-hidden="true"
+                      class="flex-shrink-0 w-5 h-5 text-blue-600 dark:text-blue-500"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <title>Check icon</title>
+                      <path
+                        fill-rule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                        clip-rule="evenodd"
+                      ></path>
+                    </svg>
+                    <span class="text-base font-normal leading-tight text-gray-500 dark:text-gray-400">
+                      basic inventory tracking
+                    </span>
+                  </li>
+                  <li class="flex space-x-3 my-4">
+                    <svg
+                      aria-hidden="true"
+                      class="flex-shrink-0 w-5 h-5 text-blue-600 dark:text-blue-500"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <title>Check icon</title>
+                      <path
+                        fill-rule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                        clip-rule="evenodd"
+                      ></path>
+                    </svg>
+                    <span class="text-base font-normal leading-tight text-gray-500 dark:text-gray-400">
+                      basic inventory tracking
+                    </span>
+                  </li>
+                  <li class="flex space-x-3 my-4">
+                    <svg
+                      aria-hidden="true"
+                      class="flex-shrink-0 w-5 h-5 text-blue-600 dark:text-blue-500"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <title>Check icon</title>
+                      <path
+                        fill-rule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                        clip-rule="evenodd"
+                      ></path>
+                    </svg>
+                    <span class="text-base font-normal leading-tight text-gray-500 dark:text-gray-400">
+                      Advanced inventory management
+                    </span>
+                  </li>
+                  <li class="flex space-x-3 my-4">
+                    <svg
+                      aria-hidden="true"
+                      class="flex-shrink-0 w-5 h-5 text-blue-600 dark:text-blue-500"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <title>Check icon</title>
+                      <path
+                        fill-rule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                        clip-rule="evenodd"
+                      ></path>
+                    </svg>
+                    <span class="text-base font-normal leading-tight text-gray-500 dark:text-gray-400">
+                      Dashboards representing the kitchen analysis
+                    </span>
+                  </li>
+                </div>
+                <div className="px-4">
+                  <li class="flex space-x-3 my-4">
+                    <svg
+                      aria-hidden="true"
+                      class="flex-shrink-0 w-5 h-5 text-blue-600 dark:text-blue-500"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <title>Check icon</title>
+                      <path
+                        fill-rule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                        clip-rule="evenodd"
+                      ></path>
+                    </svg>
+                    <span class="text-base font-normal leading-tight text-gray-500 dark:text-gray-400">
+                    basic inventory tracking
+                    </span>
+                  </li>
+                  <li class="flex space-x-3 my-4">
+                    <svg
+                      aria-hidden="true"
+                      class="flex-shrink-0 w-5 h-5 text-blue-600 dark:text-blue-500"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <title>Check icon</title>
+                      <path
+                        fill-rule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                        clip-rule="evenodd"
+                      ></path>
+                    </svg>
+                    <span class="text-base font-normal leading-tight text-gray-500 dark:text-gray-400">
+                    menu customization
+                    </span>
+                  </li>
+                  <li class="flex space-x-3 my-4">
+                    <svg
+                      aria-hidden="true"
+                      class="flex-shrink-0 w-5 h-5 text-blue-600 dark:text-blue-500"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <title>Check icon</title>
+                      <path
+                        fill-rule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                        clip-rule="evenodd"
+                      ></path>
+                    </svg>
+                    <span class="text-base font-normal leading-tight text-gray-500 dark:text-gray-400">
+                    order processing
+                    </span>
+                  </li>
+                  <li class="flex space-x-3 my-4">
+                    <svg
+                      aria-hidden="true"
+                      class="flex-shrink-0 w-5 h-5 text-blue-600 dark:text-blue-500"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <title>Check icon</title>
+                      <path
+                        fill-rule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                        clip-rule="evenodd"
+                      ></path>
+                    </svg>
+                    <span class="text-base font-normal leading-tight text-gray-500 dark:text-gray-400">
+                    Essential features for effective cloud kitchen management
+                    </span>
+                  </li>
+                </div>
+              </div>
             </ul>
-            <button
-              type="button"
-              class="text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-200 dark:focus:ring-blue-900 font-medium rounded-lg text-sm px-5 py-2.5 inline-flex justify-center w-full text-center"
-            >
-              Choose plan
-            </button>
           </div>
         </div>
       </div>
@@ -337,7 +426,7 @@ function Home() {
                     About
                   </a>
                 </li>
-                
+
                 <li class="mb-4">
                   <a href="#" class="hover:underline">
                     Brand Center
@@ -501,7 +590,6 @@ function Home() {
                 </svg>
                 <span class="sr-only">GitHub account</span>
               </a>
-             
             </div>
           </div>
         </div>
