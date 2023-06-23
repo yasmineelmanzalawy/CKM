@@ -135,7 +135,7 @@ const Employee = () => {
                   required
                 >
                   <option className="hidden" value="">Select</option>
-                  <option value="cooker">Cheif</option>
+                  <option value="cooker">Chef</option>
                   <option value="security">Security Man</option>
                   <option value="dustman">Dustman</option>
                   <option value="casher">Cashier</option>

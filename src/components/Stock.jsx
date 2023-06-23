@@ -195,7 +195,7 @@ const Stock = () => {
                       )}
                     </td>
                     <td className="px-6 dark:text-white py-4 text-sm font-medium text-gray-800 whitespace-nowrap">
-                      {item.category}
+                    {item.category === 'lequid' ? 'Liquid' : item.category}
                     </td>
                     <td className="px-6 dark:text-white py-4 text-sm font-medium text-gray-800 whitespace-nowrap">
                       {item.unit_of_measurement}
@@ -232,7 +232,12 @@ const Stock = () => {
                           </button>
                           <button
                             className="hover:scale-110 duration-300 ease-out cursor-pointer"
-                            onClick={() => handleEdit(item.id, item.total_quantity)}
+                            onClick={() => {
+                              handleEdit(item.id, item.total_quantity)
+                              localStorage.setItem("transaction" , item.id)
+                            }
+                            
+                            }
                           >
                             <AiFillEdit size={20} />
                           </button>

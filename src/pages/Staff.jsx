@@ -199,7 +199,7 @@ const Staff = () => {
                         {x.name}
                       </td>
                       <td className="px-6 dark:text-white py-4 text-sm font-medium text-gray-800 whitespace-nowrap">
-                        {x.role}
+                      {x.role === 'cooker' ? 'Chef' : x.role}
                       </td>
                       <td className="px-6 dark:text-white py-4 text-sm font-medium text-gray-800 whitespace-nowrap">
                         {editingSalaryId === x.id ? (
