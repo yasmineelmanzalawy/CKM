@@ -1,23 +1,26 @@
 import React, { useEffect, useState } from 'react';
 import { AiOutlineDelete, AiFillEdit } from 'react-icons/ai';
 import axios from '../axios.config';
+import { data } from 'autoprefixer';
+import { useNavigate } from 'react-router';
 
 const Transcation = () => {
-  const [inventory, setInventory] = useState([]);
+  const [transaction, setTransaction] = useState([]);
   const itemId = localStorage.getItem('transaction');
-
+  const navigate = useNavigate()
   useEffect(() => {
-    // Fetch transaction details based on the item ID
     axios
       .get(`api/transaction/${itemId}`)
       .then(response => {
-        setInventory(response.data);
+        // Convert the single transaction object into an array
+        const transactionData = response.data instanceof Array ? response.data : [response.data];
+        setTransaction(transactionData);
       })
       .catch(error => {
         console.error(error);
       });
   }, []);
-
+  console.log(transaction)
   return (
     <div className="flex flex-col font-Inter font-semibold">
       <h1 className="text-center text-3xl pb-12">Transactions</h1>
@@ -71,7 +74,7 @@ const Transcation = () => {
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-200">
-                {inventory.map(item => (
+                {transaction.map(item => (
                   <tr key={item.id}>
                     <td className="px-6 dark:text-white py-4 text-sm font-medium text-gray-800 whitespace-nowrap">
                       {item.id}
@@ -89,10 +92,14 @@ const Transcation = () => {
                       {item.unit_price}
                     </td>
                     <td className="px-6 dark:text-white py-4 text-sm font-medium text-gray-800 whitespace-nowrap">
-                      {item.created_at.slice(0, 19)}
+                      {item.updated_at.slice(0, 19)}
                     </td>
                     <td>
-                      <button href="/t2">
+                      <button
+                      onClick={()=>{
+                        navigate("/t2")
+                      }}
+                      >
                         <AiFillEdit className="cursor-pointer hover:scale-110 ease-out duration-300" size={20} />
                       </button>
                     </td>

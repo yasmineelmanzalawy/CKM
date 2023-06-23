@@ -66,41 +66,37 @@ const T2 = () => {
         className="  rounded-3xl flex flex-col justify-center h-[80%] "
       >
         <div className=" text-2xl underline underline-offset-1 text-[black]">
-        <a href="./controlunit/Stock">
+          <a href="./controlunit/Stock">
             <h1 className="pb-4 text-2xl underline underline-offset-1 inline">
               Back To Stock
             </h1>
-          </a>        </div>
+          </a>{" "}
+        </div>
 
- <div className="flex items-center justify-center mb-[-50px]">
-              <h1 className="text-center font-russo text-4xl py-8 uppercase">
-                &nbsp;{" "}
-              </h1>
-              <TypeAnimation
-                sequence={[
-                  "please Submit Your Transcations!",
-                  5000000,
-                  () => {
-                    console.log("Sequence completed"); // Place optional callbacks anywhere in the array
-                  },
-                ]}
-                wrapper="span"
-                cursor={true}
-                repeat={Infinity}
-                style={{
-                  fontSize: "32px",
-                  display: "inline-block",
-                  fontFamily: ["Russo One", "sans-serif"],
-                  color: "#0C147A",
-                  textTransform: "uppercase",
-                }}
-              />
-            </div>
-
-
-        {/* <h1 className="text-center text-5xl text-[#3B1EC5]">
-          Submit Your Transcations
-        </h1> */}
+        <div className="flex items-center justify-center mb-[-50px]">
+          <h1 className="text-center font-russo text-4xl py-8 uppercase">
+            &nbsp;{" "}
+          </h1>
+          <TypeAnimation
+            sequence={[
+              "please Submit Your Transcations!",
+              5000000,
+              () => {
+                console.log("Sequence completed"); // Place optional callbacks anywhere in the array
+              },
+            ]}
+            wrapper="span"
+            cursor={true}
+            repeat={Infinity}
+            style={{
+              fontSize: "32px",
+              display: "inline-block",
+              fontFamily: ["Russo One", "sans-serif"],
+              color: "#0C147A",
+              textTransform: "uppercase",
+            }}
+          />
+        </div>
         <div className="grid gap-6 mb-6 md:grid-cols-3 justify-items-center pt-[80px]">
           <div>
             <label
@@ -109,23 +105,22 @@ const T2 = () => {
             >
               Item Name
             </label>
-            {
-              <select
-                onChange={handleChange}
-                value={data.item_id}
-                required
-                type="text"
-                name="item_id"
-                className="text-center w-[350px] bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 "
-              >
-                <option className="hidden" value="">
-                  Select Your ingredent
-                </option>
-                {inventory.map((x) => {
-                  return <option value={x.id}>{x.item_name}</option>;
-                })}
-              </select>
-            }
+
+            <select
+              onChange={handleChange}
+              value={data.item_id}
+              required
+              type="text"
+              name="item_id"
+              className="text-center w-[350px] bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 "
+            >
+              <option className="hidden" value="">
+                Select Your ingredent
+              </option>
+              {inventory.map((x) => {
+                return <option value={x.id}>{x.item_name}</option>;
+              })}
+            </select>
           </div>
           <div>
             <label className="text-center block mb-2 text-lg font-medium text-gray-900 dark:text-white">
@@ -182,7 +177,7 @@ const T2 = () => {
               required
             />
             <input
-              value={data.brand_id=localStorage.getItem("brand_id")}
+              value={(data.brand_id = localStorage.getItem("brand_id"))}
               className="hidden"
             />
           </div>

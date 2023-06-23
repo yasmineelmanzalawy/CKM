@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { AiOutlineDelete, AiFillEdit, AiFillCloseCircle, AiFillCheckCircle } from "react-icons/ai";
+import {
+  AiOutlineDelete,
+  AiFillEdit,
+  AiFillCloseCircle,
+  AiFillCheckCircle,
+} from "react-icons/ai";
 import { GrTransaction } from "react-icons/gr";
 import axios from "../axios.config";
 import { ThreeDots } from "react-loader-spinner";
@@ -68,9 +73,13 @@ const Stock = () => {
 
   const handleUpdate = (id) => {
     const url = `api/Inventory/${id}`;
-  
+
     axios
-      .post(url, { total_quantity: updatedQuantity, brand_id: localStorage.getItem("brand_id"), _method: "PUT" })
+      .post(url, {
+        total_quantity: updatedQuantity,
+        brand_id: localStorage.getItem("brand_id"),
+        _method: "PUT",
+      })
       .then(() => {
         // Update the inventory item with the new quantity
         setInventory((prevInventory) =>
@@ -78,13 +87,17 @@ const Stock = () => {
             item.id === id ? { ...item, total_quantity: updatedQuantity } : item
           )
         );
-  
+
         setEditingItemId(null);
         Swal.fire("Updated!", "The item has been updated.", "success");
       })
       .catch((error) => {
         console.error(error);
-        Swal.fire("Error", "An error occurred while updating the item.", "error");
+        Swal.fire(
+          "Error",
+          "An error occurred while updating the item.",
+          "error"
+        );
       });
   };
 
@@ -109,12 +122,12 @@ const Stock = () => {
     <div className="flex flex-col  font-Inter font-bold">
       <div className="text-center mt-[-20px]">
         <Link to="/inventory">
-        <button
-              type="button"
-              class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
-            >
+          <button
+            type="button"
+            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+          >
             Add Items
-            </button>
+          </button>
         </Link>
       </div>
       <div className="overflow-x-auto h-[70vh] px-16">
@@ -195,7 +208,7 @@ const Stock = () => {
                       )}
                     </td>
                     <td className="px-6 dark:text-white py-4 text-sm font-medium text-gray-800 whitespace-nowrap">
-                    {item.category === 'lequid' ? 'Liquid' : item.category}
+                      {item.category === "lequid" ? "Liquid" : item.category}
                     </td>
                     <td className="px-6 dark:text-white py-4 text-sm font-medium text-gray-800 whitespace-nowrap">
                       {item.unit_of_measurement}
@@ -232,20 +245,19 @@ const Stock = () => {
                           </button>
                           <button
                             className="hover:scale-110 duration-300 ease-out cursor-pointer"
-                            onClick={() => {
+                            onClick={() =>
                               handleEdit(item.id, item.total_quantity)
-                              localStorage.setItem("transaction" , item.id)
-                            }
-                            
                             }
                           >
                             <AiFillEdit size={20} />
                           </button>
-                          <button
-                          >
+                          <button>
                             <Link to="/controlunit/Stock/transcations">
                               <GrTransaction
                                 className="hover:scale-110 ease-out duration-300"
+                                onClick={() =>
+                                  localStorage.setItem("transaction", item.id)
+                                }
                                 size={20}
                               />
                             </Link>

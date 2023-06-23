@@ -133,11 +133,13 @@ const CreateBrand = () => {
                 <option value="Select" className="hidden">Select</option>
                 <option value="American" className="text-center">American</option>
                 <option value="Egyptian" className="text-center">Egyptian</option>
-                <option value="Chinese" className="text-center">Chinese</option>
+                <option value="Chinesse" className="text-center">Chinese</option>
                 <option value="Oriental" className="text-center">Oriental</option>
-                <option value="Japanese" className="text-center">Japanese</option>
-                <option value="Indonesian" className="text-center">Indonesian</option>
+                <option value="Japanesse" className="text-center">Japanese</option>
+                <option value="Indonisian" className="text-center">Indonesian</option>
                 <option value="French" className="text-center">French</option>
+                <option value="Swedish" className="text-center">Swedish</option>
+                <option value="English" className="text-center">English</option>
               </select>
             </div>
             <div className="block"> 
