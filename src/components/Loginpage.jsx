@@ -29,14 +29,22 @@ const Loginpage = (props) => {
           localStorage.setItem("id", data.data.user.id);
           localStorage.setItem("role", data.data.user.role);
 
-          if (localStorage.getItem("role") === "owner") {
-            navigate("/controlunit");
-            window.location.reload();
-          } else if (localStorage.getItem("role") === "customer") {
-            navigate("/foodcourt");
-            window.location.reload();
-          } else {
-            navigate("/tester")
+          switch (localStorage.getItem("role")) {
+            case "owner":
+              navigate("/controlunit");
+              window.location.reload();
+              break;
+            case "customer":
+              navigate("/foodcourt");
+              window.location.reload();
+              break;
+            case "sa":
+              navigate("/admin");
+              window.location.reload();
+              break;
+            default: // Do nothing
+            {
+            }
           }
 
           console.log(data.data);
@@ -92,7 +100,7 @@ const Loginpage = (props) => {
         </div>
         <div className="">
           <form className="mt-16 pl-12" onSubmit={handleSubmit}>
-          <h1
+            <h1
               className={`text-center text-transparent bg-clip-text bg-gradient-to-br ${
                 isDarkMode
                   ? "from-white to-white"

@@ -52,7 +52,7 @@ ReactDOM.render(
           <Route path="/customerdata" element={<Customerdata />} />
           <Route path="/foodcourt" element={<FoodCourt />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/tester" element={<Dashboard />} />
+          <Route path="/admin" element={<Dashboard />} />
           <Route path="/test" element={<WelcomeBackPage />} />
           {user && <Route path="/supplier" element={<Supplier />} />}
           {user && <Route path="/menusetup" element={<MenuSetUp />} />}
