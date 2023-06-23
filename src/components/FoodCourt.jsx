@@ -43,14 +43,14 @@ const FoodCourt = () => {
   const showProfileIcon = !!token;
 
   return (
-    <div className="bg-[white] h-full font-Inter font-semibold">
+    <div className="bg-[white] h-full font-russo font-semibold">
       <div className="mb-8">
         <div className="flex justify-between ">
-          <h1 className=" p-4 main-text font-russo text-[64px] text-transparent bg-clip-text bg-gradient-to-br from-[#0f005a] to-[#0f79a3] ">
+          <h1 className=" p-4 main-text font-russo text-[48px] text-transparent bg-clip-text bg-gradient-to-br from-[#fd4c00] to-[#ffa17c] ">
             CKM
           </h1>
           <div>
-            <h1 className="text-6xl pr-32 pt-10">Food Court</h1>
+            <h1 className="text-3xl pr-32 pt-10">Food Court</h1>
           </div>
           <div className="relative mt-3">
             {showProfileIcon && (
@@ -73,7 +73,7 @@ const FoodCourt = () => {
             {isDropdownOpen && showProfileIcon && (
               <div
                 id="dropdownAvatar"
-                className="origin-top-right z-10 absolute right-0 mt-2 w-44 rounded-lg shadow bg-white divide-y divide-gray-100 dark:bg-gray-700 dark:divide-gray-600"
+                className="w-42  origin-top-right z-10 absolute right-0 mt-2 w-44 rounded-lg shadow bg-white divide-y divide-gray-100 dark:bg-gray-700 dark:divide-gray-600"
               >
                 <div className="px-4 py-3 text-sm text-gray-900 dark:text-white">
                   <div>Bonnie Green</div>
@@ -106,7 +106,7 @@ const FoodCourt = () => {
           </div>
         </div>
       </div>
-      <div className=" grid md:grid-cols-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 px-4">
+      <div className=" grid md:grid-cols-3 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 px-4">
         {brand.map((x, i) => {
           return (
             <div
@@ -142,7 +142,7 @@ const FoodCourt = () => {
                     navigate("/ckmkitchens");
                   }}
                   type="button"
-                  class="text-white mt-auto bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                  class="text-white mt-auto bg-[#fd4c00] hover:bg-[#fd4c00] focus:ring-4 focus:outline-none focus:ring-[#e16e3d] font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                 >
                   <svg
                     aria-hidden="true"
