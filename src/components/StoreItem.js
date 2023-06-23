@@ -53,7 +53,7 @@ const StoreItem = ({ id, item_name, price, image, description }) => {
           />
         </a>
         <div class=" flex flex-col pb-4">
-          <h1 className="text-center text-2xl pb-4">{item_name}</h1>
+          <h1 className="text-center text-3xl py-2">{item_name}</h1>
           <p href=".">
             <h5 class="text-xl px-4 font-semibold tracking-tight text-gray-900 dark:text-white">
               Apple Watch Series 7 GPS, Aluminium Case, Starlight Sport
