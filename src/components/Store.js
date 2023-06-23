@@ -33,7 +33,7 @@ const Store = () => {
   return (
     <div className=" h-screen">
       <div>
-        <div className=" flex flex-col pt-4 items-center justify-center">
+        <div className=" flex flex-col items-center justify-center">
           
             <img
               class="rounded w-36 h-36"
