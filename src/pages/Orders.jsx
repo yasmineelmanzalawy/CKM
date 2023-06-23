@@ -165,12 +165,6 @@ const Orders = () => {
                             </span>
                           </p>
                           <p className="mb-2">
-                            Payment Status:{" "}
-                            <span className="font-bold">
-                              {selectedOrder.payment_status}
-                            </span>
-                          </p>
-                          <p className="mb-2">
                             Created At:{" "}
                             <span className="font-bold">
                               {selectedOrder.created_at.slice(0, 10)}
