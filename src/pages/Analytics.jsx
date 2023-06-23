@@ -117,8 +117,8 @@ const Analytics = () => {
   const animateNumbers = (data) => {
     const targetRevenue = data?.monthly_sales?.[0]?.sales ?? 0;
     const targetExpenses =
-      parseFloat(data?.monthly_purchases?.[0]?.purchases) +
-        parseFloat(data?.monthly_salaries?.[0]?.salaries) || 0;
+      parseFloat(data?.monthlyTotalExpenses?.[0]?.total_expenses ) 
+        
     const targetProfits = data?.monthly_profits?.[0]?.profit ?? 0;
 
     setTotalRevenue(targetRevenue);

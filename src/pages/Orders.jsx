@@ -2,11 +2,13 @@ import React, { useState, useEffect } from "react";
 import axios from "../axios.config";
 import { ThreeDots } from "react-loader-spinner";
 import Swal from "sweetalert2";
-
+import Modal from "react-modal";
 const Orders = () => {
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [selectedOrder, setSelectedOrder] = useState(null); // New state variable
+  const [isModalOpen, setIsModalOpen] = useState(false); // New state variable
 
   useEffect(() => {
     const fetchOrders = async () => {
@@ -48,32 +50,32 @@ const Orders = () => {
   const handleRejectOrder = async (orderId) => {
     // Display confirmation prompt
     const confirmationResult = await Swal.fire({
-      title: 'Reject Order',
-      text: 'Are you sure you want to reject this order?',
-      icon: 'warning',
+      title: "Reject Order",
+      text: "Are you sure you want to reject this order?",
+      icon: "warning",
       showCancelButton: true,
-      confirmButtonText: 'Reject',
-      cancelButtonText: 'Cancel',
+      confirmButtonText: "Reject",
+      cancelButtonText: "Cancel",
       reverseButtons: true,
     });
-  
+
     if (confirmationResult.isConfirmed) {
       try {
         const url = `api/Orders/${orderId}`;
-        await axios.put(url, { status: 'cancelled', _method: 'PUT' });
+        await axios.put(url, { status: "cancelled", _method: "PUT" });
         // Show success message
-        Swal.fire('Success', 'Order rejected successfully', 'success');
+        Swal.fire("Success", "Order rejected successfully", "success");
         // Update the order status locally
         const updatedOrders = orders.map((orderItem) => {
           if (orderItem.id === orderId) {
-            return { ...orderItem, status: 'cancelled' };
+            return { ...orderItem, status: "cancelled" };
           }
           return orderItem;
         });
         setOrders(updatedOrders);
       } catch (error) {
-        console.error('Error rejecting order:', error);
-        Swal.fire('Error', 'Failed to reject order', 'error');
+        console.error("Error rejecting order:", error);
+        Swal.fire("Error", "Failed to reject order", "error");
       }
     }
   };
@@ -117,6 +119,14 @@ const Orders = () => {
       </div>
     );
   }
+  const handleShowOrderDetails = (order) => {
+    setSelectedOrder(order);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
 
   if (error) {
     return <div>{error}</div>;
@@ -130,17 +140,82 @@ const Orders = () => {
             <div className="overflow-hidden border  rounded-lg">
               <div className="table-container">
                 <div className="overflow-x-auto">
-                  <table className="min-w-max sticky top-0 w-full table-auto">
+                  <table className="min-w-max font-normal sticky top-0 w-full table-auto">
+                    <Modal
+                      isOpen={isModalOpen}
+                      onRequestClose={handleCloseModal}
+                      className="fixed inset-0 flex items-center font-Inter  justify-center z-50"
+                      overlayClassName="fixed inset-0 bg-black opacity-95  "
+                    >
+                      {selectedOrder && (
+                        <div className="bg-white w-[500px] flex flex-col justify-start p-6 rounded-lg">
+                          <h2 className="text-xl font-bold mb-4">
+                            Order Details
+                          </h2>
+                          <p className="mb-2">
+                            Order ID:{" "}
+                            <span className="font-bold">
+                              {selectedOrder.id}
+                            </span>
+                          </p>
+                          <p className="mb-2">
+                            Total Cost:{" "}
+                            <span className="font-bold">
+                              {selectedOrder.total_cost}
+                            </span>
+                          </p>
+                          <p className="mb-2">
+                            Payment Status:{" "}
+                            <span className="font-bold">
+                              {selectedOrder.payment_status}
+                            </span>
+                          </p>
+                          <p className="mb-2">
+                            Created At:{" "}
+                            <span className="font-bold">
+                              {selectedOrder.created_at.slice(0, 10)}
+                              {"       "}
+                              {`(${selectedOrder.created_at.slice(11, 19)})`}
+                            </span>
+                          </p>
+                          <h3 className="text-lg font-bold mt-4">
+                            Menu Items:
+                          </h3>
+                          <ul>
+                            {selectedOrder.menu_items.map((menuItem) => (
+                              <li key={menuItem.id}>
+                                <p>
+                                  Item ID:{" "}
+                                  <span className="font-bold">
+                                    {menuItem.id}
+                                  </span>
+                                </p>
+                                <p>
+                                  Item Name:{" "}
+                                  <span className="font-bold">
+                                    {menuItem.item_name}
+                                  </span>
+                                </p>
+                                {/* Add more menu item details here */}
+                              </li>
+                            ))}
+                          </ul>
+                          <button
+                            className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded mt-4"
+                            onClick={handleCloseModal}
+                          >
+                            Close
+                          </button>
+                        </div>
+                      )}
+                    </Modal>
                     <thead className="sticky  top-0 bg-gray-200 uppercase text-sm leading-normal">
                       <tr>
                         <th className="sticky top-0 py-3 px-6 text-left text-black">
                           Order ID
                         </th>
                         <th className="sticky top-0 py-3 px-6 text-left text-black">
-                          Customer Name
-                        </th>
-                        <th className="sticky top-0 py-3 px-6 text-center text-black">
-                          Menu Item ID
+                          Created At
                         </th>
                         <th className="sticky top-0 py-3 px-6 text-center text-black">
                           Menu Item Name
@@ -163,20 +238,17 @@ const Orders = () => {
                               </span>
                             </div>
                           </td>
-                          <td className="py-3 px-6 text-left">
-                            <div className="flex items-center">
-                              <span>{orderItem.name}</span>
-                            </div>
+                          <td className="py-3 text-[16px] font-normal px-6 text-left whitespace-nowrap">
+                            {orderItem.created_at.slice(0, 10)}
                           </td>
                           <td className="py-3 px-6 text-center">
-                            {orderItem.menu_items.map((menuItem, idx) => (
-                              <span key={idx}>{menuItem.id}</span>
-                            ))}
-                          </td>
-                          <td className="py-3 px-6 text-center">
-                            {orderItem.menu_items.map((menuItem, idx) => (
-                              <span key={idx}>{menuItem.item_name}</span>
-                            ))}
+                            <button
+                              type="button"
+                              className="text-white bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-2 py-1 text-center"
+                              onClick={() => handleShowOrderDetails(orderItem)}
+                            >
+                              Show Order Details
+                            </button>
                           </td>
                           <td className="pt-2 text-right">
                             {orderItem.status === "cancelled" ? (
@@ -232,20 +304,17 @@ const Orders = () => {
                               </span>
                             </div>
                           </td>
-                          <td className="py-3 px-6 text-left">
-                            <div className="flex items-center">
-                              <span>{orderItem.name}</span>
-                            </div>
+                          <td className="py-3 px-6 text-left whitespace-nowrap">
+                            {orderItem.created_at.slice(0, 10)}
                           </td>
                           <td className="py-3 px-6 text-center">
-                            {orderItem.menu_items.map((menuItem, idx) => (
-                              <span key={idx}>{menuItem.id}</span>
-                            ))}
-                          </td>
-                          <td className="py-3 px-6 text-center">
-                            {orderItem.menu_items.map((menuItem, idx) => (
-                              <span key={idx}>{menuItem.item_name}</span>
-                            ))}
+                            <button
+                              type="button"
+                              className="text-white bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-2 py-1 text-center"
+                              onClick={() => handleShowOrderDetails(orderItem)}
+                            >
+                              Show Order Details
+                            </button>
                           </td>
                           <td className="pt-2 text-right">
                             <span className="text-green-500 px-6 text-lg font-medium">
@@ -266,20 +335,17 @@ const Orders = () => {
                               </span>
                             </div>
                           </td>
-                          <td className="py-3 px-6 text-left">
-                            <div className="flex items-center">
-                              <span>{orderItem.name}</span>
-                            </div>
+                          <td className="py-3 px-6 text-left whitespace-nowrap">
+                            {orderItem.created_at.slice(0, 10)}
                           </td>
                           <td className="py-3 px-6 text-center">
-                            {orderItem.menu_items.map((menuItem, idx) => (
-                              <span key={idx}>{menuItem.id}</span>
-                            ))}
-                          </td>
-                          <td className="py-3 px-6 text-center">
-                            {orderItem.menu_items.map((menuItem, idx) => (
-                              <span key={idx}>{menuItem.item_name}</span>
-                            ))}
+                            <button
+                              type="button"
+                              className="text-white bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-2 py-1 text-center"
+                              onClick={() => handleShowOrderDetails(orderItem)}
+                            >
+                              Show Order Details
+                            </button>
                           </td>
                           <td className="pt-2 text-right">
                             <span className="text-red-500 px-6 text-lg font-medium">
