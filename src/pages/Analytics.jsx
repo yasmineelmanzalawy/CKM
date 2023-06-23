@@ -504,7 +504,7 @@ const Analytics = () => {
             <h1 className="text-2xl">{transaction[0]?.month}/{transaction[0]?.year}</h1>
           </div>
             <div className="text-center pt-20 text-4xl text-red-500">
-              {transaction[0]?.total_cost.slice(0,4)}
+              {transaction[0]?.total_cost}
             </div>
           </div>
         </div>
