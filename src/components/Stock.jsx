@@ -208,7 +208,7 @@ const Stock = () => {
                       {item.unit_of_measurement}
                     </td>
                     <td className="px-6 dark:text-white py-4 text-sm font-medium text-gray-800 whitespace-nowrap">
-                      {item.created_at.slice(0, 19)}
+                      {item.created_at.slice(0, 10)}
                     </td>
                     <td className="px-1 py-4 flex gap-4 text-right whitespace-nowrap">
                       {editingItemId === item.id ? (
