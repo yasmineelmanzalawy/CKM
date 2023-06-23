@@ -498,7 +498,7 @@ const Analytics = () => {
           <InventoryChart />
         </div>
         <div>
-        <div className="bg-[#f9fafb] font-Inter font-bold rounded-lg mr-14 shadow-md h-96 p-4">
+        <div className="bg-[#f9fafb] font-Inter font-bold rounded-lg mr-14 shadow-md h-[250px] mt-[45px] p-4">
           <div className="flex justify-between">
             <h1 className="text-center text-2xl">Inventory Transactions</h1>
             <h1 className="text-2xl">{transaction[0].month}/{transaction[0].year}</h1>
