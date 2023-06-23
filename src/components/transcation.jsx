@@ -1,29 +1,41 @@
-import React, { useEffect, useState } from 'react';
-import { AiOutlineDelete, AiFillEdit } from 'react-icons/ai';
-import axios from '../axios.config';
-import { data } from 'autoprefixer';
-import { useNavigate } from 'react-router';
+import React, { useEffect, useState } from "react";
+import { AiOutlineDelete, AiFillEdit } from "react-icons/ai";
+import axios from "../axios.config";
+import { data } from "autoprefixer";
+import { useNavigate } from "react-router";
+import { Link } from "react-router-dom";
 
 const Transcation = () => {
   const [transaction, setTransaction] = useState([]);
-  const itemId = localStorage.getItem('transaction');
-  const navigate = useNavigate()
+  const itemId = localStorage.getItem("transaction");
+  const navigate = useNavigate();
   useEffect(() => {
     axios
       .get(`api/transaction/${itemId}`)
-      .then(response => {
+      .then((response) => {
         // Convert the single transaction object into an array
-        const transactionData = response.data instanceof Array ? response.data : [response.data];
+        const transactionData =
+          response.data instanceof Array ? response.data : [response.data];
         setTransaction(transactionData);
       })
-      .catch(error => {
+      .catch((error) => {
         console.error(error);
       });
   }, []);
-  console.log(transaction)
+  console.log(transaction);
   return (
     <div className="flex flex-col font-Inter font-semibold">
-      <h1 className="text-center text-3xl pb-12">Transactions</h1>
+      <div className="text-center">
+        <Link to="/t2">
+          <button
+            type="button"
+            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+          >
+            Add Transaction
+          </button>
+        </Link>
+      </div>
+      <h1 className="text-center text-3xl py-4">Transactions</h1>
       <div className="overflow-x-auto px-16">
         <div className="p-1.5 w-full inline-block align-middle">
           <div className="overflow-hidden border rounded-lg">
@@ -74,7 +86,7 @@ const Transcation = () => {
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-200">
-                {transaction.map(item => (
+                {transaction.map((item) => (
                   <tr key={item.id}>
                     <td className="px-6 dark:text-white py-4 text-sm font-medium text-gray-800 whitespace-nowrap">
                       {item.id}
@@ -96,11 +108,14 @@ const Transcation = () => {
                     </td>
                     <td>
                       <button
-                      onClick={()=>{
-                        navigate("/t2")
-                      }}
+                        onClick={() => {
+                          navigate("/t2");
+                        }}
                       >
-                        <AiFillEdit className="cursor-pointer hover:scale-110 ease-out duration-300" size={20} />
+                        <AiFillEdit
+                          className="cursor-pointer hover:scale-110 ease-out duration-300"
+                          size={20}
+                        />
                       </button>
                     </td>
                   </tr>
