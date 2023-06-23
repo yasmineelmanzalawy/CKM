@@ -28,6 +28,7 @@ const Analytics = () => {
   const [totalProfits, setTotalProfits] = useState(0);
   const [growthRate, setGrowthRate] = useState(null);
   const [profitMargin, setProfitMargin] = useState([]);
+  const [transaction,settransaction] = useState([])
 
   useEffect(() => {
     let isMounted = true;
@@ -94,7 +95,7 @@ const Analytics = () => {
 
         if (isMounted) {
           const data = response.data;
-
+          settransaction(data.monthlyInventoryTransactionCost)
           setMonthlyStats(data);
           setGrowthRate(data.monthly_growth_rates);
           setBestSellingItems(data.bestSeller);
@@ -497,31 +498,14 @@ const Analytics = () => {
           <InventoryChart />
         </div>
         <div>
-        <div className="bg-[#f9fafb] font-Inter font-bold rounded-lg shadow-md h-96 p-4">
-            <h2 className="text-2xl font-bold mb-4">Best Selling Items</h2>
-            {bestSellingItems.length > 0 ? (
-              <ul className="space-y-4">
-                {bestSellingItems.slice(0, 5).map((item, index) => (
-                  <li
-                    key={index}
-                    className={`flex  items-center ${
-                      index === 0 ? "text-[#daa520]" : "text-black"
-                    }`}
-                  >
-                    <span className="mr-2">{index + 1}.</span>
-                    <span className=" font-Inter font-semibold">
-                      {item.item_name}
-                    </span>
-                    <hr />
-                    <span className="ml-auto font-Inter font-semibold text-gray-500">
-                      Sold: {item.orders_count}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            ) : (
-              <p>No best selling items found.</p>
-            )}
+        <div className="bg-[#f9fafb] font-Inter font-bold rounded-lg mr-14 shadow-md h-96 p-4">
+          <div className="flex justify-between">
+            <h1 className="text-center text-2xl">Inventory Transactions</h1>
+            <h1 className="text-2xl">{transaction[0].month}/{transaction[0].year}</h1>
+          </div>
+            <div className="text-center pt-20 text-4xl text-red-500">
+              {transaction[0].total_cost.slice(0,4)}
+            </div>
           </div>
         </div>
       </div>
