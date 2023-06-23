@@ -223,7 +223,7 @@ const Staff = () => {
                         {x.email}
                       </td>
                       <td className="px-6 dark:text-white py-4 text-sm font-medium text-gray-800 whitespace-nowrap">
-                        {x.created_at}
+                        {x.created_at.slice(0,11)}
                       </td>
                       <td className="px-1 py-4 flex gap-4 text-right whitespace-nowrap">
                         {editingSalaryId === x.id ? (

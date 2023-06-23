@@ -43,7 +43,7 @@ const FoodCourt = () => {
   const showProfileIcon = !!token;
 
   return (
-    <div className="bg-[white] h-full font-russo font-semibold">
+    <div className="bg-[white] h-full font-Inter font-semibold">
       <div className="mb-8">
         <div className="flex justify-between ">
           <h1 className=" p-4 main-text font-russo text-[48px] text-transparent bg-clip-text bg-gradient-to-br from-[#fd4c00] to-[#ffa17c] ">

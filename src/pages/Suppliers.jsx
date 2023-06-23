@@ -162,7 +162,7 @@ function Supplier() {
                         {x.notes}
                       </td>
                       <td className="px-6 dark:text-white py-4 text-sm font-medium text-gray-800 whitespace-nowrap">
-                        {x.created_at.slice(0, 19)}
+                        {x.created_at.slice(0, 11)}
                       </td>
                       <td className="px-6 py-4 text-right whitespace-nowrap">
                         <button
