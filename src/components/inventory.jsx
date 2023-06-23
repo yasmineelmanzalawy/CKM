@@ -124,7 +124,7 @@ const Inventory = () => {
               <option className="text-center" value="lequid">liquid</option>
             </select>
           </div>
-          <div>
+          {/* <div className="text-center">
             <label
               for="company"
               className="text-center block mb-2 text-lg font-medium text-gray-900 dark:text-white"
@@ -141,8 +141,8 @@ const Inventory = () => {
               placeholder="Price"
               required
             />
-          </div>
-          <div>
+          </div> */}
+          {/* <div>
             <label
               for="website"
               className="text-center block mb-2 text-lg font-medium text-gray-900 dark:text-white"
@@ -159,7 +159,7 @@ const Inventory = () => {
               placeholder="total_quantity"
               required
             />
-          </div>
+          </div> */}
           <div>
             <label
               for="website"

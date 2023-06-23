@@ -32,32 +32,32 @@ const Billing = () => {
   }; // Empty dependency arrayrray to ensure it runs only once
 
   return (
-    <div className="leading-loose bg-gradient-to-r from-blue-200 to-blue-500 h-screen">
+    <div className=" leading-loose bg-gradient-to-r from-blue-200 to-blue-500 h-screen">
       <header className="flex justify-start items-center py-4">
         <h1 className="font-russo text-4xl pl-8 md:text-6xl text-transparent bg-clip-text bg-white">
           CKM
         </h1>
-        <div></div>
       </header>
+        <div className="mt-[-40px]">
       <div className="flex justify-center items-center relative">
         <div className="absolute p-3 border-white shadow-md border-4 bg-gradient-to-r from-white to-blue-500 rounded-full top-[-50px]">
           <img
-            className="w-24 z-10 h-24"
+            className="w-12 z-18 h-12"
             src="https://cdn.iconscout.com/icon/free/png-512/free-credit-card-1459849-1233034.png?f=avif&w=256"
             alt=""
           />
         </div>
-        <form class="max-w-xl m-4 p-14  font-Inter rounded-xl bg-white shadow-xl">
+        <form class="max-w-xl m-2 p-6  font-Inter rounded-xl bg-white shadow-xl">
           <p class="text-gray-800 font-medium">Customer information</p>
           <div class="">
-            <label class="block text-sm text-gray-00" for="cus_name">
+            <label class="required block text-sm text-gray-00" for="cus_name">
               Name
             </label>
             <input
               type="text"
               id="first_name"
               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              placeholder="John"
+              placeholder="type your name"
               required
             />
           </div>
@@ -69,7 +69,7 @@ const Billing = () => {
               type="text"
               id="first_name"
               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              placeholder="John"
+              placeholder="type your email"
               required
             />
           </div>
@@ -81,7 +81,7 @@ const Billing = () => {
               type="text"
               id="first_name"
               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              placeholder="John"
+              placeholder="type your adress"
               required
             />
           </div>
@@ -93,7 +93,7 @@ const Billing = () => {
               type="text"
               id="first_name"
               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              placeholder="John"
+              placeholder="type your city"
               required
             />
           </div>
@@ -105,7 +105,7 @@ const Billing = () => {
               type="text"
               id="first_name"
               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              placeholder="John"
+              placeholder="type you country"
               required
             />
           </div>
@@ -117,7 +117,7 @@ const Billing = () => {
               type="text"
               id="first_name"
               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              placeholder="John"
+              placeholder="xxxxx"
               required
             />
           </div>
@@ -130,11 +130,11 @@ const Billing = () => {
               type="text"
               id="first_name"
               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              placeholder="John"
+              placeholder="xxxxxxxxxxxxxxx"
               required
             />
           </div>
-          <div className="mt-4">
+          <div className="pt-4">
             <button
               type="button"
               className="flex justify-center items-center text-white w-full bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm py-2.5 text-center"
@@ -157,6 +157,7 @@ const Billing = () => {
             </button>
           </div>
         </form>
+      </div>
       </div>
     </div>
   );
