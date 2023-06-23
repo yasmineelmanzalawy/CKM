@@ -47,7 +47,7 @@ const StoreItem = ({ id, item_name, price, image, description }) => {
       <div class="border border-gray-200  rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
         <a href=".">
           <img
-            class=" w-full h-64 rounded-t-lg"
+            class="h-48 w-full rounded-t-lg"
             src={image}
             alt={image}
           />
