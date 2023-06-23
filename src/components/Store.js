@@ -31,16 +31,16 @@ const Store = () => {
   }, []);
 
   return (
-    <div className=" h-screen">
+    <div className="md:mx-20 h-screen">
       <div>
-        <div className=" flex items-center py-1 justify-between">
+        <div className=" flex items-center justify-between">
           
             <img
               class="rounded w-36 h-36"
               src={brand.logo}
               alt="Extra large avatar"
             />
-        <h1 className="py-2 text-center text-6xl text-sky-950">{brand.name}</h1>
+        <h1 className=" text-center text-6xl text-sky-950">{brand.name}</h1>
         </div>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
