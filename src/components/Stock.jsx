@@ -170,12 +170,6 @@ const Stock = () => {
                     scope="col"
                     className="px-6 py-3 text-xs font-bold text-left text-black uppercase bg-[#ebeced]"
                   >
-                    unit_price
-                  </th>
-                  <th
-                    scope="col"
-                    className="px-6 py-3 text-xs font-bold text-left text-black uppercase bg-[#ebeced]"
-                  >
                     created_at
                   </th>
                   <th
@@ -214,9 +208,6 @@ const Stock = () => {
                       {item.unit_of_measurement}
                     </td>
                     <td className="px-6 dark:text-white py-4 text-sm font-medium text-gray-800 whitespace-nowrap">
-                      {item.unit_price}
-                    </td>
-                    <td className="px-6 dark:text-white py-4 text-sm font-medium text-gray-800 whitespace-nowrap">
                       {item.created_at.slice(0, 19)}
                     </td>
                     <td className="px-1 py-4 flex gap-4 text-right whitespace-nowrap">
@@ -252,7 +243,7 @@ const Stock = () => {
                             <AiFillEdit size={20} />
                           </button>
                           <button>
-                            <Link to="/controlunit/Stock/transcations">
+                            <Link to="/t2">
                               <GrTransaction
                                 className="hover:scale-110 ease-out duration-300"
                                 onClick={() =>

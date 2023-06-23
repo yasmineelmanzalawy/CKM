@@ -497,88 +497,35 @@ const Analytics = () => {
           <InventoryChart />
         </div>
         <div>
-          <MostUsedItemsWidget />
-        </div>
-      </div>
-      <div className="grid grid-cols-2 gap-2 ">
-        <div className=" bg-gray-50 rounded-lg pt-3">
-          <div className="bg-gray-100 h-full">
-            <div className="bg-white rounded-lg py-10 p-4">
-              <h2 className="text-xl font-semibold mb-4">
-                Customer Satisfaction
-              </h2>
-              <div className="flex items-center mb-2">
-                <div className="w-10 h-10 bg-green-500 rounded-full flex-shrink-0"></div>
-                <div className="ml-2">
-                  <span className="text-gray-600">Satisfied</span>
-                  <span className="text-green-500 font-semibold ml-1">80%</span>
-                </div>
-              </div>
-              <div className="flex items-center mb-2">
-                <div className="w-10 h-10 bg-yellow-500 rounded-full flex-shrink-0"></div>
-                <div className="ml-2">
-                  <span className="text-gray-600">Neutral</span>
-                  <span className="text-yellow-500 font-semibold ml-1">
-                    15%
-                  </span>
-                </div>
-              </div>
-              <div className="flex items-center">
-                <div className="w-10 h-10 bg-red-500 rounded-full flex-shrink-0"></div>
-                <div className="ml-2">
-                  <span className="text-gray-600">Unsatisfied</span>
-                  <span className="text-red-500 font-semibold ml-1">5%</span>
-                </div>
-              </div>
-            </div>
+        <div className="bg-[#f9fafb] font-Inter font-bold rounded-lg shadow-md h-96 p-4">
+            <h2 className="text-2xl font-bold mb-4">Best Selling Items</h2>
+            {bestSellingItems.length > 0 ? (
+              <ul className="space-y-4">
+                {bestSellingItems.slice(0, 5).map((item, index) => (
+                  <li
+                    key={index}
+                    className={`flex  items-center ${
+                      index === 0 ? "text-[#daa520]" : "text-black"
+                    }`}
+                  >
+                    <span className="mr-2">{index + 1}.</span>
+                    <span className=" font-Inter font-semibold">
+                      {item.item_name}
+                    </span>
+                    <hr />
+                    <span className="ml-auto font-Inter font-semibold text-gray-500">
+                      Sold: {item.orders_count}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p>No best selling items found.</p>
+            )}
           </div>
         </div>
-        <div className=" bg-gray-50 rounded-lg pt-3 ">
-          <div className="bg-gray-100 h-full">
-            <div className="bg-white rounded-lg h-full p-4">
-              <h2 className="text-xl font-semibold mb-4">
-                Business Growth Rate
-              </h2>
-              <div className="flex items-center">
-                <svg
-                  className="w-10 h-10 text-green-500 mr-2"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm0-2a6 6 0 100-12 6 6 0 000 12zm0-9a1 1 0 011 1v2a1 1 0 11-2 0V8a1 1 0 011-1zm-1 5a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                <div>
-                  <span className="text-gray-600">Current Growth Rate:</span>
-                  <span className="text-green-500 font-semibold ml-1">10%</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div>
-          <Tester />
-        </div>
-        <div>
-          <AnotherChart />
-        </div>
-        <div>
-          <StackedBarChart />
-        </div>
-        <div>
-          <HorizontalBarChart />
-        </div>
-        <div className="w-96">
-          <DoughnutChart />
-        </div>
-        <div className="w-96">
-          <PieChart />
-        </div>
       </div>
+      
     </div>
   );
 };
