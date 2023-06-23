@@ -43,7 +43,7 @@ const StoreItem = ({ id, item_name, price, image, description }) => {
   };
 
   return (
-    <div className=" font-russo font-semibold">
+    <div className=" font-Inter font-semibold">
       <div class="border border-gray-200  rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
         <a href=".">
           <img

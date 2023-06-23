@@ -33,15 +33,15 @@ const Store = () => {
   return (
     <div className=" h-screen">
       <div>
-        <div className=" flex flex-col items-center justify-center">
+        <div className=" flex items-center py-1 justify-between">
           
             <img
               class="rounded w-36 h-36"
               src={brand.logo}
               alt="Extra large avatar"
             />
+        <h1 className="py-2 text-center text-6xl text-sky-950">{brand.name}</h1>
         </div>
-        <h1 className="py-8 text-center text-6xl text-sky-950">{brand.name}</h1>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
         {menu.map((item, index) => (
