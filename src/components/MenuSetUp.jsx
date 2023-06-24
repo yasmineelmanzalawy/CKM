@@ -305,21 +305,14 @@ const MenuSetUp = () => {
                 </label>
                 <button
                   type="button"
-                  onClick={handleAddIngredient}
+                  onClick={() => {
+                    handleAddIngredient();
+                    toast.success("Ingredient added successfully");
+                  }}
                   className="w-[300px] text-center bg-gray-200 border-[3px] border-[#0C147A] text-[#0C147A] text-lg rounded-lg focus:ring-[#0C147A] focus:border-[#0C147A]  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 >
                   Save Ingredient
                 </button>
-                <ul>
-                  {ingredientData.map((item, index) => (
-                    <li key={index} className="flex justify-between">
-                      <div>{item.inventory_item_id}</div>
-                      <div>
-                        {item.quantity} {"GM"}
-                      </div>
-                    </li>
-                  ))}
-                </ul>
               </div>
             </div>
           </div>
