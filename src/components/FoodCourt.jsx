@@ -46,9 +46,9 @@ const FoodCourt = () => {
     <div className="bg-[white] h-full font-Inter font-semibold">
       <div className="mb-8">
         <div className="flex justify-between ">
-          <h1 className=" p-4 main-text font-russo text-[48px] text-transparent bg-clip-text bg-gradient-to-br from-[#fd4c00] to-[#ffa17c] ">
+         <a href="/"><h1 className=" p-4 main-text font-russo text-[48px] text-transparent bg-clip-text bg-gradient-to-br from-[#fd4c00] to-[#ffa17c] ">
             CKM
-          </h1>
+          </h1></a> 
           <div>
             <h1 className="text-3xl pr-32 pt-10">Food Court</h1>
           </div>
@@ -75,10 +75,6 @@ const FoodCourt = () => {
                 id="dropdownAvatar"
                 className="w-42  origin-top-right z-10 absolute right-0 mt-2 w-44 rounded-lg shadow bg-white divide-y divide-gray-100 dark:bg-gray-700 dark:divide-gray-600"
               >
-                <div className="px-4 py-3 text-sm text-gray-900 dark:text-white">
-                  <div>Bonnie Green</div>
-                  <div className="font-medium truncate">name@flowbite.com</div>
-                </div>
                 <ul
                   className="py-2 text-sm text-gray-700 dark:text-gray-200"
                   aria-labelledby="dropdownUserAvatarButton"

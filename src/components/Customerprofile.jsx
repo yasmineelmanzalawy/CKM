@@ -126,12 +126,7 @@ const YourComponent = () => {
                       id="dropdownAvatar"
                       className="origin-top-right absolute right-0 mt-2 w-44 rounded-lg shadow bg-white divide-y divide-gray-100 dark:bg-gray-700 dark:divide-gray-600"
                     >
-                      <div className="px-4 py-3 text-sm text-gray-900 dark:text-white">
-                        <div>Bonnie Green</div>
-                        <div className="font-medium truncate">
-                          name@flowbite.com
-                        </div>
-                      </div>
+                      
                       <ul
                         className="py-2 text-sm text-gray-700 dark:text-gray-200"
                         aria-labelledby="dropdownUserAvatarButton"
@@ -184,9 +179,7 @@ const YourComponent = () => {
               <h1 className="font-bold text-center text-3xl text-gray-900">
                 Hi, {user?.name}
               </h1>
-              <p className="text-center text-sm text-gray-400 font-medium">
-                UI Components Factory
-              </p>
+              
               <div className="text-center">
                 <h1 className="text-xl font-medium">Total Amount of Orders</h1>
                 <h1 className="text-4xl font-bold">{totalOrders}</h1>

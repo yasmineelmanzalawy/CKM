@@ -94,10 +94,6 @@ const Navbar = () => {
             id="dropdownAvatar"
             className="origin-top-right absolute right-0 mt-2 w-44 rounded-lg shadow bg-white divide-y divide-gray-100 dark:bg-gray-700 dark:divide-gray-600"
           >
-            <div className="px-4 py-3 text-sm text-gray-900 dark:text-white">
-              <div>Bonnie Green</div>
-              <div className="font-medium truncate">name@flowbite.com</div>
-            </div>
             <ul className="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownUserAvatarButton">
               <li>
                 <NavLink
