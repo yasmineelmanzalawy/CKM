@@ -149,7 +149,7 @@ const T2 = () => {
           </div>
           <div>
             <label className="text-center block mb-2 text-lg font-medium text-gray-900 dark:text-white">
-              Price
+             Unit Price
             </label>
             <input
               onChange={handleChange}

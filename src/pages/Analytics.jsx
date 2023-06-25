@@ -188,7 +188,7 @@ const Analytics = () => {
       </div>
       <div className="grid grid-cols-3 pb-8  px-14 gap-4">
         <div>
-          <div className="bg-[#f9fafb] font-Inter font-bold rounded-lg shadow-md h-72 p-4">
+          <div className="bg-[#f9fafb] dark:bg-stone-900 dark:text-white  font-Inter font-bold rounded-lg shadow-md h-72 p-4">
             <h2 className="text-2xl font-bold mb-4">Best Selling Items</h2>
             {bestSellingItems.length > 0 ? (
               <ul className="space-y-4">
@@ -196,7 +196,7 @@ const Analytics = () => {
                   <li
                     key={index}
                     className={`flex  items-center ${
-                      index === 0 ? "text-[#daa520]" : "text-black"
+                      index === 0 ? "text-[#daa520]" : "dark:text-white"
                     }`}
                   >
                     <span className="mr-2">{index + 1}.</span>
@@ -216,7 +216,7 @@ const Analytics = () => {
           </div>
         </div>
         <div>
-          <div className="bg-[#f9fafb] font-Inter font-semibold text-center rounded-lg shadow-md h-72 p-4">
+          <div className="bg-[#f9fafb] dark:bg-stone-900 dark:text-white font-Inter font-semibold text-center rounded-lg shadow-md h-72 p-4">
             {growthRate[0] !== null && growthRate[0] !== undefined ? (
               <h1>{growthRate}</h1>
             ) : (
@@ -228,7 +228,7 @@ const Analytics = () => {
           </div>
         </div>
         <div>
-          <div className="bg-[#f9fafb] font-Inter font-semibold rounded-lg shadow-md h-72 p-4">
+          <div className="bg-[#f9fafb] dark:bg-stone-900 dark:text-white font-Inter font-semibold rounded-lg shadow-md h-72 p-4">
             <div>
               <div className="flex justify-between">
                 <h1 className="text-2xl font-bold mb-4">Profit Margin</h1>
@@ -253,7 +253,7 @@ const Analytics = () => {
                       separator=","
                       decimals={0}
                       decimal="."
-                      className="dark:text-white text-green-500  text-4xl font-bold"
+                      className="dark:text-teal-300 text-green-500  text-4xl font-bold"
                     />
                     <span className="text-2xl">%</span>
                   </div>
@@ -336,15 +336,15 @@ const Analytics = () => {
       </div>
       <div className="rounded-3xl">
         <div className="w-full gap-4">
-          <div className="grid grid-cols-2 ">
+          <div className="grid  grid-cols-2 mx-16 ">
             <Tester id="Staff-Chart" />
-            <section class="antialiased text-gray-600 mt-3 ml-10 ">
+            <section class="antialiased text-gray-600 ml-10 ">
               <div class=" flex flex-col ">
-                <div class="w-full max-w-2xl py-3 bg-white rounded-xl ">
+                <div class="w-full  max-w-2xl py-3 bg-white rounded-xl ">
                   <header class="px-5 py-4 border-b border-gray-100">
                     <h2 class="font-semibold text-gray-800">Staff Data</h2>
                   </header>
-                  <div class="p-3">
+                  <div class="p-3  ">
                     <div class="overflow-x-auto">
                       <table id="Staff-Table" class="table-auto w-full">
                         <thead class="text-xs font-semibold uppercase text-gray-400 bg-gray-50">
@@ -498,7 +498,7 @@ const Analytics = () => {
           <InventoryChart />
         </div>
         <div>
-        <div className="bg-[#f9fafb] font-Inter font-bold rounded-lg mr-14 shadow-md h-[250px] mt-[45px] p-4">
+        <div className="bg-[#f9fafb] font-Inter font-bold rounded-lg mr-14 shadow-md h-96 p-4">
           <div className="flex justify-between">
             <h1 className="text-center text-2xl">Inventory Transactions</h1>
             <h1 className="text-2xl">{transaction[0]?.month}/{transaction[0]?.year}</h1>

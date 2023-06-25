@@ -76,9 +76,16 @@ const MenuSetUp = () => {
       const url = "api/Menu";
       const { data: res } = await axios.post(url, formData, config);
       successful();
-      setIngredient("");
-      setIngredientQuantity("");
-      setUnit("");
+
+      // Clearing the input fields
+      setImage(null);
+      setData({
+        price: "",
+        item_name: "",
+        category: "",
+        description: "",
+        brand_id: "",
+      });
       setIngredientData([]);
       console.log(res.message);
     } catch (error) {
@@ -116,15 +123,12 @@ const MenuSetUp = () => {
           </a>
           <div className="flex mx-72 justify-end mt-6">
             <a className="" href="./controlunit">
-              <MdOutlineArrowForward size={28}/>{" "}
-              
+              <MdOutlineArrowForward size={28} />{" "}
             </a>
           </div>
         </div>
       </div>
-      <div className="flex mx-72 justify-end mt-6">
-            
-          </div>
+      <div className="flex mx-72 justify-end mt-6"></div>
       <div className="flex justify-center items-center">
         <form
           onSubmit={handleSubmit}
@@ -287,17 +291,20 @@ const MenuSetUp = () => {
                 <label className="text-center block mb-2 text-lg font-medium text-gray-900 dark:text-white">
                   Unit
                 </label>
-                <input
+                <select
                   name="unit"
                   onChange={(e) => {
                     setUnit(e.target.value);
                   }}
                   value={unit}
                   required
-                  type="text"
-                  placeholder="kilograms/grams/piece/liters"
                   className="w-[300px] text-center bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                />
+                >
+                  <option className="hidden" value="">Select Unit</option>
+                  <option value="kilograms">Kilograms</option>
+                  <option value="grams">Grams</option>
+                  <option value="liters">Liters</option>
+                </select>
               </div>
               <div>
                 <label className="text-center block mb-2 text-lg font-medium text-gray-900 dark:text-white">
